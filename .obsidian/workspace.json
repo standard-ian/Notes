@@ -1,0 +1,221 @@
+{
+  "main": {
+    "id": "5d7efb168255d58d",
+    "type": "split",
+    "children": [
+      {
+        "id": "06f2a8f33ae3c1e9",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "c382498c46ad5f62",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "MTH254_Notes/wk8_multi-variable_integration.11.18.2025.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "wk8_multi-variable_integration.11.18.2025"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "d132976338d5a696",
+    "type": "split",
+    "children": [
+      {
+        "id": "111acd1f3d8e6749",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "67e4f1b67be4c5be",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "6df97db0876ca0b6",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "697a2cf4b9a2e761",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "880d6f487c237820",
+    "type": "split",
+    "children": [
+      {
+        "id": "f244c6b4cd2c90f8",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "931223357cb81971",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "CS251_Notes/validity_predicate_logic.2.5.2025.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for validity_predicate_logic.2.5.2025"
+            }
+          },
+          {
+            "id": "35fc706bf1797d46",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "CS251_Notes/validity_predicate_logic.2.5.2025.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from validity_predicate_logic.2.5.2025"
+            }
+          },
+          {
+            "id": "04b14d4b069b5a85",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "5644c63dbaf7741f",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "CS251_Notes/validity_predicate_logic.2.5.2025.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of validity_predicate_logic.2.5.2025"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "bases:Create new base": false,
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "c382498c46ad5f62",
+  "lastOpenFiles": [
+    "ECE221_Notes/wk7_lab6.11.12.2025.md",
+    "ECE221_Notes/wk5_impedance_continued.10.28.2025.md",
+    "ECE221_Notes/wk6_amps_continued_capacitance_ac.11.4.2025.md",
+    "ECE221_Notes/wk8_review.11.20.2025.md",
+    "ECE221_Notes/wk4_equivalent_circuit_analysis.10.21.2025.md",
+    "ECE221_Notes/wk3_circuit_equivalence.10.14.2025.md",
+    "ECE221_Notes/wk7_capacitors_and_review.11.13.2025.md",
+    "ECE221_Notes/Untitled",
+    "ECE221_Notes/experiment5__5000Hz.jpg",
+    "ECE221_Notes/experiment2_159Hz.jpg",
+    "ECE221_Notes/experiment2_500Hz.jpg",
+    "ECE221_Notes/experiment2_5000Hz.jpg",
+    "ECE221_Notes/experiment3_100Hz.jpg",
+    "ECE221_Notes/experiment4_100Hz.jpg",
+    "ECE221_Notes/experiment5__10kHz.jpg",
+    "ECE221_Notes/wk6_lab5.11.5.2025.md.md",
+    "ECE221_Notes/experiment5__2000Hz.jpg",
+    "ECE221_Notes/experiment5__1000Hz.jpg",
+    "ECE221_Notes/experiment5__5000.jpg",
+    "ECE221_Notes/wk1_intro_to_circuits.9.30.25.md",
+    "MTH254_Notes/wk6_optimizations_lagrange_multipliers.11.4.2025.md",
+    "MTH254_Notes/wk8_multi-variable_integration.11.18.2025.md",
+    "MTH254_Notes/wk5_partial_derivatives.10.28.2025.md",
+    "ECE221_Notes/wk5_lab3.10.29.2025.md",
+    "ECE221_Notes/wk3_lab2.10.15.2025.md",
+    "ECE221_Notes/test.md",
+    "CS251_Notes/validity_predicate_logic.2.5.2025.md",
+    "CS251_Notes/trees.3.10.2025.md",
+    "CS251_Notes/temporary_hypotheses_subproofs.2.10.2025.md",
+    "ECE221_Notes/wk2_current_and_voltage.10.7.2025.md",
+    "ECE221_Notes/wk7_review_ac_ai.11.13.2025",
+    "MTH254_Notes/c.md",
+    "MTH261_Notes/wk10_final_review_kernel_image.6.4.2025.md",
+    "MTH254_Notes/wk4_functions_of_multiple_variables.10.21.2025.md",
+    "ECE221_Notes/wk2_lab1.10.8.2025.md",
+    "MTH254_Notes/wk2_dot_and_cross_products.10.7.2025.md",
+    "MTH254_Notes/wk3_vector_calculus.10.14.2025.md",
+    "MTH254_Notes/wk1_calc_reminders.10.20.2025.md",
+    "MTH254_Notes/MTH254_Notes",
+    "MTH254_Notes",
+    "ECE221_Notes/lab2_circ.jpeg.sb-eb8fc943-mColic",
+    "ECE221_Notes/IMG_2867.HEIC",
+    "IMG_2867.heic",
+    "ECE221_Notes/IMG_1204.heic",
+    "ECE221_Notes/IMG_1202.heic",
+    "IMG_1202.heic"
+  ]
+}

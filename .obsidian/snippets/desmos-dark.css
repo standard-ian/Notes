@@ -1,0 +1,9 @@
+/* Dark background with adjusted colors */
+.desmos-graph {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    transform: scale(0.75);
+    filter: invert(0.85) hue-rotate(170deg) brightness(0.9) contrast(0.95);
+    border-radius: 4px;
+}
