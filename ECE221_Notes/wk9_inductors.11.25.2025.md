@@ -120,7 +120,7 @@ $$\tau = R\cdot C = 1000\ohm(0.000001F) = 0.001s = 1ms$$
 $$V_{cap}(t) = V_{final} + (V_0 - V_{final})e^{-t/\tau}$$
 The time constant increases when the resistance **or** the capacitance is larger.
 
-An inductor also has a time constant: $\tau = \frac{L}{R}$ The point where it has reached $e^{-1}$ of  maximum current.
+An inducter also has a time constant: $\tau = \frac{L}{R}$ The point where it has reached $e^{-1}$ of  maximum current.
 
 #### AC Through the Lens of Capacitance
 ```tikz

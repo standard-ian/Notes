@@ -380,7 +380,7 @@ $2.5V$ is dropped across each resistor, because they are in parallel
 	\draw(U1 IN-)  
 	node[fill=white]{$V_{-}$} --++(-1,0)
 	node[fill=white]{$2.5V$}--++(0,1) 
-	to[R=$1k\Omega$, i^>=$2.5mA$]++(2,0)--++(3,0)--++(0,-2) --++(-1,0);
+	to[R=$1k\Omega$, i<_=$2.5mA$]++(3,0)--++(3,0)--++(0,-2) --++(-1,0);
 	\draw(U1 IN-)++(-1,1)
 	to[R, a=$1k\Omega$, i_>=$2.5mA$]++(-2,0)--++(0,-1)
 	node[ground, scale=2]{};
@@ -403,8 +403,9 @@ $2.5V$ is dropped across each resistor, because they are in parallel
 #### IA 9.2
 Now imagine the right resistor is a $2k\ohm$, what is the change?
 From $A$ to $B$ there is a potential difference of $+2.5V$
-Since there is $0mA$ flowing into $B$ from below, the current flowing out through the $2k\ohm$ is equal to the current flowing to ground through the $1k\ohm$.
-Because the voltage has to drop $2.5V$ to ground, and because A
+Since there is $0mA$ flowing into $B$ from below, the current flowing towards the op-amp's inverting terminal at $2.5V$ through the $2k\ohm$ is equal to the current flowing to ground through the $1k\ohm$.
+This results in a $5V$ drop over the $2k\ohm$ $V_{2k\ohm}=2k\times0.0025 = 5V$
+$V_{out}$ must be $5V$ above the inverting terminal ($2.5V$) in order for current to flow in a way that satisfies KCL. $2.5 + 5 = 7.5V = V_{out}$
 
 ```tikz
 \usepackage{circuitikz}
@@ -436,7 +437,7 @@ Because the voltage has to drop $2.5V$ to ground, and because A
 	node[fill=white]{$2.5V$}
 	to[short, i_>=$0mA$]++(0,1)
 	node[circ, label=above:$B {=} 2.5V$]{}
-	to[R=$2k\Omega$, a=$5V$, i^>=$2.5mA$]++(2,0)--++(3,0)--++(0,-2)
+	to[R=$2k\Omega$, a=$5V$, i<_=$2.5mA$]++(3,0)--++(3,0)--++(0,-2)
 	node[circ, label=below:$C {=} 7.5V$]{} --++(0,0);
 	\draw(U1 IN-)++(-1,1)
 	to[R, a=$1k\Omega$, l=$2.5V$, i_>=$2.5mA$]++(-3,0)
@@ -491,7 +492,7 @@ This is something the op amp is doing internally, and it is because $V_{CC}$ is 
 	node[fill=white]{$2V$}
 	to[short, i_>=$0mA$]++(0,1)
 	node[circ, label=above:$B {=} 2.5V$]{}
-	to[R=$4k\Omega$, i^>=$2.5mA$]++(2,0)--++(3,0)--++(0,-2)
+	to[R=$4k\Omega$, i<_=$2.5mA$]++(3,0)--++(3,0)--++(0,-2)
 	node[circ, label=below:$C {=} 10V$]{} --++(0,0);
 	\draw(U1 IN-)++(-1,1)
 	to[R, a=$1k\Omega$, i_>=$2.5mA$]++(-3,0)

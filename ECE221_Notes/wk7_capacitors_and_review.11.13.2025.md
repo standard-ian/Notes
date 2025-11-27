@@ -1,11 +1,10 @@
 ## Class 13
 #### Capacitor
 Capacitors are made to be charged and discharged with charges of equal but opposite polarity ($+Q, -Q$). Positive charges accumulate on one plate, negative on the other. The voltage of a capacitor is proportional to the amount of charge on its conductors. Capacitance is a material property represented by the constant $C$.
-
 Between the plates is a dielectric material that polarizes when placed in an electric field. 
 
 ## Homework 5
-###### 1. What are the currents through the resistors in these circuits?
+#### 1. What are the currents through the resistors in these circuits?
 ```tikz
 \usepackage{circuitikz}
 
@@ -46,7 +45,7 @@ Between the plates is a dielectric material that polarizes when placed in an ele
 1. By KVL, the voltage is equal to the source in both branches because it is the same before both resistors, and must drop to 0V after either resistor. They each see $\frac{6V}{20\ohm} = 300mA$  
 2. In series, the combined resistance is $20\ohm + 20\ohm = 40\ohm$. The current is the same throughout since this is a single loop. The current is $\frac{6V}{40\ohm} = 150mA$ and is the same through both resistors.
 3. The current is $\frac{6V}{20ohm + 20\ohm} = 150mA$. The $20\ohm$ sees this current, and the other two see a voltage drop of $6V-(0.150A \times 20\ohm) = 3V$. This same 3V drops across either resistor, and the same current flows through them because they have equal resistance. The current through each $40\ohm$ is $\frac{3V}{40\ohm} = 75mA$
-###### 2. What is the voltage source in this circuit? What is the total power supplied by the source? Suppose the current through the 15$\ohm$ resistor is 1A.
+#### 2. What is the voltage source in this circuit? What is the total power supplied by the source? Suppose the current through the 15$\ohm$ resistor is 1A.
 
 ```tikz
 \usepackage{circuitikz}
@@ -69,7 +68,7 @@ Between the plates is a dielectric material that polarizes when placed in an ele
 2. By KCL, the current at the node before the 2 parallel loops must be the sum of the currents in each loop. So the current through the $20\ohm$ is $\frac{5}{2}A$ and it's voltage drop is $20\times \frac{5}{2} = 50V$
 3. Therefore the total drop and the supplied voltage $V_{s} = 50V + 15V = 65V$
 
-###### 3. Consider the situation below with two resistors connected to the same ground. If we connect points A and B to a DC power supply of 10V with A being higher than B, what is the current through each resistors? Note the directions of the currents. What is the voltage across Node A and ground? The voltage across B and the ground? Note the polarity of the voltages.
+#### 3. Consider the situation below with two resistors connected to the same ground. If we connect points A and B to a DC power supply of 10V with A being higher than B, what is the current through each resistors? Note the directions of the currents. What is the voltage across Node A and ground? The voltage across B and the ground? Note the polarity of the voltages.
 
 ```tikz
 \usepackage{circuitikz}
@@ -115,7 +114,7 @@ Between the plates is a dielectric material that polarizes when placed in an ele
 \end{document}
 ```
 
-###### 4. Consider the following circuit where current through the 12$\ohm$ resistor is $0.5A$ in the circuit.
+#### 4. Consider the following circuit where current through the 12$\ohm$ resistor is $0.5A$ in the circuit.
 ```tikz
 \usepackage{circuitikz}
 \begin{document}
@@ -206,7 +205,7 @@ node[label=right:$B$, ocirc]{};
 \end{circuitikz}
 \end{document}
 ```
-###### 5. Study this circuit. You want to know the current through each of a variety of load resistors R L , which is to be inserted between A and B. The value of R L ranges from $4k$ to $100K$. Make a Thevenin equivalent of the circuit at A and B. Use the Thevenin to compute the currents through R L in that range
+#### 5. Study this circuit. You want to know the current through each of a variety of load resistors R L , which is to be inserted between A and B. The value of R L ranges from $4k$ to $100K$. Make a Thevenin equivalent of the circuit at A and B. Use the Thevenin to compute the currents through R L in that range
 ```tikz
 \usepackage{circuitikz}
 \begin{document}
@@ -280,7 +279,7 @@ node[label=right:$B$, ocirc]{};
 \end{circuitikz}
 \end{document}
   ``` 
-###### 6. Study the circuit below.
+#### 6. Study the circuit below.
 ```tikz
 \usepackage{circuitikz}
 \begin{document}
@@ -356,7 +355,7 @@ This is the more common configuration of a Wheatstone bridge
 \end{document}
 ```
 
-###### 7. What is Thevenin equivalent of the circuits below at terminals A and B?
+#### 7. What is Thevenin equivalent of the circuits below at terminals A and B?
 ```tikz
 \usepackage{circuitikz}
 
@@ -402,7 +401,7 @@ This is the more common configuration of a Wheatstone bridge
 8. In the original circuit, with a short across $AB$ there will be a $R_{eq}$ of $6+\left(\frac{1}{12} + \frac{1}{5} \right)^{-1} = 9.529\ohm$
 9. The current through the $6\ohm = \frac{36}{9.529} = 3.7779A$ and a voltage drop of $6\ohm \times 3.7779A = 22.6676V$ This leaves $13.3324V$ to drop over the 2 paths in the parallel portion equally. 
 10. The path with the $5\ohm$ will do this with a current of $2.667A$ $\checkmark$
-###### 8. The circuit begins with one-loop of three resistors (400, 600, 250) in series. A voltage source of 60 volts is inserted between nodes A and C, A being higher in potential. We want to place a load resistor R L between A and B. Find the Thevenin equivalent of the circuit between nodes A and B. Use it to find the current through this load resistance if R L = 40$\ohm$
+#### 8. The circuit begins with one-loop of three resistors (400, 600, 250) in series. A voltage source of 60 volts is inserted between nodes A and C, A being higher in potential. We want to place a load resistor R L between A and B. Find the Thevenin equivalent of the circuit between nodes A and B. Use it to find the current through this load resistance if R L = 40$\ohm$
 
 ```tikz
 \usepackage{circuitikz}
@@ -445,4 +444,338 @@ This is the more common configuration of a Wheatstone bridge
 ```
 7. It will be $\frac{48}{240} = 200mA$
 
+
+#### 9. Study the circuit and determine the currents through all the resistors and the voltage difference across all elements in the two connected circuits. What are the voltage differences between points with one in the left loop and the other in the right loop?
+```tikz
+\usepackage{circuitikz}
+\begin{document}
+\begin{circuitikz}[american, scale=2, font=\Large]
+	\draw(0,0)
+	to[R=$1\Omega$]++(0,2)
+	to[R=$2\Omega$]++(2,0)
+	to[vsource, V=$24V$]++(0,-2);
+	
+	\draw(0,0)
+	to[R=$5\Omega$]++(2,0)
+	to[R=$5\Omega$]++(2,0)
+	to[vsource, invert, V=$50V$]++(1,0)
+	to[R=$4\Omega$]++(0,2)
+	to[R=$6\Omega$]++(2,0)
+	to[isource, invert, l=$5A$]++(0,-2)
+	to[R, a=$2\Omega$]++(-2,0);
+	
+	
+\end{circuitikz}
+\end{document}
+
+```
+#### 10.  What we know about this circuit is that the voltage at node A is $3V$ and the voltage at B is $1V$ above the ground, and a positive current of $3mA$ goes from A to B. Figure out unspecified resistance R, the voltage at node C, and the other currents. As always, the important thing to practice here is to reason using the basic laws (Ohm’s law, KVL, KCL). Do not just write down an answer. With any answer state how you support it with basic laws.
+
+```tikz
+\usepackage{circuitikz}
+\begin{document}
+\begin{circuitikz}[american, scale=2, font=\Large]
+	\draw(0,0)
+	node[ocirc, label=left:$A$]{}
+	to[R=$R$]++(2,0)
+	node[ocirc, label=above:$B$](B){};
+	
+	\draw(B)
+	to[R=$10k\Omega$]++(0,-2)
+	node[ground]{};
+	
+	\draw(B)
+	to[R=$10k\Omega$]++(1.5,0)
+	node[ocirc, label=right:$C$](C){};
+	
+	
+\end{circuitikz}
+\end{document}
+```
+$R = \frac{V_{A} - V_{B}}{I_{A\to B}} = \frac{3-1}{3mA} = \frac{2}{3mA} = 666.7\ohm$
+As stated, $V_B$ is 1V above ground so:
+$I_{10k\to\ ground}=\frac{1}{10k} = 0.1mA$
+The the current at node $B$ is $3mA$
+by KCL, $I_{10k_{B\to C}} = I_{A\to B} - I_{B\to ground} = 3mA - 0.1mA = 2.9mA$
+$V_C = 1V - (2.9mA \times 10k\ohm) = 1-29 = -28V$
+
+
+
+#### 11. In the following circuit, there is a current of $1mA$ from node B to ground through the $20k\ohm$ resistor. What are the voltages at $A$ and $B$?
+```tikz
+\usepackage{circuitikz}
+\begin{document}
+\begin{circuitikz}[american, scale=2, font=\Large]
+	\draw(0,0)
+	node[ocirc, label=left:$A$]{}
+	to[R=$10k\Omega$]++(2,0)
+	node[ocirc, label=above:$B$](B){};
+	
+	\draw(B)
+	to[R=$10k\Omega$]++(0,-2)
+	node[ground]{};
+	
+	\draw(B)--++(1.5,0)
+	to[R=$20k\Omega$]++(0,-2)--++(-1.5,0);
+	
+	
+\end{circuitikz}
+\end{document}
+```
+$V_{B} = 20k \times 1mA = 20V$
+$V_{10k_2}=20V$
+$I_{10k_2} = \frac{20V}{10k} = 2mA$
+$I_{B} = 2+1= 3mA$
+$V_{A} = V_{B} + V_{10k_1} = 20V + (3mA \times 10k) = 20V + 30V = 50V$
+
+#### 12. What is the voltage at the output $V_{out}$ of the op amp circuit?
+```tikz
+\usepackage{circuitikz}
+    \def\opamp(#1)#2{%Customized opamp
+    \begin{scope}[shift={(#1)}]
+    %Component Shape
+    \draw[line join=round] (0,0)++(-1,1.5)
+        --++(2.5,-1.5) -- ++(-2.5,-1.5)-- cycle; 
+    % Label and component identifier.
+    \draw(0,0) node{\sf #2}; % IC LABEL
+    % Draw the pins
+    \draw(-1,1) node [anchor=180]{$-$} -- ++(-0.5,0)  coordinate (#2 IN-); % IN - 
+    \draw(-1,-1) node [anchor=180]{$+$}  -- ++(-0.5,0) coordinate (#2 IN+); % IN +
+    \draw(1.5,0)  -- ++(0.5,0) coordinate (#2 OUT); % OUT
+    % Power supply pins
+    \draw(0.25,0.77) -- ++(0,0.5) coordinate (#2 VCC); % VCC
+    \draw(0.25,-0.77) -- ++(0,-0.5) coordinate (#2 VEE); % VEE
+    \end{scope}
+    }
+    
+\begin{document}
+\begin{circuitikz}[american, scale=2, font=\Large]
+	% invoke the opamp	
+	\opamp(0,0){U1}
+	
+	\draw(U1 IN-)  
+	node[fill=white]{$0V$}--++(-1,0)
+	to[short, i_>=$0A$]++(0,1)
+	node[label=above:$A$, ocirc]{}
+	to[R=$2k\Omega$]++(2,0)--++(3,0)--++(0,-2) --++(-1,0);
+	
+	\draw(U1 IN-)++(-1,1)--++(-1,0)
+	to[R, a=$2k\Omega$]++(-2,0)
+	node[fill=white]{$3V$}++(0,1)
+	node[fill=white]{$-2V$}
+	to[R=$1k\Omega$]++(2,0)++(-2,-2)
+	node[fill=white]{$4V$}
+	to[R=$4k\Omega$]++(2,0)--++(0,2);
+	
+	\draw(U1 OUT) --++(2,0)
+	node[ocirc, label=right:$V_{out}$]{};
+
+	\draw(U1 IN+)
+	node[fill=white]{$0V$} --++(-1,0)
+	node[ocirc]{}--++(0,-1)
+	node[ground, scale=2]{};
+	
+	\draw(U1 VCC) node[above]{$V_{CC}$};
+	\draw(U1 VEE) node[below]{$V_{EE}$};
+
+	
+\end{circuitikz}
+\end{document}
+```
+
+There is no current entering node $A$ from the amp.
+The sum of the currents from the 3 source voltages are the current at node A.
+The current is flowing opposite direction through the $1k\ohm$ because the $-2V$ source is lower than $0V$ at node $A$
+$I_{sum} = \frac{-2V}{1k\ohm} + \frac{3V}{2k\ohm} + \frac{4V}{4k\ohm} = -2mA + \frac{3}{2}mA + 1mA = \frac{5}{2}mA - \frac{4}{2}mA = 0.5mA$
+By KCL, $100\%$ of this $0.5mA$ entering node $A$ must exit through the $2k\ohm \to V_{out}$ 
+The voltage drop across the resistor to $V_{out}$ is therefore $0.5mA \times 2k\ohm = 1V$ 
+$V_{out} = 0V-1V = -1V$
+
+#### A circuit is designed for a purpose. A circuit is driven by a source, an input, which can be a voltage or a current. The purpose of a circuit is often to make the output voltage or current meet certain specifications. 
+###### What is the purpose of a voltage divider circuits? 
+The purpose of this circuit is to scale the source voltage by $\frac{R_2}{R_1+R_2}$. $V_{out}$ is taken at the node between the resistors and is equal to the drop across $R_{2}$ .
+###### Can you describe different approaches to design a circuit to accomplish the purpose of voltage dividers? Use specific examples including sketches to explain.
+We could achieve something similar with a non inverting amplifier after the passive divider, to eliminate output impedance. In the below example, however, $V_{out}$ is  not divided, it is $5V$ because the non-inverting amplifier has a gain of > 1.
+```tikz
+\usepackage{circuitikz}
+    \def\opamp(#1)#2{%Customized opamp
+    \begin{scope}[shift={(#1)}]
+    %Component Shape
+    \draw[line join=round] (0,0)++(-1,1.5)
+        --++(2.5,-1.5) -- ++(-2.5,-1.5)-- cycle; 
+    % Label and component identifier.
+    \draw(0,0) node{\sf #2}; % IC LABEL
+    % Draw the pins
+    \draw(-1,1) node [anchor=180]{$-$} -- ++(-0.5,0)  coordinate (#2 IN-); % IN - 
+    \draw(-1,-1) node [anchor=180]{$+$}  -- ++(-0.5,0) coordinate (#2 IN+); % IN +
+    \draw(1.5,0)  -- ++(0.5,0) coordinate (#2 OUT); % OUT
+    % Power supply pins
+    \draw(0.25,0.77) -- ++(0,0.5) coordinate (#2 VCC); % VCC
+    \draw(0.25,-0.77) -- ++(0,-0.5) coordinate (#2 VEE); % VEE
+    \end{scope}
+    }
+    
+\begin{document}
+\begin{circuitikz}[american, scale=2, font=\Large]
+    % invoke the opamp    
+    \opamp(0,0){U1}
+    
+    \draw(U1 IN-)  
+    node[fill=white]{$V_{-}$} --++(-1,0)
+    node[fill=white]{$2.5V$}--++(0,1) 
+    to[R=$1k\Omega$, i<_=$2.5mA$]++(3,0)--++(3,0)--++(0,-2) --++(-1,0);
+    \draw(U1 IN-)++(-1,1)
+    to[R, a=$1k\Omega$, i_>=$2.5mA$]++(-2,0)--++(0,-1)
+    node[ground, scale=2]{};
+    
+    \draw(U1 OUT) --++(2,0)
+    node[fill=white]{$V_{out}$};
+
+    \draw(U1 IN+)
+    node[fill=white]{$V_{+}$} --++(-1,0)
+    node[ocirc, label=above:$2.5V$](DIV){};
+    
+    \draw(DIV)
+    to[R=$1k\Omega$]++(-2,0)
+	node[ocirc, label=left:$5V$]{};
+	
+    \draw(DIV)
+    to[R=$1k\Omega$]++(0,-2)
+    node[ground, scale=2]{};
+    
+    
+    \draw(U1 VCC) node[above]{$+10V$};
+    \draw(U1 VEE) node[below]{$-10V$};
+
+    
+\end{circuitikz}
+\end{document}
+```
+To have a true divider with no output impedance, a follower would be more appropriate.
+```tikz
+\usepackage{circuitikz}
+    \def\opamp(#1)#2{%Customized opamp
+    \begin{scope}[shift={(#1)}]
+    %Component Shape
+    \draw[line join=round] (0,0)++(-1,1.5)
+        --++(2.5,-1.5) -- ++(-2.5,-1.5)-- cycle; 
+    % Label and component identifier.
+    \draw(0,0) node{\sf #2}; % IC LABEL
+    % Draw the pins
+    \draw(-1,1) node [anchor=180]{$-$} -- ++(-0.5,0)  coordinate (#2 IN-); % IN - 
+    \draw(-1,-1) node [anchor=180]{$+$}  -- ++(-0.5,0) coordinate (#2 IN+); % IN +
+    \draw(1.5,0)  -- ++(0.5,0) coordinate (#2 OUT); % OUT
+    % Power supply pins
+    \draw(0.25,0.77) -- ++(0,0.5) coordinate (#2 VCC); % VCC
+    \draw(0.25,-0.77) -- ++(0,-0.5) coordinate (#2 VEE); % VEE
+    \end{scope}
+    }
+    
+\begin{document}
+\begin{circuitikz}[american, scale=2, font=\Large]
+    % invoke the opamp    
+    \opamp(0,0){U1}
+    
+    \draw(U1 IN-)  
+    node[fill=white]{$V_{-}$} --++(-1,0)
+    node[fill=white]{$2.5V$}--++(0,1)--++(3,0)--++(3,0)--++(0,-2) --++(-1,0);
+    
+    \draw(U1 OUT) --++(2,0)
+    node[fill=white]{$V_{out}$};
+
+    \draw(U1 IN+)
+    node[fill=white]{$V_{+}$} --++(-1,0)
+    node[ocirc, label=above:$2.5V$](DIV){};
+    
+    \draw(DIV)
+    to[R=$1k\Omega$]++(-2,0)
+	node[ocirc, label=left:$5V$]{};
+	
+    \draw(DIV)
+    to[R=$1k\Omega$]++(0,-2)
+    node[ground, scale=2]{};
+    
+    
+    \draw(U1 VCC) node[above]{$+10V$};
+    \draw(U1 VEE) node[below]{$-10V$};
+
+    
+\end{circuitikz}
+\end{document}
+```
+Or we could cascade inverting amps
+```tikz
+\usepackage{circuitikz}
+    \def\opamp(#1)#2{%Customized opamp
+    \begin{scope}[shift={(#1)}]
+    %Component Shape
+    \draw[line join=round] (0,0)++(-1,1.5)
+        --++(2.5,-1.5) -- ++(-2.5,-1.5)-- cycle; 
+    % Label and component identifier.
+    \draw(0,0) node{\sf #2}; % IC LABEL
+    % Draw the pins
+    \draw(-1,1) node [anchor=180]{$-$} -- ++(-0.5,0)  coordinate (#2 IN-); % IN - 
+    \draw(-1,-1) node [anchor=180]{$+$}  -- ++(-0.5,0) coordinate (#2 IN+); % IN +
+    \draw(1.5,0)  -- ++(0.5,0) coordinate (#2 OUT); % OUT
+    % Power supply pins
+    \draw(0.25,0.77) -- ++(0,0.5) coordinate (#2 VCC); % VCC
+    \draw(0.25,-0.77) -- ++(0,-0.5) coordinate (#2 VEE); % VEE
+    \end{scope}
+    }
+    
+\begin{document}
+\begin{circuitikz}[american, scale=2, font=\Large]
+	% invoke the opamp	
+	\opamp(0,0){U1}
+	
+	\draw(U1 IN-)  
+	node[fill=white]{$V_{-}$}--++(-1,0)
+	node[fill=white]{$0V$}
+	to[short, i_>=$0mA$]++(0,1)
+	to[R=$2k\Omega$,i^>=$5mA$]++(2,0)--++(3,0)--++(0,-2)--++(-1,0);
+	
+	\draw(U1 IN-)++(-1,1)
+	to[R, a=$1k$, i<^=$5mA$]++(-2,0)
+	node[ocirc, label=left:$V_{in} {=} 5V$]{};
+	
+	\draw(U1 OUT) --++(2,0)
+	node[ocirc, label=below:$V_{out} {=} -2.5V$](U1_VOUT){};
+
+	\draw(U1 IN+)
+	node[fill=white]{$V_{+}$} --++(-1,0)
+	node[ground, scale=2]{};
+	
+	\draw(U1 VCC) node[above]{$+10V$};
+	\draw(U1 VEE) node[below]{$-10V$};
+	
+	\opamp(10,-2){U2};
+
+	\draw(U2 IN-)  
+	node[fill=white]{$V_{-}$}--++(-1,0)
+	node[fill=white]{$0V$}
+	to[short, i_>=$0mA$]++(0,1)
+	to[R=$1k\Omega$,i<_=$5mA$]++(2,0)--++(3,0)--++(0,-2)--++(-1,0);
+	
+	\draw(U2 IN-)++(-1,1)
+	to[R, a=$1k$, i_>=$5mA$]++(-2,0)--(U1_VOUT);
+	
+	\draw(U2 OUT) --++(2,0)
+	node[ocirc, label=right:$V_{out} {=} 2.5V$]{};
+
+	\draw(U2 IN+)
+	node[fill=white]{$V_{+}$} --++(-1,0)
+	node[ground, scale=2]{};
+	
+	\draw(U2 VCC) node[above]{$+10V$};
+	\draw(U2 VEE) node[below]{$-10V$};
+	
+\end{circuitikz}
+\end{document}
+```
+
+
+#### Consider a circuit which consists only resistors and a DC voltage source of $20V$. Is it possible to have voltage difference across two points in the circuit larger than $20V$, the source? Explain your answer with specific examples.
+By KVL, the sum of all voltage drops around a closed loop and/or parallel configuration of loops will be equal to the source so that $V_{source} - V_{R_1} - V_{R_2} - ...-V_{R_n} = 0$
+Because of this, so long as there are no amps, capacitors, or additional voltage sources besides the one creating a potential difference of $0V\to20V$, resistors can only consume energy and cause the voltage to drop.
+Resistors cannot consume more voltage than is supplied to the circuit in their efforts to keep current flowing. They are restricted to consuming between 0 and 20V.
 

@@ -54,7 +54,7 @@ The size and length of a conductor affects the current.
 
 **Resistance** on the other hand is a concept that relates the current through it and the voltage drop across the two ends. 
 
-Given a circuit where the resistivity of tungsten is 3.3 times that of copper. If the tungsten is about 3cm long and 19$\micro m$ diameter. The copper wire is about 320$\micro m$. The resistance of the filament can be measured as roughly 42$\ohm$ while the copper connecting the battery to the filament is going to read as ~0$\ohm$ because the multimeter cannot likely measure the small resistance here. 
+Given a circuit where the resistivity of tungsten is 3.3 times that of copper. If the tungsten is about 3cm long and 19$\micro m$ diameter. The copper wire is about 320$\micro m$. The resistance of the filament can be measured as roughly 42$\ohm$ while the copper connecting the battery to the filament is going to read as ~0$\ohm$ because the multi-meter cannot likely measure the small resistance here. 
 
 #### Ohms Law
 $V=IR$ 
@@ -68,7 +68,7 @@ Hot vs. Cold resistance? Investigate this!
 This is a theoretical, not fundamental law.
 
 #### Circuit Diagram
-Battery can be represented a circle with positive and negative "sides", or power supply with 3 lines for ground and 1 for Vcc.
+Battery can be represented a circle with positive and negative "sides", or power supply with 3 lines for ground and 1 for $V_{cc}$
 
 #### IA 2.2: Circuit Diagrams
 ```tikz
