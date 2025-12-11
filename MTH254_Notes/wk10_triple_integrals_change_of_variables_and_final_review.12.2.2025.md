@@ -100,6 +100,31 @@ $$\int\int_{D} x + 3y\ dx\ dy = \int_{u=6}^{u=10}\int_{v=1}^{v=3}\ (u-2v + 3v)(1
 $$\int\int_{v=1}^{v=3} u + v\ dv = [uv + \frac{v^2}{2}]_{v=1}^{v=3} = 3u + \frac{9}{2} - (1u-\frac{1}{2})= 2u + 4$$
 $$\int_{u=6}^{u=10} 2u + 4\ dv =[u^2 + 4u]_{u=6}^{u=10} = 100 + 40 - (36 + 24) = 140-60 = 80 $$
 ## 15.6 Continued and Final Review
+#### Revisiting 15.4 #50
 
+Use spherical coordinates to calculate the triple integral of f(x,y,z) over the given region:
+$f(x,y,x) = \rho$
+$x^2 +y^2 +z^2 \leq 4$
+$z \leq 1$
+$x \geq 0$
 
+ This is a sphere with a $\rho$ of 2 and with the to $\frac{1}{4}$ chopped off, then the half divided vertically on the $x$ axis, everything on the positive $x$ side.
+Let $H$ be the hemisphere of radius 2 centered at the origin with $x \geq 0$. Let $R$ be the region over which we want to integrate, and let $D$ be the region of $H$ where $z\geq 1$
 
+$$\int\int\int_{H}\ f\ dxdydz = \int\int\int_{D}\ f\ dxdydz + \int\int\int_{R}\ f\ dxdydz$$
+$$\int\int\int_{R}\ f\ dxdydz = \int\int\int_{H}\ f\ dxdydz -\int\int\int_{D}\ f\ dxdydz$$
+To use spherical coordinates $dxdydz = dV = \rho^2 sin\phi d\rho d\phi d\theta$
+![[Pasted image 20251211135731.png]]
+Over $H$:
+$-\frac{\pi}{2} \leq \theta \leq \frac{\pi}{2}$
+$0 \leq \phi \leq \pi$
+$0 \leq \rho \leq 2$
+
+Over $D$:
+$-\frac{\pi}{2} \leq \theta \leq \frac{\pi}{2}$
+$0 \leq \phi \leq \frac{\pi}{3}$
+$\frac{1}{cos\phi}\leq \rho \leq 2$
+
+$$\int\int\int_{H} f(x,y,z)dV = \int_{\rho = 0}^{\rho = 2}\int_{\phi = 0}^{\phi =\pi}\int_{\theta = -\frac{\pi}{2}}^{\frac{\pi}{2}} \rho \rho^2\ sin\phi\ d\theta d\phi d\rho = 8\pi$$
+$$\int\int\int_{D} f(x,y,z)dV = \int_{\rho = \frac{1}{cos\phi}}^{\rho = 2}\int_{\phi = 0}^{\phi =\frac{\pi}{3}}\int_{\theta = -\frac{\pi}{2}}^{\frac{\pi}{2}} \rho \rho^2\ sin\phi\ d\theta d\phi d\rho = \frac{17\pi}{12}$$
+$$8\pi - \frac{17\pi}{12} = \frac{79\pi}{12}$$
