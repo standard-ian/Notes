@@ -1,4 +1,4 @@
-## Modeling via Differential Equations
+## Class 1: Modeling via Differential Equations
 #### Differential Equations
 A function that relates a function and it's derivatives
 One of the primary ways we describe the natural world.
@@ -82,3 +82,4 @@ If the population continued with purely exponential growth for later years, it i
 Because US territory expands, resources put a cap on this exponential growth.
 
 
+## Class 2:
