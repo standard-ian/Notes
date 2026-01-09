@@ -40,6 +40,7 @@ When a charged object is brought near an object, the object becomes electrically
 ###### Induction
 Without direct contact with the charged object, forcing charge to move in opposition between two objects, then separating the objects "locking in" the difference in charges, thereby imparting a charge of the type of the originally charged object.
 
+## Class 2
 #### Coulombs Law
 The force of charge 1 on charge 2...
 $$\vec{F}_{12} = k\frac{q_{1}q_{2}}{r_{12}^2}\hat{r}_{12}$$
@@ -83,22 +84,30 @@ $$\vec{F}_1 = \vec{F}_{2,1} + \vec{F}_{3,1} + \vec{F}_{4,1}$$
 ##### Example: Superposition of Coulomb's Force in 2D
 Charges $q_1, q_2, and q_3 are arranged as shown. Find the magnitude and direction (angle measured counter clock-wise from the $+x$ direction) of the net Coulomb force on $q_3$
 ![[Pasted image 20260108115544.png]]
+###### Initial Setup
 1. Due to superposition, $\vec{F}_3$ is the sum of the forces $\vec{F}_{1,3} + \vec{F}_{23}$ 
 2. Keeping in mind the signs of the charges, draw the Coulomb forces $\vec{F}_{1,3}$ and $\vec{F}_{23}$ 
 3. Draw the net force $\vec{F}_{3}$ and label the angle $\phi$ measured counter clock-wise from the  $+x$ direction
-4. Since $\vec{F}_{3}$ has both $x$ and $y$ components, write out the $x$ and $y$ components of $\vec{F}_{3}$ using the correct signs.
-5. $\vec{F}_{3} = (|\vec{F}_{13_{x}}| - |\vec{F}_{23_{x}}|)\hat{i}$, $\vec{F}_{3} = + |\vec{F}_{23_{y}}|\hat{j}$
-6. $\vec{F}_{3_x} = (|\vec{F}_{13_{x}}| - |\vec{F}_{23_{x}}| )\hat{i}$
-7. $r_{13}^2 = (2.5m)^2 = 6.25m^2$
-8. $r_{23}^{2} = (3m)^2 + (2.5m)^2 = 15.25m^2$
-9. $tan\theta = \frac{opp}{adj} = \frac{3.0m}{2.5m}$
-10. $\theta = arctan(\frac{3.0m}{2.5m}) = 50.1^{\circ}$
-11. $|\vec{F}_{13_{x}}| = |\vec{F}_{13}| = \frac{k|q_1q_2|}{r_{13}^2}$
-12. $|\vec{F}_{23_{x}}| = |\vec{F}_{23}|cos\theta = \frac{k|q_2q_3|}{r_{23}^2}cos\theta$
-13. $|q_1| = 3 \times 10^-9 C$, $|q_2| = 5 \times 10^-9 C$, $|q_3| = 2 \times 10^-9 C$
-14. $\vec{F}_{3_x} = (|\frac{k|q_1q_2|}{r_{13}^2}| - \frac{k|q_2q_3|}{r_{23}^2}cos\theta)\hat{i} = (|\frac{8.99\times 10^9 (6\times 10^-18)}{6.25}| - |\frac{8.99\times 10^9 (1\times 10^-17)}{15.25}|cos50.1)\hat{i} =$ 
-15. $=8.6304\times 10^-9 - 3.7814\times 10^-9 = 4.8490\times 10^-9N\hat{i}$ 
-16. $\vec{F}_{3_{y}} = +|\vec{F}_{23_{y}}|\hat{j} = |\vec{F}_{23}|sin\theta$
-17. 
-
-   
+###### Break into $x$ and $y$ components
+1. Since $\vec{F}_{3}$ has both $x$ and $y$ components, write out the $x$ and $y$ components of $\vec{F}_{3}$ using the correct signs.
+2. $\vec{F}_{3} = (|\vec{F}_{13_{x}}| - |\vec{F}_{23_{x}}|)\hat{i}$, $\vec{F}_{3} = + |\vec{F}_{23_{y}}|\hat{j}$
+###### $x$ Component
+1. $\vec{F}_{3_x} = (|\vec{F}_{13_{x}}| - |\vec{F}_{23_{x}}| )\hat{i}$
+2. $r_{13}^2 = (2.5m)^2 = 6.25m^2$
+3. $r_{23}^{2} = (3m)^2 + (2.5m)^2 = 15.25m^2$
+4. $tan\theta = \frac{opp}{adj} = \frac{3.0m}{2.5m}$
+5. $\theta = arctan(\frac{3.0m}{2.5m}) = 50.1^{\circ}$
+6. $|\vec{F}_{13_{x}}| = |\vec{F}_{13}| = \frac{k|q_1q_2|}{r_{13}^2}$
+7. $|\vec{F}_{23_{x}}| = |\vec{F}_{23}|cos\theta = \frac{k|q_2q_3|}{r_{23}^2}cos\theta$
+8. $|q_1| = 3 \times 10^-9 C$, $|q_2| = 5 \times 10^-9 C$, $|q_3| = 2 \times 10^-9 C$
+9. $\vec{F}_{3_x} = (|\frac{k|q_1q_2|}{r_{13}^2}| - \frac{k|q_2q_3|}{r_{23}^2}cos\theta)\hat{i} = (|\frac{8.99\times 10^9 (6\times 10^-18)}{6.25}| - |\frac{8.99\times 10^9 (1\times 10^-17)}{15.25}|cos50.1)\hat{i}$
+10. $=8.6304\times 10^-9 - 3.7814\times 10^-9 = 4.8490\times 10^-9N\hat{i}$ 
+###### $y$ Component
+1. $\vec{F}_{3_{y}} = +|\vec{F}_{23_{y}}|\hat{j} = |\vec{F}_{23}|sin\theta$
+2. $|\vec{F}_{23}|=\frac{k|q_2q_3|}{r_{23}^2}$
+3. $|\vec{F}_{23_y}|=\frac{k|q_2q_3|}{r_{23}^2}sin\theta =\frac{8.99\times 10^9(1\times 10^-17)}{15.25}sin50.1^\circ = 4.52 \times 10^-9N\hat{j}$
+###### Sum of Squares for Magnitude of Overall Force from Electric Charge
+1. $F_{3} = \sqrt{F_{3x}^{2} + F_{3y}^{2}} = \sqrt{(4.85\times 10^-9)^2 + (4.52 \times 10^-9N)^2)} = 6.63\times 10^{-9}$A
+###### Using $arctan\frac{F_x}{F_y}$ to Determine Angle of Force
+1. $\phi = arctan\frac{F_{3y}}{F_{3x}} = arctan\frac{4.52\times 10^{-9}}{4.85\times 10^{-9}} = 43.0^\circ$ measured counter clockwise from $+x$ axis.
+![[Pasted image 20260108180205.png]]
