@@ -41,6 +41,27 @@ When a charged object is brought near an object, the object becomes electrically
 Without direct contact with the charged object, forcing charge to move in opposition between two objects, then separating the objects "locking in" the difference in charges, thereby imparting a charge of the type of the originally charged object.
 
 #### Coulombs Law
+The force of charge 1 on charge 2...
+$$\vec{F}_{12} = k\frac{q_{1}q_{2}}{r_{12}^2}\hat{r}_{12}$$
+...is equal and opposite the force of charge 2 on charge 1
+$$\vec{F}_{21} = k\frac{q_{1}q_{2}}{r_{21}^2}\hat{r}_{21}$$
+This is directly related to Newton's 3rd Law (Equal and opposite action and reaction).
+
+Given that $e=-1.6\times 10^{-19}$
+And the electrical constant $k=\frac{1}{4\pi\epsilon_0} = 9\times 10^9\frac{N\cdot m^2}{C^2}$ 
+The force of gravity: $\vec{F}_{G} = -G\frac{m_{1}m_{2}}{r^2}\hat{r}$
+The force of electrical charge (Coulomb's law): $\vec{F}_{C} = k\frac{q_{1}q_{2}}{r^2}\hat{r}$
+
+To calculate the gravitational force between a proton and an electron:
+$\vec{F}_{G} = -G\frac{m_{electron}m_{proton}}{r^2}\hat{r}$
+$\vec{F}_{C} = k\frac{ee}{r^2}\hat{r}$
+
+$$\frac{F_{C}}{F_{G}} = \frac{ke^2}{Gm_e m_p} \approx 10^{40}$$
+The fact that the ratio of electrical force to gravitational force is so high shows that it is electric force holding atoms together.
+
+When multiple charges exert a force on another charge, the total electric force is just a vector sum of the other charges:
+$$\vec{F}_{Net} = \Sigma\vec{F}_{i}$$
+
 $$F = \frac{k(q_1q_2)}{r^2}$$
 $k = 1/(4\pi\epsilon_0)$
 $\epsilon_0 =$ Electric constant or permittivity of free space $=8.85\times 10^{-12}\frac{C^2}{N\cdot m^2}$ 
