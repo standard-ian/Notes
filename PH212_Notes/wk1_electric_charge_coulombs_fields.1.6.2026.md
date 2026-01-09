@@ -41,3 +41,43 @@ When a charged object is brought near an object, the object becomes electrically
 Without direct contact with the charged object, forcing charge to move in opposition between two objects, then separating the objects "locking in" the difference in charges, thereby imparting a charge of the type of the originally charged object.
 
 #### Coulombs Law
+$$F = \frac{k(q_1q_2)}{r^2}$$
+$k = 1/(4\pi\epsilon_0)$
+$\epsilon_0 =$ Electric constant or permittivity of free space $=8.85\times 10^{-12}\frac{C^2}{N\cdot m^2}$ 
+$k = 8.99\times 10^9 N \cdot \frac{m^2}{C^2}$
+
+A helium atom has 2 protons in its nucleus. What is the magnitude of the electric force between the electrons (e) and the nucleus (n)?
+$$F = (8.99 \times 10^6\frac{C^2}{N\cdot m^2} |e_{p}e_{n}|)/1\times 10 ^ -10m$$
+##### Vector Form of Coulombs Law
+$$\vec{F}_{1,2} = \frac{kq_1q_2}{r^{2}_{1,2}}\hat{r}_{1,2}$$
+Where $\vec{r}_{1,2}$ is the displacement vector that points from $q_1$ to $q_2$ 
+ $\hat{r}_{1,2}$ is the unit vector that points from charge $q_1$ to $q_2$ (the direction of the force)
+ $\vec{F}_{1,2}$ is the force by charge 1 on charge 2
+
+##### Superposition of Electric Forces
+If there are more than two charges present, the total force on any given charge is the vector sum of the forces by each od the other charges. Consider the force on charge 1 by the other charges.
+
+Given multiple charges in a field:
+$$\vec{F}_1 = \vec{F}_{2,1} + \vec{F}_{3,1} + \vec{F}_{4,1}$$
+##### Example: Superposition of Coulomb's Force in 2D
+Charges $q_1, q_2, and q_3 are arranged as shown. Find the magnitude and direction (angle measured counter clock-wise from the $+x$ direction) of the net Coulomb force on $q_3$
+![[Pasted image 20260108115544.png]]
+1. Due to superposition, $\vec{F}_3$ is the sum of the forces $\vec{F}_{1,3} + \vec{F}_{23}$ 
+2. Keeping in mind the signs of the charges, draw the Coulomb forces $\vec{F}_{1,3}$ and $\vec{F}_{23}$ 
+3. Draw the net force $\vec{F}_{3}$ and label the angle $\phi$ measured counter clock-wise from the  $+x$ direction
+4. Since $\vec{F}_{3}$ has both $x$ and $y$ components, write out the $x$ and $y$ components of $\vec{F}_{3}$ using the correct signs.
+5. $\vec{F}_{3} = (|\vec{F}_{13_{x}}| - |\vec{F}_{23_{x}}|)\hat{i}$, $\vec{F}_{3} = + |\vec{F}_{23_{y}}|\hat{j}$
+6. $\vec{F}_{3_x} = (|\vec{F}_{13_{x}}| - |\vec{F}_{23_{x}}| )\hat{i}$
+7. $r_{13}^2 = (2.5m)^2 = 6.25m^2$
+8. $r_{23}^{2} = (3m)^2 + (2.5m)^2 = 15.25m^2$
+9. $tan\theta = \frac{opp}{adj} = \frac{3.0m}{2.5m}$
+10. $\theta = arctan(\frac{3.0m}{2.5m}) = 50.1^{\circ}$
+11. $|\vec{F}_{13_{x}}| = |\vec{F}_{13}| = \frac{k|q_1q_2|}{r_{13}^2}$
+12. $|\vec{F}_{23_{x}}| = |\vec{F}_{23}|cos\theta = \frac{k|q_2q_3|}{r_{23}^2}cos\theta$
+13. $|q_1| = 3 \times 10^-9 C$, $|q_2| = 5 \times 10^-9 C$, $|q_3| = 2 \times 10^-9 C$
+14. $\vec{F}_{3_x} = (|\frac{k|q_1q_2|}{r_{13}^2}| - \frac{k|q_2q_3|}{r_{23}^2}cos\theta)\hat{i} = (|\frac{8.99\times 10^9 (6\times 10^-18)}{6.25}| - |\frac{8.99\times 10^9 (1\times 10^-17)}{15.25}|cos50.1)\hat{i} =$ 
+15. $=8.6304\times 10^-9 - 3.7814\times 10^-9 = 4.8490\times 10^-9N\hat{i}$ 
+16. $\vec{F}_{3_{y}} = +|\vec{F}_{23_{y}}|\hat{j} = |\vec{F}_{23}|sin\theta$
+17. 
+
+   
