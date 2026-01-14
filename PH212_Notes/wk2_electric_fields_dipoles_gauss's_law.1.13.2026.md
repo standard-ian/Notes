@@ -98,6 +98,55 @@ $E = \frac{\lambda}{2\pi\epsilon_0 r} = \frac{2k\lambda}{r}$
 $E \to \frac{kQ}{r^2}$
 
 ## Class 1
+#### Two View of Particle Interaction
+Newtonian: Particles exert a force *directly* on other particles.
+Field: Charged particles *distort* space, creating a field which penetrates all of space, and carries energy.
+Another particle "knows" about the other particle in the field, so a force is exerted *indirectly*.
+
+#### Relationship of Electric Force/Electric Field
+Suppose a positive charge $q$ is at some $(x,y,z)$ location in space, and experiences an electric force.
+$$\vec{E}(z,y,z) = \frac{\vec{F}_{on\ q}}{q}\color{orange}\frac{newton\ (N)}{coulomb\ (C)} $$ 
+When representing the Electric field vector ($\vec{E}$) and the force vector ($\vec{F}$) their length cannot be compared and they are totally arbitrary in terms of length.
+#### Electric Field of a Single Point Charge
+From $\vec{E} = \frac{\vec{F}}{q}$, we can substitute in Coulomb's Law $\vec{F} = k\frac{q_1q_2}{r^2}\hat{r}$ to get $\vec{E} = k\frac{q_1 q_2}{r^2 q_2}\hat{r}$, then cancel $q_2$, to get:
+$$\vec{E}(r) = k\frac{q}{r^2} \hat{r}$$ Where $q$ is the source charge, it is the source of the $E$ field.
+#### Example
+What is the electric field strength of the proton in a hydrogen atom on the electron, where the distance between them is $0.053\times 10^{-9} M$  and the charge strength of the proton is $e = 1.602 \times 10^{-19}$
+$$\vec{E} = 8.988\times 10^9 \frac{1.602\times 10^{-19}}{(0.053\times 10^{-9})^2}(+1) = 5.13\times 10^{11}N/C$$
+We can then find the electric force with $\vec{E} = \frac{\vec{F}}{q} \to \vec{F} = \vec{E}q$
+$$\vec{F} = 5.13\times 10^{11} (1.602\times 10^-19) = 8.21\times 10^{-8}N$$
+#### Multiple Charges and Superposition
+The electric field at a point $P$ is the vector sum of the electric fields from all charges:
+$$\vec{E}_P = \Sigma \vec{E}_{iP}$$
+#### Electric Field from Continuous Charge Distribution
+We can use numerical analysis methods to compute the electric field from charge distributions on some basic geometries like rods, rings, and disks.
+###### Finite Line of Charge
+$$\vec{E} = \frac{kQ}{r\sqrt{(\frac{L}{2})^2 + r^2}}\hat{r}$$
+###### Infinite Line of Charge
+$$\vec{E} = \frac{2k\lambda}{r}\hat{r}$$
+###### Ring of Charge Along Line Through Center
+$$\vec{E} = \frac{Qkz}{(R^2 + z^2)^{\frac{3}{2}}}\hat{k}$$
+###### Disk of Charge Along Line Through Center
+$$\vec{E} = sign(z) 2\sigma \pi(1-\frac{z}{\sqrt{R^2 + z^2}})\hat{k}$$
+###### Infinite Sheet of Charge
+$$\vec{E} = sign(z)\frac{\sigma}{2\epsilon_0}\hat{k}$$
+#### Example: Deriving the Formula for Charge of a Finite "Line" of Charge
+We can imagine breaking up a line of charges into a bunch of discrete charges. The total charge will be the sum of each of those pieces.
+![[Pasted image 20260113123202.png]]
+1. Establish coordinate system
+2. ID point $P$ where we want to find the specific $\vec{E}$
+3. Break up the line of charge $Q$ into smaller parts of charge $\Delta Q$
+4. Draw the field at point $P$ for one or two small pieces of charge. ID distance and angles needed.
+5. Look for symmetries that simplify the field. i.e. if we chose 2 points the same distance from origin, the y components will cancel, leaving only the x direction.
+6. Superposition: $\vec{E}_{line} = \Sigma E_{s_x}\hat{i}$,
+	1. $E_{s_x} = E_{s}cos\theta_s$ 
+	2. $E_s = \frac{k\Delta Q_s}{r^{2}_{s}}$ 
+	3. $r_s = (y^2_s + x^2)^{\frac{1}{2}}$
+7. Substitute back in:
+   $=\Sigma_{s=1}^{N} \frac{x\Delta y}{(y^2 + x^2)^{\frac{3}{2}}}$
+8. Let the sum become an integral where $N \to \infty$ $\Delta y \to dy$   
+9. The limits of integration are $y = -\frac{L}{2}$ to $y = \frac{L}{2}$
+
 ## Class 2
 #### Electric Field Representation
 $$\vec{E} = k\frac{q}{r^2} \hat r$$
