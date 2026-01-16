@@ -181,12 +181,128 @@ All together:
 $$y = y_n + y_p = Ae^{-2t} + \frac{1}{3}e^t$$
 
 
+## Class 2
+#### Undetermined Coefficients Example
+Find the general solution:
+$\frac{dy}{dt} = -2y + 3e^{-2t}$
 
+First the homogeneous portion:
+$y_h = Ae^{-2t}$
 
+However.
+$y'_p + 2y = 3e^{-2t}$
+Our first guess is maybe $\alpha e ^ {-2t}$, except that this is the solution to the homogeneous equation.
+Plugging the particular solution back in, it would match the homogeneous solution, and they would cancel resulting in 0.
+Therefor, we must modify the particular solution.
+This can be fixed by multiplying $y_p$ by $t$. Thus: $y_p = \alpha t e ^ {-2t}$
 
+Plugging in this new particular solution gives:
 
+$$y'_p + 2yp = (\alpha t e^-{2t})' + 2(\alpha t e^{-2t})$$
 
+$=\alpha e^{-2t} -2\alpha te^{-2t} + 2\alpha t e^{-2t}$
+$=3e^{-2t}$
+$\alpha = 3$ 
+The general solution is then:
+$$y = Ae^{-2t} + 3te^{-2t}$$
 
+#### Undetermined Coefficients Method Summary
+Given const $\lambda$
+$$y' + \lambda y = f(t)$$
+1. Find $y_h$ (y homogeneous)
+	$y_h(t) = Ae^{-\lambda t}$
+	
+2. Find $y_p$ (y particular) by making a guess
+
+| $f(t)$                       | $y_p(t)$                    |
+| ---------------------------- | --------------------------- |
+| $ae^{bt}$                    | $Ae^{bt}$                   |
+| $a\ cos(bt)$ or $a\ sin(bt)$ | $A\ cos(bt)$ + $B\ cos(bt)$ |
+| $y_h(t)$                     | $ty_h(t)$                   |
+3. $y(t) = y_h(t) + y_p(t)$
+
+4. Apply Initial Conditions
+
+#### 1.9 Integrating Factor Method
+In the previous section, we looked at equations of the form $\frac{dy}{dt} + p(t)y = q(t)$.
+But, $p(t)$ has to be a constant and $q(t) had to be a function for which we had a good guess for $y_p$.
+
+We now show a more general method. Recall the product rule:
+$$\frac{d}{dt}[\mu(t)y(t)] = \mu(t)\frac{dy}{dt} + \frac{d\mu}{dt}y(t)$$
+Begin by multiplying equation 1 by $\mu(t)$, giving:
+$\mu(t)\frac{dy}{dt} + p(t)\mu(t)y(t) = \mu(t)f(t)$
+
+We want $\mu(t)$ such that:
+$\frac{d}{dt}[\mu(t)y(t)] = \mu(t)q(t)$
+
+Then integrating both sides with respect to $t$ gives:
+$$\int \frac{d}{dt}[\mu(t)y(t)] dt = \int \mu(t)q(t) dt$$
+$\mu(t)y(t) dt = \int \mu(t) q(t) dt + C$
+$y(t) = \frac{\int\mu(t)q(t)dt + C}{\mu(t)}$
+
+So what is $\mu(t)$?
+Comparing:
+$\mu(t)\frac{dy}{dt} + \frac{d\mu}{dt}y(t) = \mu(t)\frac{dy}{dt} + p(t)\mu(t)y(t)$
+implies: $\frac{d\mu}{dt} = p(t)\mu(t)$
+
+By separation of variables:
+$\mu(t) = Ae^{\int p(t)dt}$
+
+#### Example: Integrating Factor
+Find the general solution:
+$\frac{dy}{dt} + \frac{2}{t}y = t-1$
+**first order, non-constant, non-separable**, only integrating factor will work
+
+$p(t)$ is $\frac{2}{t}y$ 
+$q(t)$ is $t - 1$
+
+Thus the integrating factor is $\mu(t) = e^{\int p(t)dt} = e^{2\int\frac{1}{t} dt} = e^{2ln(t)} = e^{ln(t^2)} = t^2$
+
+Next, we multiply the entire equation by $\mu(t)$
+$$t^2(y' + \frac{2}{t}y = t-1)$$
+$$$t^2 y' + 2ty = t^3-t^2$$
+Note the above is in the desired "product rule" configuration, resulting in:
+$$[t^2y]' = t^3-t^2$$
+Integrating both sides:
+$\int[t^2y]' dt = \int(t^3=t^2) dt$
+$t^2 y = \frac{t^4}{4} - \frac{t^3}{3} + C$
+
+$y(t) = \frac{t^2}{4} - \frac{t}{3} + \frac{C}{t^2}$
+
+Remember:
+1. Simplify before exponentiating
+2. Don't forget the $C$ constant
+3. Remember to divide through by the integrating factor
+
+#### Revisiting Mixing Problem
+Now we assume that the volume is changing with regard to time. 
+Given some toxins in a pond:
+Rate in = $R_{in} = 500m^3/day$
+Concentration in = $C_{in} =\frac{5}{1000} kg/m^3$
+Rate out = $R_{out} = 555m^3/day$
+Volume with regard to time = $V(t)$
+Amount with regard to time = $y(t)$
+
+Additionally:
+$V(0) = 10000m^3$
+$y(0) =0$
+
+Find $y(t)$.
+
+First, find $v(t)$ generally....
+We know the $v(t)$ satisfies the IVP.
+$V'(t) = R_{in} - R_{out}$
+$V(0) = 10000$
+
+$V(t) = (R_{in} - R_{out})t + C$
+$V(t) = (R_{in} - R_{out})t + 10000$
+$V(t) = 10000 - 50t$
+
+All together:
+$\frac{dy}{dt}  = R_{in}C_{in} - R_{out}C_{out}$
+$=R_{in}C_{in} - R_{out}(\frac{y(t)}{V(t)})$
+$=500(\frac{5}{1000} = \frac{550y(t)}{10000 - 50t})$
+$$\frac{dy}{dt} = \frac{5}{2} - \frac{11y}{200-t}, y(0) = 0$$
 
 
 
