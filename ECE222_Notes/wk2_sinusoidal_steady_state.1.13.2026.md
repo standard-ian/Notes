@@ -128,59 +128,63 @@ $$120.14sin(377t-0.048^\circ)\approx 120sin(377t)$$
 \end{document}
 ```
 #### IW 4.1
-Represent the signals on the concentric circles:
-```tikz
-\usepackage{pgfplots}
-
-\begin{document}
-\begin{tikzpicture}[scale=1.5]
-\begin{axis}[
-    axis equal,
-    axis lines=middle,
-    axis line style={opacity=0.5},
-    xmin=-2, xmax=2,
-    ymin=-2, ymax=2,
-    xtick={-1.5,0,1.5},
-    ytick={-1.5,0,1.5},
-    grid=none,
-]
-
-% Circle for v1 (radius 1.5)
-\addplot[
-    domain=0:360,
-    samples=100,
-    smooth,
-    thick,
-    blue,
-    dashed
-] ({1.5*cos(x)}, {1.5*sin(x)});
-
-% v1(t) = 1.5*cos(2*pi*t + pi/3)
-% At t=0: phase = pi/3 = 60 degrees
-% Position: (1.5*cos(60), 1.5*sin(60)) = (0.75, 1.299)
-\draw[->, thick, red] (axis cs:0,0) -- (axis cs:0.75,1.299);
-\addplot[only marks, mark=*, mark size=2pt, red] coordinates {(0.75,1.299)};
-\draw (axis cs:0.85,1.4) node[font=\tiny, red] {$v_1(0) {=} v_1(1) = \frac{\pi}{3}$};
-
-% At t=0.25: phase = 2*pi*0.25 + pi/3 = pi/2 + pi/3 = 5*pi/6 = 150 degrees
-% Position: (1.5*cos(150), 1.5*sin(150)) = (-1.299, 0.75)
-\draw[->, thick, green!60!black] (axis cs:0,0) -- (axis cs:-1.299,0.75);
-\addplot[only marks, mark=*, mark size=2pt, green!60!black] coordinates {(-1.299,0.75)};
-\draw (axis cs:-1.5,0.85) node[font=\tiny, green!60!black] {$t_1(0.25) {=} \frac{5\pi}{6}$};
-
-% At t=0.5: phase = 2*pi*0.5 + pi/3 = pi + pi/3 = 4*pi/3 = 240 degrees
-% Position: (1.5*cos(240), 1.5*sin(240)) = (-0.75, -1.299)
-\draw[->, thick, orange] (axis cs:0,0) -- (axis cs:-0.75,-1.299);
-\addplot[only marks, mark=*, mark size=2pt, orange] coordinates {(-0.75,-1.299)};
-\draw (axis cs:-0.85,-1.4) node[font=\tiny, orange] {$t_1(0.5) {=} \frac{4\pi}{3}$};
-
-\end{axis}
-\end{tikzpicture}
-\end{document}
-```
-
-```tikz
-\usepackage{pgfplots}
+1. $v_1(t) = 1.5cos(2\pi t + \frac{\pi}{3})$ at $t = 0, 0,25, 0,5, 1$'
+	```tikz
+	\usepackage{pgfplots}
+	
+	\begin{document}
+	\begin{tikzpicture}[scale=1.5]
+	\begin{axis}[
+	    axis equal,
+	    axis lines=middle,
+	    axis line style={opacity=0.5},
+	    xmin=-2, xmax=2,
+	    ymin=-2, ymax=2,
+	    xtick={-1.5,0,1.5},
+	    ytick={-1.5,0,1.5},
+	    grid=none,
+	]
+	
+	% Circle for v1 (radius 1.5)
+	\addplot[
+	    domain=0:360,
+	    samples=100,
+	    smooth,
+	    thick,
+	    blue,
+	    dashed
+	] ({1.5*cos(x)}, {1.5*sin(x)});
+	
+	% v1(t) = 1.5*cos(2*pi*t + pi/3)
+	% At t=0: phase = pi/3 = 60 degrees
+	% Position: (1.5*cos(60), 1.5*sin(60)) = (0.75, 1.299)
+	\draw[->, thick, red] (axis cs:0,0) -- (axis cs:0.75,1.299);
+	\addplot[only marks, mark=*, mark size=2pt, red] coordinates {(0.75,1.299)};
+	\draw (axis cs:0.85,1.4) node[font=\tiny, red] {$v_1(0) {=} v_1(1) = \frac{\pi}{3}$};
+	
+	% At t=0.25: phase = 2*pi*0.25 + pi/3 = pi/2 + pi/3 = 5*pi/6 = 150 degrees
+	% Position: (1.5*cos(150), 1.5*sin(150)) = (-1.299, 0.75)
+	\draw[->, thick, green!60!black] (axis cs:0,0) -- (axis cs:-1.299,0.75);
+	\addplot[only marks, mark=*, mark size=2pt, green!60!black] coordinates {(-1.299,0.75)};
+	\draw (axis cs:-1.5,0.85) node[font=\tiny, green!60!black] {$t_1(0.25) {=} \frac{5\pi}{6}$};
+	
+	% At t=0.5: phase = 2*pi*0.5 + pi/3 = pi + pi/3 = 4*pi/3 = 240 degrees
+	% Position: (1.5*cos(240), 1.5*sin(240)) = (-0.75, -1.299)
+	\draw[->, thick, orange] (axis cs:0,0) -- (axis cs:-0.75,-1.299);
+	\addplot[only marks, mark=*, mark size=2pt, orange] coordinates {(-0.75,-1.299)};
+	\draw (axis cs:-0.85,-1.4) node[font=\tiny, orange] {$t_1(0.5) {=} \frac{4\pi}{3}$};
+	
+	\end{axis}
+	\end{tikzpicture}
+	\end{document}
+	```
+	1. $v_1(0) = $\frac{\pi}{3}$
+	2. $v_1(0.25) = \frac{5\pi}{6}$
+	3. $v_1(0.5) = \frac{4\pi}{3}$
+	4. $v_1(1) =\frac{\pi}{3}$
+1. $v_2(t) = 2 sin(2\pi t) = 2sin(2\pi t - \frac{\pi}{2}$ at $t = 0, 0,25, 0,5, 1$
+	```tikz
+	\usepackage{pgfplots}
 \begin{document}
 \begin{tikzpicture}[scale=1.5]
 \begin{axis}[
@@ -226,24 +230,18 @@ Represent the signals on the concentric circles:
 \end{axis}
 \end{tikzpicture}
 \end{document}
-```
-1. $v_1(t) = 1.5cos(2\pi t + \frac{\pi}{3})$ at $t = 0, 0,25, 0,5, 1$
-	1. $v_1(0) = $\frac{\pi}{3}$
-	2. $v_1(0.25) = \frac{5\pi}{6}$
-	3. $v_1(0.5) = \frac{4\pi}{3}$
-	4. $v_1(1) =\frac{\pi}{3}$
-2. $v_2(t) = 2 sin(2\pi t)$ at $t = 0, 0,25, 0,5, 1$
+	```
 	1. $v_2(0) = \frac{3\pi}{2}$
 	2. $v_2(0.25) = 0$
 	3. $v_2(0.5) = \frac{\pi}{2}$
 	4. $v_2(1) = \frac{3\pi}{2}$
-3. What is the difference between $v_1$ and $v_2$ over time?
+2. What is the difference between $v_1$ and $v_2$ over time?
 	$v_2$ **lags** $v_1$ by $\frac{7\pi}{6}$
 	Capacitors, voltage lags the current
 	Inductors, current lags the voltage
-4. Compute the sum $v_1 + v_2$. Find the amplitude, frequency, and phase of the sum.
+3. Compute the sum $v_1 + v_2$. Find the amplitude, frequency, and phase of the sum.
 	We'd use the complex trig ID method from last class. IW 4.2 will introduce a different method using phasors.
-5. Do the amplitude and phase of the sum change over time?
+4. Do the amplitude and phase of the sum change over time?
 	No, there will be a new amplitude and phase, but it will be constant over time because they have the same frequency $2\pi t$
 ```tikz
 
