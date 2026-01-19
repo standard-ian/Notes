@@ -137,7 +137,7 @@ We can imagine breaking up a line of charges into a bunch of discrete charges. T
 2. ID point $P$ where we want to find the specific $\vec{E}$
 3. Break up the line of charge $Q$ into smaller parts of charge $\Delta Q$
 4. Draw the field at point $P$ for one or two small pieces of charge. ID distance and angles needed.
-5. Look for symmetries that simplify the field. i.e. if we chose 2 points the same distance from origin, the y components will cancel, leaving only the x direction.
+5. Look for symmetries that simplify the field. i.e. if we chose 2 points the same distance from origin, the y components will cancel, leaving only the x odirection.
 6. Superposition: $\vec{E}_{line} = \Sigma E_{s_x}\hat{i}$,
 	1. $E_{s_x} = E_{s}cos\theta_s$ 
 	2. $E_s = \frac{k\Delta Q_s}{r^{2}_{s}}$ 
@@ -148,6 +148,34 @@ We can imagine breaking up a line of charges into a bunch of discrete charges. T
 9. The limits of integration are $y = -\frac{L}{2}$ to $y = \frac{L}{2}$
 
 ## Class 2
+#### Electric Dipole 
+A dipole is an arrangement of two equal but opposite charges. 
+![[Pasted image 20260119100915.png]]
+
+**Dipole Moment:  
+$$\vec{p} = q\vec{d} (Coulomb-meters)$$**
+**Where $\vec{d}$ is the displacement vector that points from the negative to positive charge.**   
+
+#### Torque on a Dipole 
+##### Vector In an Uniform Electric Field
+$$\vec{\tau}_{net}=\vec{p}\times \vec{E}$$
+##### Torque Magnitude Given $\vec{E}$ and the Angle Between Electric Field ($\vec{E}$) and the Dipole ($p$),  ($\theta$)
+$$|t| = |p||E|sin\theta$$
+##### Potential Energy
+$$U = -pEcos\theta$$
+#### Molecules with no Intrinsic Electric Dipole
+Given spring constant $k$, elementary charge pair $q = \pm1.602 \times 10 ^{-19}$, and a given $\vec{E}$
+Force on charges $F = qE$ and $F=-qE$ respectively when in the electric field, creating a net stretching force.
+At equilibrium, $qE = k\Delta d$, where $\Delta d$ is the displacement from the natural bond strength. 
+
+$$\Delta d = \frac{qE}{k} = \frac{1.602\times 10 ^{-10}E}{k}$$
+##### Example:
+$q = 1.602 \times 10^{-19}$
+$k = 0.000643 N/m$
+$E = 7.35 \times 10 ^{5}$
+$d = ???$
+$$\Delta d = \frac{qE}{k} = \frac{(1.602\times 10 ^{-10})(7.35\times 10^{5})}{0.000643} = 1.83 \times 10^{-10}$$
+$$$$
 #### Electric Field Representation
 $$\vec{E} = k\frac{q}{r^2} \hat r$$
 We can imagine an electric field as a point with lines radiating out in all directions from the point.
@@ -176,5 +204,52 @@ Given flux of field lines through surfaces as below:
 ![[Pasted image 20260112212005.png]]
 We represent the flux as $\Phi  = \vec{E}\cdot\vec{A}$ when each surface is defined as a vector who's direction is perpendicular to the plane, and who's magnitude is equal to the surface area.
 
-#### Gauss's Law
+#### Electric Flux Through Surfaces
+##### General Definition (Any Surface)
+$$\Phi_E = \iint_S \vec{E} \cdot d\vec{A}$$
+where $\vec{E}$ is the electric field vector and $d\vec{A}$ is the differential area vector normal to the surface.
+##### Uniform Field, Flat Surface at Angle
+$$\Phi_E = \vec{E} \cdot \vec{A} = |\vec{E}||\vec{A}|\cos(\theta)$$
+where $\theta$ is the angle between $\vec{E}$ and the surface normal vector.
+##### Field Perpendicular to Surface
+$$\Phi_E = EA$$
+where the field is perpendicular to the surface area $A$ (special case: $\theta = 0°$).
+##### Field Parallel to Surface
+$$\Phi_E = 0$$
+The field is perpendicular to the surface normal (special case: $\theta = 90°$).
+##### Flat Plane Tilted at Angle $\theta$ to Field
+$$\Phi_E = EA\cos(\theta)$$
+where $\theta$ is measured between the field direction and the surface normal. The effective area is $A_{\text{eff}} = A\cos(\theta)$.
+##### Gauss's Law (Closed Surface)
+$$\Phi_E = \oint_S \vec{E} \cdot d\vec{A} = \frac{Q_{\text{enc}}}{\varepsilon_0}$$
+where $Q_{\text{enc}}$ is the total charge enclosed by the closed surface and $\varepsilon_0 = 8.854 \times 10^{-12}$ C²/(N·m²).
+##### Spherical Surface (Point Charge at Center)
+$$\Phi_E = \frac{Q}{\varepsilon_0}$$
+For a point charge $Q$ at the center of a spherical surface, independent of radius.
+##### Cylindrical Surface (Infinite Line Charge)
+$$\Phi_E = \frac{\lambda L}{\varepsilon_0}$$
+where $\lambda$ is linear charge density and $L$ is the length of the cylindrical surface (excluding end caps).
+##### Rectangular Box in Uniform Field (No Enclosed Charge)
+$$\Phi_E = 0$$
+For a uniform field with no enclosed charge, flux entering equals flux exiting.
+##### Rectangular Box with Field Perpendicular to End Faces
+$$\Phi_{\text{net}} = 0$$
+$$\Phi_{\text{one end}} = \pm E_0 WH$$
+where $W$ and $H$ are the width and height of the end face. 
 
+#### Example:
+A thin metallic spherical shell of radius $0.427m$ has a total charge of $5.53\times 10^{-6}C$ placed on it. A point charge of $3.15\times 10^{-6}C$ is placed at the center of the shell. What is the electric filed magnitude $E$ at a distance $0.735m$ from the center of the spherical shell?
+
+##### Solution using Gauss's Law
+$r = 0.735m$
+$\oint \vec{E} \cdot d\vec{A} = \frac{Q_{enclosed}}{\epsilon_o}$
+Due to spherical symmetry: $E(4\pi r^2) = \frac{Q_{enclosed}}{\epsilon_o}$
+The shell charge is included as an enclosed charge: $Q_{enclosed} = Q_{center} + Q_{shell} = 5.53\times 10^{-6} + 3.15\times 10^{-6} = 8.68\times 10^{-6}$
+$$E = \frac{Q_{enclosed}}{4\pi \epsilon_o r ^2} = k \frac{Q_{enclosed}}{r^2} = 8.99\times 10^9 \frac{8.68\times 10^{-6}}{(0.735)^2} = 1.44\times 10^5 N/C$$
+##### Solution using Coulombs Law
+1. E field contribution from the point charge at the center at $0.735m$ away from center:
+   $$\vec{E}_{center} = k\frac{q}{r^{2}} = 8.99\times 10^9 \frac{3.15\times 10^{-6}}{(0.735)^2} = 5.24\times10^{4}N/C$$
+2. E field contribution from the point charge at the shell, by the shell theorem, the charge on the shell acts as if concentrated at the center.
+   $$\vec{E}_{shell} = k\frac{q}{r^{2}} = 8.99\times 10^9 \frac{5.53\times 10^{-6}}{(0.735)^2} = 9.20\times10^{4}N/C$$
+3. Sum of the two fields:
+	$$\vec{E} = 5.24\times 10^4 + 9.20 \times 10^4 = 1.44 \times 10^5 N/C $$
