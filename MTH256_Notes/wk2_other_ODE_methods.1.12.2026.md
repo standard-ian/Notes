@@ -131,14 +131,14 @@ $\frac{dx}{dt} - \frac{1}{t}x = t$ **Linear**, **Non-homogeneous**, **Non-Consta
 
 #### Incorporating Linear Algebra
 Typically, we write the standard form of a first order ODE as:
-$$y' + p(t) y = q(t)$$ The corresponding, non-homogeneous equation is written (because the equation is homogeneous if the forcing function is 0):
+$$y' + p(t) y = q(t)$$The corresponding, non-homogeneous equation is written (because the equation is homogeneous if the forcing function is 0):
 $$y' + p(t)y = 0$$
 Any solution to the linear system $$A\vec{x} = \vec{b}$$ can be written as the sum of a homogeneous solution $\vec{x}_n$ such that $A\vec{x}_{n} = \vec{0}$. And a particular solution $\vec{x}_p$ such that $A\vec{x}_p = \vec{b}$.
 Since:
 $$A(\vec{x}_n + \vec{x}_p) = A\vec{x}_n + A\vec{x}_p = \vec{b} + \vec{0} = \vec{b}$$
 The same is true of linear ODEs! That is any homogeneous solution $y_n(t)$ to the equation:
-$$y'_n + p(t)Y_n = 0$$
-and any particular solution $y_p(t) that satisfies $y'_p + p(t)y_p = q(t)$ can be combined as $y(t) = y_n(t) + y_p(t)$ to form the solution of the linear ODE:
+$$y'_h + p(t)Y_h = 0$$
+and any particular solution $y_p(t) that satisfies $y'_p + p(t)y_p = q(t)$ can be combined as $y(t) = y_h(t) + y_p(t)$ to form the solution of the linear ODE:
 $$y' + p(t)y = q(t)$$
 If $p(t)$ is actually a constant, this whole process is relatively straightforward.
 
