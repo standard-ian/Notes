@@ -114,39 +114,25 @@ $$E = \frac{\rho \frac{4}{3} \pi R^3 + Q}{\epsilon_o(4\pi r^2)}$$
 A long, conductive cylinder of radius $R_1 = 3.20$ cm and uniform charge per unit length $\lambda = 151$ pC/m is coaxial with a long, cylindrical, nonconducting shell of inner and outer radii $R_2 = 11.2$ cm and $R_3 = 12.8$ cm, respectively. The cylindrical shell carries a uniform charge density of $\rho = 115$ pC/m³.
 ![[Pasted image 20260119134209.png]]
 Determine the magnitude $E(r)$ of the electric field at the given radial distances $r$ from the center of the charge distribution.
-
 $$Gauss's\ Law: \oint E\cdot dA = \frac{Q_{enclosed}}{\epsilon_o}$$
-
 For cylindrical symmetry, we use a Gaussian surface of radius $r$ and length $L$. The electric field is radial and constant at radius $r$:
 $$E(2\pi r L) = \frac{Q_{enclosed}}{\epsilon_o}$$
-
 The electric flux through a closed cylindrical surface equals the enclosed charge divided by the electric permittivity constant. Therefore:
 $$E = \frac{Q_{enclosed}}{2 \pi r L\epsilon_o}$$
-
 For a cylinder, we work with charge per unit length. The enclosed charge is $Q_{enclosed} = q_{enclosed} \times L$, where $q_{enclosed}$ is the charge per unit length enclosed.
-
 ###### Region 1: Inside the Conductive Cylinder
 ($r < R_1 = 3.20$ cm)
-
 Inside a conductor in electrostatic equilibrium, the electric field is zero. All charge resides on the surface.
-
 $$E = 0\ N/C$$
-
 ###### Region 2: Between Cylinder and Shell
 ($R_1 < r < R_2$, i.e., $3.20$ cm $< r < 11.2$ cm)
-
 The Gaussian surface encloses the entire inner cylinder's charge per unit length:
 $$q_{enclosed} = \lambda = 151 \times 10^{-12}\ C/m$$
-
 $$E(2\pi r L) = \frac{\lambda L}{\epsilon_o}$$
-
 $$E = \frac{\lambda L}{2\pi r L\epsilon_o} = \frac{\lambda}{2\pi r\epsilon_o}$$
-
 Field decreases as $\frac{1}{r}$ (characteristic of infinite line charge).
-
 ###### Region 3: Inside the Nonconducting Shell
 ($R_2 < r < R_3$, i.e., $11.2$ cm $< r < 12.8$ cm)
-
 The Gaussian surface encloses:
 - Inner cylinder charge per unit length: $\lambda = 151 \times 10^{-12}$ C/m
 - Portion of the shell from $R_2$ to $r$
@@ -154,16 +140,11 @@ The Gaussian surface encloses:
 For the shell portion, calculate charge per unit length:
 - Volume per unit length of shell from $R_2$ to $r$: $V/L = \pi(r^2 - R_2^2)$
 - Charge per unit length from shell: $q_{shell} = \rho \cdot \pi(r^2 - R_2^2)$
-
 $$q_{enclosed} = \lambda + \rho\pi(r^2 - R_2^2)$$
-
 $$E(2\pi r L) = \frac{[\lambda + \rho\pi(r^2 - R_2^2)]L}{\epsilon_o}$$
-
 $$E = \frac{\lambda + \rho\pi(r^2 - R_2^2)}{2\pi r\epsilon_o}$$
-
 ###### Region 4: Outside the Shell
 ($r > R_3 = 12.8$ cm)
-
 The Gaussian surface encloses:
 - Inner cylinder: $\lambda = 151 \times 10^{-12}$ C/m
 - Entire shell from $R_2$ to $R_3$
@@ -173,24 +154,52 @@ $$q_{shell} = \rho \cdot \pi(R_3^2 - R_2^2)$$
 $$q_{shell} = 115 \times 10^{-12} \cdot \pi[(0.128)^2 - (0.112)^2]$$
 $$q_{shell} = 115 \times 10^{-12} \cdot \pi[0.0164 - 0.0125]$$
 $$q_{shell} = 115 \times 10^{-12} \cdot \pi(0.0039) = 1.41 \times 10^{-12}\ C/m$$
-
 Total enclosed charge per unit length:
 $$q_{enclosed} = \lambda + q_{shell} = 151 \times 10^{-12} + 1.41 \times 10^{-12} = 152.41 \times 10^{-12}\ C/m$$
-
 $$E = \frac{\lambda + \rho\pi(R_3^2 - R_2^2)}{2\pi r\epsilon_o}$$
-
 ###### Calculations:
 
-**$E(1.95$ cm$)$:** Region 1, inside conductor
+$E(1.95$ cm$)$: Region 1, inside conductor
 $$E = 0\ N/C$$
-
-**$E(9.76$ cm$)$:** Region 2, between cylinder and shell ($r = 0.0976$ m)
+$E(9.76$ cm$)$: Region 2, between cylinder and shell ($r = 0.0976$ m)
 $$E = \frac{151 \times 10^{-12}}{2\pi(0.0976)(8.85 \times 10^{-12})} = \frac{151 \times 10^{-12}}{5.43 \times 10^{-12}} = 27.8\ N/C$$
-
-**$E(12.0$ cm$)$:** Region 3, inside shell ($r = 0.120$ m)
+$E(12.0$ cm$)$: Region 3, inside shell ($r = 0.120$ m)
 $$E = \frac{151 \times 10^{-12} + 115 \times 10^{-12} \cdot \pi[(0.120)^2 - (0.112)^2]}{2\pi(0.120)(8.85 \times 10^{-12})}$$
 $$E = \frac{151 \times 10^{-12} + 115 \times 10^{-12} \cdot \pi(0.00144 - 0.01254)}{6.67 \times 10^{-12}}$$
 $$E = \frac{151 \times 10^{-12} + 0.363 \times 10^{-12}}{6.67 \times 10^{-12}} = 22.7\ N/C$$
-
-**$E(18.9$ cm$)$:** Region 4, outside shell ($r = 0.189$ m)
+$E(18.9$ cm$)$: Region 4, outside shell ($r = 0.189$ m)
 $$E = \frac{152.41 \times 10^{-12}}{2\pi(0.189)(8.85 \times 10^{-12})} = \frac{152.41 \times 10^{-12}}{10.51 \times 10^{-12}} = 14.5\ N/C$$
+## Class 2
+#### Electric Potential Energy
+1. Work done by a Coulomb force on an object is independent of the path, making it a conservative force.
+2. A charged particle's velocity can be calculated as it is released and affected by another charge.
+
+Conservative Forces: Work only depends on initial and final positions.
+
+#### Work Done to Move a Charge
+Because two repelling charges have a force that decreases as they travel away, an integral is needed to determine the work done.
+$$F_{E} = \frac{1}{4\pi \epsilon_0}\frac{q_1q_2}{r^2}\hat{r}$$
+$$W_{A\to B} = \int_{r_A}^{r_B}\vec{F}\cdot d\vec{r}$$
+Because the vectors $\vec{F}$ and $d\vec{r}$ are both in the same direction, the above can be re-written as: $W_{A\to B} = \int_{r_A}^{r_B}\vec{F} d\vec{r}$
+And combining the equations yields:
+$$W_{A\to B} =\int_{r_A}^{r_B}\frac{1}{4\pi \epsilon_0}\frac{q_1q_2}{r^2}  dr = \frac{q_1q_2}{4\pi \epsilon_0}\int_{r_A}^{r_B}\frac{1}{r^2}  dr = \frac{q_1q_2}{4\pi \epsilon_0}(\frac{1}{r_A}-\frac{1}{r_B})$$
+#### Potential Energy
+Because a charge movement is conservative, a charge's displacement, no matter the path, produces some potential ener:wgy.
+$$U_r\equiv \Delta U_{\infty_r} = \frac{q_1q_2}{4\pi\epsilon_0r}$$
+If the charges have the same sign, the forces are repulsive and the potential energy is positive.
+If they have opposite signs, the forces are attractive, and the potential energy is negative.
+The closer the charges are, the larger the magnitude of the electric potential energy.
+
+#### Example
+Calculate $v(x)$ the velocity of particle 2 as a result of the repulsive force from particle 1 as it travels an increasing distance $x$ from particle 1.
+$$ \frac{q_1q_2}{4\pi \epsilon_0}(\frac{1}{x_{initial}}-\frac{1}{x_{final}}) = U_{initial} - U_{final}  = K_{final} = \frac{1}{2}m_2v^2$$
+
+$$v = \sqrt{\frac{q_1q_2}{2\pi \epsilon_0m_2}(\frac{1}{x_{initial}}-\frac{1}{x_{final}})}$$
+#### Potential Of Electric Field of System of Charged Particles
+**Given 3 particles separated by equal distances:**
+1. Positioning particle 1 takes no energy: $\Delta U_1 = 0$
+2. Particle 2 takes $k\frac{q_1q_2}{d}$
+3. Particle 3 $k\frac{q_1q_3}{d}+k\frac{q_1q_3}{d}$
+So the entire system: $U_{system} =k\frac{q_1q_2}{d}+k\frac{q_1q_3}{d}+k\frac{q_1q_3}{d}$ 
+
+$$U_{system} = k\Sigma_{i < j} \frac{q_1q_2}{r_ij}$$
