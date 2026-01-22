@@ -1,3 +1,4 @@
+## Homework 1
  1. An RL circuit is given below. The inductor is connected to a switch, which can be switched between nodes $A$ and $B$. First, the switch has been at position $A$ for a long time, being powered by the $20V$ battery, when it is switched to position $B$. That time is marked as $t=0$. 
 	1. Before the switch is moved to position B, the inductor has been reached a steady state, and the current and voltage are at a stable maximum.
 	2. After the switch moves to $B$,  for time $t \ge 0$ the inductor, there will no longer be a voltage supplied to the inductor, and it will release energy countering the drop in current (transient response), rapidly at first until eventually reaching $0V$ (steady state) at the positive terminal of the inductor.

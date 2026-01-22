@@ -3,6 +3,23 @@
 $$\oint \vec{E}\cdot d\vec{A} = \frac{q_{enclosed}}{\epsilon_o}$$
 **The total flux that passes through any enclosed surface is proportional to the electric charge enclosed by that surface.**
 
+#### Calculating Flux Example
+The electric flux $\Phi$ is the amount of electric field that "passes through" a surface area $A$. If the surface is flat, and the electric field is uniform, the electric flux is given by:
+$$\Phi = \vec{E}\cdot \vec{A} = |\vec{E}||\vec{A}|cos\theta$$
+Where $\theta$ is the angle of the flux relative to area vector $\vec{A}$, which is "normal to" (perpendicular) the surface, with a magnitude equal to the area.
+When the field is parallel the expression is $|\vec{E}||\vec{A}|cos90^\circ = |\vec{E}||\vec{A}|0 = 0$ 
+
+###### Specific Example
+In a region, there exists a uniform electric field given by $\vec{E} = 3.2\times 10^4 \frac{N}{C}\hat{j}$. If a square with 1.2m edges is placed in the field so that $\vec{A}$ is $60^\circ$ CCW from the $+x$-axis. What is the flux?
+
+The field has only a $+\hat{j}$ or positive $y$ component, so it points up, at a $30^\circ$ angle with $\vec{A}$.
+$$\vec{E}\cdot\vec{A} = EA cos\theta = (3.2\times 10^{4}\frac{N}{C})(1.2m)^2cos30^\circ = 4.0\times 10^4 \frac{Nm^2}{C}$$
+###### Relating to $\oint\vec{E}\cdot d\vec{A}$
+If the electric field were not uniform, or the surface was curved or irregular, we'd need to integrate the flux at many small points to get the flux through the entire surface.
+
+This integral is usually quite ridiculous. We'll simplify to these special cases:
+1. The electric field strength is constant and tangent to the surface everywhere ($\theta = 0^\circ$)
+2. The electric field strength is constant and perpendicular to the surface everywhere ($\theta = 90^\circ$)
 #### Solid Insulator
 Given Charge = $Q$, radius = $a$, Charge Density ($\rho = \frac{Q}{\frac{4}{3}\pi a^3}$)$
 ###### Electric Field Outside the Gaussian Shell
