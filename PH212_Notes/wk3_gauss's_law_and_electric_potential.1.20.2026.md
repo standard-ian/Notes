@@ -186,6 +186,51 @@ $$E = \frac{151 \times 10^{-12} + 115 \times 10^{-12} \cdot \pi(0.00144 - 0.0125
 $$E = \frac{151 \times 10^{-12} + 0.363 \times 10^{-12}}{6.67 \times 10^{-12}} = 22.7\ N/C$$
 $E(18.9$ cm$)$: Region 4, outside shell ($r = 0.189$ m)
 $$E = \frac{152.41 \times 10^{-12}}{2\pi(0.189)(8.85 \times 10^{-12})} = \frac{152.41 \times 10^{-12}}{10.51 \times 10^{-12}} = 14.5\ N/C$$
+#### Example
+Derive the equation for the electric field inside and outside a non-conducting sphere with charge $+Q$ uniformly distributed throughout the sphere.
+What is the charge density $\rho$? $\rho = \frac{Q}{V}$
+Exploit the symmetry of the charge distribution. If the charge distribution is spherically symmetric, the electric field is in the radial direction. 
+In this case, since the charge is positive, **$\color{orange}\vec{E}$ points radially outwards.**
+##### Outside the Sphere
+1. Choose a Gaussian surface: sphere with radius $R$
+2. $\oint \vec{E}\cdot d\vec{A} = \frac{Q_{enclosed}}{\epsilon_0}$
+3. The electric flux $\oint \vec{E} \cdot d\vec{A}$ is just $\oint\vec{E}d\vec{A}$ because the angle $\theta$ is just $0$ and $cos(0)$ is just $1$
+4. The electric flux just becomes $E$ times the area of a sphere $4\pi r^2$ or $E4\pi r^2$
+5. $E4\pi r^2 = \frac{Q_{enclosed}}{\epsilon_0}$
+6. $E = \frac{Q}{4\pi \epsilon_0 r^2} = \frac{kQ}{r^2}$
+7. 
+$$E = \frac{Q}{4\pi\epsilon_0r^2}\ for\ r \geq R$$
+##### Inside the Sphere
+1. Chose the same Gaussian surface.
+2. $\oint \vec{E}\cdot d\vec{A} = \frac{Q_{enclosed}}{\epsilon_0}$
+3. The electric flux $\oint \vec{E} \cdot d\vec{A}$ is just $\oint\vec{E}d\vec{A}$ because the angle $\theta$ is just $0$ and $cos(0)$ is just $1$
+4. The electric flux just becomes $E$ times the area of a sphere $4\pi r^2$ or $E4\pi r^2$
+5. What is $Q_{enclosed}$? It is not just Q enclosed when we are **inside** the sphere. It will be $Q_{enclosed}=\rho V_r = \rho(\frac{4}{3}\pi r^3)$
+6. $\rho = \frac{Q}{V} = \frac{Q}{\frac{4}{3}\pi R^3}$ 
+7. So, $Q_{enclosed} = \frac{Q}{\frac{4}{3}\pi R^3}(\frac{4}{3}\pi r^3)=\frac{Qr^3}{\epsilon_0R^3}$
+8. Gauss's Law equation becomes: $E4\pi r^2 =  \frac{Qr^3}{\epsilon_0R^3}$
+9. $E = \frac{Qr^3}{4\pi \epsilon_0 r^2R^3} = \frac{Qr}{4\pi \epsilon_0 R^3}$
+10. $$E = \frac{Qr}{4\pi \epsilon_0 R^3}\ for\ r \leq R$$
+![[Pasted image 20260122113227.png]]
+
+#### Conductors in Electrostatic Equilibrium
+For a conductor in equilibrium, the electric field in the conductor must be 0.
+This means there is no flux on the interior of the conductor, and the charge must be 0 inside as well.
+The excess charge **must** therefor lie on the surface, this is always the case for conductors.
+
+If the conductor is in equilibrium, it cannot have charges moving along (tangent to) its surface, so the excess $\vec{E}$ on the surface, must be pointing perpendicularly, or radially outwards on a sphere.
+
+Generally, for a conductive cylinder, choose a Gaussian surface of a cylinder small enough so that $\vec{E}$ is perpendicular to the outer face. 
+The inner face is just inside the surface, so it gets 0 flux by the properties of conductors.
+The side faces will be parallel to $\vec{E}$, and will also receive no flux.
+
+The flux becomes $\int_{outer} \vec{E}\cdot d\vec{A} = EA_{outer}$ 
+Gauss's Law becomes:
+$$EA_{outer} = \frac{Q_{enclosed}}{\epsilon_0}$$
+$Q_{enclosed} = \sigma A_{outer}$ where $\sigma$ is the charge density of a conductor, which must be on the surface. Then, $A_{outer} cancels.
+This is good, because the area we used is an arbitrary property of the Gaussian Surface, subject to change.
+$$EA_{outer} = \frac{\sigma A_{outer}}{\epsilon_0}\to E = \frac{\sigma}{\epsilon_0}$$
+$\sigma$ may change along the surface, but this equation still holds.
 ## Class 2
 #### Electric Potential Energy
 1. Work done by a Coulomb force on an object is independent of the path, making it a conservative force.
