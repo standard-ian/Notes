@@ -1,11 +1,6 @@
 {
-  "monospaceFontFamily": "Source Code Pro",
-  "baseFontSize": 21,
-  "theme": "system",
-  "accentColor": "#e2ab12",
   "cssTheme": "Obsidian gruvbox",
-  "baseFontSizeAction": true,
-  "enabledCssSnippets": [
-    "desmos-dark"
-  ]
+  "baseFontSize": 19,
+  "accentColor": "#f5b80f",
+  "theme": "obsidian"
 }
