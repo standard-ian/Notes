@@ -1153,7 +1153,4 @@ Learning that diode circuits can convert AC voltage source into DC.
 \end{document}
 
 ```
-```tikz
-
-```
 
