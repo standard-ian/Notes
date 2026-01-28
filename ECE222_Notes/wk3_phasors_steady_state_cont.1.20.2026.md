@@ -273,5 +273,6 @@ So, for inductors, the **complex impedance** of the inductor is $j\omega L$, and
 $$\color{orange}\tilde{V}_L  = j\omega L \tilde{I}_L$$
 Which parallels Ohm law, $V=I\cdot R$
 At steady state, complex numbers really simplify AC signals!
+$$Z_L = \frac{\tilde{V}_L}{\tilde{I}_L} = j\omega L$$
 
 
