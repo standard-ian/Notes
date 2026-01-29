@@ -82,10 +82,10 @@ If there are more than two charges present, the total force on any given charge 
 Given multiple charges in a field:
 $$\vec{F}_1 = \vec{F}_{2,1} + \vec{F}_{3,1} + \vec{F}_{4,1}$$
 ##### Example: Superposition of Coulomb's Force in 2D
-Charges $q_1, q_2, and q_3 are arranged as shown. Find the magnitude and direction (angle measured counter clock-wise from the $+x$ direction) of the net Coulomb force on $q_3$
+Charges $q_1, q_2$, and $q_3$ are arranged as shown. Find the magnitude and direction (angle measured counter clock-wise from the $+x$ direction) of the net Coulomb force on $q_3$
 ![[Pasted image 20260108115544.png]]
 ###### Initial Setup
-1. Due to superposition, $\vec{F}_3$ is the sum of the forces $\vec{F}_{1,3} + \vec{F}_{23}$ 
+1. Due to superposition, $\vec{F}_3$ is the sum of the forces $\vec{F}_{13} + \vec{F}_{23}$ 
 2. Keeping in mind the signs of the charges, draw the Coulomb forces $\vec{F}_{1,3}$ and $\vec{F}_{23}$ 
 3. Draw the net force $\vec{F}_{3}$ and label the angle $\phi$ measured counter clock-wise from the  $+x$ direction
 ###### Break into $x$ and $y$ components

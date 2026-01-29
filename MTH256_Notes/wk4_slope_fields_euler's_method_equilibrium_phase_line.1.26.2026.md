@@ -34,3 +34,30 @@ $$\int_{t_l}^{t_{k+1}}y'(t)dt = Area\ Under\ the\ Curve$$
 Euler's Method uses the left endpoint rule, basically, to estimate the area under the curve.
 
 Because Euler's method moves stepwise, the total error accumulates.
+## Class 2
+#### 1.6 Equilibrium and Phase Line
+In this section, we will focus on **autonomous** equations. Equations in the form:
+$$y' = f(y)$$
+Recall that equilibrium points (EQ points or fixed points) are those values for which $f(y) = 0$.
+
+For example, the equation $\frac{dy}{dt} = (1-y)y$ has the points, namely $y=0,1$
+
+Plotting $\frac{dy}{dt}$ vs $y$ we see a downward facing parabola, crossing the $y$ (horizontal) axis at 0 and 1.
+
+In this case:
+$\frac{dy}{dt} < 0$ if $y > 1$ or $y < 0$
+$\frac{dy}{dt}> 0$ if $0 < y < 1$
+
+This can all be shown on one simple plot, called the phase line.
+![[Pasted image 20260128155635.png]]
+On the phase line, indicate positive derivatives w/ up arrows, negative derivatives with down arrows, and label the EQ points.
+
+Open circles - nearby solutions move away.
+Closed circles - all nearby solutions move in.
+
+We can use a phase line to go to a slope field, then qualitative solutions.
+#### Classification of EQ Points
+We classify EQ points in terms of their asymptotic behavior or the behavior of solutions near the point $t \to \infty$.
+1. Sink (Stable): Nearby solutions are attracted to the EQ point. Slope of $f(y)$is negative
+2. Source (Unstable): Nearby solutions are repelled. Slope of $f(y)$ is positive.
+3. Node (Semi-Stable/Saddle-Point): Solutions attracted on one side, repelled on the other. Slope of $f(y)$ is 0.
