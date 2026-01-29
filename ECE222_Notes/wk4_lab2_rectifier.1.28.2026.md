@@ -107,7 +107,6 @@ We can see from the results, that the capacitor discharges quite a bit, maybe no
 For a large capacitor, $\tau$ is much larger, equal to $1$ actually for the $1000\micro F$ capacitor. 
 In this case, $e^{-16\times 10^3}$ is considerably less than $e^{-5}$ so the capacitor's positive voltage discharges a lot slower, leading to a more stable, better rectified constant, nearly DC signal at around $7.5$ to $8V$.
 
-
 ###### Prediction for $47\micro F$ Capacitor
 I'd predict that the waveform at $V_{out}$ with the $47\micro F$ cap will be a similar sawtooth with approximately 1/10th the magnitude of the $470\micro F$ cap.
 ###### Current with $1\ohm$ :
@@ -119,7 +118,7 @@ I'd predict that the waveform at $V_{out}$ with the $47\micro F$ cap will be a s
 	\draw(0,0)
 	to[sV, l = $V_{ac}$]++(0,2)
 	to[diode]++(1,0)
-	to[R=$10\Omega$, i>_=$13.5mA$]++(2,0)--++(1,0)
+	to[R=$10\Omega$, i>_=$i_{diode}$]++(2,0)--++(1,0)
 	to[capacitor, l=$C$]++(0,-2)--++(-1,0)++(1,2)--++(1,0)
 	node[ocirc, label=right:$v_{out}$]{}--++(-2,0)
 	to[R=$1k\Omega$]++(0,-2)--++(-3,0)++(3,0)
@@ -128,7 +127,19 @@ I'd predict that the waveform at $V_{out}$ with the $47\micro F$ cap will be a s
 \end{document}
 ```
 
-I didn't have a $1\ohm$ resistor, and used a $10\ohm$ resistor instead.
+I didn't have a $1\ohm$ resistor, and used a $10\ohm$ resistor instead. This resistor is in series with the diode and therefore sees the same current as it.
+
+The voltage drop across the $10\ohm$ resistor is divided by $10$ to give the current through the diode and the resistor. We'd expect around $0.841V$ to drop across the diode (forward voltage), leaving about $9.159V$ to drop across the $10$ and $1k\ohm$ resistors in series.
+
+The voltage drop across the $10\ohm$ should be $9.159 \times \frac{10}{1010} = 0.0907V$, and then the current can be estimated as $\frac{0.0907V}{10\ohm} = 9.07\times 10^{-3}A = 9.07mA$ 
+
+This needs to be done, because after the diode, the voltage and current are being clipped by the diode properties (i.e there is no negative half of the wave). Because of this neither a DC or AC meter could accurately measure the current or voltage, and the scope does not yield an accurate measurement in current probe mode.
+
+We must put a small resistor in and measure the voltage, ideal if the resistor is $1\ohm$ because the voltage drop across it will also be the current.
+($\frac{V_{measured}}{1\ohm} = V_{measured} = i_{diode}$).
+
+On the scope, a $0.1\times$ attenuation was applied, to offset the fact that the resistor used was $10\ohm$ not $1\ohm$. However, something is still not right, maybe the wrong resistor (mistakenly a $1k\ohm$) was used because the current is still off by about 2 order of magnitude.
+
 #### Simulation
 ##### Circuit 2
 ######  $1000k\ohm$ Resistor
