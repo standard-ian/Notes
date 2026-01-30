@@ -166,7 +166,7 @@ node[ground, scale=2]{};
 \end{document}
 ```
 ##### Part 2
-![[Pasted image 20260114161250.png]]
+![[lab1_c2.png]]
 
 #### Conclusion
 Comparison of the two approaches to find the $i-v$ relationship
