@@ -109,7 +109,7 @@ In this case, $e^{-16\times 10^3}$ is considerably less than $e^{-5}$ so the cap
 
 ###### Prediction for $47\micro F$ Capacitor
 I'd predict that the waveform at $V_{out}$ with the $47\micro F$ cap will be a similar sawtooth with approximately 1/10th the magnitude of the $470\micro F$ cap.
-###### Current with $1\ohm$ :
+###### Current with $10\ohm$ :
 ![[lab2_c2_10ohm.jpg]]
 ```tikz
 \usepackage{circuitikz}
@@ -140,6 +140,9 @@ We must put a small resistor in and measure the voltage, ideal if the resistor i
 
 On the scope, a $0.1\times$ attenuation was applied, to offset the fact that the resistor used was $10\ohm$ not $1\ohm$. However, something is still not right, maybe the wrong resistor (mistakenly a $1k\ohm$) was used because the current is still off by about 2 order of magnitude.
 
+###### Revisiting with $1\ohm$ 
+![[lab2_c2_1ohm.jpg]]
+When the circuit was re-constructed with the originally prescribed $1\ohm$, the measured peak current through it (and the diode) was $\frac{0.20002V}{1\ohm} = 200mA$. 
 #### Simulation
 ##### Circuit 2
 ######  $1000k\ohm$ Resistor
