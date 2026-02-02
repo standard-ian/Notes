@@ -110,7 +110,7 @@ In this case, $e^{-16\times 10^3}$ is considerably less than $e^{-5}$ so the cap
 ###### Prediction for $47\micro F$ Capacitor
 I'd predict that the waveform at $V_{out}$ with the $47\micro F$ cap will be a similar sawtooth with approximately 1/10th the magnitude of the $470\micro F$ cap.
 ###### Current with $1\ohm$ :
-![[lab2_c1_002.jpg]]
+![[lab2_c2_10ohm.jpg]]
 ```tikz
 \usepackage{circuitikz}
 \begin{document}
