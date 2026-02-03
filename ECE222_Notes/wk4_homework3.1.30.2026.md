@@ -40,70 +40,95 @@ Consider the RC circuits $A$ and $B$ with a range of frequencies $100Hz < f < 10
  $Z_R = R = 10k\ohm$
  $Z_C = \frac{1}{j\omega C} = \frac{1}{j\omega 10^{-8}}$
  
- Circuit A
+#### Circuit A
  $$\tilde{V}_{out} = \tilde{V}_{in}\frac{Z_R}{Z_R + Z_C}$$
 $$\frac{\tilde{V}_{out}}{\tilde{V}_{in}} = \frac{Z_R}{Z_R + Z_C} = \frac{R}{R + \frac{1}{j\omega C}} = \frac{j\omega C R}{1 + j\omega C R} = \frac{j\omega C R(1- j\omega CR)}{(1+ j\omega C R)(1- j\omega CR)} = \frac{j\omega CR - (j\omega CR)^2}{1 -(j\omega CR)^2 }$$
  $$= \frac{j\omega RC - j^2(\omega R C)^2}{1 - j^2(\omega R C)^2} = \frac{j\omega RC - (-1(\omega RC)^2)}{1 - (-(\omega RC)^2)} = \frac{j\omega RC + (\omega RC)^2}{ 1 + (\omega RC)^2}$$
- Circuit B
-$$\tilde{V}_{out} = V _{in}\frac{Z_C}{Z_R + Z_C}$$
+#### Circuit B
+$$\tilde{V}_{out} = \tilde{V}_{in}\frac{Z_C}{Z_R + Z_C}$$
 $$\frac{\tilde{V}_{out}}{\tilde{V}_{in}} = \frac{Z_C}{Z_R + Z_C} = \frac{\frac{1}{j\omega C}}{\frac{1}{j\omega C} + R} =\frac{(j\omega C)\frac{1}{j\omega C}}{(j\omega C)\frac{1}{j\omega C} + R}  = \frac{1}{1 + j\omega RC} =$$
 $$=\frac{1(1 - j\omega RC)}{(1 + j\omega RC)(1 - j\omega RC)} = \frac{1- j\omega RC}{1 + (\omega RC)^2}$$
 
-1. Find the amplitude ratio and the phase difference at these particular frequencies.
-	1. $100Hz$
-		1. Circuit A:
-			1. $\frac{\tilde{V}_{out}}{\tilde{V}_{in}} = \frac{(j200\pi \cdot 10000 \cdot 10^{-8}) + (200\pi \cdot 10000 \cdot 10^{-8})^2}{1 + (200\pi \cdot 10000 \cdot 10^{-8})^2} = \frac{0.003948}{1.003948}  + \frac{j0.0628}{1.003948} = 0.00393 + j0.0626$
-			2. $|H| = |\frac{\tilde{V}_{out}}{\tilde{V}_{in}}| = \sqrt{(0.00393)^2+(0.0626)^2} = 0.0627$
-			3. $\angle H  =\arctan(\frac{0.0626}{0.00383}) = 86.4^\circ$ 
-		2. Circuit B:
-			1. $\frac{\tilde{V}_{out}}{\tilde{V}_{in}} = \frac{1- (j200\pi \cdot 10000 \cdot 10^{-8})}{1 + (200\pi \cdot 10000 \cdot 10^{-8})^2} = \frac{1}{1.003948} + \frac{-j0.0628}{1.003948} = 0.9961 -j0.0626$
-			2. $|H| = |\frac{\tilde{V}_{out}}{\tilde{V}_{in}}| = \sqrt{(0.9961)^2+(-0.0626)^2} = 0.998$
-			3. $\angle H  =\arctan(\frac{-0.0626}{0.9961}) = -3.60^\circ$ 
+#### 1.
+Find the amplitude ratio and the phase difference at these particular frequencies.
+##### $100Hz$
+###### Circuit A:
+1. $\frac{\tilde{V}_{out}}{\tilde{V}_{in}} = \frac{(j200\pi \cdot 10000 \cdot 10^{-8}) + (200\pi \cdot 10000 \cdot 10^{-8})^2}{1 + (200\pi \cdot 10000 \cdot 10^{-8})^2} = \frac{0.003948}{1.003948}  + \frac{j0.0628}{1.003948} = 0.00393 + j0.0626$
+2. $|H| = |\frac{\tilde{V}_{out}}{\tilde{V}_{in}}| = \sqrt{(0.00393)^2+(0.0626)^2} = 0.0627$
+3. $\angle H  =\arctan(\frac{0.0626}{0.00383}) = 86.4^\circ$ 
+###### Circuit B:
+1. $\frac{\tilde{V}_{out}}{\tilde{V}_{in}} = \frac{1- (j200\pi \cdot 10000 \cdot 10^{-8})}{1 + (200\pi \cdot 10000 \cdot 10^{-8})^2} = \frac{1}{1.003948} + \frac{-j0.0628}{1.003948} = 0.9961 -j0.0626$
+2. $|H| = |\frac{\tilde{V}_{out}}{\tilde{V}_{in}}| = \sqrt{(0.9961)^2+(-0.0626)^2} = 0.998$
+3. $\angle H  =\arctan(\frac{-0.0626}{0.9961}) = -3.60^\circ$ 
 
-2. $25\text{kHz}$
-		1. Circuit A:
-			1. $\frac{\tilde{V}_{out}}{\tilde{V}_{in}} = \frac{(j \cdot 2\pi \cdot 25000 \cdot 10000 \cdot 10^{-8}) + (2\pi \cdot 25000 \cdot 10000 \cdot 10^{-8})^2}{1 + (2\pi \cdot 25000 \cdot 10000 \cdot 10^{-8})^2} = \frac{246.740}{247.740}  + \frac{j15.708}{247.740} = 0.9960 + j0.0634$
-			2. $|H| = |\frac{\tilde{V}_{out}}{\tilde{V}_{in}}| = \sqrt{(0.9960)^2+(0.0634)^2} = 0.9980$
-			3. $\angle H  =\arctan(\frac{0.0634}{0.9960}) = 3.64^\circ$ 
-		2. Circuit B:
-			1. $\frac{\tilde{V}_{out}}{\tilde{V}_{in}} = \frac{1- (j \cdot 2\pi \cdot 25000 \cdot 10000 \cdot 10^{-8})}{1 + (2\pi \cdot 25000 \cdot 10000 \cdot 10^{-8})^2} = \frac{1}{247.740} + \frac{-j15.708}{247.740} = 0.00404 -j0.0634$
-			2. $|H| = |\frac{\tilde{V}_{out}}{\tilde{V}_{in}}| = \sqrt{(0.00404)^2+(-0.0634)^2} = 0.0635$
-			3. $\angle H  =\arctan(\frac{-0.0634}{0.00404}) = -86.36^\circ$
+##### $25\text{kHz}$
+###### Circuit A:
+1. $\frac{\tilde{V}_{out}}{\tilde{V}_{in}} = \frac{j5\pi + (5\pi)^2}{1 + (5\pi)^2} = \frac{246.740}{247.740}  + \frac{j15.708}{247.740} = 0.9960 + j0.0634$
+2. $|H| = |\frac{\tilde{V}_{out}}{\tilde{V}_{in}}| = \sqrt{(0.9960)^2+(0.0634)^2} = 0.9980$
+3. $\angle H  =\arctan(\frac{0.0634}{0.9960}) = 3.64^\circ$ 
+###### Circuit B:
+1. $\frac{\tilde{V}_{out}}{\tilde{V}_{in}} = \frac{1- (j5\pi)}{1 + (5\pi)^2} = \frac{1}{247.740} + \frac{-j15.708}{247.740} = 0.00404 -j0.0634$
+2. $|H| = |\frac{\tilde{V}_{out}}{\tilde{V}_{in}}| = \sqrt{(0.00404)^2+(-0.0634)^2} = 0.0635$
+3. $\angle H  =\arctan(\frac{-0.0634}{0.00404}) = -86.36^\circ$
 
-3. $50\text{kHz}$
-	2. Circuit A:
-		1. $\frac{\tilde{V}_{out}}{\tilde{V}_{in}} = \frac{(j \cdot 2\pi \cdot 50000 \cdot 10000 \cdot 10^{-8}) + (2\pi \cdot 50000 \cdot 10000 \cdot 10^{-8})^2}{1 + (2\pi \cdot 50000 \cdot 10000 \cdot 10^{-8})^2} = \frac{986.960}{987.960}  + \frac{j31.416}{987.960} = 0.9990 + j0.0318$
-		2. $|H| = |\frac{\tilde{V}_{out}}{\tilde{V}_{in}}| = \sqrt{(0.9990)^2+(0.0318)^2} = 0.9995$
-		3. $\angle H  =\arctan(\frac{0.0318}{0.9990}) = 1.82^\circ$ 
-	3. Circuit B:
-		1. $\frac{\tilde{V}_{out}}{\tilde{V}_{in}} = \frac{1- (j \cdot 2\pi \cdot 50000 \cdot 10000 \cdot 10^{-8})}{1 + (2\pi \cdot 50000 \cdot 10000 \cdot 10^{-8})^2} = \frac{1}{987.960} + \frac{-j31.416}{987.960} = 0.00101 -j0.0318$
-		2. $|H| = |\frac{\tilde{V}_{out}}{\tilde{V}_{in}}| = \sqrt{(0.00101)^2+(-0.0318)^2} = 0.0318$
-		3. $\angle H  =\arctan(\frac{-0.0318}{0.00101}) = -88.18^\circ$
+##### $50\text{kHz}$
+###### Circuit A:
+1. $\frac{\tilde{V}_{out}}{\tilde{V}_{in}} = \frac{(j10\pi + (10\pi)^2}{1 + (10\pi)^2} = \frac{986.960}{987.960}  + \frac{j31.416}{987.960} = 0.9990 + j0.0318$
+2. $|H| = |\frac{\tilde{V}_{out}}{\tilde{V}_{in}}| = \sqrt{(0.9990)^2+(0.0318)^2} = 0.9995$
+3. $\angle H  =\arctan(\frac{0.0318}{0.9990}) = 1.82^\circ$ 
+###### Circuit B:
+1. $\frac{\tilde{V}_{out}}{\tilde{V}_{in}} = \frac{1- j 10\pi}{1 + (10\pi)^2} = \frac{1}{987.960} + \frac{-j31.416}{987.960} = 0.00101 -j0.0318$
+2. $|H| = |\frac{\tilde{V}_{out}}{\tilde{V}_{in}}| = \sqrt{(0.00101)^2+(-0.0318)^2} = 0.0318$
+3. $\angle H  =\arctan(\frac{-0.0318}{0.00101}) = -88.18^\circ$
 
-4. $75\text{kHz}$
-	2. Circuit A:
-		1. $\frac{\tilde{V}_{out}}{\tilde{V}_{in}} = \frac{(j \cdot 2\pi \cdot 75000 \cdot 10000 \cdot 10^{-8}) + (2\pi \cdot 75000 \cdot 10000 \cdot 10^{-8})^2}{1 + (2\pi \cdot 75000 \cdot 10000 \cdot 10^{-8})^2} = \frac{2220.66}{2221.66}  + \frac{j47.124}{2221.66} = 0.9996 + j0.0212$
-		2. $|H| = |\frac{\tilde{V}_{out}}{\tilde{V}_{in}}| = \sqrt{(0.9996)^2+(0.0212)^2} = 0.9998$
-		3. $\angle H  =\arctan(\frac{0.0212}{0.9996}) = 1.22^\circ$ 
-	3. Circuit B:
-		1. $\frac{\tilde{V}_{out}}{\tilde{V}_{in}} = \frac{1- (j \cdot 2\pi \cdot 75000 \cdot 10000 \cdot 10^{-8})}{1 + (2\pi \cdot 75000 \cdot 10000 \cdot 10^{-8})^2} = \frac{1}{2221.66} + \frac{-j47.124}{2221.66} = 0.000450 -j0.0212$
-		2. $|H| = |\frac{\tilde{V}_{out}}{\tilde{V}_{in}}| = \sqrt{(0.000450)^2+(-0.0212)^2} = 0.0212$
-		3. $\angle H  =\arctan(\frac{-0.0212}{0.000450}) = -88.78^\circ$
+##### $75\text{kHz}$
+###### Circuit A:
+1. $\frac{\tilde{V}_{out}}{\tilde{V}_{in}} = \frac{j 15\pi + (15\pi)^2}{1 + (15\pi)^2} = \frac{2220.66}{2221.66}  + \frac{j47.124}{2221.66} = 0.9996 + j0.0212$
+2. $|H| = |\frac{\tilde{V}_{out}}{\tilde{V}_{in}}| = \sqrt{(0.9996)^2+(0.0212)^2} = 0.9998$
+3. $\angle H  =\arctan(\frac{0.0212}{0.9996}) = 1.22^\circ$ 
+###### Circuit B:
+1. $\frac{\tilde{V}_{out}}{\tilde{V}_{in}} = \frac{1- j15\pi}{1 + (15\pi)^2} = \frac{1}{2221.66} + \frac{-j47.124}{2221.66} = 0.000450 -j0.0212$
+2. $|H| = |\frac{\tilde{V}_{out}}{\tilde{V}_{in}}| = \sqrt{(0.000450)^2+(-0.0212)^2} = 0.0212$
+3. $\angle H  =\arctan(\frac{-0.0212}{0.000450}) = -88.78^\circ$
 
-5. $100\text{kHz}$
-	2. Circuit A:
-		1. $\frac{\tilde{V}_{out}}{\tilde{V}_{in}} = \frac{(j \cdot 2\pi \cdot 100000 \cdot 10000 \cdot 10^{-8}) + (2\pi \cdot 100000 \cdot 10000 \cdot 10^{-8})^2}{1 + (2\pi \cdot 100000 \cdot 10000 \cdot 10^{-8})^2} = \frac{3947.84}{3948.84}  + \frac{j62.832}{3948.84} = 0.9997 + j0.0159$
-		2. $|H| = |\frac{\tilde{V}_{out}}{\tilde{V}_{in}}| = \sqrt{(0.9997)^2+(0.0159)^2} = 0.9999$
-		3. $\angle H  =\arctan(\frac{0.0159}{0.9997}) = 0.91^\circ$ 
-	3. Circuit B:
-		1. $\frac{\tilde{V}_{out}}{\tilde{V}_{in}} = \frac{1- (j \cdot 2\pi \cdot 100000 \cdot 10000 \cdot 10^{-8})}{1 + (2\pi \cdot 100000 \cdot 10000 \cdot 10^{-8})^2} = \frac{1}{3948.84} + \frac{-j62.832}{3948.84} = 0.000253 -j0.0159$
-		2. $|H| = |\frac{\tilde{V}_{out}}{\tilde{V}_{in}}| = \sqrt{(0.000253)^2+(-0.0159)^2} = 0.0159$
-		3. $\angle H  =\arctan(\frac{-0.0159}{0.000253}) = -89.09^\circ$
+##### $100\text{kHz}$
+###### Circuit A:
+1. $\frac{\tilde{V}_{out}}{\tilde{V}_{in}} = \frac{j20\pi + (20\pi)^2}{1 + (20\pi)^2} = \frac{3947.84}{3948.84}  + \frac{j62.832}{3948.84} = 0.9997 + j0.0159$
+2. $|H| = |\frac{\tilde{V}_{out}}{\tilde{V}_{in}}| = \sqrt{(0.9997)^2+(0.0159)^2} = 0.9999$
+3. $\angle H  =\arctan(\frac{0.0159}{0.9997}) = 0.91^\circ$ 
+###### Circuit B:
+1. $\frac{\tilde{V}_{out}}{\tilde{V}_{in}} = \frac{1- j20\pi}{1 + (20\pi)^2} = \frac{1}{3948.84} + \frac{-j62.832}{3948.84} = 0.000253 -j0.0159$
+2. $|H| = |\frac{\tilde{V}_{out}}{\tilde{V}_{in}}| = \sqrt{(0.000253)^2+(-0.0159)^2} = 0.0159$
+3. $\angle H  =\arctan(\frac{-0.0159}{0.000253}) = -89.09^\circ$
 
-6. Estimate the frequency at which $\frac{\tilde{V}_{out}}{\tilde{V}_{in}}$ is $\frac{1}{\sqrt{2}}$
-	1. This should occur around $1.5kHz$
-	
-7. Plots
+#### 2. 
+Estimate the frequency at which $\frac{\tilde{V}_{out}}{\tilde{V}_{in}}$ is $\frac{1}{\sqrt{2}}$
+$$|H| = \sqrt{(real)^2 + (imaginary)^2}$$
+##### Using Circuit A
+$$|H_A| = \sqrt{\left(\frac{(\omega RC)^2}{1 + (\omega RC)^2}\right)^2 + \left(\frac{\omega RC}{1 + (\omega RC)^2}\right)^2}$$
+
+$$= \sqrt{\frac{[(\omega RC)^2]^2 + (\omega RC)^2}{[1 + (\omega RC)^2]^2}} = \sqrt{\frac{(\omega RC)^4 + (\omega RC)^2}{[1 + (\omega RC)^2]^2}}$$
+
+$$= \sqrt{\frac{(\omega RC)^2[(\omega RC)^2 + 1]}{[1 + (\omega RC)^2]^2}} = \sqrt{\frac{(\omega RC)^2}{1 + (\omega RC)^2}}$$
+
+$$= \frac{\omega RC}{\sqrt{1 + (\omega RC)^2}} = \frac{1}{\sqrt{2}}$$
+
+$$\frac{(\omega RC)^2}{1 + (\omega RC)^2} = \frac{1}{2} \to 2(\omega RC)^2 = 1 + (\omega RC)^2 \to (\omega RC)^2 = 1$$
+
+$$\omega RC = 1 \to \omega = \frac{1}{RC} \to f = \frac{1}{2\pi RC}$$
+
+$$f = \frac{1}{2\pi(10000 \cdot 1 \times 10^{-8})} = \frac{1}{0.0002\pi} \approx 1592\text{ Hz}$$
+##### Using Circuit B
+$$H_B = \sqrt{\left(\frac{1}{1 + (\omega RC)^2}\right)^2 + \left(\frac{- \omega RC}{1 + (\omega RC)^2}\right)^2}$$
+$$= \sqrt{\frac{1^2 + (\omega RC)^2}{[1 + (\omega RC)^2]^2}} = \sqrt{\frac{1}{1 + (\omega RC)^2}}$$
+$$= \frac{1}{ \sqrt{1 + (\omega RC)^2}} = \frac{1}{\sqrt{2}}$$
+$$(\omega R C )^2 = 1\to 1 = \omega RC\to \omega = \frac{1}{RC} \to f = \frac{1}{RC2\pi}$$
+$$\frac{1}{2\pi(10000\cdot 1\times 10^{-8})} = \frac{1}{0.0002 \pi} \approx 1592Hz$$
+
+
+This should occur around $1.5kHz$
+
+#### Plots
 $$\frac{1}{\sqrt{2}} = 0.707 = |H|$$
 ```tikz
 \usepackage{pgfplots}
