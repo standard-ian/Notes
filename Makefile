@@ -1,6 +1,9 @@
-.PHONY: git
+.PHONY: put get
 
-git:
+put:
 	git add .
 	git commit
 	git push
+
+get:
+	git pull
