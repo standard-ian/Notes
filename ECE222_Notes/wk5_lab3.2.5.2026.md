@@ -91,6 +91,7 @@ $$\phi = \arctan\left(\frac{imaginary}{real}\right)= \arctan\left(\frac{\frac{\o
 Simplify by canceling $\omega L$:
 
 $$\phi = \arctan\left(\frac{R(1-\omega^2LC)}{\omega L}\right)$$
+This gives us $\phi$ in radians, multiply by $\frac{180}{\pi}$ for degrees.
 
 ---
 ### Procedure
@@ -238,7 +239,7 @@ This compares well with the predicted frequency of $15.92kHz$ and phase angle of
     ymode=linear,
     grid=both,
     legend pos=north west,
-    legend style={font=\tiny, row sep=3mm},
+    legend style={font=\footnotesize, row sep=3mm},
     xmin=100, xmax=100000,
     ymin=0, ymax=1.2,
     domain=100:100000,
