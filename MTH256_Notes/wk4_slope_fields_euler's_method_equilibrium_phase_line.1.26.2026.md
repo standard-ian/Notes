@@ -1,4 +1,5 @@
-## Class 1
+
+# Class 1
 #### Slope Fields
 The slope of the graph $y$ at the point $(t, y(t))$ is $f(t,y(t))$.
 1. Choose a grid of points $(t_i, y_i)$.

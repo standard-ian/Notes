@@ -160,3 +160,88 @@ $x* = r$
 $f'(r;r) = -r$
 Stable if $r > 0$
 Unstable if $r < 0$
+
+## Class 2
+#### Second Order Equations 3.6/4.1
+The standard form of a linear second order equation with constant coefficients is:
+$$ax'' + bx' +cx = f(t)$$
+These often appear in classical mechanics.
+
+For instance if $m$ is the mass of an object and $x''$ is its acceleration, we can write Newton's second law as:
+$$mx'' = F(t, x, x')$$
+Importantly, a second order IVP requires 2 ICs:
+$$ax'' + bx' + cx = f(t)$$
+$$x'(t_0) = v_0$$
+$$x(t_0) = x_0$$
+##### Harmonic Oscillator Example:
+Imagine a mass on a frictionless table attached to a wall by a spring. 
+At time $t=0$, the spring is displaced from equilibrium an amount $x_0$ and released. 
+
+How can we describe the motion of the mass?
+
+By Newton's Second Law, $mx'' = F_s$
+The force due to the spring is equal to the mass times the acceleration.
+
+Here $F_s$ is the force due to the spring constant, and by Hooke's Law, we know that this force is proportional to the displacement from equilibrium and opposes positive motion.
+
+Hence:
+$$F_s = -kx$$
+Here we must assume the spring constant $k>0$.
+This gives the classical spring-mass equation:
+$$mx'' = -kx$$
+
+If we displace the mass and release it, we get the ICs:
+$$x(0) = x_0$$
+$$x'(0) = 0$$
+
+We will show that the solution to this IVP is:
+$$x(t) = x_0 cos(\sqrt{k/m}\cdot t)$$
+If we allow for friction, Newton's Second Law states:
+$$mx'' = F_s + F_d$$
+Where the damping force $F_d$ is proportional to the velocity:
+$$F_d = \gamma x$$
+Where the damping coefficient $\gamma > 0$ (mass/time)
+
+The dampened oscillator equation is given by:
+$$mx' = -kx-\gamma x'$$
+Depending on the ICs we will shot that one possible solution is:
+$$x(t) = Ae^{-\lambda t}cos(\omega t)$$
+($\lambda$ to be specified later)
+
+###### General Solution to the 2nd Order Linear Equations w/ Constant Coefficients
+Consider the IVP:
+$$ax'' + bx' + cx = 0$$
+$$x(0) = x_0,\ x'(0) = v_0$$
+**Theorem: The IVP has a unique solution that exists on $-\infty < t < \infty$**
+
+Importantly, with no initial conditions, the equation $ax'' + bx' + cx = 0$ alwas has **exactly 2** linearly independent solutions: $x_1(t)$ and $x_2(t)$.
+
+Therefore, any solution to the IVP can be written:
+$$x(t) = Ax_1(t) + Bx_2(t)$$
+Where $A$ and $B$ satisfy the ICs. 
+Note that $x_1(t)$ and $x_2(t)$ are called the fundamental set of solutions.
+
+###### Finding the Fundamental Set
+As with first order equations, we assume solutions of the form:
+$$x(t) = e^{\lambda t}$$
+Thus, $ax'' + bx' + cx = 0$ implies:
+$$a\lambda^2e^{\lambda t} + b\lambda e^{\lambda t} + ce^{\lambda t} = 0,\ (e^{\lambda t}> 0, \forall t)$$
+We call this the characteristic equation.
+
+Solving for $\lambda$ gives:
+$$\lambda = \frac{-b\pm\sqrt{b^2 -4ac}}{2a}$$
+These solutions are called the Eigen values for the homogeneous equation.
+
+Depending on the discriminant, there are 3 cases. We have to go through these values case by case. 
+
+###### Case 1: $b^2 - 4ac > 0$:
+Real distinct evals $\lambda_1$, and $\lambda_2$:
+The general solution is: 
+$$x(t) = c_1e^{\lambda_1 t} + c_2e^{\lambda_2t}$$
+Remember:
+$$\lambda_1\ne \lambda_2$$
+###### Case 2: $b^2 - 4ac = 0$:
+The real repeated eval
+The general solution is:
+$$x(t) = c_1e^{\lambda t} + c_2 t e^{\lambda t}$$
+Continued next week.....

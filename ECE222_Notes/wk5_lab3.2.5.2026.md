@@ -131,34 +131,39 @@ Connect all probes to a common ground. All black ground clips must go to the sam
 ### Results
 #### Part 1
 ##### $\frac{V_{out}}{V_{in}}$ at $f_0$
-**The experimental peak frequency ($f_0$) was:** 
-**The experimental phase angle at $f_0$ was:**
-This compares well with the predicted frequency of $15.92kHz$ and phase angle of $0^\circ$
+**The experimental peak frequency ($f_0$) was:** $14.7kHz$
+**The experimental phase angle at $f_0$ was:** $400 \times 10^{-9} s$
+This compares relatively well with the predicted frequency of $15.92kHz$ and phase angle of $0^\circ$. The true peak frequency is surprisingly $1kHz$ lower than expected.
 
 #### Part 2
 ##### Data Table
 
-| Frequency ($Hz$) | $V_{in}$ ($V_{PP}$) | $V_{out}$    | $\Delta t$ ($\micro s$) | Gain                     | Gain $dB$                     | Phase $^\circ$ |
-| ---------------- | ------------------- | ------------ | ----------------------- | ------------------------ | ----------------------------- | -------------- |
-|                  |                     |              |                         | $\frac{V_{out}}{V_{in}}$ | $20log\frac{V_{out}}{V_{in}}$ | $360f\Delta t$ |
-| **LOW**          | **----**            | **----**<br> | **----**                | **----**                 | **----**                      | **----**       |
-| $100Hz$          |                     |              |                         |                          |                               |                |
-| $1kHz$           |                     |              |                         |                          |                               |                |
-| $3kHz$           |                     |              |                         |                          |                               |                |
-| $4kHz$           |                     |              |                         |                          |                               |                |
-| $10kHz$          |                     |              |                         |                          |                               |                |
-| **MID**          | **----**            | **----**<br> | **----**                | **----**                 | **----**                      | **----**       |
-| $13kHz$          |                     |              |                         |                          |                               |                |
-| $14.5kHz$        |                     |              |                         |                          |                               |                |
-| **PEAK**         | **----**            | **----**<br> | **----**                | **----**                 | **----**                      | **----**       |
-| $15.6kHz$        |                     |              |                         |                          |                               |                |
-| $15.9kHz$        |                     |              |                         |                          |                               |                |
-| $16.2kHz$        |                     |              |                         |                          |                               |                |
-| **POST-PEAK**    | **----**            | **----**<br> | **----**                | **----**                 | **----**                      | **----**       |
-| $20kHz$          |                     |              |                         |                          |                               |                |
-| $50kHz$          |                     |              |                         |                          |                               |                |
-| $75kHz$          |                     |              |                         |                          |                               |                |
-| $100kHz$         |                     |              |                         |                          |                               |                |
+| Frequency ($Hz$) | $V_{in}$ ($V_{PP}$) | $V_{out}$    | $\Delta t$ ($s$) | Gain                     | Gain $dB$                     | Phase $^\circ$ |
+| ---------------- | ------------------- | ------------ | ---------------- | ------------------------ | ----------------------------- | -------------- |
+|                  |                     |              |                  | $\frac{V_{out}}{V_{in}}$ | $20log\frac{V_{out}}{V_{in}}$ | $360f\Delta t$ |
+| **LOW**          | **----**            | **----**<br> | **----**         | **----**                 | **----**                      | **----**       |
+| $100Hz$          | 10.1                | 0.018        | 0.0025           | 0.00178                  | -54.98                        | 90             |
+| $1kHz$           | 10.1                | 0.076        | 0.000231         | 0.00752                  | -42.47                        | 83.16          |
+| $3kHz$           | 10.1                | 0.216        | 0.0000799        | 0.02139                  | -33.40                        | 86.292         |
+| $4kHz$           | 10.1                | 0.296        | 0.0000645        | 0.02931                  | -30.66                        | 92.88          |
+| $10kHz$          | 10.1                | 1.12         | 0.0000223        | 0.11089                  | -19.10                        | 80.28          |
+| **MID**          | **----**            | **----**     | **----**         | **----**                 | **----**                      | **----**       |
+| $13kHz$          | 10.1                | 2.88         | 0.0000141        | 0.28515                  | -10.90                        | 65.988         |
+| $14.5kHz$        | 10.3                | 6.4          | 0.0000029        | 0.62136                  | -4.13                         | 15.138         |
+| **PEAK**         | **----**            | **----**<br> | **----**         | **----**                 | **----**                      | **----**       |
+| $15.6kHz$        | 10.3                | 5.6          | -0.0000052       | 0.54369                  | -5.29                         | -29.2032       |
+| $15.9kHz$        | 10.3                | 5.2          | -0.0000065       | 0.50485                  | -5.94                         | -37.206        |
+| $16.2kHz$        | 10.3                | 4.88         | -0.0000074       | 0.47379                  | -6.49                         | -43.1568       |
+| **POST-PEAK**    | **----**            | **----**<br> | **----**         | **----**                 | **----**                      | **----**       |
+| $20kHz$          | 10.1                | 2.16         | -0.0001056       | 0.21386                  | -13.40                        | -76.032        |
+| $22kHz$          | 10.3                | 1.6          | -0.0000099       | 0.15534                  | -16.17                        | -78.408        |
+| $25kHz$          | 10.1                | 1.18         | -0.00000907      | 0.11683                  | -18.65                        | -81.63         |
+| $50kHz$          | 10.1                | 0.8          | -0.00000771      | 0.07921                  | -22.02                        | -83.268        |
+| $75kHz$          | 10.3                | 0.4          | -0.00000477      | 0.03883                  | -28.22                        | -85.86         |
+| $100kHz$         | 10.3                | 0.2          | -0.00000243      | 0.01942                  | -34.24                        | -87.48         |
+
+
+
 
 ---
 ### Plots
@@ -197,24 +202,44 @@ This compares well with the predicted frequency of $15.92kHz$ and phase angle of
 \addlegendentry{Theoretical Phase Curve: $arctan(\frac{R(1 -\omega^2LC)}{\omega L})$}
 
 \addplot[purple, thick] coordinates {
-	(100,    89.77)
-	(1000,   89.77)
-	(3000,   85.00)
-	(4000,   82.00)
-	(7000,   78.00)
-	(10000,  73.24)
-	(13000,  56.31)
-	(14500,  39.81)
-	(15600,  13.50)
-	(15900,  4.18)
-	(16200,  -4.18)
-	(20000,  -39.81)
-	(50000,  -73.24)
-	(75000,  -78.69)
-	(100000, -81.82)
+	(100,    90)
+	(1000,   83.16)
+	(3000,   86.292)
+	(4000,   92.88)
+	(10000,  80.28)
+	(13000,  65.988)
+	(14500,  15.138)
+	(15600,  -29.2032)
+	(15900,  -37.206)
+	(16200,  -43.1568)
+	(20000,  -76.032)
+	(22000,  -78.408)
+	(25000,  -81.63)
+	(30000,  -83.268)
+	(50000,  -85.86)
+	(100000, -87.48)
 };
 \addlegendentry{Experimental Phase Curve}
 
+\addplot[green, thick] coordinates {
+	(100,    90)
+	(1000,   86.4)
+	(3000,   75.816)
+	(4000,   71.28)
+	(10000,  32.688)
+	(13000,  9.407)
+	(14500,  0.877)
+	(15600,  -8.424)
+	(15900,  -10.589)
+	(16200,  -12.422)
+	(20000,  -30.6)
+	(22000,  -36.828)
+	(25000,  -43.92)
+	(30000,  -53.352)
+	(50000,  -68.400)
+	(100000, -78.12)
+};
+\addlegendentry{$1k\Omega$ Experimental Phase Curve}
 
 \draw[black, dashed] (axis cs:15915,-95) -- (axis cs:15915,95);
 \node[anchor=south, rotate=90] at (axis cs:15915,0) {$f_c = 15.52$ kHz};
@@ -257,24 +282,44 @@ This compares well with the predicted frequency of $15.92kHz$ and phase angle of
 
 \addplot[purple, thick] coordinates{
 	% expected
-	(100,    0.0004)
-	(1000,   0.0039)
-	(3000,   0.0060)
-	(4000,   0.0135)
-	(7000,   0.1200)
-	(10000,  0.2847)
-	(13000,  0.5668)
-	(14500,  0.7698)
-	(15600,  0.9370)
-	(15900,  0.9927)
-	(16200,  0.9927)
-	(20000,  0.7311)
-	(50000,  0.2847)
-	(75000,  0.1905)
-	(100000, 0.1433)	
+	(100,    0.00178)
+	(1000,   0.00752)
+	(3000,   0.02139)
+	(4000,   0.02931)
+	(10000,   0.11089)
+	(13000,  0.28515)
+	(14500,  0.62136)
+	(15600,  0.54369)
+	(15900,  0.50485)
+	(16200,  0.47379)
+	(20000,  0.21386)
+	(22000,  0.15534)
+	(25000,  0.11683)
+	(30000,  0.07921)
+	(50000,  0.03883)
+	(100000, 0.01942)	
 };
 \addlegendentry{Experimental Gain Curve}
 
+\addplot[green, thick] coordinates {
+	(100,    0.010905)
+	(1000,   0.076235)
+	(3000,   0.224280)
+	(4000,   0.304527)
+	(10000,  0.776000)
+	(13000,  0.910891)
+	(14500,  0.926733)
+	(15600,  0.918812)
+	(15900,  0.910891)
+	(16200,  0.910891)
+	(20000,  0.808000)
+	(22000,  0.744000)
+	(25000,  0.669895)
+	(30000,  0.562691)
+	(50000,  0.334694)
+	(100000, 0.161616)
+};
+\addlegendentry{$1k\Omega$ Experimental Gain Curve}
 
 \addplot[black, dashed, domain=1:100000] {0.707};
 
@@ -288,3 +333,7 @@ This compares well with the predicted frequency of $15.92kHz$ and phase angle of
 
 ---
 ### Conclusions
+1. The actual peak frequency at which resonance occurred was ~$1kHz$ sooner than expected, around  $14.7kHz$
+2. The real peak gain we could reach with the circuit as described was only about 0.64.
+3. Apart from this, the expected Gain and Phase plots follow the theoretical quite nicely.
+4. Substituting a $1k\ohm$ resistor in for the $10k$ works to get the gain up to nearly 1, but it makes the gain curve a less extreme exponential curve as seen in the plots. The transitions are also more gradual in the phase plot.
