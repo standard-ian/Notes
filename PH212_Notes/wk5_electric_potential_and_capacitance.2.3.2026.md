@@ -34,3 +34,40 @@ $$u = \frac{1}{2}\epsilon_0E^2$$
 In capacitors, this takes the forms:
 $$U = \frac{1}{2}QV = \frac{1}{2}\frac{Q^2}{C} = \frac{1}{2}CV^2$$
 
+#### Dielectric Materials
+A material that can "resist" a certain degree of charge before becoming conductive.
+
+Air is an example of a dielectric material.
+
+#### Deriving Capacitance of a Spherical Shell
+$$C = \frac{Q}{V} = \frac{coulombs}{volt}$$
+We want to relate capacitance to a radius of the sphere. 
+
+The potential for a spherical shell of radius $R$ is: 
+$$V = \frac{kQ}{R}$$
+So: 
+$$C = \frac{Q}{V} = \frac{QR}{kQ} = \frac{R}{k}$$
+The capacitance is purely dependant on radius. The amount of charge on the shell does not affect the capacitance.
+
+#### Capacitance of a Plate Capacitor
+Using the same equation for capacitance, where $Q = |Q|$ (the charge on either plate) and $V$ is the potential difference between two plates.
+
+The area of the plate and the distance between them defines the capacitor.
+So we need to work Area $A$ and distance $d$ into $C = \frac{Q}{V}$ 
+
+We need to determine $V$ from the electric field between two plates.
+
+$$V_+ - V_- = - \int_d^0\vec{E} \cdot d\vec{x}$$
+What is $\vec{E}$ between the plates?
+
+For a charged plate:
+$$\vec{E} = \frac{\sigma}{2\epsilon_0}\hat{r}$$
+The field will be doubled, in the same direction, from positive plate, to negative.
+There is no field on the outside (positive and negative cancel)
+
+$$\vec{E} = 2 \times \frac{\sigma}{2\epsilon_0}\hat{i} = \frac{\sigma}{\epsilon_0}\hat{i}$$
+
+So, the potential difference between the plates is:
+$$V_+ - V_- = - \int_d^0\vec{E} \cdot d\vec{x} = -\frac{\sigma}{\epsilon_0}\int_d^0(\hat{i}\cdot \hat{i})dx =\frac{\sigma}{\epsilon_0}x|_d^0  = \frac{\sigma d}{\epsilon_0} = \frac{Qd}{A\epsilon_0}$$
+And:
+$$C = \frac{Q}{V};\ V = \frac{Qd}{A\epsilon_0};\ C = \frac{QA\epsilon_0}{Qd} = \frac{A\epsilon_0}{d}$$
