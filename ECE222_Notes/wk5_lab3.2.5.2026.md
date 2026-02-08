@@ -278,7 +278,7 @@ This compares relatively well with the predicted frequency of $15.92kHz$ and pha
 \addplot[orange, thick] {
     (2*pi*x*\L) / sqrt((\R)^2*(1-(2*pi*x)^2*\LC)^2 + (2*pi*x*\L)^2)
 };
-\addlegendentry{Theoretical Gain Curve:$\frac{\omega L}{\sqrt{R^2(1 - \omega^2 LC)^2 {+} (\omega L)^2}}$}
+\addlegendentry{Theoretical Gain Curve:$\frac{\omega L}{\sqrt{R^1(1 - \omega^2 LC)^2 {+} (\omega L)^2}}$}
 
 \addplot[purple, thick] coordinates{
 	% expected
