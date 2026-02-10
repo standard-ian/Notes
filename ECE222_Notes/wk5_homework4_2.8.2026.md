@@ -17,7 +17,7 @@
 **Suppose the SC source is $V_s(t) = 100cos(1000t) V$. Find the input impedance seen at the source.** 
 
 $$Z_{in} = Z_{L1} + \frac{1}{\frac{1}{Z_R} + \frac{1}{(Z_C + Z_{L2})}} = j\omega L_1 + \left(\frac{1}{R} + \frac{1}{\frac{-j}{\omega C} + j\omega L}\right)^{-1}$$
-$$=j100 + \left(\frac{1}{100} + \frac{1}{\frac{-j}{0.0005} + j100}\right)^{-1} = j100 + \left(0.01 + \frac{1}{-j200 + j100}\right)^-1$$
+$$=j100 + \left(\frac{1}{100} + \frac{1}{\frac{-j}{0.0005} + j100}\right)^{-1} = j100 + \left(0.01 + \frac{1}{-j200 + j100}\right)^{-1}$$
 $$= j100 + \left(0.01 + \frac{1}{-j100}\right)^{-1} = j100 + \left(\frac{1}{100} + j\frac{1}{100}\right)^{-1}$$
 $$= j100 + \left(\frac{1}{100}\right)^{-1}\left( 1 + j\right)^{-1} = j100 + \frac{100}{1 + j} = j100 + \frac{100 - 100j}{1 -j^2}$$
 $$= j100+\frac{100-100j}{1-(-1)} = j100 + 50 - j50 = 50+ j50$$

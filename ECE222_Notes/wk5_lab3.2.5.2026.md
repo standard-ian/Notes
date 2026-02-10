@@ -337,3 +337,5 @@ This compares relatively well with the predicted frequency of $15.92kHz$ and pha
 2. The real peak gain we could reach with the circuit as described was only about 0.64.
 3. Apart from this, the expected Gain and Phase plots follow the theoretical quite nicely.
 4. Substituting a $1k\ohm$ resistor in for the $10k$ works to get the gain up to nearly 1, but it makes the gain curve a less extreme exponential curve as seen in the plots. The transitions are also more gradual in the phase plot.
+5. At resonance, the impedance of the "LC" portion of the circuit approaches infinity, and the full $V_{in}$ is passed to $V_{out}$
+6. There is a resistance of the inductor that causes this peak to drop, i.e the full $V_{in}$ is not passed through.
