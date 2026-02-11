@@ -367,7 +367,12 @@ Also, determine the impedance between $A$ and $B$.
 \end{document}
 ```
 
-$$Z_C = \frac{1}{j 100\times 12.5\times 10^{-6}} = -j80$$
+$$Z_C = \frac{1}{j 1000\times 12.5\times 10^{-6}} = -j80$$
 $$Z_L = j\omega L = j\times 1000 \times 0.1 = j100$$
 $$Z_{AB} = -j80 + \frac{1}{\frac{1}{200} + \frac{1}{100+ j100}}$$
-Take step by step...
+$$\frac{1}{100 + j100} = \frac{100-j100}{10000 -(j100)^2} = \frac{100 - j100}{10k -j^2(100)^2} = \frac{100-j100}{10k+10k}$$
+$$\frac{1}{200}+\frac{100-j100}{20k} = \frac{1}{200} + \frac{1}{200} - \frac{j}{200} = 0.01 - j0.005$$
+$$\frac{1}{0.01 - j0.005} = \frac{0.01 + j0.005}{(0.01)^2 - j^2(0.005)^2} = \frac{0.01}{0.01^2 + 0.005^2} + \frac{j0.005}{0.01^2 + 0.005^2}$$
+$$= \frac{0.01}{0.000125} +\frac{0.005j}{0.000125} = 80 + j40$$
+
+$$Z_{AB} = -j80 +80 +j40 = \color{green}80-j40\Omega$$

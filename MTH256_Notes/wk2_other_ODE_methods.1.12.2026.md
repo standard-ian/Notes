@@ -260,7 +260,7 @@ Thus the integrating factor is $\mu(t) = e^{\int p(t)dt} = e^{2\int\frac{1}{t} d
 
 Next, we multiply the entire equation by $\mu(t)$
 $$t^2(y' + \frac{2}{t}y = t-1)$$
-$$$t^2 y' + 2ty = t^3-t^2$$
+$$t^2 y' + 2ty = t^3-t^2$$
 Note the above is in the desired "product rule" configuration, resulting in:
 $$[t^2y]' = t^3-t^2$$
 Integrating both sides:
