@@ -557,3 +557,160 @@ The current in the cap has a phase lead $j = 90^\circ$
 
 So, even though the current at $R$ is 0 at resonance, there is a current in the $LC$ portion!
 ## Class 12
+#### Laplace Transform and Circuits
+When a **capacitor** is connected to a circuit, the energy transfer is not instantaneous. The current will instantly jump through the capacitor, but the voltage will take time to build (charge).
+
+When an **inductor** is connected, the voltage will instantly be imposed on the inductor, but the current takes time to change it's flow, since the inductor generates a current that resists when voltage changes suddenly across it.
+
+##### RLC Circuit
+```tikz
+\usepackage{circuitikz}
+\begin{document}
+\begin{circuitikz}[american, scale=2, font=\Large]
+	\draw(0,0)
+	to[sV, l=$Vcos(\omega t)$]++(0,2)
+	to[switch]++(1,0)
+	to[R=$R$, i>_=$i(t)$]++(1,0)
+	to[inductor, l=$L$]++(0,-1)
+	to[capacitor, l=$C$]++(0,-1)--++(-2,0);
+\end{circuitikz}
+\end{document}
+```
+
+With AC, when the switch is switched on, there is initially a transient state.
+Everything is sinusoidal, despite that phase difference.
+
+With DC, everything is constant signals. $V(t)$, and $I(t)$ are constants.
+
+##### Introducing Laplace
+An audio signal is comprised of an exponential, an amplitude, and a cosine function.
+
+This function can be used to represent constant, sinusoidal, and exponential signals that we have learned up to this point.
+###### These are sinusoidal signals, that increase or decrease.
+
+$$V(t) = V_0e^{-at}cos(\omega t)$$
+$$V(t) = V_0e^{-at}sin(\omega t)$$
+```tikz
+\usepackage{pgfplots}
+
+\begin{document}
+
+% Define AC signal parameters
+\def\amplitude{100}      % Amplitude in volts
+\def\omega{20*pi*2}          % Angular frequency in rad/s
+\def\phase{0}            % Phase shift in degrees
+\def\tmax{1}         % Maximum time in seconds
+\def\trig{cos}         % sin or cos
+\def\a{5}              %exponential coefficient e^{-a}
+
+\begin{tikzpicture}[scale=1.2]
+\begin{axis}[
+    width=12cm,
+    height=10cm,
+    xlabel={Time (s)},
+    ylabel={Voltage (V)},
+    domain=0:\tmax,
+    samples=500,
+    grid=major,
+    axis lines=middle,
+    enlargelimits=true,
+]
+\addplot[orange, thick] {exp(-\a*x)*\amplitude*\trig(deg(\omega*x + \phase))};
+\addlegendentry{$20Hz\ Audio\ Signal$}
+
+\end{axis}
+
+\end{tikzpicture}
+\end{document}
+```
+
+Over time, the sound decays because it eventually fades out. The envelope of decay is defined by the coefficient on the exponent $a$.
+
+###### A pure sinusoidal can be obtained by setting $a=0$, so that $e^{-at} = e^{0} = 1$ 
+```tikz
+\usepackage{pgfplots}
+
+\begin{document}
+
+% Define AC signal parameters
+\def\amplitude{100}      % Amplitude in volts
+\def\omega{20*pi*2}          % Angular frequency in rad/s
+\def\phase{0}            % Phase shift in degrees
+\def\tmax{0.5}         % Maximum time in seconds
+\def\trig{cos}         % sin or cos
+\def\a{0}
+
+\begin{tikzpicture}[scale=1.2]
+\begin{axis}[
+    width=12cm,
+    height=10cm,
+    xlabel={Time (s)},
+    ylabel={Voltage (V)},
+    domain=0:\tmax,
+    samples=500,
+    grid=major,
+    axis lines=middle,
+    enlargelimits=true,
+]
+\addplot[orange, thick] {exp(-\a*x)*\amplitude*\trig(deg(\omega*x + \phase))};
+\addlegendentry{$20Hz\ Audio\ Signal$}
+
+\end{axis}
+
+\end{tikzpicture}
+\end{document}
+```
+
+###### A non-oscillating signal can be obtained by setting $\omega=0$, so that 
+```tikz
+\usepackage{pgfplots}
+
+\begin{document}
+
+% Define AC signal parameters
+\def\amplitude{100}      % Amplitude in volts
+\def\omega{0*pi*2}          % Angular frequency in rad/s
+\def\phase{0}            % Phase shift in degrees
+\def\tmax{1}         % Maximum time in seconds
+\def\trig{cos}         % sin or cos
+\def\a{2}
+
+\begin{tikzpicture}[scale=1.2]
+\begin{axis}[
+    width=12cm,
+    height=10cm,
+    xlabel={Time (s)},
+    ylabel={Voltage (V)},
+    domain=0:\tmax,
+    samples=500,
+    grid=major,
+    axis lines=middle,
+    enlargelimits=true,
+]
+\addplot[orange, thick] {exp(-\a*x)*\amplitude*\trig(deg(\omega*x + \phase))};
+\addlegendentry{$20Hz\ Audio\ Signal$}
+
+\end{axis}
+
+\end{tikzpicture}
+\end{document}
+```
+
+##### Musical Equivalent
+```abc
+X:1
+L:1/8
+!mf!c
+```
+This symbol has a duration, frequency, and amplitude 
+
+##### Laplace Notation
+$$L\{V(t)\} = V_0\frac{s+a}{(s + a)^2 + \omega^2}$$
+$$L\{V(t)\} = \int_0^\infty v(t)e^{-8t}\ dt$$
+This allows us to move from "time domain" to "s-domain".
+Time is the derivative of $s$ and it represents the time 
+
+For the signal where $a$ is 0, the Laplace representation is:
+$$V_0\frac{s}{s^2 + \omega^2}$$
+This is the representation of the "infinite" cosine function with no decay.
+$a$ still represents growth or decay.

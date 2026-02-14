@@ -167,7 +167,7 @@ Write in standard form:
 $y' + 2y = e^t$
 
 The solution the homogeneous equation $y'_h + 2y_h = 0$
-$y_n = Ae^{-2t}$ 
+$y_h= Ae^{-2t}$ 
 
 Next, we find a particular solution by guessing. 
 $y'_p + 2y_p = e^t$
@@ -198,7 +198,7 @@ This can be fixed by multiplying $y_p$ by $t$. Thus: $y_p = \alpha t e ^ {-2t}$
 
 Plugging in this new particular solution gives:
 
-$$y'_p + 2yp = (\alpha t e^-{2t})' + 2(\alpha t e^{-2t})$$
+$$y'_p + 2y_p = (\alpha t e^-{2t})' + 2(\alpha t e^{-2t})$$
 
 $=\alpha e^{-2t} -2\alpha te^{-2t} + 2\alpha t e^{-2t}$
 $=3e^{-2t}$
@@ -217,7 +217,7 @@ $$y' + \lambda y = f(t)$$
 | $f(t)$                       | $y_p(t)$                    |
 | ---------------------------- | --------------------------- |
 | $ae^{bt}$                    | $Ae^{bt}$                   |
-| $a\ cos(bt)$ or $a\ sin(bt)$ | $A\ cos(bt)$ + $B\ cos(bt)$ |
+| $a\ cos(bt)$ or $a\ sin(bt)$ | $A\ cos(bt)$ + $B\ sin(bt)$ |
 | $y_h(t)$                     | $ty_h(t)$                   |
 3. $y(t) = y_h(t) + y_p(t)$
 

@@ -113,3 +113,17 @@ In parallel, the potential across all caps in parallel is the same as the source
 The potential across caps in series, the potential across each will differ. If we sum all potentials though, they must add to the source potential. 
 
 If all caps have the same $C$ they would be the same potential difference though.
+
+## Class 2
+#### Dielectric Materials
+Real world capacitors will have some material between the parallel plates to maintain separation of charges. 
+
+When adding a dielectric material between the plates, this will increase the capacitance relative to a vaccum.
+
+Dielectrics are polarizable. Their charge can be separated into positive and negative regions in the material.
+
+Once an electric field is sent through the dielectric material, a dipole will be created, which will create it's own electric field $\vec{E}_{induced}$.
+$$\vec{E} = \vec{E}_0 + \vec{E}_{induced}$$
+Adding a dielectric reduces the electric field inside the capacitor because a dipole is induced in the dielectric that produces a field pointing in the opposite direction of the $\vec{E}$ created by the charged plates, effectively reducing it when they are summed.
+
+$$\color{orange} Dielectric\ Constant: k \equiv \frac{E_0}{E}$$

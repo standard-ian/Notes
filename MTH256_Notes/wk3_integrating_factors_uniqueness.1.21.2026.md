@@ -25,6 +25,16 @@ We substitute back in and get the following, which eventually simplifies.
 $$\int e^{2t} sin(t) dt = \frac{1}{2}sin(t) e^{2t} - \frac{1}{4}cos(t) e^{2t} - \frac{1}{4}\int e^{2t}sin(t) dt$$
 
 $$e^{2t}[\frac{2}{5}sin(t) = \frac{1}{5}cos(t)]$$
+Instead, we could use Undetermined Coefficients
+$$\frac{dx}{dt} + 2x = sin(t)$$
+$$x'_h + 2x_h = 0 \to x'_h = -2x \to x_h = Ae^{-2t}$$
+
+Then: $x'_p + 2x_p = sin(t)$
+$$x_p = Acos(t) + Bsin(t)$$
+$$x'_p = -Asin(t) + Bcos(t)$$
+$$-Asin(t) + Bcos(t) + 2(Acos(t) + Bsin(t)) = sin(t)$$$$2Acos(t) - Bcos(t) -Asin(t) + Bsin(t)= cos(t)(2A-B) +sin(t)(B-A) = sin(t)$$
+
+
 #### Section 1.5: Existence and Uniqueness
 Recall the standard for for a first order ODE.
 $y' = f(t,y)$

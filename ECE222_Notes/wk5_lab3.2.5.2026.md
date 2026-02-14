@@ -94,6 +94,8 @@ $$\phi = \arctan\left(\frac{R(1-\omega^2LC)}{\omega L}\right)$$
 This gives us $\phi$ in radians, multiply by $\frac{180}{\pi}$ for degrees.
 
 ---
+
+---
 ### Procedure
 #### Part 1
 1. Find the resonant frequency. Sweep the input frequency until the channel you use as the output voltage reaches the max peak-to-peak.
@@ -186,7 +188,7 @@ This compares relatively well with the predicted frequency of $15.92kHz$ and pha
     legend pos=south west,
     legend style={font=\small},
     xmin=100, xmax=100000,
-    ymin=-95, ymax=95,
+    ymin=-95, ymax=120,
     domain=100:100000,
     samples=200,
 ]
@@ -195,6 +197,9 @@ This compares relatively well with the predicted frequency of $15.92kHz$ and pha
 \def\L{0.01}
 \def\C{1e-8}
 \def\LC{1e-10}
+\def\Radj{67}
+
+\addlegendentry{}
 
 \addplot[orange, thick] {
 	atan(\R*(1-(2*pi*x)^2*\LC) / (2*pi*x*\L)) 
@@ -242,7 +247,8 @@ This compares relatively well with the predicted frequency of $15.92kHz$ and pha
 \addlegendentry{$1k\Omega$ Experimental Phase Curve}
 
 \draw[black, dashed] (axis cs:15915,-95) -- (axis cs:15915,95);
-\node[anchor=south, rotate=90] at (axis cs:15915,0) {$f_c = 15.52$ kHz};
+%\node[anchor=south, rotate=90] at (axis cs:15915,0) {$f_c = 15.52$ kHz};
+\node[anchor=south, right] at (axis cs:15915,100) {$f_c = 15.92$ kHz};
 
 \end{axis}
 \end{tikzpicture}
@@ -266,7 +272,7 @@ This compares relatively well with the predicted frequency of $15.92kHz$ and pha
     legend pos=north west,
     legend style={font=\footnotesize, row sep=3mm},
     xmin=100, xmax=100000,
-    ymin=0, ymax=1.2,
+    ymin=0, ymax=1.5,
     domain=100:100000,
     samples=200,
 ]
@@ -274,6 +280,17 @@ This compares relatively well with the predicted frequency of $15.92kHz$ and pha
 \def\L{0.01}
 \def\C{1e-8}
 \def\LC{1e-10}
+\def\Radj{67}
+
+\addplot[blue, thick] {
+    sqrt(
+        (\Radj*(\R*((1-(2*pi*x)^2*\LC)^2+(2*pi*x*\C*\Radj)^2)+\Radj) + (2*pi*x*(\L*(1-(2*pi*x)^2*\LC)-\C*\Radj^2))^2)^2 
+        + ((2*pi*x*(\L*(1-(2*pi*x)^2*\LC)-\C*\Radj^2))*\R*((1-(2*pi*x)^2*\LC)^2+(2*pi*x*\C*\Radj)^2))^2
+    ) / (
+        (\R*((1-(2*pi*x)^2*\LC)^2+(2*pi*x*\C*\Radj)^2)+\Radj)^2 + (2*pi*x*(\L*(1-(2*pi*x)^2*\LC)-\C*\Radj^2))^2
+    )
+};
+\addlegendentry{Theoretical with Resistance of Inductor}
 
 \addplot[orange, thick] {
     (2*pi*x*\L) / sqrt((\R)^2*(1-(2*pi*x)^2*\LC)^2 + (2*pi*x*\L)^2)
@@ -339,3 +356,4 @@ This compares relatively well with the predicted frequency of $15.92kHz$ and pha
 4. Substituting a $1k\ohm$ resistor in for the $10k$ works to get the gain up to nearly 1, but it makes the gain curve a less extreme exponential curve as seen in the plots. The transitions are also more gradual in the phase plot.
 5. At resonance, the impedance of the "LC" portion of the circuit approaches infinity, and the full $V_{in}$ is passed to $V_{out}$
 6. There is a resistance of the inductor that causes this peak to drop, i.e the full $V_{in}$ is not passed through.
+
