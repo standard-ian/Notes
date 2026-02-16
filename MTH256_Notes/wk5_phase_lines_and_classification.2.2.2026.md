@@ -204,7 +204,7 @@ Where the damping coefficient $\gamma > 0$ (mass/time)
 
 The dampened oscillator equation is given by:
 $$mx' = -kx-\gamma x'$$
-Depending on the ICs we will shot that one possible solution is:
+Depending on the ICs we will show that one possible solution is:
 $$x(t) = Ae^{-\lambda t}cos(\omega t)$$
 ($\lambda$ to be specified later)
 
