@@ -112,6 +112,4 @@ We want to know the values of $m$, $\gamma$ , and $k$ that give us all of the qu
 
 What are those solutions?
 ## Class 2
-
-
 Midterm 1

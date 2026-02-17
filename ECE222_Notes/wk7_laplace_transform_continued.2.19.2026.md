@@ -45,7 +45,12 @@ $$e^{-1000t} = e^{\frac{-t}{L/R}}\to1000 = \frac{1}{L/R} \to \tau = \frac{L}{R} 
    $$\frac{L}{100} = \frac{1}{1000}\to L = 0.1H$$
 3. After a long time, the voltage of the inductor will be 0.
 $$0 + (V_i)e^{\frac{-t}{L/R}} - (0)e^{\frac{-t}{L/R}}$$
-4. The current across the inductor at steady state will be the full current of the circuit, this will be the integral of the inductor voltage.
+4. The current across the inductor at steady state will be the full current of the circuit, this will be $\frac{1}{L}$ times the integral of the inductor voltage.
+$$I_L(t) = \frac{1}{L}\int V_L(t)\ dt$$
+
+$$=\frac{1}{L} \int 5e^{-1000t} dt;\ u = -1000t;\ du=-1000dt;\ dt = \frac{-1}{1000}du$$
+$$=\frac{1}{L}\frac{-5}{1000}\int e^{u} = \frac{-5}{1000(0.1)}e^{-1000t} + C = -0.05e^{-1000t} + C$$
+
 #### AC RLC Example 1
 $$V_{ac}(t) = 100cos(10^4 t)V$$
 ```tikz
