@@ -15,7 +15,7 @@ It stands to reason that $V_i = 12$ and as time progresses, $e^\frac{-t}{RC}$ wi
  
  3. The current of a capacitor is the derivative of the voltage because it races ahead.    
 	$$V_C(t) = 12e^{-500t}$$
- $$I_C(t) = C\frac{d}{dt}12e^{-500t}= -500(12)Ce^{-500t}A$$
+ $$I_C(t) = C\frac{dV_C}{dt}12e^{-500t}= -500(12)Ce^{-500t}A$$
  $$= -6000(1\times 10^{-6})e^{-500t} = -6e^{-500t}mA$$
  This makes sense because when discharging, the current is flowing opposite of the source, negative.
 #### Transient RL Circuit
@@ -39,18 +39,140 @@ The following RC circuit has a resistance of $100\ohm$
 The switch closes at $t = 0$ and the voltage across the inductor is measured as $V_L(t) = 5e^{-1000t}V$ 
 1. The time constant $\tau = \frac{L}{R}$. For an inductor circuit, the transient state as a function of time is:
    $$V_L(t) = V_f + (V_i - V_f)e^\frac{-t}{L/R}$$
+	Where $V_f$ is 0 (when steady state is reached)
 If the voltage is measured as $5e^{-1000t}$
 $$e^{-1000t} = e^{\frac{-t}{L/R}}\to1000 = \frac{1}{L/R} \to \tau = \frac{L}{R} = \frac{1}{1000}$$
 2. The inductance would then be:
    $$\frac{L}{100} = \frac{1}{1000}\to L = 0.1H$$
 3. After a long time, the voltage of the inductor will be 0.
 $$0 + (V_i)e^{\frac{-t}{L/R}} - (0)e^{\frac{-t}{L/R}}$$
-4. The current across the inductor at steady state will be the full current of the circuit, this will be $\frac{1}{L}$ times the integral of the inductor voltage.
-$$I_L(t) = \frac{1}{L}\int V_L(t)\ dt$$
+4. The current across the inductor at steady state will be the full current of the circuit, this will be $\frac{1}{L}$ times the integral of the inductor voltage **from t=0 to  t**.
+$$I_L(t) = \frac{1}{L}\int_0^{t} V_L(t)\ dt$$
 
-$$=\frac{1}{L} \int 5e^{-1000t} dt;\ u = -1000t;\ du=-1000dt;\ dt = \frac{-1}{1000}du$$
-$$=\frac{1}{L}\frac{-5}{1000}\int e^{u} = \frac{-5}{1000(0.1)}e^{-1000t} + C = -0.05e^{-1000t} + C$$
+$$=\frac{1}{0.1} \int 5e^{-1000t} dt;\ u = -1000t;\ du=-1000dt;\ dt = \frac{-1}{1000}du$$
+$$=\frac{1}{L}\frac{-5}{1000}\int e^{u} = \frac{-5}{1000(0.1)}\left[e^{u}\right] \Large|\small_0^{-1000t}= -0.05\left[e^{u}\right] \Large|\small_0^{-1000t}= -0.05[e^{-1000t} -  1]$$
+$$I_L(t) = 0.05(1 - e^{-1000t})A$$
+$$I_L(t) = I_f + (I_i)e^{-1000t} - (I_f)e^{-1000t} = I_f + (0)e^{-1000t} - (I_f)e^{-1000t} = I_f(1 - e^{-1000t})$$
+$$I_L(t) = I_f(1-e^{-1000t})A$$
+5. Since as $t \to \infty$, the voltage of the inductor approaches $0$
+$$V_L(t) = L\frac{dI_L}{dt}$$
+	Because at a steady state the current of the inductor is constant ($\frac{dI_L}{dt} = 0$).
+	The entire voltage will be dropping across the resistor. Therefore, the voltage through the resistor will be:
+	$$V = IR = 0.05\times100 = 5V$$
+#### Another RC Example 1
+Consider the circuit below. The switch has been closed for a long time, then opens at $t=0$
+```tikz
+\usepackage{circuitikz}
 
+\begin{document}
+\begin{circuitikz}[american, scale=2, font=\Large]
+	\draw(0,0)
+	to[vsource, invert, l=$96V$]++(0,2)
+	to[R=$3\Omega$]++(2,0)
+	to[switch, invert]++(0,-2)++(0,2)
+	to[R=$1\Omega$]++(2,0)
+	to[capacitor, a=$\frac{1}{6}F$]++(0,-2)++(0,2)--++(1,0)
+	to[R=$12\Omega$]++(0,-2)--++(-5,0);
+\end{circuitikz}
+\end{document}
+
+```
+1. Right before $t=0$ when the switch is still closed, what is the current through the $12\ohm$ resistor?
+	1. The $12\ohm$ resistor sees $0A$ because with the switch closed before $t=0$, there is a short to ground, and a $1\ohm$ resistor to the rest of the circuit.
+	2. The 0 impedance short will have all the current, and none will reach the $12\ohm$.
+2. Right before the switch opens, there will be $0$ current through the capacitor, and it's voltage will be $0$ also.
+3. Right after the switch opens at $t=0$, the voltage at the cap will be $0V$ 
+4. After a long time, the capacitor will charge to the potential available after the 3 and 1$\ohm$ resistors:
+   $$96\frac{12}{16} = 72V$$
+5. After the switch is open for a long time, the capacitor will essentially be an infinite source of resistance, because it will be at the same potential as the node before it. Therefore, all current will flow through the $12\ohm$ the voltage across each resistor is:
+	1. $R_{1\ohm} = 96\frac{1}{16} = 6V$
+	2. $R_{3\ohm} = 96\frac{3}{16} = 18V$
+	3. $R_{12\ohm} = 96\frac{12}{16} = 72V$
+
+6. The Thevenin equivalent seen be the capacitor at $t=0$ is 
+$$R_{TH} = \left(\frac{1}{4} + \frac{1}{12}\right)^{-1}= \frac{12}{4} = 3\ohm$$
+7. The time constant of the circuit will be:
+   $$R_{TH}\times C = \frac{3}{6} = 0.5s$$
+8. The cap voltage as a function of time after $t=0$ will be:
+   $$V_C(t) = V_f + (V_i-V_f)e^{-2t};\ V_f = 72V;\ V_i = 0V$$
+$$V_C(t) = 72 + (0 - 72)e^{-2t} = 72 - 72e^{-2t} = 72(1 - e^{-2t})$$
+This makes sense, because as $t\to \infty$, the $e^{-2t}\to 0$ and $V_C(t) \to 72V$ (Charging)
+#### Another RC Example 2
+Consider the circuit below. The switch has been closed for a long time, then opened at $t = 0$. 
+```tikz
+\usepackage{circuitikz}
+
+\begin{document}
+\begin{circuitikz}[american, scale=2, font=\Large]
+	\draw(0,0)
+	to[vsource, invert, l=30V]++(0,2)
+	to[R, a=$5k\Omega_1$]++(-2,0)
+	to[switch, invert, mirror]++(-1,0)
+	to[R=$2k\Omega$]++(0,-1)
+	to[capacitor, l=$20\mu F$]++(0,-1)++(0,2)
+	to[R, a=$6k\Omega$]++(-1,0)
+	to[R, a=$5k\Omega_2$]++(0,-2)++(0,2)
+	to[R, a=$20k\Omega$]++(-2,0)--++(0,-2)--++(6,0);
+\end{circuitikz}
+\end{document}
+```
+1. Right before $t = 0$ when the switch is still closed, what is the current through the $2k\ohm$ resistor?
+	1. The current will be 0 because the capacitor is charged, since the switch as been closed for a long time.
+2. The voltages across all the resistors will be:
+	1. $R_{eq} = 5 + 6 + 4 = 15k\ohm$
+	2. $R_{5k\ohm_1} = 30\frac{5}{15} = 10V$
+	3. $R_{2k\ohm} = 0V$
+	4. $R_{6k\ohm} = 30\frac{6}{15} = 12$
+	5. $R_{20k\ohm} = 8V$
+	6. $R_{5k\ohm_2} = 8V$
+3. At this point, the capacitor voltage is $20V$
+4. The moment the switch opens at $t=0$, the cap voltage across the cap is still briefly $20V$ but it begins discharging.
+5. After a long time, the cap voltage will be $0V$
+6. The time constant will be:
+$$R_{TH} = 2 + 6 + 4 = 12k\ohm$$
+
+$$\tau = RC = R_{TH}\times C = 12\times10^{3} \times 20\times 10^{-6} = 0.24$$
+   7. The cap voltage as  a function of time is therefore:
+      $$V_C(t) = V_f + (V_i - V_f)e^{-t/0.24} = 0 + (20- 0)e^{-t/0.24}$$
+	$$V_C(t) = 20e^{-t/0.24}$$
+
+#### Another RL Example
+Consider the RL circuit below. The switch has been at position $1$ for a long time. Then the switch is moved to $2$ at $t=0$.
+```tikz
+\usepackage{circuitikz}
+
+\begin{document}
+\begin{circuitikz}[american, scale=2, font=\Large]
+	\draw(0,0)
+	to[vsource, invert, l=$20V$]++(0,2)
+	to[R=$40\Omega_1$]++(2,0)
+	to[R, a=$40\Omega_2$]++(0,-2)++(0,2)
+	to[switch, mirror, invert, l=$1$]++(1,0)++(-0.5,-0.25)
+	node[ocirc, label=right:$2$]{}
+	to[R=$10\Omega$]++(0,-1.75)++(0.5,2)
+	to[R=$40\Omega_3$]++(1,0)
+	to[inductor, l=$10mH$]++(0,-2)--++(-4,0);
+\end{circuitikz}
+\end{document}
+
+```
+1. Right before $t=0$ when the switch is still in position 1, what is the current through the $10\ohm$ resistor?
+	1. The current through the $10\ohm$ is 0A because there is no path to ground through the $10\ohm$
+2. The currents through all the $40\ohm$ resistors at that point are:
+	1. $V_{40\ohm_1} = 20\frac{40}{60} = \frac{40}{3}V$
+	2. $I_{40\ohm_1} = \frac{40}{40\times3} = \frac{1}{3}A$
+	3. $V_{40\ohm_2} = V_{40\ohm_3} =  20\frac{20}{60} = \frac{20}{3}V$
+	4. $I_{40\ohm_2} = \frac{20}{40\times 3} = \frac{1}{6}A$
+3. The inductor voltage is $0V$ and the current is $I_{40\ohm_3} = I_L = \frac{1}{6}A$
+4. Right after the switch moves to position 2, at $t=0$, the current through the inductor will release it's stored energy and maintain the current starting from $\frac{1}{6}A$, and decaying over time.
+5. After a long time at position 2, the current will be $0A$ in the inductor, because there is no path from source to ground through it, and it will have reached a new steady state.
+6. The time constant after the switch opens is:
+   $$\tau = \frac{L}{R} = \frac{10\times10^{-3}}{50\ohm} = 0.0002s$$
+7. The inductor current as a function of times can be written as:
+   $$I_L(t) = I_f + (I_i - I_f)e^{-5000t} = 0 + \left(\frac{1}{6} - 0\right)e^{\frac{-t}{0.0002}}$$
+$$I_L(t) = \frac{1}{6}e^{-5000t}A$$
+$$V_L(t) = L\frac{dI_L}{dt} = 0.01\times\frac{-5000}{6}e^{-5000t} = \frac{-25}{3}e^{-5000t}V$$
+Note that the voltage is negative, since the current keeps flowing in the same direction, and is "sourcing" the current.
 #### AC RLC Example 1
 $$V_{ac}(t) = 100cos(10^4 t)V$$
 ```tikz
