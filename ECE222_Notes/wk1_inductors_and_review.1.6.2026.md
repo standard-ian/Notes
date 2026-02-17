@@ -112,8 +112,8 @@ Sketch plots of the currents and voltages over time to show your thoughts.
 #### Inductor and Capacitor Equations
 Compare the relationships above with these equations, keeping in mind the steady state and the transient.
 
-$$V_L = L\cdot\frac{di_L}{dt}$$
-$$i_e = C \cdot\frac{dV_c}{dt}$$
+$$V_L = L\cdot\frac{dI_L}{dt}$$
+$$I_C = C \cdot\frac{dV_c}{dt}$$
 #### Responses of Resistive Circuits to AC Sources
 
 ```tikz
