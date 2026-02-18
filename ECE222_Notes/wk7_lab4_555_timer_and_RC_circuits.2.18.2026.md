@@ -114,9 +114,9 @@ Once Pin 6 detects $V_{out} \geq \frac{2}{3}V_{source}$, an internal FF is reset
 \begin{document}
 \begin{circuitikz}[american, scale=2, font=\Large]
 	\draw(0,0)
-	++(1,2)
-	to[short]++(0,1)
-	node[ocirc, label=above:$Pin\ 7$]{}++(0,-1)
+	node[ground, rotate=180, scale=2]{}
+	node[ocirc, label=left:$Pin\ 7$]{}--++(0,-0.5)--++(-1,0)
+	node[ocirc, label=left:$V_{in} (15V)$]{}++(1,0)
 	to[R=$R_2$, color=black]++(1,0)
 	to[short]++(1,0)
 	node[ocirc, label=above:$V_{out}$]{}--++(1,0)
@@ -127,6 +127,7 @@ Once Pin 6 detects $V_{out} \geq \frac{2}{3}V_{source}$, an internal FF is reset
 \end{circuitikz}
 \end{document}
 ```
+
 With the "drain" at Pin 7 open, $V_{source}$ takes the path to $0V$ at Pin 7, no longer charging the cap. It begins discharging. 
 
 The cap discharges through $R_2$ only, because there is a sink to ground between $R_1$ and $R_2$ at Pin 7. Therefore:
@@ -148,14 +149,17 @@ On the discharging cycle, Pin 2 monitors $V_{out}$ and when $V_{out} \leq \frac{
 Starting from the general RC transient equation:
 $$V(t) = V_{final} + (V_{initial} - V_{final})e^{-t/\tau}$$
 ###### $t_{high}$, charging from $\frac{1}{3}V_{cc}$ toward $V_{cc}$, stopping at $\frac{2}{3}V_{cc}$
-$$\frac{2}{3}V_{cc} = V_{cc} + \left(\frac{1}{3}V_{cc} - V_{cc}\right)e^{-t/\tau}$$
-$$\frac{2}{3}V_{cc} = V_{cc} - \frac{2}{3}V_{cc} \cdot e^{-t/\tau}$$
-$$e^{-t/\tau} = \frac{1}{2}$$
-$$t_{high} = \tau \ln(2) = \ln(2)(R_1 + R_2)C$$
-###### For $t_{low}$, discharging from $\frac{2}{3}V_{cc}$ toward $0$, stopping at $\frac{1}{3}V_{cc}$
-$$\frac{1}{3}V_{cc} = 0 + \frac{2}{3}V_{cc} \cdot e^{-t/\tau}$$
-$$e^{-t/\tau} = \frac{1}{2}$$
-$$t_{low} = \tau \ln(2) = \ln(2) R_2 C$$
+$$\frac{2}{3}V_{in} = V_{in} + \left(\frac{1}{3}V_{in} - V_{in}\right)e^{-t/\tau}$$
+$$\frac{2}{3}V_{in} = V_{in} - \left(\frac{2}{3}V_{in} \cdot e^{-t/\tau}\right)$$
+$$e^{-t/\tau} = \frac{\frac{2}{3}V_{in} - V_{in}}{- \frac{2}{3}V_{in}} = \frac{-\frac{1}{3}V_{in}}{\frac{2}{3}V_{in}} = \frac{1}{2}$$
+$$\ln\left(e^{-t/\tau}\right) = \ln\left(\frac{1}{2}\right)$$
+$$\frac{-t}{\tau} = \ln\left(\frac{1}{2}\right)\to\frac{t}{\tau} = \ln(2)\to t=\tau\ \ln(2)$$
+$$t_{high} = \tau_{charging} \ln(2) = \ln(2)(R_1 + R_2)C$$
+###### For $t_{low}$, discharging from $\frac{2}{3}V_{in}$ toward $0$, stopping at $\frac{1}{3}V_{in}$
+$$\frac{1}{3}V_{in} = 0 + \frac{2}{3}V_{in} \cdot e^{-t/\tau}$$
+$$e^{-t/\tau} = \frac{\frac{1}{3}V_{in}}{\frac{2}{3}V_{in}} = \frac{1}{2}$$
+
+$$t_{low} = \tau_{discharging} \ln(2) = \ln(2) R_2 C$$
 **Both cases reduce to $e^{-t/\tau} = \frac{1}{2}$ because the thresholds are symmetric around $\frac{1}{2}V_{cc}$ — the cap always traverses exactly half the remaining voltage gap in both phases.**
 ##### 4. If you want to make the LED turn on over a much longer time, what would you change in the circuit? Verify by changing this in the circuit.**
 To increase $t_{high}$, the time the LED is on, the RC time constant of the charging path must be increased. From:
