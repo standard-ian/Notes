@@ -76,7 +76,7 @@ Have to use quadratic formula:
 $$\lambda = -1 \pm 2i;\ \ \alpha = -1, \ \beta = 2$$
 Thus, the general solution is:
 $$x(t) = c_1 e^{\alpha t}cos(\beta t) + c_2e^{\alpha t} sin(\beta t)$$
-$$=c_1e^{-t}cos(\alpha t) + c_2e^{-t}sin(\alpha t)$$
+$$=c_1e^{-t}cos(\beta t) + c_2e^{-t}sin(\beta t)$$
 #### IVP Example
 $$x'' + 7x = 0;\ \ x(0) = 1,\ x'(0) = 2$$
 Characteristic equation:
