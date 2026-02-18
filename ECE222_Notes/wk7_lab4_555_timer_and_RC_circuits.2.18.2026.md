@@ -17,7 +17,7 @@
 
 	\node[dipchip, scale=2, num pins=8, external pins width=0.3](C){555};
 	\draw(C.pin 1)--++(-1.25,0)--++(0,1)
-	to[vsource, V=$15V$, invert]++(4.77,0)
+	to[vsource, V=$9V$, invert]++(4.77,0)
 	to[short]++(0,-1)--(C.pin 8)++(1,0)
 	to[R=$R_1$, bipoles/resistor/width=0.5]++(0,-0.55)--(C.pin 7)++(1,0)
 	to[R=$R_2$, bipoles/resistor/width=0.5]++(0,-0.55)--(C.pin 6);
@@ -92,7 +92,7 @@ $$\tau_{charging{}} = (R_1 + R_2) \times C$$
 \begin{document}
 \begin{circuitikz}[american, scale=2, font=\Large]
 	\draw(0,0)
-	to[vsource, V=$15V$, invert]++(0,2)
+	to[vsource, V=$9V$, invert]++(0,2)
 	to[R=$R_1$]++(1,0)
 	to[R=$R_2$]++(1,0)
 	to[short]++(1,0)
@@ -116,7 +116,7 @@ Once Pin 6 detects $V_{out} \geq \frac{2}{3}V_{source}$, an internal FF is reset
 	\draw(0,0)
 	node[ground, rotate=180, scale=2]{}
 	node[ocirc, label=left:$Pin\ 7$]{}--++(0,-0.5)--++(-1,0)
-	node[ocirc, label=left:$V_{in} (15V)$]{}++(1,0)
+	node[ocirc, label=left:$V_{in} (9V)$]{}++(1,0)
 	to[R=$R_2$, color=black]++(1,0)
 	to[short]++(1,0)
 	node[ocirc, label=above:$V_{out}$]{}--++(1,0)
@@ -137,14 +137,13 @@ On the discharging cycle, Pin 2 monitors $V_{out}$ and when $V_{out} \leq \frac{
 
 ###### 2. Compare your estimates of charging and discharging time duration's with your observations.
 
-|                | Estimated | Experimental |     |
-| -------------- | --------- | ------------ | --- |
-| $t_{high}$ (s) | 1.386     |              |     |
-| $t_{low}$ (s)  | 0.693     |              |     |
-| $T$ (s)        | 2.079     |              |     |
-| $f$ (Hz)       | 0.481     |              |     |
-| $D$ (%)        | 66.7      |              |     |
-	
+|                | Estimated | Experimental |
+| -------------- | --------- | ------------ |
+| $t_{high}$ (s) | 1.386     | 1.819        |
+| $t_{low}$ (s)  | 0.693     | 0.610        |
+| $T$ (s)        | 2.079     | 2.432        |
+| $f$ (Hz)       | 0.481     | 0.411        |
+| $D$ (%)        | 66.7      | 74.87        |
 ##### 3. Explain how the transient of the RC circuit controls the duty cycle: the time duration of the output being high/low. Figure out the reason for the formulas used in estimating $t_{high}$ and $t_{low}$.
 Starting from the general RC transient equation:
 $$V(t) = V_{final} + (V_{initial} - V_{final})e^{-t/\tau}$$
@@ -173,3 +172,4 @@ either $C$, $R_1$, or $R_2$ can be increased. However the effect depends on whic
 - Increasing $R_1$ increases $t_{high}$ only, since $R_1$ is bypassed during discharge. This increases both the period and the duty cycle.
 
 To maximize LED on-time while keeping off-time fixed, increase $R_1$.
+![[lab4.jpg]]
