@@ -353,3 +353,149 @@ Steps:
 	2. $V_L = 0.309cos(10000t + 177.6^\circ)V$ 
 	3. $V_C = 10.3cos(10000t -2.4^\circ)V$
 ## Class 14
+
+#### Laplace Transform Continued
+Transforming a time based function into a complex function that we can manipulate for an application.
+```tikz
+\usepackage{circuitikz}
+\begin{document}
+\begin{circuitikz}[american, scale=2, font=\Large]
+	\draw(0,0)
+	to[battery, l=$9V$, invert]++(0,2)
+	to[R=$40\Omega$, i=$I$]++(2,0)
+	to[switch]++(1,0)
+	to[R=$10\Omega$]++(0,-2)++(0,2)
+	to[R=$10\Omega$]++(2,0)
+	to[inductor, l=$10mH$]++(0,-2)--++(-5,0);
+\end{circuitikz}
+\end{document}
+```
+
+
+The circuit starts with the switch at A, and the cap is charging.
+```tikz
+\usepackage{circuitikz}
+
+\begin{document}
+\begin{circuitikz}[american, scale=2, font=\Large]
+	\draw(0,0)
+	to[vsource, v=$10V$, invert]++(0,2)
+	to[R=$R_1$]++(2,0)
+	node[label=above:$A$, ocirc]{}++(0.25,0)
+	to[capacitor, l=$C_1$]++(0,-2);
+	
+	\draw(2.5,2)
+	node[label=above:$B$, ocirc]{}
+	to[inductor, l=$10mH$]++(2,0)
+	to[R=$R_2$]++(0,-2)--(0,0);
+	
+\end{circuitikz}
+\end{document}
+```
+
+After $t=0$, the and the switch is moved to B, the circuit becomes:
+```tikz
+\usepackage{circuitikz}
+
+\begin{document}
+\begin{circuitikz}[american, scale=2, font=\Large]
+	\draw(0,0)
+	to[capacitor, l=$V_C$]++(0,2)
+	to[inductor, i=$I$, l=$10mH$]++(2,0)
+	to[R=$R_2$]++(0,-2)--(0,0);
+	
+\end{circuitikz}
+\end{document}
+```
+
+With different values of $R_2$ the waveform decays at different rates, and can be represented as decaying sine waves.
+
+$$V_C'' + \frac{R}{L}V_C' + \frac{1}{LC}V_C = 0$$
+#### Performing the Laplace Transform
+Given a time based function:
+$$f(t);\ t \geq 0$$
+The symbology to indicate Laplace Transform is:
+$$\mathcal{L}\{f(t)\} = \int_0^\infty e^{-st}f(t)\ dt$$
+Where $s$ is a complex variable, and the transform converts a time based function into a point $s$ on the ($\mathcal{Re}$, $\mathcal{Im}$) plane.
+
+$$e^{-st} = e^{-(\alpha - j\beta) t} = e^{-\alpha t} \times e^{-j\ \beta t} = e^{-\alpha t}\left[cos(\beta t) - jsin(\beta t)\right]$$
+Where as the real portion moves from $-\infty\to 0$, the decay approaches 0.
+
+So, $e^{-st}$ is a representation of decay, that can be applied to a time function $f(t)$. 
+
+We perform the integration of the product of $e^{-st}$ and $f(t)$ over the infinite time domain.
+
+##### Example:
+Starting from:
+$$f(t) = Ae^{-\alpha t} cos(\omega t)$$
+We can make the integration easier by converting $f(t)$ to a complex representation.
+$$f(t) = A\ e^{-\alpha t} e^{j\omega t}$$
+$$\mathcal{L}\{f(t)\} = \int_0^\infty e^{-st}(A\ e^{-\alpha t} e^{j\omega t})\ dt = \int_0^\infty A\times e^{-st}\times e^{-\alpha t}\times e^{j\omega t}\ dt $$
+$$=\int_0^\infty Ae^{\lambda t}\ dt;\ \ \lambda = -s-\alpha+j\omega$$
+$$= \frac{-A}{s + \alpha -j\omega}e^{\omega t}|_0^\infty = \frac{-A}{s + \alpha -j\omega}[1-0]$$
+$$\mathcal{L}\{f(t)\} = \frac{A}{s + \alpha - j\omega}$$
+The time domain has been eliminated and moved to an $s$ domain.
+$$\mathcal{L}\{f(t)\}=\frac{A(s + \alpha)}{(s + \alpha)^2+ \omega ^2} + j\frac{A\omega}{(s + \alpha)^2+\omega^2}$$
+##### Condensed Method
+$$f(t) = Ae^{-2t}cos(100t)$$
+$$\mathcal{L}\{f(t)\} = A\frac{s + \alpha}{(s + \alpha)^2 + (\omega)^2}=A\frac{s + 2}{(s + 2)^2 + (100)^2}$$
+For only a sin function, we end up with just the j, or sin portion.
+$$g(t) = Be^{-2t}sin(100t)$$
+
+$$\mathcal{L}\{g(t)\} = B\frac{100}{(s + 2)^2+(100)^2}$$
+$$e^{j\omega t} = cos(\omega t) +jsin(\omega t)$$
+##### In Summary
+
+The full transform on a $f(t)$ with both decay and oscillating components,**(Oscillation with decay)**:
+$$\mathcal{L}\{Ae^{-\alpha t} cos(\omega t)\} = A\frac{s + \alpha}{(s + \alpha)^2) + \omega^2}$$
+For a $f(t)$ with no oscillating portion, we can just think $\omega = 0$, making $cos(\omega t) = 1$ **(Pure decay)**:
+$$\mathcal{L}\{Ae^{-\alpha t}\} = A\frac{1}{s + \alpha}$$
+For no decay, we can consider $\alpha = 0$ **(Pure oscillation)**:
+$$\mathcal{L}\{Acos(\omega t)\} = A\frac{s}{s^2 + \omega^2}$$
+For a constant
+$$\mathcal{L}\{A\} = \frac{A}{s}$$
+
+##### Poles and Zeros
+**Poles** where the denominator in a Laplace transform $= 0$.
+
+Marked by $x$. Indicates where there is exponential decay. When $(s + \alpha) = 0$, or $s=-\alpha$
+
+$\frac{A}{s}$ occurs where $(\mathcal{Re}, \mathcal{Im}) = (0,0)$
+
+**Zeros** where the 
+
+
+| Signals              | $f(t)$                         | $\mathcal{L}\{f(t)\}$                               | Poles and Zeros<br> |
+| -------------------- | ------------------------------ | --------------------------------------------------- | ------------------- |
+| Decaying Cosine      | $Ae^{-\alpha t}cos(\omega t)$  | $A\frac{s + \alpha}{(s + \alpha)^2 + \omega^2}$<br> |                     |
+| Decaying Sine        | $Ae^{-\alpha t} sin(\omega t)$ | $A\frac{\omega}{(s + \alpha)^2 + \omega^2}$         |                     |
+| Cosine               | $Acos(\omega t)$               | $A\frac{s}{s^2 + \omega ^2}$<br>                    |                     |
+| Sine                 | $Asin(\omega t)$               | $A\frac{\omega}{s^2 + \omega ^2}$                   |                     |
+| Decaying Exponential | $Ae^{-\alpha t}$               | $\frac{A}{s + \alpha}$                              |                     |
+| Step                 | $Au(t)$                        | $\frac{A}{s}$                                       |                     |
+| Decaying Ramp        | $Ate^{-\alpha t}$              | $A\frac{1}{(s + \alpha)^2 + \omega^2}$              |                     |
+| Ramp                 | $At$                           | $\frac{A}{s^2}$                                     |                     |
+| Unit Impulse         | $\gamma t$                     | 1                                                   |                     |
+
+#### IW 14.1
+1. Recognize the type and find the Laplace transform for each signal
+###### $v(t) = 10e^{-\frac{t}{0.5}}$
+$$\frac{10}{s + \frac{1}{0.5}} = \frac{10}{s + 2}$$
+###### $v(t) = 5e^{-5t}$
+$$\frac{5}{s+5}$$
+###### $v(t) = 20e^{-2t}sin(10^4t)$
+$$20\frac{10^4}{(s + 2)^2 + 10^8}$$
+###### $v(t) = 5u(t) + 5cos(120\pi t)$
+$$\frac{5}{s} + 5\frac{s}{s^2 + (120\pi)^2}$$
+1. Recognize the type and find the corresponding time-domain signal from its Laplace Transform.
+###### $\frac{10}{s + 10}$
+$$10e^{-10t}$$
+###### $\frac{1}{s^2 + 4}$
+$$\frac{1}{2}sin(2t)$$
+###### $\frac{s}{s^2 + 4}$
+$$cos(2t)$$
+###### $\frac{s+1}{(s+1)^2 + 4}$
+$$e^{-t}cos(2t)$$
+###### $\frac{s + 1}{s^2 + 4}$
+$$\frac{s}{s^2 + 4} + \frac{1}{s^2 + 4}$$
+$$cos(2t) + \frac{1}{2}sin(2t)$$

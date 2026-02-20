@@ -150,7 +150,7 @@ $$V(t) = V_{final} + (V_{initial} - V_{final})e^{-t/\tau}$$
 ###### $t_{high}$, charging from $\frac{1}{3}V_{cc}$ toward $V_{cc}$, stopping at $\frac{2}{3}V_{cc}$
 $$\frac{2}{3}V_{in} = V_{in} + \left(\frac{1}{3}V_{in} - V_{in}\right)e^{-t/\tau}$$
 $$\frac{2}{3}V_{in} = V_{in} - \left(\frac{2}{3}V_{in} \cdot e^{-t/\tau}\right)$$
-$$e^{-t/\tau} = \frac{\frac{2}{3}V_{in} - V_{in}}{- \frac{2}{3}V_{in}} = \frac{-\frac{1}{3}V_{in}}{\frac{2}{3}V_{in}} = \frac{1}{2}$$
+$$e^{-t/\tau} = \frac{\frac{2}{3}V_{in} - V_{in}}{- \frac{2}{3}V_{in}} = \frac{-\frac{1}{3}V_{in}}{-\frac{2}{3}V_{in}} = \frac{1}{2}$$
 $$\ln\left(e^{-t/\tau}\right) = \ln\left(\frac{1}{2}\right)$$
 $$\frac{-t}{\tau} = \ln\left(\frac{1}{2}\right)\to\frac{t}{\tau} = \ln(2)\to t=\tau\ \ln(2)$$
 $$t_{high} = \tau_{charging} \ln(2) = \ln(2)(R_1 + R_2)C$$

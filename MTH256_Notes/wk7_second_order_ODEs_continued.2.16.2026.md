@@ -259,17 +259,22 @@ $$x(t) = 0;\ x'(0) = 1$$
 Where $\omega_0 \neq \omega$ 
 
 We have:
-$$x_h = C_1 cos(\omega _0 t) + C_2 sin(\omega_0 t)$$
+$$x_h = C_1 \cos(\omega_0 t) + C_2 \sin(\omega_0 t)$$
+
 Letting:
-$$x_p = Acos(\omega t) + Bsin(\omega t)$$
+$$x_p = A\cos(\omega t) + B\sin(\omega t)$$
+
 We find:
-$$A = 0;\ B = \frac{1}{(\omega_0^2 = \omega^2)}$$
+$$A = 0;\ B = \frac{1}{\omega_0^2 - \omega^2}$$
+
 Thus:
-$$x(t) = C_1cos(\omega_0 t) + C_2sin(\omega t) + \frac{1}{\omega_0^2-\omega^2}sin(\omega t)$$
+$$x(t) = C_1\cos(\omega_0 t) + C_2\sin(\omega_0 t) + \frac{1}{\omega_0^2-\omega^2}\sin(\omega t)$$
+
 Applying the ICs:
-$$C_1=0;\ C_2 = -\left(\frac{\omega + \omega_0(\omega_0^2 - \omega^2)}{\omega_0^2 - \omega^2}\right)$$
+$$C_1=0;\ C_2 = \frac{\omega_0^2 - \omega^2 - \omega}{\omega_0(\omega_0^2 - \omega^2)}$$
+
 Finally:
-$$x(t) = -\left(\frac{\omega + \omega_0(\omega_0^2 - \omega^2)}{\omega_0^2 - \omega^2}\right)sin(\omega_0 t) + \frac{1}{\omega_0^2 - \omega^2}sin(\omega t)$$
+$$x(t) = \frac{\omega_0^2 - \omega^2 - \omega}{\omega_0(\omega_0^2 - \omega^2)}\sin(\omega_0 t) + \frac{1}{\omega_0^2 - \omega^2}\sin(\omega t)$$
 The solution is the sum of two oscillators of bonded amplitude. We call this "beats"
 ```tikz
 \usepackage{pgfplots}
@@ -282,10 +287,10 @@ The solution is the sum of two oscillators of bonded amplitude. We call this "be
     ylabel={x(t)},
     grid=major,
     legend pos=north east,
-    domain=0:1000,
-    samples=1000
+    domain=0:500,	
+    samples=200
 ]
-\addplot[blue, thick] {-(((10+9.5*(9.5^2-10^2))/(9.5^2-10^2))*sin(9.5*x))+((1/(9.5^2 - 10^2))*sin(10*x))}
+\addplot[blue, thick] {((500^2-600^2-600)/(500*(500^2-600^2))*sin(500*x)))+((1/(500^2 - 600^2))*sin(600*x))}
 ;
 \end{axis}
 \end{tikzpicture}
