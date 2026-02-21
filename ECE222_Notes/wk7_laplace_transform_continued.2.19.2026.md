@@ -471,8 +471,8 @@ $\frac{A}{s}$ occurs where $(\mathcal{Re}, \mathcal{Im}) = (0,0)$
 | Decaying Sine        | $Ae^{-\alpha t} sin(\omega t)$ | $A\frac{\omega}{(s + \alpha)^2 + \omega^2}$         |                     |
 | Cosine               | $Acos(\omega t)$               | $A\frac{s}{s^2 + \omega ^2}$<br>                    |                     |
 | Sine                 | $Asin(\omega t)$               | $A\frac{\omega}{s^2 + \omega ^2}$                   |                     |
-| Decaying Exponential | $Ae^{-\alpha t}$               | $\frac{A}{s + \alpha}$                              |                     |
-| Step                 | $Au(t)$                        | $\frac{A}{s}$                                       |                     |
+| Decaying Exponential | $Ae^{-\alpha t}$               | $A\frac{1}{s + \alpha}$                             |                     |
+| Step                 | $Au(t)$                        | $A\frac{a}{s}$                                      |                     |
 | Decaying Ramp        | $Ate^{-\alpha t}$              | $A\frac{1}{(s + \alpha)^2 + \omega^2}$              |                     |
 | Ramp                 | $At$                           | $\frac{A}{s^2}$                                     |                     |
 | Unit Impulse         | $\gamma t$                     | 1                                                   |                     |
