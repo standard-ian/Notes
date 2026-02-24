@@ -465,18 +465,17 @@ $\frac{A}{s}$ occurs where $(\mathcal{Re}, \mathcal{Im}) = (0,0)$
 **Zeros** where the 
 
 
-| Signals              | $f(t)$                         | $\mathcal{L}\{f(t)\}$                               | Poles and Zeros<br> |
-| -------------------- | ------------------------------ | --------------------------------------------------- | ------------------- |
-| Decaying Cosine      | $Ae^{-\alpha t}cos(\omega t)$  | $A\frac{s + \alpha}{(s + \alpha)^2 + \omega^2}$<br> |                     |
-| Decaying Sine        | $Ae^{-\alpha t} sin(\omega t)$ | $A\frac{\omega}{(s + \alpha)^2 + \omega^2}$         |                     |
-| Cosine               | $Acos(\omega t)$               | $A\frac{s}{s^2 + \omega ^2}$<br>                    |                     |
-| Sine                 | $Asin(\omega t)$               | $A\frac{\omega}{s^2 + \omega ^2}$                   |                     |
-| Decaying Exponential | $Ae^{-\alpha t}$               | $A\frac{1}{s + \alpha}$                             |                     |
-| Step                 | $Au(t)$                        | $A\frac{a}{s}$                                      |                     |
-| Decaying Ramp        | $Ate^{-\alpha t}$              | $A\frac{1}{(s + \alpha)^2 + \omega^2}$              |                     |
-| Ramp                 | $At$                           | $\frac{A}{s^2}$                                     |                     |
-| Unit Impulse         | $\gamma t$                     | 1                                                   |                     |
-
+| Signals              | $f(t)$                         | $\mathcal{L}\{f(t)\}$                     | Poles and Zeros                                      |
+| -------------------- | ------------------------------ | ----------------------------------------- | ---------------------------------------------------- |
+| Decaying Cosine      | $Ae^{-\alpha t}\cos(\omega t)$ | $A\frac{s+\alpha}{(s+\alpha)^2+\omega^2}$ | Zero at $s=-\alpha$; poles at $s=-\alpha\pm j\omega$ |
+| Decaying Sine        | $Ae^{-\alpha t}\sin(\omega t)$ | $A\frac{\omega}{(s+\alpha)^2+\omega^2}$   | No finite zeros; poles at $s=-\alpha\pm j\omega$     |
+| Cosine               | $A\cos(\omega t)$              | $A\frac{s}{s^2+\omega^2}$                 | Zero at $s=0$; poles at $s=\pm j\omega$              |
+| Sine                 | $A\sin(\omega t)$              | $A\frac{\omega}{s^2+\omega^2}$            | No finite zeros; poles at $s=\pm j\omega$            |
+| Decaying Exponential | $Ae^{-\alpha t}$               | $A\frac{1}{s+\alpha}$                     | No finite zeros; pole at $s=-\alpha$                 |
+| Step                 | $Au(t)$                        | $A\frac{1}{s}$                            | No finite zeros; pole at $s=0$                       |
+| Decaying Ramp        | $Ate^{-\alpha t}$              | $A\frac{1}{(s+\alpha)^2}$                 | No finite zeros; double pole at $s=-\alpha$          |
+| Ramp                 | $At$                           | $\frac{A}{s^2}$                           | No finite zeros; double pole at $s=0$                |
+| Unit Impulse         | $\delta(t)$                    | $1$                                       | No poles, no finite zeros                            |
 #### IW 14.1
 1. Recognize the type and find the Laplace transform for each signal
 ###### $v(t) = 10e^{-\frac{t}{0.5}}$
