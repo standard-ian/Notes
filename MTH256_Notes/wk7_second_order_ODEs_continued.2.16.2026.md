@@ -120,8 +120,8 @@ Recall:
 | $\alpha$                                                   | <br>$A$                                       |
 | $\alpha e^{\beta t}$                                       | <br>$Ae^{\beta t}$                            |
 | Polynomial of degree n                                     | <br>$A_nt^n + A_n-1t^{n-1} +...+A_1t + A_0$   |
-| $\alpha sin(\omega t)$; $\alpha cos(\omega t)$             | <br>$e^{rt}(Asin(\omega t) + Bcos(\omega t))$ |
-| $\alpha e^{rt}sin(\omega t)$; $\alpha e^{rt}cos(\omega t)$ |                                               |
+| $\alpha sin(\omega t)$; $\alpha cos(\omega t)$             | <br>$Asin(\omega t) + Bcos(\omega t)$         |
+| $\alpha e^{rt}sin(\omega t)$; $\alpha e^{rt}cos(\omega t)$ | <br>$e^{rt}(Asin(\omega t) + Bcos(\omega t))$ |
 
 
 If $x_p$ coincides with $x_h(t)$, multiply $x_p$ by the lowest power of $t$ that removes duplication.
@@ -132,7 +132,7 @@ $$x'' + 3x = 4e^{-5t}$$
 Linear, second order ODE, constant coefficients, non-homogeneous.
 ##### 1. Find $x_h(t)$
 Characteristic equation:
-$$\lambda^2 + 3 = 0;\ \lambda = \pm\sqrt{3}$$
+$$\lambda^2 + 3 = 0;\ \lambda = \pm i\sqrt{3}$$
 $$x_h(t) = C_1cos(\sqrt{3}t) + C_2sin(\sqrt{3} t)$$
 ##### 2. Find $x_p(t)$
 Remember, $4e^{-5t}$ is our $f(t)$, so we guess $Ae^{-5t}$

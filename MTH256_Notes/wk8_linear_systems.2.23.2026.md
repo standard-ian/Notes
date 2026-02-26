@@ -381,5 +381,412 @@ $$\vec{x}(t) = C_1\begin{bmatrix}-2\\1\end{bmatrix} + C_2\begin{bmatrix}1\\2\end
 \end{tikzpicture}
 \end{document}
 ```
-##### Case 3: Complex Eigen Values
+## Class 2
+#### Reviewing Case 1
+$$\vec{x}' = A\vec{x}$$
+Where:
+$$\vec{x} = \begin{bmatrix}x(t)\\ y(t)\end{bmatrix};\ \vec{x}' = \begin{bmatrix}x'(t)\\ y'(t)\end{bmatrix}$$
+And:
+$$A = \begin{bmatrix}a & b\\ c & d\end{bmatrix}$$
+The solutions are of the form $\vec{x} = \vec{v}e^{\lambda t}$. Where $\lambda$ satisfies:
+$$\lambda^2 -trA\lambda + detA = 0$$ Case 1: $\lambda$ is real and distinct.
+
+#### Cases 2 & 3
 ##### Case 2: Real Equal Eigen Values
+Suppose:
+$$\lambda_1 = \lambda_2 = \lambda$$
+**Special Case** Then there are either 2 distinct Eigen vector $\vec{v}_1$ and $\vec{v}_2$ (i.e diagonal system)
+$$\vec{x} = C_1 \vec{v}_1e^{\lambda t} + C_2\vec{v}_2e^{\lambda t}$$
+For instance:
+$$\vec{x}_1 = \begin{bmatrix}1 & 0 \\0 & 1\end{bmatrix}\begin{bmatrix}x\\y\end{bmatrix}$$
+**Non-Trivial Case**: There is only one Eigen vector $\vec{v}$. In this case, we say that the matrix is deficient. We can construct one solution as:
+$$\vec{x}_1(t) = \vec{v} e^{\lambda t}$$
+But we still need another solution. It is given by:
+$$\vec{x}_2(t) = e^{\lambda t}(t\vec{v} + \vec{w})$$
+$\vec{w}$ is called the **generalized Eigen vector**, given by:
+$$(A - \lambda I)\vec{w} = \vec{v}$$
+###### Example
+$$\vec{x}' = \begin{bmatrix} 2 & 1 \\ -1& 4\end{bmatrix}\vec{x}$$
+We have the characteristic equation:
+$$\lambda^2 -6\lambda + 9 =0$$
+$$(\lambda -3)^2\to \lambda = 3$$
+Find the corresponding E-vector
+From $(A - \lambda I)\vec{v}=\vec{0}$ we have:
+$$\begin{bmatrix}-1 & 1\\ -1 & 1\end{bmatrix} \begin{bmatrix}v_1\\v_2\end{bmatrix}= \begin{bmatrix}0\\0\end{bmatrix}$$
+$$\vec{v}_2 = \vec{v}_1$$
+$$\vec{v} = \begin{bmatrix}1\\1\end{bmatrix}$$
+Thus:
+$$\vec{x}_1(t)=\begin{bmatrix}1\\1\end{bmatrix} e^{3t}$$
+To find $\vec{x}_2$, consider:
+$$(A-\lambda I)\vec{w} = \vec{v}$$
+$$\begin{bmatrix}-1 & 1\\-1 & 1\end{bmatrix}\begin{bmatrix}w_1\\w_2\end{bmatrix} = \begin{bmatrix}1\\1\end{bmatrix}$$
+$$-w_1 + w_2 = 1$$
+$$w_2 = 1+w_1$$
+$$\vec{w} = \begin{bmatrix}w_1\\1 + w_1\end{bmatrix} = \begin{bmatrix}0\\1\end{bmatrix}$$
+If $w_1 = 0$
+This gives:
+$$\vec{x}_2 = e^{3t}\begin{bmatrix}t\vec{v} + \vec{w}\end{bmatrix} = e^{3t}\left[t\begin{bmatrix}1\\1\end{bmatrix} + \begin{bmatrix}0\\1\end{bmatrix}\right]=\begin{bmatrix}te^{3t}\\(t+1)e^{3t}\end{bmatrix} $$
+Thus the general solution is:
+$$\vec{x}(t) = C_1\begin{bmatrix}1\\1\end{bmatrix}e^{3t} + C_2\begin{bmatrix}t\\t+1\end{bmatrix}e^{3t}$$
+In this case where $\lambda > 0$, the origin is classified as a **degenerate**, **unstable**, node.
+
+Solutions will look like:
+```tikz
+\usepackage{pgfplots}
+% Real Equal Eigenvalues (Improper Node):
+%   x' = 2x + y
+%   y' = -x + 4y
+%   A = [2 1; -1 4],  lambda = 3 (repeated)
+%   Eigenvector: v = (1,1),  eigendirection y=x
+%   Generalized eigenvector: w = (0,1)
+%   Solution: x(t) = e^{3t}(C1*v + C2*(w + t*v))
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[
+    title={Real Equal Eigenvalues: $x'=2x+y,\quad y'=-x+4y$
+           \quad ($\lambda=3$ repeated)},
+    width=15cm,
+    height=15cm,
+    xmin=-3, xmax=3,
+    ymin=-3, ymax=3,
+    xlabel={$x$},
+    ylabel={$y$},
+    axis lines=center,
+    xtick={-3,-2,...,3},
+    ytick={-3,-2,...,3},
+    tick label style={font=\small},
+    grid=major,
+    grid style={gray!30},
+    view={0}{90},
+]
+% Vector field: u = 2x+y,  v = -x+4y, L2-normalized
+\addplot3[
+    orange,
+    quiver={
+        u={(2*x + y)  / sqrt((2*x+y)^2 + (-x+4*y)^2 + 0.001)},
+        v={(-x + 4*y) / sqrt((2*x+y)^2 + (-x+4*y)^2 + 0.001)},
+        w=0,
+        scale arrows=0.3,
+    },
+    -stealth,
+    samples=15,
+    domain=-3:3,
+    y domain=-3:3,
+] (x,y,0);
+% Eigendirection: v=(1,1), line y=x
+% lambda=3 > 0: both rays point AWAY from origin
+\addplot[yellow, thick, stealth-, domain=-3:-0.05, samples=2] {x};
+\addplot[yellow, thick, -stealth, domain=0.05:3,   samples=2] {x};
+% Sample solution curves: x(t)=e^{3t}(C1 + C2*t), y(t)=e^{3t}(C1 + C2*(1+t))
+% Using C1=0.1, C2=1 and C1=0.1, C2=-1, domain restricted so curve stays in window
+\addplot[yellow, thick, samples=300, domain=-1.2:0, variable=\t]
+    ({exp(3*\t)*(0.1 + \t)}, {exp(3*\t)*(0.1 + 1 + \t)});
+\addplot[yellow, thick, samples=300, domain=-1.2:0, variable=\t]
+    ({exp(3*\t)*(0.1 - \t)}, {exp(3*\t)*(0.1 - 1 - \t)});
+% Equilibrium at origin (unstable: open circle)
+\addplot[black, only marks, mark=o, mark size=2.5] coordinates {(0,0)};
+\legend{
+    Vector field,
+    Eigendirection $y=x$\ ($\lambda=3$),
+    ,
+    Sample trajectories,
+    ,
+    Equilibrium
+}
+\end{axis}
+\end{tikzpicture}
+\end{document}
+```
+If $\lambda < 0$, this will be **degenerate** and **stable**, and solutions will look like:
+```tikz
+\usepackage{pgfplots}
+% Real Equal Eigenvalues (Stable Improper Node):
+%   x' = -2x - y
+%   y' =  x - 4y
+%   A = [-2 -1; 1 -4],  lambda = -3 (repeated)
+%   Eigenvector: v = (1,1),  eigendirection y=x
+%   Trajectories converge to origin tangent to y=x
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[
+    title={Real Equal Eigenvalues: $x'=-2x-y,\quad y'=x-4y$
+           \quad ($\lambda=-3$ repeated)},
+    width=15cm,
+    height=15cm,
+    xmin=-3, xmax=3,
+    ymin=-3, ymax=3,
+    xlabel={$x$},
+    ylabel={$y$},
+    axis lines=center,
+    xtick={-3,-2,...,3},
+    ytick={-3,-2,...,3},
+    tick label style={font=\small},
+    grid=major,
+    grid style={gray!30},
+    view={0}{90},
+]
+% Vector field: u = -2x-y,  v = x-4y, L2-normalized
+\addplot3[
+    orange,
+    quiver={
+        u={(-2*x - y)  / sqrt((-2*x-y)^2 + (x-4*y)^2 + 0.001)},
+        v={( x - 4*y) / sqrt((-2*x-y)^2 + (x-4*y)^2 + 0.001)},
+        w=0,
+        scale arrows=0.3,
+    },
+    -stealth,
+    samples=15,
+    domain=-3:3,
+    y domain=-3:3,
+] (x,y,0);
+% Eigendirection: v=(1,1), line y=x
+% lambda=-3 < 0: both rays point TOWARD origin
+\addplot[yellow, thick, -stealth, domain=-3:-0.05, samples=2] {x};
+\addplot[yellow, thick, stealth-, domain=0.05:3,   samples=2] {x};
+% Sample solution curves flowing toward origin
+\addplot[yellow, thick, samples=300, domain=0:1.2, variable=\t]
+    ({exp(-3*\t)*(0.1 + \t)}, {exp(-3*\t)*(0.1 + 1 + \t)});
+\addplot[yellow, thick, samples=300, domain=0:1.2, variable=\t]
+    ({exp(-3*\t)*(0.1 - \t)}, {exp(-3*\t)*(0.1 - 1 - \t)});
+% Equilibrium at origin (stable: filled dot)
+\addplot[black, only marks, mark=*, mark size=2.5] coordinates {(0,0)};
+\legend{
+    Vector field,
+    Eigendirection $y=x$\ ($\lambda=-3$),
+    ,
+    Sample trajectories,
+    ,
+    Equilibrium
+}
+\end{axis}
+\end{tikzpicture}
+\end{document}
+```
+
+##### Case 3: Complex Eigen Values
+Recall, we seek a solution of the form:
+$$\vec{V} = \vec{v}e^{\lambda t}$$
+Suppose $\lambda = \alpha t \beta$. Then the corresponding Eigen Vectors are of the form:
+$$\vec{v} = \vec{w} \pm i\vec{z}$$
+Giving complex solutions.
+
+$$\vec{x}(t) = (w\pm iz)e^{(\alpha\pm i\beta)t}$$
+As before, we use Euler's formula to rewrite the complex exponential.
+
+This give:
+$$(\vec{w} + i\vec{z})e^{\alpha t}e^{i\beta t} = e^{\alpha t} (\vec{w} + i\vec{z})(cos(\beta t) + isin(\beta t))$$
+$$ = e^{\alpha t}(\vec{w}\ cos(\beta t) - \vec{z}\ sin(\beta t)) + ie^{\alpha t}(\vec{z}\ cos(\beta t) + \vec{w}\ sin(\beta t))$$
+$$\vec{x}_1(t) = e^{\alpha t}(\vec{w}\ cos(\beta t) - \vec{z}\ sin(\beta t))$$
+$$\vec{x}_2(t) = e^{\alpha t}(\vec{z}\ cos(\beta t) + \vec{w}\  sin(\beta t))$$
+The general solution is then:
+$$\vec{x}(t) = C_1e^{\alpha t}(\vec{x}_1(t)) + C_2e^{\alpha t}(\vec{x}_2(t))$$
+There are then 3 sub cases:
+###### Sub Case 1: Stable Spiral
+$\alpha < 0$
+Origin is a stable spiral
+```tikz
+\usepackage{pgfplots}
+% Stable Spiral:
+%   x' = -x - 2y
+%   y' =  2x - y
+%   eigenvalues lambda = -1 +/- 2i  (alpha=-1, beta=2)
+%   Trajectories spiral inward toward origin
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[
+    title={Stable Spiral: $x'=-x-2y,\quad y'=2x-y$
+           \quad ($\lambda=-1\pm 2i$)},
+    width=15cm,
+    height=15cm,
+    xmin=-3, xmax=3,
+    ymin=-3, ymax=3,
+    xlabel={$x$},
+    ylabel={$y$},
+    axis lines=center,
+    xtick={-3,-2,...,3},
+    ytick={-3,-2,...,3},
+    tick label style={font=\small},
+    grid=major,
+    grid style={gray!30},
+    view={0}{90},
+]
+% Vector field: u = -x-2y,  v = 2x-y, L2-normalized
+\addplot3[
+    orange,
+    quiver={
+        u={(-x - 2*y) / sqrt((-x-2*y)^2 + (2*x-y)^2 + 0.001)},
+        v={( 2*x - y) / sqrt((-x-2*y)^2 + (2*x-y)^2 + 0.001)},
+        w=0,
+        scale arrows=0.3,
+    },
+    -stealth,
+    samples=15,
+    domain=-3:3,
+    y domain=-3:3,
+] (x,y,0);
+% Equilibrium at origin (stable: filled dot)
+\addplot[black, only marks, mark=*, mark size=2.5] coordinates {(0,0)};
+
+\legend{Vector field, Equilibrium}
+
+   
+\addplot[yellow, thick, samples=300, domain=0:12.56, variable=\t]
+    ({2.5*exp(-0.4*\t)*cos(deg(\t))}, {2.5*exp(-0.4*\t)*sin(deg(\t))}); 
+\end{axis}
+\end{tikzpicture}
+\end{document}
+```
+###### Sub Case 2: Unstable Spiral
+$\alpha > 0$
+Origin is an unstable spiral
+```tikz
+\usepackage{pgfplots}
+% Center:
+%   x' = -2y
+%   y' =  2x
+%   eigenvalues lambda = +/- 2i  (alpha=0, beta=2)
+%   Trajectories are closed ellipses, no convergence or divergence
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[
+    title={Center: $x'=-2y,\quad y'=2x$
+           \quad ($\lambda=\pm 2i$)},
+    width=15cm,
+    height=15cm,
+    xmin=-3, xmax=3,
+    ymin=-3, ymax=3,
+    xlabel={$x$},
+    ylabel={$y$},
+    axis lines=center,
+    xtick={-3,-2,...,3},
+    ytick={-3,-2,...,3},
+    tick label style={font=\small},
+    grid=major,
+    grid style={gray!30},
+    view={0}{90},
+]
+% Vector field: u = -2y,  v = 2x, L2-normalized
+\addplot3[
+    orange,
+    quiver={
+        u={(-2*y) / sqrt(4*y^2 + 4*x^2 + 0.001)},
+        v={( 2*x) / sqrt(4*y^2 + 4*x^2 + 0.001)},
+        w=0,
+        scale arrows=0.3,
+    },
+    -stealth,
+    samples=15,
+    domain=-3:3,
+    y domain=-3:3,
+] (x,y,0);
+% Equilibrium at origin (neutral: open circle)
+\addplot[black, only marks, mark=o, mark size=2.5] coordinates {(0,0)};
+\legend{Vector field, Equilibrium}
+    ({2*cos(deg(2*x))}, {2*sin(deg(2*x))});
+
+\addplot[yellow, thick, samples=300, domain=0:12.56, variable=\t]
+    ({0.1*exp(0.4*\t)*cos(deg(\t))}, {0.1*exp(0.4*\t)*sin(deg(\t))});
+\end{axis}
+\end{tikzpicture}
+\end{document}
+```
+###### Sub Case 3:
+$\alpha = 0$
+Purely Oscillatory Solutions
+```tikz
+\usepackage{pgfplots}
+% Unstable Spiral:
+%   x' =  x - 2y
+%   y' =  2x + y
+%   eigenvalues lambda = 1 +/- 2i  (alpha=1, beta=2)
+%   Trajectories spiral outward from origin
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[
+    title={Unstable Spiral: $x'=x-2y,\quad y'=2x+y$
+           \quad ($\lambda=1\pm 2i$)},
+    width=15cm,
+    height=15cm,
+    xmin=-3, xmax=3,
+    ymin=-3, ymax=3,
+    xlabel={$x$},
+    ylabel={$y$},
+    axis lines=center,
+    xtick={-3,-2,...,3},
+    ytick={-3,-2,...,3},
+    tick label style={font=\small},
+    grid=major,
+    grid style={gray!30},
+    view={0}{90},
+]
+% Vector field: u = x-2y,  v = 2x+y, L2-normalized
+\addplot3[
+    orange,
+    quiver={
+        u={(x - 2*y) / sqrt((x-2*y)^2 + (2*x+y)^2 + 0.001)},
+        v={(2*x + y) / sqrt((x-2*y)^2 + (2*x+y)^2 + 0.001)},
+        w=0,
+        scale arrows=0.3,
+    },
+    -stealth,
+    samples=15,
+    domain=-3:3,
+    y domain=-3:3,
+] (x,y,0);
+% Equilibrium at origin (unstable: open circle)
+\addplot[black, only marks, mark=o, mark size=2.5] coordinates {(0,0)};
+\legend{Vector field, Equilibrium}
+
+\addplot[yellow, thick, samples=200, domain=0:6.28, variable=\t]
+    ({2*cos(deg(\t))}, {2*sin(deg(\t))});
+\end{axis}
+\end{tikzpicture}
+\end{document}
+```
+
+
+###### Example
+Consider:
+$$\vec{x}' = \begin{bmatrix} -2 & -3 \\ 3 & -2 \end{bmatrix}\vec{x}$$
+We have:
+$$\lambda^2 - trA\lambda + detA$$
+$$\lambda^2 + 4\lambda + (4 + 9)$$
+$$=\lambda^2 + 4\lambda + 13 = 0$$
+$$\lambda = \frac{-4 \pm \sqrt{16-52}}{2} = -2\pm\sqrt{-36/4} = -2\pm i3$$
+Next:
+$$(A - \lambda I)\vec{v} = \vec{0}$$
+$$\left(\begin{bmatrix}-2 & -3\\3 & -2\end{bmatrix} - \begin{bmatrix}-2+i3 & 0\\0 & -2+i3\end{bmatrix}\right)\vec{v} = \vec{0}$$
+$$\begin{bmatrix}-i3 & -3\\3&-i3\end{bmatrix}\begin{bmatrix}v_1\\v_2\end{bmatrix}=\begin{bmatrix}0\\0\end{bmatrix}$$
+$$-i3v_1 - 3v_2 = 0$$
+$$iv_1 + v_2 = 0$$
+$$v_2 = -iv_1$$
+$$\vec{v} = \begin{bmatrix}v_1\\v_2\end{bmatrix} = \begin{bmatrix}v_1\\-iv_1\end{bmatrix}$$
+Let $v_1 = 1$:
+$$\vec{v} = \begin{bmatrix}1\\-i\end{bmatrix} = \begin{bmatrix}1\\0\end{bmatrix} + i\begin{bmatrix}0\\-1\end{bmatrix}$$
+Where $\begin{bmatrix}1\\0\end{bmatrix} = \vec{w}$ and $i\begin{bmatrix}0\\-1\end{bmatrix} = \vec{z}$ 
+Thus:
+$$\vec{x} = \vec{v}e^{\lambda t} = \begin{bmatrix}1\\-i\end{bmatrix}e^{(-2 + i3)t} = e^{-2t}\begin{bmatrix}1\\ -i\end{bmatrix}e^{i3t}$$
+$$= e^{-2t}\left(\begin{bmatrix}1\\0\end{bmatrix} + i\begin{bmatrix}0\\-1\end{bmatrix}\right)(cos(3t) + isin(3t))$$
+$$ = e^{-2t}\begin{bmatrix}cos(3t) + i\ sin(3t)\\-i\ cos(3t) + sin(3t)\end{bmatrix}$$
+$$ = e^{-2t}\left(\begin{bmatrix}cos(3t)\\sin(3t)\end{bmatrix} + i\begin{bmatrix}sin(3t)\\-cos(3t)\end{bmatrix}\right)$$
+Hence:
+$$\vec{x}_1(t) = e^{-2t}\begin{bmatrix}cos(3t)\\sin(3t)\end{bmatrix}$$
+$$\vec{x}_2(t) = e^{-2t}\begin{bmatrix}sin(3t)\\-cos(3t)\end{bmatrix}$$
+Then the general solution is:
+$$\vec{x} = C_1\vec{x}_1(t) + C_2\vec{x}_2(t)$$
+In this case, the origin is a stable spiral.
+
+#### Laplace Transform
+So far we have looked at IVPs of the form:
+$$ax'' + bx'' + cx = f(t)$$
+$$x(0) = x_0;\ x'(0) = v'_0$$
+However, $f(t)$ was always "nice" and we could use undetermined coefficients. What happens when $f(t)$ is discontinuous?
+
+$$\mathcal{L}\{\}$$
+Transform to $s$ space using Laplace Transform where function is $F(s)$ and can be easily solved algebraically. Then, reverse back to $t$ domain with inverse Laplace Transform. 
+
+##### Definition
+Let $x = x(t)$ be a given function on $0 \leq t \leq \infty$. The Laplace Transform of $x$ is the function $X(s)$ defined by:
+$$\mathcal{L}\{f(t)\} = F(s) =\int_0^{\infty}x(t)e^{-st}$$
+Provided this integral exits, i.e $\lim_{b\to\infty}\int_0^{b}x(t)e^{-st} dt$ exists.
+
