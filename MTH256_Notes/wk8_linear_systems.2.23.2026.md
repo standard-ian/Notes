@@ -13,10 +13,10 @@ $$\vec{x_1}(t) = \begin{bmatrix}\phi_1(t)\\\phi_2(t)\end{bmatrix}$$
 $$\vec{x_2}(t) = \begin{bmatrix}\rho_1(t)\\\rho_2(t)\end{bmatrix}$$
 Have  the property that their components satisfy:
 $$\color{orange}Wronskian: w(t) = \phi_1(t)\rho_2(t) - \phi_2(t)\rho_1(t) \neq 0$$
-for all $t$, then we say that it is a fundamental set of solutions, i.e. they are linearly independant.
+for all $t$, then we say that it is a fundamental set of solutions, i.e. they are linearly independent.
 
 ##### Theorem
-If $\vec{x_1}(t)$ and $\vec{x_2}(t)$  form a fundamental set of sulutions to 
+If $\vec{x_1}(t)$ and $\vec{x_2}(t)$  form a fundamental set of solutions to 
 $$\vec{x}'(t) = \begin{bmatrix} a & b\\c & d\end{bmatrix}\vec{x}(t)$$
 Then, 
 $$\vec{x}'(t) = C_1\vec{x_1}(t) + C_2\vec{x_2}(t)$$
@@ -431,6 +431,7 @@ $$\vec{x}(t) = C_1\begin{bmatrix}1\\1\end{bmatrix}e^{3t} + C_2\begin{bmatrix}t\\
 In this case where $\lambda > 0$, the origin is classified as a **degenerate**, **unstable**, node.
 
 Solutions will look like:
+$$A_{unstable} = \begin{bmatrix}2 & 1\\-1 & 4\end{bmatrix}$$
 ```tikz
 \usepackage{pgfplots}
 % Real Equal Eigenvalues (Improper Node):
@@ -438,8 +439,6 @@ Solutions will look like:
 %   y' = -x + 4y
 %   A = [2 1; -1 4],  lambda = 3 (repeated)
 %   Eigenvector: v = (1,1),  eigendirection y=x
-%   Generalized eigenvector: w = (0,1)
-%   Solution: x(t) = e^{3t}(C1*v + C2*(w + t*v))
 \begin{document}
 \begin{tikzpicture}
 \begin{axis}[
@@ -447,13 +446,13 @@ Solutions will look like:
            \quad ($\lambda=3$ repeated)},
     width=15cm,
     height=15cm,
-    xmin=-3, xmax=3,
-    ymin=-3, ymax=3,
+    xmin=-10, xmax=10,
+    ymin=-10, ymax=10,
     xlabel={$x$},
     ylabel={$y$},
     axis lines=center,
-    xtick={-3,-2,...,3},
-    ytick={-3,-2,...,3},
+    xtick={-10,-8,...,10},
+    ytick={-10,-8,...,10},
     tick label style={font=\small},
     grid=major,
     grid style={gray!30},
@@ -466,23 +465,24 @@ Solutions will look like:
         u={(2*x + y)  / sqrt((2*x+y)^2 + (-x+4*y)^2 + 0.001)},
         v={(-x + 4*y) / sqrt((2*x+y)^2 + (-x+4*y)^2 + 0.001)},
         w=0,
-        scale arrows=0.3,
+        scale arrows=0.6,
     },
     -stealth,
     samples=15,
-    domain=-3:3,
-    y domain=-3:3,
+    domain=-10:10,
+    y domain=-10:10,
 ] (x,y,0);
 % Eigendirection: v=(1,1), line y=x
 % lambda=3 > 0: both rays point AWAY from origin
-\addplot[yellow, thick, stealth-, domain=-3:-0.05, samples=2] {x};
-\addplot[yellow, thick, -stealth, domain=0.05:3,   samples=2] {x};
-% Sample solution curves: x(t)=e^{3t}(C1 + C2*t), y(t)=e^{3t}(C1 + C2*(1+t))
-% Using C1=0.1, C2=1 and C1=0.1, C2=-1, domain restricted so curve stays in window
-\addplot[yellow, thick, samples=300, domain=-1.2:0, variable=\t]
-    ({exp(3*\t)*(0.1 + \t)}, {exp(3*\t)*(0.1 + 1 + \t)});
-\addplot[yellow, thick, samples=300, domain=-1.2:0, variable=\t]
-    ({exp(3*\t)*(0.1 - \t)}, {exp(3*\t)*(0.1 - 1 - \t)});
+\addplot[yellow, thick, stealth-, domain=-10:-0.05, samples=2] {x};
+\addplot[yellow, thick, -stealth, domain=0.05:10,   samples=2] {x};
+% Sample solution curves starting near origin, growing outward
+\addplot[yellow, thick, samples=300, domain=-2:0, variable=\t]
+    ({exp(3*\t)*(3 + 8*\t) - exp(3*\t)*3},
+     {exp(3*\t)*(3 + 8*\t) + exp(3*\t)*3});
+\addplot[yellow, thick, samples=300, domain=-2:0, variable=\t]
+    ({exp(3*\t)*(-3 - 8*\t) + exp(3*\t)*3},
+     {exp(3*\t)*(-3 - 8*\t) - exp(3*\t)*3});
 % Equilibrium at origin (unstable: open circle)
 \addplot[black, only marks, mark=o, mark size=2.5] coordinates {(0,0)};
 \legend{
@@ -498,6 +498,7 @@ Solutions will look like:
 \end{document}
 ```
 If $\lambda < 0$, this will be **degenerate** and **stable**, and solutions will look like:
+$$A_{stable} = \begin{bmatrix}-2 & -1\\1 & -4\end{bmatrix}$$
 ```tikz
 \usepackage{pgfplots}
 % Real Equal Eigenvalues (Stable Improper Node):
@@ -505,7 +506,6 @@ If $\lambda < 0$, this will be **degenerate** and **stable**, and solutions will
 %   y' =  x - 4y
 %   A = [-2 -1; 1 -4],  lambda = -3 (repeated)
 %   Eigenvector: v = (1,1),  eigendirection y=x
-%   Trajectories converge to origin tangent to y=x
 \begin{document}
 \begin{tikzpicture}
 \begin{axis}[
@@ -513,13 +513,13 @@ If $\lambda < 0$, this will be **degenerate** and **stable**, and solutions will
            \quad ($\lambda=-3$ repeated)},
     width=15cm,
     height=15cm,
-    xmin=-3, xmax=3,
-    ymin=-3, ymax=3,
+    xmin=-10, xmax=10,
+    ymin=-10, ymax=10,
     xlabel={$x$},
     ylabel={$y$},
     axis lines=center,
-    xtick={-3,-2,...,3},
-    ytick={-3,-2,...,3},
+    xtick={-10,-8,...,10},
+    ytick={-10,-8,...,10},
     tick label style={font=\small},
     grid=major,
     grid style={gray!30},
@@ -532,22 +532,24 @@ If $\lambda < 0$, this will be **degenerate** and **stable**, and solutions will
         u={(-2*x - y)  / sqrt((-2*x-y)^2 + (x-4*y)^2 + 0.001)},
         v={( x - 4*y) / sqrt((-2*x-y)^2 + (x-4*y)^2 + 0.001)},
         w=0,
-        scale arrows=0.3,
+        scale arrows=0.6,
     },
     -stealth,
     samples=15,
-    domain=-3:3,
-    y domain=-3:3,
+    domain=-10:10,
+    y domain=-10:10,
 ] (x,y,0);
 % Eigendirection: v=(1,1), line y=x
 % lambda=-3 < 0: both rays point TOWARD origin
-\addplot[yellow, thick, -stealth, domain=-3:-0.05, samples=2] {x};
-\addplot[yellow, thick, stealth-, domain=0.05:3,   samples=2] {x};
-% Sample solution curves flowing toward origin
-\addplot[yellow, thick, samples=300, domain=0:1.2, variable=\t]
-    ({exp(-3*\t)*(0.1 + \t)}, {exp(-3*\t)*(0.1 + 1 + \t)});
-\addplot[yellow, thick, samples=300, domain=0:1.2, variable=\t]
-    ({exp(-3*\t)*(0.1 - \t)}, {exp(-3*\t)*(0.1 - 1 - \t)});
+\addplot[yellow, thick, -stealth, domain=-10:-0.05, samples=2] {x};
+\addplot[yellow, thick, stealth-, domain=0.05:10,   samples=2] {x};
+% Sample solution curves starting far out, converging to origin
+\addplot[yellow, thick, samples=300, domain=0:2, variable=\t]
+    ({exp(-3*\t)*8*\t},
+     {exp(-3*\t)*(6 + 8*\t)});
+\addplot[yellow, thick, samples=300, domain=0:2, variable=\t]
+    ({-exp(-3*\t)*8*\t},
+     {-exp(-3*\t)*(6 + 8*\t)});
 % Equilibrium at origin (stable: filled dot)
 \addplot[black, only marks, mark=*, mark size=2.5] coordinates {(0,0)};
 \legend{
