@@ -1,4 +1,4 @@
-## Class 1
+# Class 1
 #### Systems of Linear Equations
 Recall we want solutions to the first order homogeneous system of linear ODEs:
 $$\frac{d\vec{x}}{dt} = A\vec{x} $$
@@ -241,20 +241,24 @@ This time, all 4 lines face inward towards the origin
 \end{document}
 ```
 ###### Sub Case 3: Unstable
-$\lambda_1$ and $\lambda_2$ are both positive
-Consider
+$\lambda_1$ and $\lambda_2$ are both positive. Consider
+
 $$\vec{x}' = \begin{bmatrix}\frac{5}{2} & -\frac{3}{2}\\-\frac{3}{2} & \frac{5}{2}\end{bmatrix}\vec{x}$$
-The Eigen paris of the coefficient matrix are:
-$$\{1, \begin{bmatrix}1\\2\end{bmatrix}\},\ \{4, \begin{bmatrix}1\\-2\end{bmatrix}\}$$
+
+The Eigen pairs of the coefficient matrix are:
+
+$$\{1, \begin{bmatrix}1\\1\end{bmatrix}\},\ \{4, \begin{bmatrix}1\\-1\end{bmatrix}\}$$
+
 This gives the general solution:
-$$\vec{x}(t) = C_1\begin{bmatrix}1\\2\end{bmatrix}e^t + C_2\begin{bmatrix}1\\-2\end{bmatrix}e^{4t} $$
+
+$$\vec{x}(t) = C_1\begin{bmatrix}1\\1\end{bmatrix}e^t + C_2\begin{bmatrix}1\\-1\end{bmatrix}e^{4t}$$
 ```tikz
 \usepackage{pgfplots}
 % Unstable Node:
 %   x' = (5/2)x - (3/2)y
 %   y' = -(3/2)x + (5/2)y
 %   A = [5/2 -3/2; -3/2 5/2],  eigenvalues lambda = 1, 4
-%   Eigenvectors: v1 = (1, 2)  [lambda=1, slow],  v2 = (1,-2) [lambda=4, fast]
+%   Eigenvectors: v1 = (1,1) [lambda=1, slow],  v2 = (1,-1) [lambda=4, fast]
 \begin{document}
 \begin{tikzpicture}
 \begin{axis}[
@@ -274,39 +278,35 @@ $$\vec{x}(t) = C_1\begin{bmatrix}1\\2\end{bmatrix}e^t + C_2\begin{bmatrix}1\\-2\
     grid style={gray!30},
     view={0}{90},
 ]
-% Vector field: u = (5/2)x-(3/2)y,  v = -(3/2)x+(5/2)y, L2-normalized
+% Vector field: u = (5/2)x-(3/2)y,  v = -(3/2)x+(5/2)y, unnormalized
 \addplot3[
     orange,
     quiver={
-        u={(2.5*x - 1.5*y) / sqrt((2.5*x-1.5*y)^2 + (-1.5*x+2.5*y)^2 + 0.001)},
-        v={(-1.5*x + 2.5*y) / sqrt((2.5*x-1.5*y)^2 + (-1.5*x+2.5*y)^2 + 0.001)},
+        u={(2.5*x - 1.5*y)},
+        v={(-1.5*x + 2.5*y)},
         w=0,
-        scale arrows=0.3,
+        scale arrows=0.15,
     },
     -stealth,
     samples=15,
     domain=-3:3,
     y domain=-3:3,
 ] (x,y,0);
-% Slow eigendirection: v1=(1,2), line y=2x
+% Slow eigendirection: v1=(1,1), line y=x
 % lambda=1: both rays point AWAY from origin
-% x<0 ray: trajectory moves in -x direction, arrowhead at left end
-\addplot[yellow, thick, stealth-, domain=-3:-0.05, samples=2] {2*x};
-% x>0 ray: trajectory moves in +x direction, arrowhead at right end
-\addplot[yellow, thick, -stealth, domain=0.05:3,   samples=2] {2*x};
-% Fast eigendirection: v2=(1,-2), line y=-2x
+\addplot[yellow, thick, stealth-, domain=-3:-0.05, samples=2] {x};
+\addplot[yellow, thick, -stealth, domain=0.05:3,   samples=2] {x};
+% Fast eigendirection: v2=(1,-1), line y=-x
 % lambda=4: both rays point AWAY from origin
-% x<0 ray: trajectory moves in -x direction, arrowhead at left end
-\addplot[red, thick, stealth-, domain=-3:-0.05, samples=2] {-2*x};
-% x>0 ray: trajectory moves in +x direction, arrowhead at right end
-\addplot[red, thick, -stealth, domain=0.05:3,   samples=2] {-2*x};
+\addplot[red, thick, stealth-, domain=-3:-0.05, samples=2] {-x};
+\addplot[red, thick, -stealth, domain=0.05:3,   samples=2] {-x};
 % Equilibrium at origin (unstable: open circle)
 \addplot[black, only marks, mark=o, mark size=2.5] coordinates {(0,0)};
 \legend{
     Vector field,
-    Slow direction $y=2x$\ ($\lambda=1$),
+    Slow direction $y=x$\ ($\lambda=1$),
     ,
-    Fast direction $y=-2x$\ ($\lambda=4$),
+    Fast direction $y=-x$\ ($\lambda=4$),
     ,
     Equilibrium
 }
