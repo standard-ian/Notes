@@ -104,4 +104,4 @@ Where $\omega = 1$
 $$T(j\cdot 1) = \frac{0.5j}{0.5-1+j} = \frac{1}{\sqrt{5}}\angle-26^\circ = \frac{1}{\sqrt{5}}e^{j(26^\circ)}$$
 This says:
 $$|V_o| = \frac{10}{\sqrt{5}}, \angle V_o = -90^\circ - 26^\circ = -116^\circ$$
-
+#### Personal Question: How do Eigen values of linear systems of differential equations relate to Gain and Resonance?
