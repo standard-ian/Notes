@@ -27,7 +27,7 @@ Circuit and it's $s$ domain equivalent.
 \end{document}
 ```
 Once in the $s$ domain, we can use KCL to evaluate that each node leaving/entering sums to 0.
-At $V_0$:
+At $V_o$:
 $$\frac{V_o-V_A}{1} + \frac{V_o}{\frac{1}{s}} = 0$$
 $$V_o - V_A + V_os \to V_A = V_o(1 + s)$$
 At $V_A$:
