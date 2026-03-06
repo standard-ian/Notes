@@ -568,3 +568,4 @@ $$20\log\left(\frac{1}{\sqrt{4 + 4(10)^2}}\right) = 20\log\left(\frac{1}{\sqrt{4
 	\end{tikzpicture}
 \end{document}
 ```
+

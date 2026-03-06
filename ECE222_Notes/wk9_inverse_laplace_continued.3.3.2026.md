@@ -101,7 +101,73 @@ $$=\frac{10}{\sqrt{5}}cos(t-116.6^\circ)$$
 $$T(s) = \frac{\frac{1}{2}s}{s^2 + 2 + \frac{1}{2}}$$
 $$T(j\omega) = \frac{0.5j\omega}{-\omega ^2  + j\omega + 0.5}$$
 Where $\omega = 1$
-$$T(j\cdot 1) = \frac{0.5j}{0.5-1+j} = \frac{1}{\sqrt{5}}\angle-26^\circ = \frac{1}{\sqrt{5}}e^{j(26^\circ)}$$
+$$T(j\cdot 1) = \frac{0.5j}{0.5-1+j} = \frac{1}{\sqrt{5}}\angle-26^\circ = \frac{1}{\sqrt{5}}e^{j(-26^\circ)}$$
 This says:
 $$|V_o| = \frac{10}{\sqrt{5}}, \angle V_o = -90^\circ - 26^\circ = -116^\circ$$
 #### Personal Question: How do Eigen values of linear systems of differential equations relate to Gain and Resonance?
+
+## Class 18
+
+```tikz
+\usepackage{circuitikz}
+\begin{document}
+\begin{circuitikz}[scale=2, american, font=\Large]
+	\draw(0,0)
+	node[ocirc, label=left:$V_1$]{}
+	to[R=$100\Omega {=} 100$]++(2,0)--++(1,0)
+	node[ocirc, label=right:$V_2$]{}++(-1,0)
+	to[capacitor, l=$5\mu F {=} \frac{1}{5\times10^{-6} s}$]++(0,-2)--++(-2,0)++(2,0)--++(1,0);
+\end{circuitikz}
+\end{document}
+```
+$$V_1(t) = 30cos(4000t + 25^\circ)V$$
+1. At any given time amplitude of $V_R, V_1, V_2$ must sum and follow KVL
+2. The phase angle will be different in all three points
+3. The frequency will be the same in all three.
+
+$$H(s) = \frac{\frac{1}{0.000005s}}{100 + \frac{1}{0.000005s}}$$
+$$H(j\omega) = \frac{\frac{1}{0.000005j\omega}}{100 + \frac{1}{0.000005j\omega}} = \frac{1}{1+ 0.0005j\omega}$$ 
+$$\omega = 4000$$
+$$\tilde{V_1} = 30\angle25^\circ$$
+$$|H(j\omega)| = \frac{|1|}{\sqrt{1^2 + 2^2}} = \frac{1}{\sqrt{5}} = 0.4472$$
+$$\phi = 0-\arctan\left(\frac{2}{1}\right) = -63.4^\circ$$
+$$\tilde{V_2} = (0.4472\angle-63.4^\circ)(30\angle25^\circ) = 13.4\angle-38.4$$
+$$\tilde{V_2} = (\tilde{V_1})\left(\left|\frac{1}{1+0.0005j\omega}\right|\angle\phi\right)$$
+$$\tilde{V_2} = \tilde{V_1}\frac{1}{1+j0.0005\times4000} = \tilde{V_1}\frac{1}{1+j2}$$
+$$V_2(t) = \frac{30}{\sqrt{5}}cos(4000t -38.4^\circ)V$$
+#### IW 18.1
+```tikz
+\usepackage{circuitikz}
+
+\begin{document}
+\begin{circuitikz}[scale=2, american, font=\Large]
+
+	\draw(0,0)
+	node[ocirc, label=left:$V_1$]{}
+	to[inductor, l=$0.1H {=} 0.1s$]++(2,0)
+	to[R=$100\Omega {=} 100$]++(0,-2)++(0,2)--++(3,0)
+	node[ocirc, label=right:$V_2$]{}++(-1,0)
+	to[capacitor, l=$10\mu F {=} \frac{1}{10^{-5}s}$]++(0,-2)--++(-4,0);
+	
+	
+\end{circuitikz}
+\end{document}
+```
+$$V_1(t) = 10sin(1000t)V$$
+Find $V_2$ at s.s. using Laplace transform
+
+KCL
+$$0=\frac{V_2-V_1}{sL}  + \frac{V_2}{R}+ V_2sC$$
+$$0 = \frac{V_2}{sL} - \frac{V_1}{sL} + \frac{V_2}{R} + V_2sC$$
+$$\frac{V_1}{sL} = V_2(\frac{1}{sL} + \frac{1}{R} + sC)$$
+$$\frac{V_2}{V_1} = \frac{1}{1+\frac{L}{R}s + s^2LC}$$
+$$H(s) = \frac{1}{LCs^2 + \frac{L}{R}s + 1}$$
+$$H(s) = \frac{1}{10^{-6}s^2 + 0.001s + 1} = \frac{10^6}{s^2+1000s+10^6}$$
+$$H(j\omega) = \frac{10^6}{j\omega^2 + 1000j\omega + 10^6}$$
+$\omega = 1000$
+$$H(j\omega) = \frac{10^6}{j^2(1000)^2 + j(1000)(1000) + 10^6} = \frac{10^6}{j10^6} = \frac{1}{j} = -j $$
+$$|H(j\omega)| \angle\phi = 1\angle-90^\circ$$
+$$V_1(t) = 10\sin(1000t)V = 10\cos(1000t - 90^\circ)V$$
+$$\tilde{V_1} = 10\angle-90^\circ$$
+$$\tilde{V_2} = (10\angle-90^\circ)(1\angle-90) = 10\angle-180^\circ$$
+$$V_2(t) = 10cos(1000t - 180^\circ)V$$

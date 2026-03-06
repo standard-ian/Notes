@@ -49,7 +49,7 @@ The net force is the vector sum of all the forces acting on the charges. This is
 $$\vec{F} = q\Sigma \vec{v_i}\times \vec{B} = q(N\vec{v_{avg}}) \times \vec{B}$$
 $$N = nAL$$
 Where $n$ is the number of charges, and $AL$ is the volume of the wire, giving charge carrier density.
-$$\vec{F}qnAL\vec{v_{avg}}\times \vec{B}$$
+$$\vec{F}=qnAL\vec{v_{avg}}\times \vec{B}$$
 $$I = nAqv_{avg}$$
 ## Class 2
 ----
@@ -68,6 +68,8 @@ $$\vec{\tau} = \vec{r}\times \vec{F}$$
 $$Magnitude:\ \tau = rFsin\theta$$
 The torque on any loop is:
 $$\tau_{loop} = IABsin\theta$$
+$$IA\vec{n} = \vec{\mu} = Magnetic\ Dipole\ Moment$$
+$$\vec{\tau}_{loop} = -\mu B\hat{i}$$
 ----
 #### Magnetic Dipole Moment
 Combination of torque, current, and force in a loop.
@@ -79,7 +81,7 @@ Right hand rule for $\color{orange}\vec{A}$:
 Dipole moment is:
 $$\vec{\mu} = NI\vec{A}$$
 and
-$$\vec{\tau} = \vec{\mu}\times \vec{B}$$
+$$\color{orange}\vec{\tau} = \vec{\mu}\times \vec{B}$$
 The torque on a current loops depends on it's magnetic moment vector orientation with respect to the magnetic field. 
 
 This may be used to rotate the loop and do work.
@@ -122,3 +124,17 @@ $$F_2 = F_1 = \frac{\mu_0}{2\pi d}I_1I_2L$$
 For all points along the central axis of the loop
 $$B=\frac{\mu_0I}{2}\frac{R^2}{(R^2 + z^2)^{\frac{3}{2}}}$$
 For other points, the integrals are difficult. They can be computed numerically using computers and displayed as visual representations.
+
+#### Torque on Current Carrying Loop in a Magnetic Field
+Right Hand Rule:
+1. Thumb in direction of torque
+2. Fingers curl in direction of rotation
+
+#### Hall Effect
+A current passing through a sheet of metal has charge carriers moving at $v_d$.
+
+The sheet polarizes, and this polarization increases until the electric force on the charge carrier equals in magnitude the magnetic force. 
+
+The potential difference is the drift velocity times the width, times $B$
+We can use this to detect the presence of a magnetic field
+$$\color{orange} \Delta V = v_dwB$$
