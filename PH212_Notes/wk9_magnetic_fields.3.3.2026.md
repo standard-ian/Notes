@@ -138,3 +138,7 @@ The sheet polarizes, and this polarization increases until the electric force on
 The potential difference is the drift velocity times the width, times $B$
 We can use this to detect the presence of a magnetic field
 $$\color{orange} \Delta V = v_dwB$$
+$$v_d = \frac{I}{n_eA_{cross}} = \frac{I}{n_ewd}$$
+$w=width$
+$d=depth$
+Cross sectional Area: $A=wd$
