@@ -1,4 +1,6 @@
 ## Class 1
+
+
 ----
 #### Charges in Magnetic Field
 $$R = \frac{mv}{qB}$$

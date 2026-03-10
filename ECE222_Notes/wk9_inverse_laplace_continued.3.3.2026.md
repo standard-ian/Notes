@@ -163,7 +163,7 @@ $$\frac{V_1}{sL} = V_2(\frac{1}{sL} + \frac{1}{R} + sC)$$
 $$\frac{V_2}{V_1} = \frac{1}{1+\frac{L}{R}s + s^2LC}$$
 $$H(s) = \frac{1}{LCs^2 + \frac{L}{R}s + 1}$$
 $$H(s) = \frac{1}{10^{-6}s^2 + 0.001s + 1} = \frac{10^6}{s^2+1000s+10^6}$$
-$$H(j\omega) = \frac{10^6}{j\omega^2 + 1000j\omega + 10^6}$$
+$$H(j\omega) = \frac{10^6}{(j\omega)^2 + 1000j\omega + 10^6}$$
 $\omega = 1000$
 $$H(j\omega) = \frac{10^6}{j^2(1000)^2 + j(1000)(1000) + 10^6} = \frac{10^6}{j10^6} = \frac{1}{j} = -j $$
 $$|H(j\omega)| \angle\phi = 1\angle-90^\circ$$
@@ -171,3 +171,8 @@ $$V_1(t) = 10\sin(1000t)V = 10\cos(1000t - 90^\circ)V$$
 $$\tilde{V_1} = 10\angle-90^\circ$$
 $$\tilde{V_2} = (10\angle-90^\circ)(1\angle-90) = 10\angle-180^\circ$$
 $$V_2(t) = 10cos(1000t - 180^\circ)V$$
+#### IW 18.2 
+$V_1$ is a step of $30V$ DC
+$$V_2(t) 50e^{-8000t} - 20e^{-5000t}$$
+What is the transfer function?
+What is the steady state of $V_s(t)= 120cos(6000t)$

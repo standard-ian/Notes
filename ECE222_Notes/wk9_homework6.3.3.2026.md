@@ -1,19 +1,21 @@
 ## Homework 6
+
 #### 1. Transfer function definition
+
 A transfer function is the ratio of a metric (voltage, current, etc) at a certain point in the circuit to to the same metric at another point, generally the point of supply, for example $V_{out}/V_{in}$.
 
 In $s$ domain, this function is basically a representation of a theoretical 3D space where the $x,y$ plane is $\mathcal{Re,Im}$ plane and the $z$ axis is a surface with height representing the gain.
 
 To say the zero of a transfer function is $\infty$ for some function means that when $s\to\infty$ the function's denominator, it scales at an exponentially greater magnitude than the numerator.
 
-For example:
-$$H(s) = \frac{\frac{1}{2}s}{s^2 + s + \frac{1}{2}},\ \frac{1\ zero}{2\ poles},\ \frac{0, \infty}{-0.5\pm j0.5}$$
-In the above function, when all $s$ are zero in the function, the output is obviously 0 since the numerator is 0.
+For example: $$H(s) = \frac{\frac{1}{2}s}{s^2 + s + \frac{1}{2}},\ \frac{1\ zero}{2\ poles},\ \frac{0, \infty}{-0.5\pm j0.5}$$ In the above function, when all $s$ are zero in the function, the output is obviously 0 since the numerator is 0.
 
-Less obviously, when all $s$ are $\infty$, the denominator is a exponentially greater $\infty$, and so divides the numerator so greatly such that it approaches 0. 
+Less obviously, when all $s$ are $\infty$, the denominator is a exponentially greater $\infty$, and so divides the numerator so greatly such that it approaches 0.
 
 #### 2. Find Transfer Function for Each Circuit
-##### A. 
+
+##### A.
+
 ```tikz
 \usepackage{circuitikz}
 \begin{document}
@@ -28,12 +30,8 @@ Less obviously, when all $s$ are $\infty$, the denominator is a exponentially gr
 \end{circuitikz}
 \end{document}
 ```
-$$V_2 = V_1\frac{\frac{1}{10^{-8}s}}{50000 + \frac{1}{10^{-8}s}}$$
-$$\frac{V_2}{V_1} = H(s) = \frac{\frac{1}{10^{-8}s}}{50000 + \frac{1}{10^{-8}s}}$$
-$$= \frac{\frac{1}{10^{-8}s}}{50000 + \frac{1}{10^{-8}s}} \left(\frac{10^{-8}s}{10^{-8}s}\right) = \frac{1}{5\times10^4\times10^{-8}s + 1}$$
-$$H(s) = \frac{1}{5\times10^{-4}s + 1}$$
-One pole that will make the denominator 0 at $s = -2000$
-One zero at $s\to\infty$
+
+$$V_2 = V_1\frac{\frac{1}{10^{-8}s}}{50000 + \frac{1}{10^{-8}s}}$$ $$\frac{V_2}{V_1} = H(s) = \frac{\frac{1}{10^{-8}s}}{50000 + \frac{1}{10^{-8}s}}$$ $$= \frac{\frac{1}{10^{-8}s}}{50000 + \frac{1}{10^{-8}s}} \left(\frac{10^{-8}s}{10^{-8}s}\right) = \frac{1}{5\times10^4\times10^{-8}s + 1}$$ $$H(s) = \frac{1}{5\times10^{-4}s + 1}$$ One pole that will make the denominator 0 at $s = -2000$ One zero at $s\to\infty$
 
 ```tikz
 \usepackage{pgfplots}
@@ -71,7 +69,9 @@ One zero at $s\to\infty$
 \end{tikzpicture}
 \end{document}
 ```
+
 ##### B.
+
 ```tikz
 \usepackage{circuitikz}
 \begin{document}
@@ -86,9 +86,9 @@ One zero at $s\to\infty$
 \end{circuitikz}
 \end{document}
 ```
-$$V_2 = V_1\frac{50000}{50000 + \frac{1}{10^{-8}s}}$$
-$$\frac{V_2}{V_1} = H(s) = \frac{50000}{50000 + \frac{1}{10^{-8}s}}\left(\frac{10^{-8}s}{10^{-8}s}\right)$$
-$$H(s) = \frac{5\times10^{-4}s}{5\times10^{-4}s + 1}$$
+
+$$V_2 = V_1\frac{50000}{50000 + \frac{1}{10^{-8}s}}$$ $$\frac{V_2}{V_1} = H(s) = \frac{50000}{50000 + \frac{1}{10^{-8}s}}\left(\frac{10^{-8}s}{10^{-8}s}\right)$$ $$H(s) = \frac{5\times10^{-4}s}{5\times10^{-4}s + 1}$$
+
 ```tikz
 \usepackage{pgfplots}
 
@@ -119,7 +119,9 @@ $$H(s) = \frac{5\times10^{-4}s}{5\times10^{-4}s + 1}$$
 \end{tikzpicture}
 \end{document}
 ```
+
 ##### C.
+
 ```tikz
 \usepackage{circuitikz}
 \begin{document}
@@ -136,11 +138,9 @@ $$H(s) = \frac{5\times10^{-4}s}{5\times10^{-4}s + 1}$$
 \end{circuitikz}
 \end{document}
 ```
-Using KCL:
-$$\frac{V_2}{6} + \frac{V_2s}{3} + \frac{V_2 - V_1}{6}=0$$
-$$V_2 + 2V_2s + V_2 - V_1=0$$
-$$V_2(2 + 2s) = V_1$$
-$$H(s) = \frac{1}{2+2s}$$
+
+Using KCL: $$\frac{V_2}{6} + \frac{V_2s}{3} + \frac{V_2 - V_1}{6}=0$$ $$V_2 + 2V_2s + V_2 - V_1=0$$ $$V_2(2 + 2s) = V_1$$ $$H(s) = \frac{1}{2+2s}$$
+
 ```tikz
 \usepackage{pgfplots}
 
@@ -180,7 +180,8 @@ $$H(s) = \frac{1}{2+2s}$$
 \end{document}
 ```
 
-##### D. 
+##### D.
+
 ```tikz
 \usepackage{circuitikz}
 \begin{document}
@@ -197,12 +198,11 @@ $$H(s) = \frac{1}{2+2s}$$
 \end{circuitikz}
 \end{document}
 ```
-$$V_2 = V_1\frac{2}{2 + s + \frac{2}{s} }$$
-$$\frac{V_2}{V_1} = H(s) = \frac{2}{2 + s + \frac{2}{s} }\left(\frac{\frac{1}{2}s}{\frac{1}{2}s}\right) = \frac{s}{\frac{1}{2}s^2 + s+1}$$
 
-Zeros at $s=0, \infty$
-Poles at:
-$$s = \frac{-1\pm\sqrt{1 - 2}}{2(\frac{1}{2})} = -1\pm j$$
+$$V_2 = V_1\frac{2}{2 + s + \frac{2}{s} }$$ $$\frac{V_2}{V_1} = H(s) = \frac{2}{2 + s + \frac{2}{s} }\left(\frac{\frac{1}{2}s}{\frac{1}{2}s}\right) = \frac{s}{\frac{1}{2}s^2 + s+1}$$
+
+Zeros at $s=0, \infty$ Poles at: $$s = \frac{-1\pm\sqrt{1 - 2}}{2(\frac{1}{2})} = -1\pm j$$
+
 ```tikz
 \usepackage{pgfplots}
 
@@ -242,59 +242,67 @@ $$s = \frac{-1\pm\sqrt{1 - 2}}{2(\frac{1}{2})} = -1\pm j$$
 ```
 
 #### 3. Consider the Poles and Zeros of $C$ and $D$ Above
+
 Assume the circuits have 0 zero energy when the switch is closed.
+
 ##### A.
+
 **If $V_{1}$ is a constant DC source, what would the response of $V_{2}$ be in $C$ and in $D$?**
 
 If the source is DC, there will be no oscillatory portion of the transfer function $s=0$.
+
 ###### Circuit $C$
+
 In $C$, $H(0) = \frac{1}{2}$. This means that voltage at $V_2$ will be half of $V_1$. This makes sense because at steady state the capacitor will be charged, no current will flow through that parallel branch and we'll be left with a voltage divider of two equal value resistors!
 
 ###### Circuit $D$
+
 In $D$, $H(0) = 0$. This means that no DC voltage will reach $V_2$ once the capacitor reaches a steady state. This makes sense because the capacitor will charge to $V_1$, and there will no longer be a potential difference causing current to flow past it.
-##### B. 
-**If $V_{1}$ is a sinusoidal AC source, what would the response of $V_{2}$ be in $C$ and in $D$?**
-With an AC $V_1$, the transfer function is a function of $s$ and $s=j\omega$ can be changed by changing the frequency.
-###### Commonalities in $C$ and $D$
-In the circuits $C$ and $D$, since they both have a zero at $\infty$, as the frequency approaches $\infty$, the gain will approach 0. 
+
+##### B.
+
+**If $V_{1}$ is a sinusoidal AC source, what would the response of $V_{2}$ be in $C$ and in $D$?** With an AC $V_1$, the denominator of the transfer function (the characteristic equation) matches the form of a decaying oscillator. This by itself is the transient response.
+
+When multiplied with $V_1(s)$, we can see the total response of $V_2$ in the complex domain. We can convert $H(s)$ back to the time domain to see how the transient responds over time.
+
 ###### Circuit $C$
-In the case of $C$, this zero at infinity is the only zero. As we noted for the DC signal, at $s=j\omega = 0$, the circuit acts as a voltage divider when a steady state is reached, with a gain of $0.5$. 
 
-As $j\omega$ is increased, the capacitor has less and less time to cycle, and the gain approaches 0 as $j\omega\to \infty$, since the denominator of the transfer function becomes increasingly large. Since the real portion of the denominator of the transfer function is fixed at 2, and the complex portion $2s=2j\omega$ is in the complex domain, it can never "cancel" the real portion and increase the gain beyond $\frac{1}{2}$.
+In the case of $C$, the denominator $2s + 2$ matches the form $s - a$ indicating pure decay with no oscillation, i.e. $Ae^{at}$.
+
+$$V_2(t) = \frac{1}{2}e^{-t}V_1$$
+
+This means that $V_2$ will be $\frac{V_1}{2}$ after the transient decays.
+
 ###### Circuit $D$
-In the case of $D$, the gain will also approach 0 as $s$ approaches 0. At low and high frequencies, $V_2$ will be severely attenuated. When the complex portion of $s=-1\pm j$, approaches a frequency causing the function to yield 1, the circuit approaches resonance. We can find this frequency by finding the magnitude at the poles.
-$$\omega = \sqrt{\mathcal{Re}^2 + \mathcal{Im}^2}= \sqrt{1^2 + 1^2} = \sqrt{2}$$
-At $\omega = \sqrt{2}$
-$$H(s) = \frac{s}{\frac{1}{2}s^2 + s + 1} = \frac{j\sqrt{2}}{0.5(j\sqrt{2})^2 + j\sqrt{2} + 1} = \frac{j\sqrt{2}}{0.5(j)^2(\sqrt{2})^2 + j\sqrt{2} + 1}$$
-$$= \frac{j\sqrt{2}}{0.5(-1)(2) + j\sqrt{2} + 1} = \frac{j\sqrt{2}}{j\sqrt{2}} = 1$$
 
-#### Inverse Laplace Transform for Circuit D, $V_1 =12V\ DC$
-Goal is to find the voltage across the resistor $V_2$
-Starting from the transfer function:
-$$H(s) = \frac{V_2}{V_1} = \frac{s}{0.5s^2 + s + 1}$$
-$$V_1 = 12V$$
-The input voltage is a step of 12, so from the table:
-$$V_1(s) = \frac{12}{s}$$
-$$V_2(s) = \frac{12}{s}\cdot\frac{2}{2}\cdot\frac{s}{0.5s^2 + s + 1} = \frac{24}{(s^2 + 2s + 2)}$$
-Therefore (Completing the square):
-$$ =A\frac{\omega}{(s+\alpha)^2 + (\omega)^2  }= 24\frac{1}{(s + 1)^2 + (1)^2}$$
-$$V_2(t)= 24e^{-t}sin(t)$$
+For $D$, with an AC circuit, and given a characteristic equation with complex roots $\alpha \pm j\omega$:
+
+$$x(t) = e^{at}(A\cos(\omega t) + B\sin(\omega t))$$
+
+Where $\alpha = -1$ and $\omega = 1$, which matches the poles found.
+
+Since the denominator governs the overall pattern of oscillation and decay for a transfer function, we know $D$ will have a decaying oscillation over time as the transient dies away, since $\alpha = -1$.
+
+$V_2$ will respond as a $V_1$ scaled by the magnitude of the transfer function, and shifted by $\arctan\left(\frac{\mathcal{Im}}{\mathcal{Re}}\right)$, which for an AC signal is dependent on the frequency $\omega$.
+
+#### 4. Inverse Laplace Transform for Circuit D, $V_1 =12V\ DC$
+
+Goal is to find the voltage across the resistor $V_2$ Starting from the transfer function: $$H(s) = \frac{V_2}{V_1} = \frac{s}{0.5s^2 + s + 1}$$ $$V_1 = 12V$$ The input voltage is a step of 12, so from the table: $$V_1(s) = \frac{12}{s}$$ $$V_2(s) = \frac{12}{s}\cdot\frac{2}{2}\cdot\frac{s}{0.5s^2 + s + 1} = \frac{24}{(s^2 + 2s + 2)}$$ Therefore (Completing the square): $$ =A\frac{\omega}{(s+\alpha)^2 + (\omega)^2 }= 24\frac{1}{(s + 1)^2 + (1)^2}$$ $$V_2(t)= 24e^{-t}sin(t)$$
 
 If there had been more $s$ terms, we may have needed partial fraction expansion.
+
 #### 5. Considering Circuits $A$ and $C$ Above
-##### A. 
-Substituting $s=j\omega$ into the transfer function $T(s)$.
-Express the magnitude and phase angle.
+
+##### A.
+
+Substituting $s=j\omega$ into the transfer function $T(s)$. Express the magnitude and phase angle.
 
 ###### Circuit $A$
-$$H(s) = \frac{1}{5\times10^{-4}s + 1}$$
-$$H(j\omega) = \frac{1}{1+ j5\times10^{-4}\omega}$$
 
-**Magnitude**
-Goal: Get $H(j\omega)$ into a separable form, take magnitude with pythagorean.
-$$H(\omega) = \frac{1-j0.0005\omega}{(1+j0.0005\omega)(1-j0.0005\omega)} = \frac{1-j0.0005\omega}{1 - j^2(0.0005\omega)^2 }$$
-$$=\frac{1-j0.0005\omega}{1+ 2.5\times10^{-7}\omega^2} = \left(\frac{1}{1+2.5\times10^{-7}\omega^2}\right) + j\left(\frac{5\times10^{-4}}{1+2.5\times10^{-7}\omega^2}\right)$$
-$$|H(\omega)| = \sqrt{\left(\frac{1}{1+2.5\times10^{-7}\omega^2}\right)^2 + \left(\frac{5\times10^{-4}}{1+2.5\times10^{-7}\omega^2}\right)^2}$$
+$$H(s) = \frac{1}{5\times10^{-4}s + 1}$$ $$H(j\omega) = \frac{1}{1+ j5\times10^{-4}\omega}$$
+
+**Magnitude** Goal: Get $H(j\omega)$ into a separable form, take magnitude with pythagorean. $$H(\omega) = \frac{1-j0.0005\omega}{(1+j0.0005\omega)(1-j0.0005\omega)} = \frac{1-j0.0005\omega}{1 - j^2(0.0005\omega)^2 }$$ $$=\frac{1-j0.0005\omega}{1+ 2.5\times10^{-7}\omega^2} = \left(\frac{1}{1+2.5\times10^{-7}\omega^2}\right) + j\left(\frac{5\times10^{-4}}{1+2.5\times10^{-7}\omega^2}\right)$$ $$|H(\omega)| = \sqrt{\left(\frac{1}{1+2.5\times10^{-7}\omega^2}\right)^2 + \left(\frac{5\times10^{-4}}{1+2.5\times10^{-7}\omega^2}\right)^2}$$
+
 ```tikz
 \usepackage{pgfplots}
 
@@ -332,22 +340,11 @@ $$|H(\omega)| = \sqrt{\left(\frac{1}{1+2.5\times10^{-7}\omega^2}\right)^2 + \lef
 	\end{tikzpicture}
 \end{document}
 ```
-Or more simply we can use:
-$$\left|\frac{A}{B}\right| = \frac{|A|}{|B|}$$
-$$|H(\omega)| = \frac{|1|}{|0.0005j\omega + 1|} = \frac{1}{\sqrt{(0.0005\omega)^2 + 1^2}} = \frac{1}{\sqrt{1+2.5\times10^{-7}\omega^2}}$$
-Much better!
 
-**Phase**
-From the separated version, we could then:
-$$\phi(\omega) = arctan\left(\frac{\frac{5\times10^{-4}}{1+2.5\times10^{-7}\omega^2}}{\frac{1}{1+2.5\times10^{-7}\omega^2}}\right)$$
-For phase, we can use a similar trick
-Given a transfer function
-$$H=\frac{A}{B}$$
-$$\phi(\omega) = \angle A - \angle B$$
-For $H(\omega) = \frac{1}{5\times10^{-4}j\omega + 1}$
-$$A = 1 + j0^\circ\to\angle A = 0$$
-$$B = 1+j0.0005\omega\to\angle B = \arctan\left(\frac{0.0005\omega}{1}\right)$$
-$$\phi(\omega) = -\arctan(0.0005\omega)$$
+Or more simply we can use: $$\left|\frac{A}{B}\right| = \frac{|A|}{|B|}$$ $$|H(\omega)| = \frac{|1|}{|0.0005j\omega + 1|} = \frac{1}{\sqrt{(0.0005\omega)^2 + 1^2}} = \frac{1}{\sqrt{1+2.5\times10^{-7}\omega^2}}$$ Much better!
+
+**Phase** From the separated version, we could then: $$\phi(\omega) = arctan\left(\frac{\frac{5\times10^{-4}}{1+2.5\times10^{-7}\omega^2}}{\frac{1}{1+2.5\times10^{-7}\omega^2}}\right)$$ For phase, we can use a similar trick Given a transfer function $$H=\frac{A}{B}$$ $$\phi(\omega) = \angle A - \angle B$$ For $H(\omega) = \frac{1}{5\times10^{-4}j\omega + 1}$ $$A = 1 + j0^\circ\to\angle A = 0$$ $$B = 1+j0.0005\omega\to\angle B = \arctan\left(\frac{0.0005\omega}{1}\right)$$ $$\phi(\omega) = -\arctan(0.0005\omega)$$
+
 ```tikz
 \usepackage{pgfplots}
 
@@ -386,9 +383,11 @@ $$\phi(\omega) = -\arctan(0.0005\omega)$$
 	\end{tikzpicture}
 \end{document}
 ```
+
 ###### Circuit $C$
-**Magnitude**
-$$|H(\omega)| = \frac{|1|}{\sqrt{2^2+(2\omega)^2}} = \frac{1}{\sqrt{4 + 4\omega^2}}$$
+
+**Magnitude** $$|H(\omega)| = \frac{|1|}{\sqrt{2^2+(2\omega)^2}} = \frac{1}{\sqrt{4 + 4\omega^2}}$$
+
 ```tikz
 \usepackage{pgfplots}
 
@@ -422,8 +421,8 @@ $$|H(\omega)| = \frac{|1|}{\sqrt{2^2+(2\omega)^2}} = \frac{1}{\sqrt{4 + 4\omega^
 	\end{tikzpicture}
 \end{document}
 ```
-$$\phi(\omega)$$
-**Phase**
+
+$$\phi(\omega)$$ **Phase**
 
 $$\phi(\omega) = 0 - \arctan\left(\frac{2\omega}{2}\right) $$
 
@@ -460,15 +459,14 @@ $$\phi(\omega) = 0 - \arctan\left(\frac{2\omega}{2}\right) $$
 	\end{tikzpicture}
 \end{document}
 ```
+
 ##### B. Evaluate the Magnitude in $dB$ at:
-$\omega = 0$
-$\omega = |p|$
-$\omega = 10|p|$
+
+$\omega = 0$ $\omega = |p|$ $\omega = 10|p|$
+
 ###### Circuit $A$
-$$Pole = p = -2000\to |p| = 2000$$
-$$20\log\left(\frac{1}{\sqrt{1+2.5\times10^{-7}(0)^2}}\right) = 20\log(1) = 0dB$$
-$$20\log\left(\frac{1}{\sqrt{1+2.5\times10^{-7}(2000)^2}}\right) \approx 20\log(0.7071) \approx -3.010dB$$
-$$20\log\left(\frac{1}{\sqrt{1+2.5\times10^{-7}(20000)^2}}\right) \approx 20\log(0.0995) \approx -20.043dB$$
+
+$$Pole = p = -2000\to |p| = 2000$$ $$20\log\left(\frac{1}{\sqrt{1+2.5\times10^{-7}(0)^2}}\right) = 20\log(1) = 0dB$$ $$20\log\left(\frac{1}{\sqrt{1+2.5\times10^{-7}(2000)^2}}\right) \approx 20\log(0.7071) \approx -3.010dB$$ $$20\log\left(\frac{1}{\sqrt{1+2.5\times10^{-7}(20000)^2}}\right) \approx 20\log(0.0995) \approx -20.043dB$$
 
 ```tikz
 \usepackage{pgfplots}
@@ -517,11 +515,11 @@ $$20\log\left(\frac{1}{\sqrt{1+2.5\times10^{-7}(20000)^2}}\right) \approx 20\log
 	\end{tikzpicture}
 \end{document}
 ```
+
 ###### Circuit $C$
-$$Pole = p = -1\to |p| = 1$$
-$$20\log\left(\frac{1}{\sqrt{4 + 4(0)^2}}\right) = 20\log\left(\frac{1}{\sqrt{4}}\right) = 20\log(0.5) \approx -6.02dB$$
-$$20\log\left(\frac{1}{\sqrt{4 + 4(1)^2}}\right) = 20\log\left(\frac{1}{\sqrt{4 + 4}}\right) \approx 20\log(0.3536) \approx -9.03dB$$
-$$20\log\left(\frac{1}{\sqrt{4 + 4(10)^2}}\right) = 20\log\left(\frac{1}{\sqrt{4 +400}}\right) \approx  20\log(0.04975) \approx -26.07dB$$
+
+$$Pole = p = -1\to |p| = 1$$ $$20\log\left(\frac{1}{\sqrt{4 + 4(0)^2}}\right) = 20\log\left(\frac{1}{\sqrt{4}}\right) = 20\log(0.5) \approx -6.02dB$$ $$20\log\left(\frac{1}{\sqrt{4 + 4(1)^2}}\right) = 20\log\left(\frac{1}{\sqrt{4 + 4}}\right) \approx 20\log(0.3536) \approx -9.03dB$$ $$20\log\left(\frac{1}{\sqrt{4 + 4(10)^2}}\right) = 20\log\left(\frac{1}{\sqrt{4 +400}}\right) \approx 20\log(0.04975) \approx -26.07dB$$
+
 ```tikz
 \usepackage{pgfplots}
 
@@ -568,4 +566,3 @@ $$20\log\left(\frac{1}{\sqrt{4 + 4(10)^2}}\right) = 20\log\left(\frac{1}{\sqrt{4
 	\end{tikzpicture}
 \end{document}
 ```
-
