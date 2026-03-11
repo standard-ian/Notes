@@ -144,3 +144,18 @@ $$v_d = \frac{I}{n_eA_{cross}} = \frac{I}{n_ewd}$$
 $w=width$
 $d=depth$
 Cross sectional Area: $A=wd$
+
+---
+#### Magnetic Flux
+Defined identically to electric flux
+$$\Phi_B = \int\vec{B}\cdot d\vec{A}$$
+**Motional EMF** is just the time rate of change of magnetic flux through the circuit.
+
+For a conducting bar moving perpendicularly through a magnetic field.
+$$|\mathcal{E}| =\frac{d\Phi_B}{dt} = vBL$$
+For a wire loop and straight current.
+$$|\mathcal{E}| = \frac{d\Phi_B}{dt} = vL(B_{bottom} = B_{top})$$
+In a generator, where a loop is rotating in a uniform magnetic field, the magnetic flux is the dot product of the magnetic field and the coil. 
+$$\Phi_B = \vec{B}\cdot \vec{A} = BSsin(\omega t)$$
+$$|\mathcal{E}| = \frac{d\Phi_B}{dt} = \omega BA \cos(\omega t)$$
+#### Faraday's Law
