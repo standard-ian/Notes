@@ -103,8 +103,28 @@ Which is
 $$= \frac{\mu_0\omega Q}{2\pi R^2d^3}\left[\frac{R^{4}}{4} -\frac{0^4}{4}\right] = \frac{\mu_0\omega QR^2}{8\pi d^3}$$
 $$B = \frac{\mu_0 (1)(40\times10^{-3})(12\times10^{-2})^2}{8\pi(12)^3} \approx 1.667\times 10^{-14}$$
 ## Class 2
+#### Maxwell's Equations
+##### Gauss's Law for Electric Charge
+Electric charges produce electric fields
+$$\oint\vec{E}\cdot d\vec{A} = \frac{q_{enc}}{\epsilon_0}$$
+##### Gauss's Law for Magnetism
+No such thing as magnetic monopoles
+$$\oint \vec{B}\cdot d\vec{A} = 0$$
+##### Faraday's Law
+Changing magnetic fields produce electric fields
+$$\oint\vec{E}\cdot d\vec{s} = -\frac{d\Phi_B}{dt}$$
+##### Ampere's Law
+Magnetic fields are produced by currents and changing electric fields
+$$\oint\vec{B}\cdot d\vec{s} = \mu_0\epsilon_0\frac{d\Phi_B}{dt} + \mu_0i_{enc}$$
 #### Ampere's Law
+If we have some current, it will produce a magnetic field in some region of space. 
 $$\oint \vec{B}\cdot d\vec{s} = \mu_0I_{enc}$$
+A closed loop in a region of space, and the magnetic field along that loop.
+Essentially we are **projecting** the component of potentially various magnetic fields along the loop.
+
+The sum of these field **components** (dot product $\vec{B}\cdot d\vec{s}$) is equal to the current enclosed in the loop times $\mu_0 = 4\pi\times10^{-7}$.
+$$ \sum(\vec{B}\cdot d\vec{s})_1 + (\vec{B}\cdot d\vec{s})_2 + ...+(\vec{B}\cdot d\vec{s})_n \approx \oint\vec{B}\cdot d\vec{s}$$
+
 #### Ampere's Law for Magnetic Field Inside a Wire
 The charge enclosed in a wire is:
 $$I_{enc} = J\cdot \pi r^2 = J\cdot \pi r^2 = \frac{I\pi r^2}{\pi R^2} = \frac{Ir^2}{R^2}$$

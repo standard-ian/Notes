@@ -227,3 +227,5 @@ The average power is $\frac{1}{T}\int_0^{T}(V\times I)\ dt$
 
 Industrial customers par reactive power and real power because of all of the motors and transformers made of windings, which act like inductors, pumping current back and forth.
 ## Class 20
+Review Homework 3,4,5 and Review Problems A and B
+

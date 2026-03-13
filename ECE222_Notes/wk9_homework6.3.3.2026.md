@@ -266,25 +266,17 @@ In $D$, $H(0) = 0$. This means that no DC voltage will reach $V_2$ once the capa
 When multiplied with $V_1(s)$, we can see the total response of $V_2$ in the complex domain. We can convert $H(s)$ back to the time domain to see how the transient responds over time.
 
 ###### Circuit $C$
+$$V_2 = V_1  \times \frac{1}{2s + 2}$$
+We can represent $V_1$ as the Laplace Transform of the input
+$$V_2 = \frac{\mathcal{A}s}{s^2 + \omega^2}\times\frac{1}{2s+2} = \frac{\mathcal{A}s}{(s^2 + \omega^2)(2s+2)} = \frac{As+B}{s^2+\omega^2} + \frac{C}{2s+2}$$
+$\frac{C}{2s+2}$ matches the form of $\frac{C}{2} e^{at}$ where $a = -1$. This is the decaying transient. 
 
-In the case of $C$, the denominator $2s + 2$ matches the form $s - a$ indicating pure decay with no oscillation, i.e. $Ae^{at}$.
-
-$$V_2(t) = \frac{1}{2}e^{-t}V_1$$
-
-This means that $V_2$ will be $\frac{V_1}{2}$ after the transient decays.
+$\frac{As + B}{s^2 + \omega^2}$ can be broken easily into the form for a sine and a cosine, with no decay, representing the steady state.
 
 ###### Circuit $D$
-
-For $D$, with an AC circuit, and given a characteristic equation with complex roots $\alpha \pm j\omega$:
-
-$$x(t) = e^{at}(A\cos(\omega t) + B\sin(\omega t))$$
-
-Where $\alpha = -1$ and $\omega = 1$, which matches the poles found.
-
-Since the denominator governs the overall pattern of oscillation and decay for a transfer function, we know $D$ will have a decaying oscillation over time as the transient dies away, since $\alpha = -1$.
-
-$V_2$ will respond as a $V_1$ scaled by the magnitude of the transfer function, and shifted by $\arctan\left(\frac{\mathcal{Im}}{\mathcal{Re}}\right)$, which for an AC signal is dependent on the frequency $\omega$.
-
+$$V_2 = V_1\times\frac{2s}{s^2 + 2s + 2} = \frac{\mathcal{A}}{s^2 + \omega^2}\times\frac{2s}{s^2 + 2s + 2} = 2\frac{\mathcal{A}s}{(s^2 + \omega^2)((s+1)^2 + 1)}$$
+$$V_2 = 2\left[\frac{As + B}{s^2 + \omega^2} + \frac{Cs + D}{(s+1)^2+1}\right]$$
+Resulting in a steady state of sine and cosine with a decaying cosine as the transient.
 #### 4. Inverse Laplace Transform for Circuit D, $V_1 =12V\ DC$
 
 Goal is to find the voltage across the resistor $V_2$ Starting from the transfer function: $$H(s) = \frac{V_2}{V_1} = \frac{s}{0.5s^2 + s + 1}$$ $$V_1 = 12V$$ The input voltage is a step of 12, so from the table: $$V_1(s) = \frac{12}{s}$$ $$V_2(s) = \frac{12}{s}\cdot\frac{2}{2}\cdot\frac{s}{0.5s^2 + s + 1} = \frac{24}{(s^2 + 2s + 2)}$$ Therefore (Completing the square): $$ =A\frac{\omega}{(s+\alpha)^2 + (\omega)^2 }= 24\frac{1}{(s + 1)^2 + (1)^2}$$ $$V_2(t)= 24e^{-t}sin(t)$$
