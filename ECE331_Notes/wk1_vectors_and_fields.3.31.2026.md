@@ -99,3 +99,157 @@ The differential length in cylindrical coordinates is:
 $$\vec{dl} = \hat{r}dr + \hat{\phi}d\phi + \hat{z}dz$$
 Areas:
 $$dS = \begin{matrix}dS_r = rd\phi dz\\dS_\phi = drdz\\dS_z = rd\phi dr\end{matrix}$$
+## Class 2
+#### 1.5 Gradient
+For a function with 1 variable, $f(x) = \frac{df}{dx}$ gives the slope of $f\ vs.\ x$ 
+
+If we change $x$ by an amount $dx$ (a tiny amount), then $f$ changes by an amount $df$
+
+$$df = \left(\frac{df}{dx}\right)dx$$
+Where $\frac{df}{dx}$ is the **Proportionality Factor**
+
+For a scalar function with three variables $T(x,y,z)$ (temp in room)...
+How much does $T$ vary? 
+
+If all three variables change by an infinitesimal amount $dx,dy,dz$
+
+Then, the temperature $T$ will also change by $dT$. 
+
+$$dT = \left(\frac{\partial T}{\partial x}\right)dx + \left(\frac{\partial T}{\partial y}\right)dy + \left(\frac{\partial T}{\partial z}\right)dz$$
+
+Could also be represented as:
+$$dT = \left[\frac{\partial T}{\partial x}\hat{x} + \frac{\partial T}{\partial y}\hat{y} + \frac{\partial T}{\partial z}\hat{z}\right]\cdot (dx\hat{x} + dy\hat{y} + dz\hat{z})$$
+Where $dx\hat{x} + dy\hat{y} + dz\hat{z} = d\vec{l}$ 
+$$\begin{equation}dT = \nabla T\cdot d\vec{l}\end{equation}$$
+Where:
+$$\nabla T = \frac{\partial T}{\partial x}\hat{x} + \frac{\partial T}{\partial y}\hat{y} + \frac{\partial T}{\partial z}\hat{z}$$
+The gradient of $T$. This is called the **del** operator.
+
+The gradient of a scalar is a vector.
+
+$\nabla T$ is a vector function with a magnitude and direction.
+
+From 
+$$\begin{equation}dT = \nabla T\cdot d\vec{l}\end{equation}$$
+$$dT = |\nabla T| |d\vec{l}|cos\phi$$
+$\phi$ is the angle between $|\nabla T|$ and $|d\vec{L}|$
+
+If $|d\vec{l}|$ has a fixed magnitude, maximum $dT$ occurs when $\phi = 0$ for a fixed $|d\vec{l}|$ dT is greatest when move in the direction $\nabla T$
+
+The direction of $d\vec{l}$ will be aligned with $\nabla T$
+
+- $\nabla T$ points in the direction of maximum increase of function $T$
+- $-\nabla T$ points in direction of steepest decent
+
+In cylindrical coordinates, 
+$$\nabla\equiv \hat{r}\frac{\partial}{\partial r} + \hat{\phi}\frac{1}{r}\frac{\partial}{\partial\phi} + \hat{z}\frac{\partial}{\partial z}$$
+##### Example
+If the temperature is 
+$$T(x,y,z) = 1 + x^2 + 2y^2 + \frac{3}{2}z^2  \ ^\circ C$$
+In what direction does the temperature increase the most at $(1, 1, -2) = (x,y,z)$
+
+$$\vec{u} = \nabla T(x,y,z) = \frac{\partial T}{\partial x}\hat{x} + \frac{\partial T}{\partial y}\hat{y} + \frac{\partial T}{\partial z}\hat{z}$$
+Taking the partial derivative for all three directions...
+$$ = zx\hat{x} + 4y\hat{y} + 3z\hat{z}$$
+At $(1,1,-2)$
+$$\vec{u} = \nabla T(1,1,-2) = 2\hat{x} + 4\hat{y} - 6\hat{z}$$
+The maximum rate of change is $|\vec{u}| = |\nabla T(1,1,-2)| = \sqrt{2^2 + 4^2 + 6^2} = 2\sqrt{14} = 7.48^\circ C$
+
+The unit vector direction:
+$$\hat{u} = \frac{\vec{u}}{|\vec{u}|} = \frac{2\hat{x} + 4\hat{y} - 6\hat{z}}{2\sqrt{14}} = \frac{[\hat{x} + 2\hat{y} -3\hat{z}]}{\sqrt{14}}$$
+
+#### 1.6 Divergence
+The divergence of a vector $\vec{A}$ 
+$$\vec{A} = A_x\hat{x} + A_y\hat{y} + A_z\hat{z}$$
+is defined as:
+$$\nabla\cdot \vec{A} = \left[\frac{\partial }{\partial x}\hat{x} + \frac{\partial }{\partial y}\hat{y} + \frac{\partial }{\partial z}\hat{z}\right]\cdot \left[A_x\hat{x} + A_y\hat{y} + A_z\hat{z}\right] = \frac{\partial A_x}{\partial x} + \frac{\partial A_y}{\partial y} + \frac{\partial A_z}{\partial z}$$
+Note that divergence of a vector is a scalar
+
+Divergence evaluates how much the vector $\vec{A}$ spreads out. 
+![[Pasted image 20260402202624.png]]
+
+The middle diagram represents a large $+ve$ divergence
+
+An analogy for  positive divergence might be a fire sprinkler where the water is moving out in all directions and increasing in velocity due to gravity.
+
+#### 1.7 Curl
+The **Curl** of a vector $A$ is defined as:
+
+$$\vec{A} = A_x\hat{x} + A_y\hat{y} + A_z \hat{z}$$
+$$\nabla \times\vec{A} =\left| \begin{matrix}\hat{x} & \hat{y} & \hat{z}\\\frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\ A_x & A_y & A_z\end{matrix}\right|$$
+$$ = \hat{x}\left[\frac{\partial A_z}{\partial y} - \frac{\partial A_y}{\partial z}\right] - \hat{y}\left[\frac{\partial A_z}{\partial x} - \frac{\partial A_x}{\partial z}\right] + \hat{z}\left[\frac{\partial A_y}{\partial x} - \frac{\partial A_x}{\partial y}\right]$$
+
+The curl of a vector is still a vector.
+
+The curl measures how much the vector $\vec{A}$ twists around a point. A whirlpool has a large curl.
+
+##### Example
+Consider a function defined by 
+$$\vec{A} = -y\hat{x} + x\hat{y}$$
+
+| $x$  | $y$  | $\vec{A}$   |
+| ---- | ---- | ----------- |
+| $0$  | $1$  | $-\hat{x}$  |
+| $0$  | $2$  | $-2\hat{x}$ |
+| $0$  | $3$  | $-3\hat{x}$ |
+| $0$  | $-1$ | $\hat{x}$   |
+| $0$  | $-2$ | $2\hat{x}$  |
+| $0$  | $-3$ | $3\hat{x}$  |
+| 1    | $0$  | $\hat{y}$   |
+| 2    | $0$  | $2\hat{y}$  |
+| 3    | $0$  | $3\hat{y}$  |
+| $-1$ | $0$  | $-\hat{x}$  |
+| $-2$ | $0$  | $-2\hat{x}$ |
+| $-3$ | $0$  | $-3\hat{x}$ |
+```tikz
+\usepackage{pgfplots}
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[
+    xlabel={$x$},
+    ylabel={$y$},
+    xmin=-4, xmax=4,
+    ymin=-4, ymax=4,
+    grid=both,
+    grid style={line width=0.2pt, draw=gray!30},
+    major grid style={line width=0.4pt, draw=gray!60},
+    width=10cm, height=10cm,
+    xtick={-3,-2,-1,0,1,2,3},
+    ytick={-3,-2,-1,0,1,2,3},
+]
+% x=0, y>0: A = -y*xhat
+\addplot[->, orange, very thick] coordinates {(0,1) (-1,1)};
+\addplot[->, orange, very thick] coordinates {(0,2) (-2,2)};
+\addplot[->, orange, very thick] coordinates {(0,3) (-3,3)};
+% x=0, y<0: A = -y*xhat
+\addplot[->, orange, very thick] coordinates {(0,-1) (1,-1)};
+\addplot[->, orange, very thick] coordinates {(0,-2) (2,-2)};
+\addplot[->, orange, very thick] coordinates {(0,-3) (3,-3)};
+% y=0, x>0: A = x*yhat
+\addplot[->, orange, very thick] coordinates {(1,0) (1,1)};
+\addplot[->, orange, very thick] coordinates {(2,0) (2,2)};
+\addplot[->, orange, very thick] coordinates {(3,0) (3,3)};
+% y=0, x<0: A = x*yhat (negative)
+\addplot[->, orange, very thick] coordinates {(-1,0) (-1,-1)};
+\addplot[->, orange, very thick] coordinates {(-2,0) (-2,-2)};
+\addplot[->, orange, very thick] coordinates {(-3,0) (-3,-3)};
+\end{axis}
+\end{tikzpicture}
+\end{document}
+
+```
+In the figures previously pictured, there is 0 curl, in this image, there is clearly curl. 
+
+We can use arrows at different points to represent the field flow.
+
+The curl of $\vec{A}$ is:
+$$\nabla \times\vec{A} =\left| \begin{matrix}\hat{x} & \hat{y} & \hat{z}\\\frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\ -y & x & 0\end{matrix}\right|$$
+$$ = \hat{x}\cancel{\left[\frac{\partial 0}{\partial y} - \frac{\partial x}{\partial z}\right]} - \hat{y}\cancel{\left[\frac{\partial 0}{\partial x} - \frac{-\partial y}{\partial z}\right]} + \hat{z}\left[\frac{\partial x}{\partial x} - \frac{-\partial y}{\partial y}\right]$$
+$$= 0\hat{x} + 0\hat{y} + (1+1)\hat{z} = 2\hat{z}$$
+The divergence is given by:
+$$\nabla\cdot \vec{A} = \left[\frac{\partial}{\partial x}\hat{x} + \frac{\partial}{\partial y}\hat{y} + \frac{\partial}{\partial z}\hat{z}\right]\cdot \left[-y\hat{x} + h\hat{y}\right]$$
+$$ = 0 + 0 + 0$$
+No spreading out.
+
+If $\nabla \cdot \vec{A} = 0$ The field is called **Solenoidal**
+If $\nabla \times \vec{A} = 0$ the field is called **irrotational** or a **conservative field**.
