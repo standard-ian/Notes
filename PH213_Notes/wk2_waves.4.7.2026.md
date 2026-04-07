@@ -1,5 +1,14 @@
 ## Class 3
 #### Waves
+Both are sinusoidal and have similar properties.
+##### Transverse
+Oscillating up and down.
+EMF, light.
+##### Longitudinal
+Moving back and forth.
+Pressure changes relative to atmospheric pressure.
+
+
 ##### Transverse Harmonic Wave
 $$y(x,t) = A\cos(kx-\omega t)$$
 ##### Period of Oscillation
@@ -17,6 +26,10 @@ $T\equiv$ Tension in the String
 ##### Wave Equation
 $$y''(x) = \frac{1}{v^2}y''(t)$$
 $v\equiv$ Speed of the Wave, depends only on the properties of the wave's medium
+
+#### Speed of Sound
+##### Bulk Modulus 
+$$B = \frac{\Delta P}{\Delta V/V}$$
 
 ## Class 4
 #### Waves and Superposition
