@@ -140,8 +140,6 @@ The signals are in phase. It is worth noting that they were $180^\circ$ out of p
 
 ![[wk1_lab1_images/circuit2.jpeg]]
 
-![[wk1_lab1_images/path_to_photo_here.jpeg]]
-
 ### Circuit 3 Results
 
 ![[wk1_lab1_images/circuit3.jpeg]]

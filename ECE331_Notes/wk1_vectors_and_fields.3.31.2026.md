@@ -172,6 +172,8 @@ The middle diagram represents a large $+ve$ divergence
 
 An analogy for  positive divergence might be a fire sprinkler where the water is moving out in all directions and increasing in velocity due to gravity.
 
+##### Cylindrical
+$$\nabla \cdot \vec{A} = \frac{1}{r}\frac{\partial}{\partial r}(rA_r) + \frac{1}{r} \frac{\partial A_\phi}{\partial \phi} + \frac{\partial A_z}{\partial z}$$
 #### 1.7 Curl
 The **Curl** of a vector $A$ is defined as:
 
@@ -253,3 +255,7 @@ No spreading out.
 
 If $\nabla \cdot \vec{A} = 0$ The field is called **Solenoidal**
 If $\nabla \times \vec{A} = 0$ the field is called **irrotational** or a **conservative field**.
+
+##### Cylindrical 
+$$\nabla \times \vec{A}  = \hat{r}\left(\frac{1}{r}\frac{\partial A_z}{\partial \phi} - \frac{\partial A_\phi}{\partial z}\right) + \hat{\phi}\left(\frac{\partial A_r}{\partial z} - \frac{\partial A_z}{\partial r}\right) + \hat{z}\frac{1}{r}\left(\frac{\partial(r A_\phi)}{\partial r} - \frac{\partial A_r}{\partial \phi}\right)$$
+$$\nabla \times \vec{A} = \left|\begin{matrix}\hat{r} & r\hat{\phi}  & \hat{z}\\ \frac{\partial}{\partial r} & \frac{\partial}{\partial\phi} & \frac{\partial}{\partial z} \\A_r & rA_\phi & A_z\end{matrix}\right|$$
