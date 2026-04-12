@@ -30,6 +30,11 @@ $v\equiv$ Speed of the Wave, depends only on the properties of the wave's medium
 #### Speed of Sound
 ##### Bulk Modulus 
 $$B = \frac{\Delta P}{\Delta V/V}$$
+$$v = \sqrt{\frac{B}{\rho}}$$
+$\rho =$ density
+##### Power Proportionality
+If initial power $P$, and frequency is increased by $20\times$, amplitude is decreased by $2.3\times$, what is the proportionality of power $b$?
+$$b = \left(\frac{20}{2.3}\right)^2 = 75.6$$
 
 ## Class 4
 #### Waves and Superposition
