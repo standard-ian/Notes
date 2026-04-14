@@ -84,11 +84,13 @@ $R_1 = R$. Find the gain $k$ of $\frac{V_2}{V_1} = k$
 	
 	\draw(U1 IN-)--++(-1,0)--++(0,2) 
 	to[R=$R$]++(3.5,0)
+	node[ocirc, label=above:$B$]{}
 	to[R=$R_1$]++(0,-1.5)
 	node[ground]{}
 	++(0,1.5)
 	to[R=$R$]++(3.5,0)--++(0,-3) --++(-1,0);
-	\draw(U1 IN-)++(-1,1)
+	\draw(U1 IN-)++(-1,2)
+	node[ocirc, label=above:$A$]{}
 	to[R, a=$R$]++(-2,0)
 	node[circ, label=left:$V_1+$]{};
 	
@@ -105,9 +107,18 @@ $R_1 = R$. Find the gain $k$ of $\frac{V_2}{V_1} = k$
 \end{circuitikz}
 \end{document}
 ```
+Again, no current at $-/+$ 
+$I_{A} = \frac{V_1}{R}$
+$V_B = -V_1$
+$I_B = I_{R_1}  + I_A=  \frac{-V_1}{R} - \frac{V_1}{R_1}$
+$V_2 = -V_1  - R\left(\frac{V_1}{R} + \frac{V_1}{R_1}\right)$
+$V_2 = -V_1 - V_1\left(1 + \frac{R}{R_1}\right) = -V_1(1 + (1 + \frac{R}{R_1})) = -V_1\left(2 + \frac{R}{R_1}\right)$
+$$\frac{V_2}{V_1} = -2-\frac{R}{R_1}$$
+For $R=R_1$, $k = -3$ 
 #### 3. 
 With the circuit in **2** find $R_1$ such that the gain $\frac{V_2}{V_1} = k = -100$
-
+$$-100 = -2-\frac{R}{R_1}\to98 = \frac{R}{R_1}$$
+$$R_1 = \frac{R}{98}$$
 #### 4. 
 Let $G_j = \frac{1}{R_j}$. The inverse of resistance is conductance.
 ```tikz
