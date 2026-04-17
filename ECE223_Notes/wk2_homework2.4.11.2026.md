@@ -141,20 +141,22 @@ Let $G_j = \frac{1}{R_j}$. The inverse of resistance is conductance.
     }
     
 \begin{document}
-\begin{circuitikz}[american, scale=1, font=\Large]
+\begin{circuitikz}[american, scale=2, font=\Large]
 	% invoke the opamp	
 	\opamp(0,0){U1}
 	
 	\draw(U1 IN-)--++(-1,0)--++(0,1) 
 	to[R=$R_2$]++(4,0)--++(1,0)--++(0,-2) --++(-1,0);
 	\draw(U1 IN-)++(-1,1)
+	node[ocirc, label=above:$B$]{}
 	to[R, a=$R_1$]++(-2,0)
 	node[ground]{};
 	
-	\draw(U1 OUT) --++(2,0)
+	\draw(U1 OUT) --++(1,0)
 	node[circ, label=right:$V_{2}+$]{};
 
 	\draw(U1 IN+)--++(-1,0)--++(0,-1)
+	node[ocirc, label=below right:$A$]{}
 	to[R=$R_3$]++(-2,0)
 	node[circ, label=left:$V_1+$]{}++(2,0)--++(0,-1)
 	to[R=$R_5$]++(0,-2)
@@ -170,5 +172,12 @@ Let $G_j = \frac{1}{R_j}$. The inverse of resistance is conductance.
 ##### a. 
 Show that:
 $$\frac{V_2}{V_1} = T = \frac{\left(\frac{G_3}{G_2G_4}\right)(G_1+G_2)}{\left(\frac{G_3 + G_5}{G_4}\right) - \frac{G_1}{G_2}}$$
+$$\frac{V_2}{V_1} = \frac{\left(\frac{R_2R_4}{R_3}\right)\left(\frac{1}{R_1} + \frac{1}{R_2}\right)}{\left(\frac{R_4}{R_3} + \frac{R_4}{R_5} \right)- \frac{R_2}{R_1}}$$
+$$I_{R_3} = \frac{V_1}{R_3}$$
+$$V_A = V_1\frac{R_5}{R_3 + R_5}$$
+$$I_{R_4} = \frac{V_A}{R_4}$$
+$$V_B = V_A$$
+$$I_{R_1} = \frac{V_B}{R_1}$$
+$$I_{R_2} = \frac{V_2 -V_B}{R_2}$$
 ##### b. 
 Let $R_1=R_2=R_3=R_5 =R$. $R_4$ can be tuned. Sketch $T$ as a function of $R_4$.
