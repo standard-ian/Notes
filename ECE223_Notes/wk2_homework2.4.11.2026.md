@@ -201,6 +201,7 @@ At $R_4 = 0$,  $T = 0$
 At $R_4 = \infty$, $T = 1$
 At $\frac{R}{2}$, $T = \infty$, amp slams to $V_{max}$
 
+
 ```tikz
 \usepackage{pgfplots}
 
@@ -211,21 +212,19 @@ At $\frac{R}{2}$, $T = \infty$, amp slams to $V_{max}$
     width=15cm,
     height=15cm,
     xlabel={$\frac{R_4}{R}$},
-    xlabel style={font=\large},
     ylabel={$T = \frac{V_2}{V_1}$},
-    ylabel style={font=\large},
-    xmin=-10, 
-    xmax=10,
-    ymin=-10, 
+    restrict y to domain=-2.9:20,
+    xmin=-1.5,  xmax=10,
+    ymin=-1.5, 
     ymax=10,
     grid=major,
     axis lines=middle,
     enlargelimits=true,
 ]
-\addplot[orange, thick, domain=-20:0.499, samples=1000] {(2*x)/((2*x) - 1)};
+\addplot[orange, thick, domain=-2.9:0.499, range=-2:1, samples=1000] {(2*x)/((2*x) - 1)};
 \addplot[orange, thick, domain=0.501:20, samples=1000] {(2*x)/((2*x) - 1)};
-\addplot[black, dashed, domain=10:-10] {1};
-\addplot[black, dashed] coordinates {(0.5,-10) (0.5,10)};
+\addplot[black, dashed, domain=10:-2] {1};
+\addplot[black, dashed] coordinates {(0.5,-2) (0.5,10)};
 
 \addplot[red, only marks, mark=x, mark size=4pt] coordinates {(0.5,0)};
 
@@ -237,3 +236,8 @@ At $\frac{R}{2}$, $T = \infty$, amp slams to $V_{max}$
 \end{tikzpicture}
 \end{document}
 ```
+It appears R4 could be tuned in the small window around the origin to invert the gain to saturation on either direction.
+
+As the value of R4 is decreased down to R2 more of V2 is fed back into the node at the non-inverting terminal.
+
+This increases the difference (V+ − V− )A in the positive direction, so V2 is driven larger, which feeds back more into the non-inverting side in a self-reinforcing manner and slamming V2 to the limit.
