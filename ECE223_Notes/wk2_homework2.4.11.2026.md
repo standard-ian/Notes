@@ -108,13 +108,16 @@ $R_1 = R$. Find the gain $k$ of $\frac{V_2}{V_1} = k$
 \end{document}
 ```
 Again, no current at $-/+$ 
-$I_{A} = \frac{V_1}{R}$
+$I_{\to A} = \frac{V_1}{R}$
+$I_{A\to} = -\frac{V_1}{R}$
 $V_B = -V_1$
-$I_B = I_{R_1}  + I_A=  \frac{-V_1}{R} - \frac{V_1}{R_1}$
+$I_{\to B} = I_{R_1}  + I_{A\to}=  \frac{V_1}{R} + \frac{V_1}{R_1}$
+$I_{B\to} = -\frac{V_1}{R} - \frac{V_1}{R_1}$
 $V_2 = -V_1  - R\left(\frac{V_1}{R} + \frac{V_1}{R_1}\right)$
-$V_2 = -V_1 - V_1\left(1 + \frac{R}{R_1}\right) = -V_1(1 + (1 + \frac{R}{R_1})) = -V_1\left(2 + \frac{R}{R_1}\right)$
+$$V_2 = -V_1 - V_1\left(1 + \frac{R}{R_1}\right) = -V_1 - V_1 -\frac{V_1R}{R_1} = -V_1\left(2 + \frac{R}{R_1}\right)$$
 $$\frac{V_2}{V_1} = -2-\frac{R}{R_1}$$
 For $R=R_1$, $k = -3$ 
+
 #### 3. 
 With the circuit in **2** find $R_1$ such that the gain $\frac{V_2}{V_1} = k = -100$
 $$-100 = -2-\frac{R}{R_1}\to98 = \frac{R}{R_1}$$
