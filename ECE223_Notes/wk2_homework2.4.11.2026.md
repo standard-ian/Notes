@@ -175,12 +175,65 @@ Let $G_j = \frac{1}{R_j}$. The inverse of resistance is conductance.
 ##### a. 
 Show that:
 $$\frac{V_2}{V_1} = T = \frac{\left(\frac{G_3}{G_2G_4}\right)(G_1+G_2)}{\left(\frac{G_3 + G_5}{G_4}\right) - \frac{G_1}{G_2}}$$
-$$\frac{V_2}{V_1} = \frac{\left(\frac{R_2R_4}{R_3}\right)\left(\frac{1}{R_1} + \frac{1}{R_2}\right)}{\left(\frac{R_4}{R_3} + \frac{R_4}{R_5} \right)- \frac{R_2}{R_1}}$$
-$$I_{R_3} = \frac{V_1}{R_3}$$
-$$V_A = V_1\frac{R_5}{R_3 + R_5}$$
-$$I_{R_4} = \frac{V_A}{R_4}$$
-$$V_B = V_A$$
-$$I_{R_1} = \frac{V_B}{R_1}$$
-$$I_{R_2} = \frac{V_2 -V_B}{R_2}$$
+###### Node $A$
+$$\frac{V_A - V_1}{R_3} + \frac{V_A - V_2}{R_4} + \frac{V_A}{R_5} = 0$$
+$$\frac{V_A}{R_3} - \frac{V_1}{R_3} + \frac{V_A}{R_4} - \frac{V_2}{R_4} + \frac{V_A}{R_5} = 0$$
+$$V_A\left(\frac{1}{R_3} + \frac{1}{R_4} + \frac{1}{R_5}\right) = \frac{V_1}{R_3} + \frac{V_2}{R_4}$$
+$$V_A = \frac{\frac{V_1}{R_3} + \frac{V_2}{R_4}}{\frac{1}{R_3} + \frac{1}{R_4} + \frac{1}{R_5}}$$
+###### Node B
+$$\frac{V_B- 0}{R_1} + \frac{V_B - V_2}{R_2} = 0$$
+$$\frac{V_B}{R_1} + \frac{V_B}{R_2} = \frac{V_2}{R_2}$$
+$$V_B = \frac{\frac{V_2}{R_2}}{\frac{1}{R_1} + \frac{1}{R_2}}$$
+###### $V_A = V_B$
+$$\frac{\frac{V_1}{R_3} + \frac{V_2}{R_4}}{\frac{1}{R_3} + \frac{1}{R_4} + \frac{1}{R_5}} = \frac{\frac{V_2}{R_2}}{\frac{1}{R_1} + \frac{1}{R_2}}$$
+###### Converting to Inductance to Simplify
+$$\frac{V_1G_3 + V_2G_4}{G_3 + G_4 + G_5} = \frac{V_2G_2}{G_1 + G_2}$$
+$$V_1G_3 + V_2G_4 = \frac{V_2G_2(G_3 + G_4 + G_5)}{G_1 + G_2}$$
+$$V_1G_3 = \frac{V_2G_2(G_3 + G_4 + G_5)}{G_1 + G_2} - V_2G_4 = V_2\left(\frac{G_2(G_3 + G_4 + G_5)}{G_1 + G_2} - G_4\right) $$
+###### Manipulating to Match the Form
+$$\frac{V_2}{V_1} = \frac{G_3}{\left(\frac{G_2(G_3 + G_4 + G_5)}{G_1 + G_2} - G_4\right)} \left(\frac{\frac{1}{G_2G_4}}{\frac{1}{G_2G_4}}\right)  = \frac{\frac{G_3}{G_2G_4}}{\frac{G_3 + G_4 + G_5}{G_4(G_1 + G_2)}- \frac{1}{G_2}}\left(\frac{G_1 + G_2}{G_1 + G_2}\right)$$
+$$ = \frac{\frac{G_3}{G_2G_4}(G_1 + G_2)}{\frac{G_3 + G_5}{G_4} + \frac{G_4}{G_4} -\frac{G_1}{G_2} - \frac{G_2}{G_2}}$$
+$$= = \frac{\frac{G_3}{G_2G_4}(G_1 + G_2)}{\frac{G_3 + G_5}{G_4} + \cancel{1} -\frac{G_1}{G_2} - \cancel{1}} =  \color{green}\Large\frac{\frac{G_3}{G_2G_4}(G_1 + G_2)}{\frac{G_3 + G_5}{G_4} -\frac{G_1}{G_2} }$$
 ##### b. 
 Let $R_1=R_2=R_3=R_5 =R$. $R_4$ can be tuned. Sketch $T$ as a function of $R_4$.
+$$T = \frac{\frac{2R_4}{R}}{\frac{2R_4}{R} -1 } = \frac{2R_4}{2R_4 - R}$$
+At $R_4 = 0$,  $T = 0$
+At $R_4 = \infty$, $T = 1$
+At $\frac{R}{2}$, $T = \infty$, amp slams to $V_{max}$
+
+```tikz
+\usepackage{pgfplots}
+
+\begin{document}
+
+\begin{tikzpicture}
+\begin{axis}[
+    width=15cm,
+    height=15cm,
+    xlabel={$\frac{R_4}{R}$},
+    xlabel style={font=\large},
+    ylabel={$T = \frac{V_2}{V_1}$},
+    ylabel style={font=\large},
+    xmin=-10, 
+    xmax=10,
+    ymin=-10, 
+    ymax=10,
+    grid=major,
+    axis lines=middle,
+    enlargelimits=true,
+]
+\addplot[orange, thick, domain=-20:0.499, samples=1000] {(2*x)/((2*x) - 1)};
+\addplot[orange, thick, domain=0.501:20, samples=1000] {(2*x)/((2*x) - 1)};
+\addplot[black, dashed, domain=10:-10] {1};
+\addplot[black, dashed] coordinates {(0.5,-10) (0.5,10)};
+
+\addplot[red, only marks, mark=x, mark size=4pt] coordinates {(0.5,0)};
+
+\node[red, below, font=\Large] at (axis cs:0.5, 0) {$\frac{R}{2}$};
+
+
+\end{axis}
+
+\end{tikzpicture}
+\end{document}
+```
