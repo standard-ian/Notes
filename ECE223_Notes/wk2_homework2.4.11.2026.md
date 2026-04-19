@@ -186,14 +186,14 @@ $$\frac{V_B}{R_1} + \frac{V_B}{R_2} = \frac{V_2}{R_2}$$
 $$V_B = \frac{\frac{V_2}{R_2}}{\frac{1}{R_1} + \frac{1}{R_2}}$$
 ###### $V_A = V_B$
 $$\frac{\frac{V_1}{R_3} + \frac{V_2}{R_4}}{\frac{1}{R_3} + \frac{1}{R_4} + \frac{1}{R_5}} = \frac{\frac{V_2}{R_2}}{\frac{1}{R_1} + \frac{1}{R_2}}$$
-###### Converting to Inductance to Simplify
+###### Converting to  Conductance to Simplify
 $$\frac{V_1G_3 + V_2G_4}{G_3 + G_4 + G_5} = \frac{V_2G_2}{G_1 + G_2}$$
 $$V_1G_3 + V_2G_4 = \frac{V_2G_2(G_3 + G_4 + G_5)}{G_1 + G_2}$$
 $$V_1G_3 = \frac{V_2G_2(G_3 + G_4 + G_5)}{G_1 + G_2} - V_2G_4 = V_2\left(\frac{G_2(G_3 + G_4 + G_5)}{G_1 + G_2} - G_4\right) $$
 ###### Manipulating to Match the Form
 $$\frac{V_2}{V_1} = \frac{G_3}{\left(\frac{G_2(G_3 + G_4 + G_5)}{G_1 + G_2} - G_4\right)} \left(\frac{\frac{1}{G_2G_4}}{\frac{1}{G_2G_4}}\right)  = \frac{\frac{G_3}{G_2G_4}}{\frac{G_3 + G_4 + G_5}{G_4(G_1 + G_2)}- \frac{1}{G_2}}\left(\frac{G_1 + G_2}{G_1 + G_2}\right)$$
 $$ = \frac{\frac{G_3}{G_2G_4}(G_1 + G_2)}{\frac{G_3 + G_5}{G_4} + \frac{G_4}{G_4} -\frac{G_1}{G_2} - \frac{G_2}{G_2}}$$
-$$= = \frac{\frac{G_3}{G_2G_4}(G_1 + G_2)}{\frac{G_3 + G_5}{G_4} + \cancel{1} -\frac{G_1}{G_2} - \cancel{1}} =  \color{green}\Large\frac{\frac{G_3}{G_2G_4}(G_1 + G_2)}{\frac{G_3 + G_5}{G_4} -\frac{G_1}{G_2} }$$
+$$= = \frac{\frac{G_3}{G_2G_4}(G_1 + G_2)}{\frac{G_3 + G_5}{G_4} + \cancel{1} -\frac{G_1}{G_2} - \cancel{1}} =  \boxed{\frac{\frac{G_3}{G_2G_4}(G_1 + G_2)}{\frac{G_3 + G_5}{G_4} -\frac{G_1}{G_2} }}$$
 ##### b. 
 Let $R_1=R_2=R_3=R_5 =R$. $R_4$ can be tuned. Sketch $T$ as a function of $R_4$.
 $$T = \frac{\frac{2R_4}{R}}{\frac{2R_4}{R} -1 } = \frac{2R_4}{2R_4 - R}$$
