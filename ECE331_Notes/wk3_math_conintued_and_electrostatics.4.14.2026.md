@@ -211,4 +211,57 @@ $$\vec{R} = x\hat{x} + y\hat{y} + z\hat{z}$$
 $$\vec{R'} = x'\hat{x} + y'\hat{y} + z'\hat{z}$$
 
 #### 2.5 Spherical Coordinates
-:w
+Consider a point $P$ located at a radial position on the $z$ axis $R$.
+
+Consider a circle which sweeps around the $x$ axis $180^\circ$, that point will create a half circle, and a the vertical position of $P$ given by the **angle of declination $\theta$**  (between 0 and $\pi$) and distance $R=\sqrt{x^2 + y^2 + z^2}$.
+
+Consider another sweep around the $z$ axis by $360^\circ$, creating a sphere by revolving the former half circle, giving the radial position, $\phi$.
+
+$$0\leq \theta \leq\pi;\ \ 0 \leq \phi \leq 2\pi;\ \ R = 0\to\infty$$
+
+Consider a point on the $xy$ plane $R(x,y)$. A vector from the origin to $R$ forms some angle $\phi$ with the $x$ axis:
+$$x = R_{xy}\cos(\phi) \tag{12}$$
+$$y = R_{xy}\sin(\phi)\tag{13}$$
+$$R_{xy} = R\sin(\theta)\tag{14}$$
+Substituting $(14$) into $(12)$ and $(13)$:
+$$x = R\sin(\theta)\cos(\phi)$$
+$$y = R\sin(\theta)\sin(\phi)$$
+For elemental length:
+$$d\vec{l} = \hat{R} dr + \hat{\theta} R d\theta + \hat{\phi}R\sin(\phi)d\phi \tag{15}$$
+A tiny bit of the length of the sweep around $x$, at angle $\theta$, the tiny piece being called $d\theta$  has a length $Rd\theta$
+
+A tiny piece of the sweep around $z$, at angle $\phi$, the tiny piece being called $d\phi$ has a length $R\sin(\theta)$.
+
+#### 2.6 Gauss' Law
+The flux of $\vec{E}$ through a surface $S$ due to a charge $q$ at the origin is:
+$$\Phi_E = \int_S\vec{E}\cdot d\vec{S}$$
+$$\Phi_E = \int_S \vec{E}\cdot \hat{n} ds$$
+Where $\vec{E}$ is:
+$$\vec{E} = \frac{1}{4\pi R^2}\frac{q}{\epsilon_0}\hat{R}\tag{16}$$
+
+The **flux** is the field over the area.
+
+For the case of an enclosed surface, for example a sphere, the total flux is:
+$$(\text{Note: surface is now closed)}\oint\vec{E}\cdot d\vec{S}= \oint\vec{E}\cdot \hat{n}ds = \Phi_E \tag{17}$$
+$\hat{n}$ points outward of enclosed surface.
+$\hat{R}\cdot \hat{R} = 1$
+$\oint_S$ is a surface integral, implying (shorthand for) a double integral.
+$$\hat{n} = \hat{R}\tag{18}$$
+
+For a sphere:
+$$ds = (Rd\theta)(R\sin(\theta)) d\phi$$
+$$ds = R^2\sin(\theta)\ d\theta d\phi\tag{19}$$
+
+Substituting $(19$) and $(18)$ into $(17)$:
+$$\Phi_E = \frac{q}{\epsilon_0}\int_{\theta = 0}^{\pi}\int_{\phi = 0}^{2\pi} \left(\frac{1}{4\pi R^2}\right)R^2\sin(\theta)\ d\phi\ d\theta$$
+
+$$\Phi_E = \frac{q}{4\pi\epsilon_0}\int_0^\pi[\phi]_0^2\pi\sin(\theta)\ d\theta$$ 
+$$\Phi_E = \frac{q}{2\epsilon_0} \int_0^\pi\sin(\theta)\ d \theta$$
+$$\Phi_E = -\frac{q}{2\epsilon_0}\cos(\theta)|_0^\pi = -\frac{q}{2\epsilon_0}[-1-1] = \frac{q}{\epsilon_0}$$
+We get the same result if we have a bunch of charges $Q_{enclosed}$ scattered around the inside of the enclosed surface.
+$$\oint\vec{E}\ ds = \frac{Q_{enc}}{\epsilon_0}\tag{20}$$
+
+$(20)$ is **Gauss' Law** in the integral form.
+$$Q_{enclosed} = \text{total charge enclosed within the \textcolor{green}{CLOSED} surface.}$$
+The total outward flux ($\vec{E}$ over an area) of the $\vec{E}$ field over any closed surface in free space is equal to the charge enclosed in that surface, divided by the permittivity of free space $\epsilon_0$.
+
