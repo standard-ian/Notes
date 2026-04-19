@@ -153,6 +153,17 @@ If there are $N$ point charges, then the total field intensity $\vec{E}$ is:
 $$\vec{E} = \left(\frac{1}{4\pi\epsilon_0}\right)\left[\frac{q_1(\vec{R} - \vec{R_1'})}{|\vec{R} - \vec{R_1'}|^3} + \frac{q_2(\vec{R} - \vec{R_2'})}{|\vec{R} - \vec{R_2'}|^3} + ...\right]$$
 $$\vec{E} = \frac{1}{4\pi\epsilon_0}\sum^N_{k=1} \frac{q_k(\vec{R}-\vec{R_k'}{})}{|\vec{R}-\vec{R_k'}|^3}\tag{5}$$
 
+#### 2.3 Coulomb's Law
+When a point charge $q_2$ is placed in the field of another point charge $q_1$ at the origin,  a force $F_{1\to2}$ is experienced by $q_2$.
+$$F_{1\to 2} = q_2 E_{1\to 2} = \frac{q_2q_1}{4\pi \epsilon_0} \hat{R}\tag{6}$$
+This is called **Coulomb's Law**
+
+Force without contact. Electric field intensity defined as force per unit charge.
+$$\vec{E} = \lim_{q\to 0}\frac{\vec{F}}{q}\left[\vec{V}{m}\right]\tag{7}$$
+See Coulomb's torsional balance, page 157, Ida
+
+If $q_1$ and $q_2$ have the same sign, the charges repel. If they are opposite, they will attract.
+## Class 6
 #### 2.4 Electric Field Due to a Continuous Distribution of Charge
 We assume charge density is uniform on the line of charge. Density: $\rho_l = \frac{C}{m}$
 
@@ -168,7 +179,7 @@ $$d\vec{E} = \frac{1}{4\pi\epsilon_0} \frac{dq'(\vec{R} - \vec{R'})}{|\vec{R}- \
 We can sub $(8)$ into $(8a)$ to get:
 $$d\vec{E} = \frac{1}{4\pi\epsilon_0} \frac{(\vec{R} - \vec{R'})}{|\vec{R}- \vec{R'}|^3}\rho_l\ dl'\tag{9}$$
 All elements $dl$ along line charge contribute so integrating gives:
-$$\vec{E} = \int_l\frac{(\vec{R} - \vec{R}')\rho_l}{4\pi\epsilon_0|\vec{R} - \vec{R'}|}dl'\tag{10} = \frac{\rho_l}{4\pi\epsilon_0}\int\frac{\vec{R}- \vec{R'}}{|\vec{R} - \vec{R'}|^3}dl'$$
+$$\vec{E} = \int_l\frac{(\vec{R} - \vec{R}')\rho_l}{4\pi\epsilon_0|\vec{R} - \vec{R'}|^3}dl'\tag{10} = \frac{\rho_l}{4\pi\epsilon_0}\int\frac{\vec{R}- \vec{R'}}{|\vec{R} - \vec{R'}|^3}dl'$$
 
 ##### Example
 Determine the electric field intensity $\vec{E}$ of a 2m long line of wire in air with a line charge of uniform density $\rho_l$ centered at $(0,0,0)$.
@@ -187,6 +198,17 @@ $$|\vec{R} - \vec{R'}| = [r^2 + (z')^2]^{\frac{1}{2}}$$
 $$dl' = dz'$$
 From equation $(10)$:
 $$\vec{E} =  \frac{\rho_l}{4\pi\epsilon_0}\int\frac{r\hat{r} - z'\hat{z}}{|r^2 + (z')^2|^\frac{3}{2}}dz'$$
+$$\vec{E} = E_r\hat{r} + E_z\hat{z}$$
+As long as we are at the center of the line $(y,z) = (0,0)$, $E_z$ cancels from the equal and opposite $dq'$ on either side  of $(0,0)$
 
+$$\vec{E} = \frac{\rho_l}{4\pi \epsilon_0}\int_{-1}^1\frac{r\hat{r}}{(r^2 + (z')^2)^{\frac{3}{2}}}\ dz' = \frac{\rho_l}{4\pi\epsilon_0}\left[\frac{z'\hat{r}}{r\sqrt{r^2 + (z')^2}}\right]_{-1}^{1}$$
+$$= \frac{\rho_l}{4\pi\epsilon_0} \left(\frac{2\hat{r}}{2\sqrt{r^2 + 1}}\right)\hat{z}$$
+##### Surface Charge
+$$\vec{E} = \frac{1}{4\pi\epsilon_0}\int_S\frac{\rho_s (\vec{R} - \vec{R'} )}{|\vec{R} - \vec{R'}|^3}ds'\tag{11}$$
+$$\rho_s = \frac{C}{m^3}$$
+$$\vec{E} = \frac{1}{4\pi\epsilon_0}\int_{z_1}^{z_2}\int_{x_1}^{x_2}\frac{\rho_2(\vec{R} - \vec{R'})}{|\vec{R} - \vec{R'}^3|}\ dx\ dy$$
+$$\vec{R} = x\hat{x} + y\hat{y} + z\hat{z}$$
+$$\vec{R'} = x'\hat{x} + y'\hat{y} + z'\hat{z}$$
 
-## Class 6
+#### 2.5 Spherical Coordinates
+:w
