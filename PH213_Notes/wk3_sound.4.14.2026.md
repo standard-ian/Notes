@@ -2,6 +2,9 @@
 #### Intensity vs. Sound Level ($dB$)
 $I = Intensity$
 $$dB = 10log_{10}(I)$$
+$$\beta\ \text{(Sound intesity \textbf{level})} = (10dB)\log_{10}\left(\frac{I}{I_0}\right)$$
+Where $I_0$ is a reference intensity with the value $1 \times 10^{-12} \frac{W}{m^2}$ 
+$$I = \frac{P}{4\pi R^2}$$
 ## Class 6
 #### Beats
 2 frequencies are close to resonant
@@ -25,6 +28,9 @@ $v = \lambda f$
 $f_{source} = \frac{5m/s}{2m} = 2.5Hz$
 $f_{receiver} = \frac{5 + 3}{5 + 0}2.5s^{-1} = 4s^{-1} = 4Hz$
 
-#### Constructive/Destructive Intereferance
+#### Changes of Speed of Sound based on Temperature
+$$v = 3301 \frac{m}{s} + \left(0.6\frac{\frac{m}{s}}{C^\circ}\right) \cdot T$$
+
+#### Constructive/Destructive Interference
 Lease intense will be path length difference of $\lambda/2$. 
 
