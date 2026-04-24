@@ -48,3 +48,58 @@ $$T(j\omega) = \frac{0.5}{3} \frac{\frac{j\omega}{0.5} + 1}{\frac{j\omega}{3} + 
 $$20\log|T(j\omega)|$$
 $$= 20\log\left|\frac{0.5}{3}\right| +  20\log\left|j\frac{\omega}{0.5} + 1\right| - 20\log\left|j\frac{\omega}{3} + 1\right|$$
 
+## Class 8
+#### Review of Magnitude Plots
+The function that is the origin of the Bode plot asymptotes is:
+$$T(j\omega) = k\frac{z}{p}\left(\frac{\frac{j\omega}{z} + 1}{\frac{j\omega}{p} + 1}\right)$$
+If $k=z=2$ and $p=9$
+
+$$T(j\omega) = 2\frac{2}{9}\left(\frac{j\frac{\omega}{2} + 1}{j\frac{\omega}{9} + 1}\right)$$
+We can create a log form of the magnitude:
+$$20\log\left|\frac{4}{9}\right| + 20\log\left|j\frac{\omega}{2} + 1\right| - 20\log\left|j\frac{\omega}{9} + 1\right|$$
+Asymptotes at:
+$$-7.04dB + 6.02dB - 6.02dB$$
+```tikz
+\usepackage{pgfplots}
+
+\begin{document}
+\begin{tikzpicture}
+
+\begin{axis}[
+	xmode=log,
+	ymode=linear,
+	xmin=0.00001,
+	xmax=1000,
+	grid=both,
+	width=20cm,
+	height=13cm,
+]
+
+\addplot[domain=0.00001:1000, samples=200, thick]{20*log10(4/9) + (20*log10((x/2) + 1) - 20*log10((x/9) + 1)};
+
+\addplot[domain=0.00001:1000, dashed, thick, red]{20*log10(4/9)};
+\addplot[domain=0.00001:1000, dashed, thick, green]{20*log10(2)};
+
+\end{axis}
+
+\end{tikzpicture}
+\end{document}
+```
+#### Phase Plots
+$$\angle T(j\omega) = \angle \frac{4}{9} + \angle j\frac{\omega}{2} + 1 -\angle j\frac{\omega}{9} + 1$$
+$$=0^\circ + \tan^{-1}\left(\frac{\omega}{2}\right) - \tan^{-1}\left(\frac{\omega}{9}\right)$$
+When $\omega$ is very small ($\approx 0$,) $\tan^{-1}\left(\frac{\omega}{2}\right) \approx 0$ 
+When $\omega$ is very large ($\to \infty$), $\tan^{-1}\left(\frac{\omega}{2}\right) \to 90^{\circ}$ 
+$$\tan^{-1}\left(\frac{\omega}{2}\right): 0\to90^\circ,\ \omega = 2: 45^\circ$$
+$$-\tan^{-1}\left(\frac{\omega}{9}\right): 0\to-90^\circ,\ \omega = 9: -45^\circ$$
+![[Pasted image 20260423100036.png]]
+
+#### Realization
+$$T(s) \to R,C,\text{Op-Amp}$$
+We cannot have the idealized brick wall transfer function, we have to approximate one based on real constraints.
+
+#### IW 8.1
+Sketch the Asymptotic Bode plot for the following:
+$$T(s) = -100\frac{s + 10^4}{s + 10^2}$$
+$$T(j\omega)$$
+$$= 20\log\left|-100\frac{10^4}{10^2}\right| + 20\log\left|j\frac{\omega}{10^4}+ 1\right | - 20\log\left|j\frac{\omega}{10^2}+ 1\right|$$
