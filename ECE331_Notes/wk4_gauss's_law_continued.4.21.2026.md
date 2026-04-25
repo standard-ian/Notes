@@ -55,3 +55,109 @@ $$E_r R_0^24\pi = \frac{-\rho_V}{\epsilon_0}\frac{4\pi b^3}{3},\ \ R_i = b = R_0
 $$E_r = \frac{-\rho}{\epsilon_0}\frac{b^3}{3R_0^2},\ \ R_0\geq b$$
 $$E = \frac{\rho_V}{\epsilon_0}\frac{b^3}{3R^2}\hat{R},\ \ R\geq b$$
 
+## Class 8
+#### 2.10 Electric Potential
+Recall that for a function $W(x,y,z)$
+$\nabla W(x,y,z)$ is the steepest ascent
+$-\nabla W(x,y,z)$ is the steepest descent
+
+For a conservative system, force is in the direction that reduces the potential energy the most. ($\nabla \times W = 0$)
+
+So for energy $U(x,y,z)$
+$\nabla U(x,y,z)$ is the greatest increase with regard to position.
+$-\nabla U(x,y,z)$ is the greatest decrease with regard to position.
+
+So, force to minimize potential energy:
+$$\vec{F} = -\nabla U\left[\frac{J}{m},\ N\right]\tag{1}$$
+
+A conservative system is defined as one that is irrotational:
+$$\nabla \times\vec{F} = 0\tag{2}$$
+$$\nabla \times (-\nabla U) = 0\tag{3}$$
+Consider now the static electric fields:
+$$\nabla \times \vec{E} = 0\tag{4}$$
+$$\nabla \times (-\nabla V) = 0\tag{5}$$
+Where $V$ is a scalar.
+
+##### For An Electric Field
+$$\vec{F} = -\nabla U$$
+We could evaluate this force over some length:
+$$-\vec{F}\cdot d\vec{l} = dU\ \  \text{ where: } d\vec{l} = \hat{x} dx + \hat{y} dy + \hat{z} dz$$
+Recall that $(\nabla U)\cdot d\vec{l} = -dU$
+
+In electrostatics:
+$$-q\vec{E} \cdot d\vec{l} = dU$$
+If a charge moves along a path in the $\vec{E}$ field, then:
+$$U = -q\int_a^b\vec{E}\cdot dl = w_b-w_a\left[\frac{N}{m}, J\right]\tag{6}$$
+The amount of work will depend on the sign of $q$.
+
+If we bring 2 positive charges together, they'll want to repel. It will take positive work to do this because it is increasing their potential energy.
+
+Bringing opposite charge together decreases the work/potential energy.
+
+Since the work required to move the charge in the field depends on the sign of the charge, we can instead write:
+$$\frac{U}{q} = -\int_a^b\vec{E}\cdot d\vec{l} = \frac{U_a - U_b}{q} = V_b - V_a = V_{ba}\left[V, \frac{J}{C}, \frac{Nm}{C}\right]\tag{7}$$
+$V_{ba}$ is called the potential difference or scalar electric potential or just **Electric Potential**.
+
+##### Example
+Consider two positive charges.
+$+Q$ at $(0,0,0)$ and $+q$ at $(R, \theta, \phi) =(R_a, \theta_a, 0)$ to $(R, \theta, \phi) = (R_b, 0,0)$
+
+We know:
+$$\vec{E} = \frac{Q}{4\pi\epsilon_0}\frac{\hat{R}}{R^2}$$
+From $(7)$:
+$$V_{ab} = -\int_a^b\vec{E}\ d\vec{l}$$
+###### From $a\to b'$, $d\vec{l} = dR\hat{R}$
+$$\vec{E}\cdot d\vec{l} = \left(\frac{Q}{4\pi\epsilon_0}\frac{\hat{R}}{R^2}\right)\cdot \hat{R}\ dR$$
+$$\vec{E}\cdot d\vec{l} = \frac{Q}{4\pi\epsilon_0}\frac{1}{R^2}\ dR\tag{8}$$
+###### From $b'\to b, d\vec{l} = \hat{\theta} R_b\ d\theta$ 
+$$\vec{E}\cdot d\vec{l} = \left(\frac{Q}{4\pi\epsilon_0}\frac{\hat{R}}{R^2}\right)\cdot \hat{\theta}R_b\ d\theta = 0;\ \ \text{ Since } \hat{R}\cdot \hat{\theta} =0$$
+So:
+$$V_{ba} = -\int_{R_a}^{R_b}\frac{Q}{4\pi\epsilon_0}\frac{dR}{R^2} = -\frac{Q}{4\pi\epsilon_0}\left[\frac{-1}{R}\right]_{R_a}^{R_b}$$
+$$V_{ba} = \frac{Q}{4\pi\epsilon_0}\left[\frac{1}{R_b}\right] -\frac{Q}{4\pi\epsilon_0}\left[\frac{a}{R_a}\right] = V_b - V_a$$
+Since $R_b < R_a$, $V_{ba}$ is positive. 
+What if we bring the charge $q$ in from infinity?
+
+$R_a = \infty$
+$$V_a = \lim_{R_a\to\infty}\left(\frac{Q}{4\pi\epsilon_0R_a}\right) = 0$$
+So in this case:
+$$V_b = \frac{Q}{4\pi\epsilon_0}\frac{1}{R_b}$$
+We usually write
+$$\boxed{V = \frac{Q}{4\pi\epsilon_0}\frac{1}{R}}\tag{10}$$
+In other words, electric potential $V$ at point $R$ in an electric field is the work per unit charge to bring a unit of charge from $\infty$ to location $R$.
+
+Note: $\vec{E} = -\nabla V = -\hat{R}\frac{\partial}{\partial R}\left[\frac{QR^{-1}}{4\pi\epsilon_0}\right] = \frac{Q\hat{R}}{4\pi\epsilon_0R^2}$
+
+##### If Point Charge $Q$ is not at $(0,0,0)$
+Then the electric potential $d$ at $POI(x,y,z)$ is:
+$$V(x,y,z) = \frac{Q}{4\pi\epsilon_0|\vec{R} - \vec{R'}|}\tag{11}$$
+
+##### For Distributed Charges
+###### For Line Charge
+$$V(x,y,z) = \frac{1}{4\pi\epsilon_0}\int_l\frac{\rho_l\ dl}{|\vec{R} - \vec{R'}|}\tag{12}$$
+###### For Surface Charge
+$$V(x,y,z) = \frac{1}{4\pi\epsilon_0}\int\int_S\frac{\rho_s\ ds}{|\vec{R} - \vec{R'}|}\tag{13}$$
+###### If Multiple Point Charges
+$$V(x,y,z) = \frac{1}{4\pi\epsilon_0}\sum_{n=1}^{N}\frac{Q_n}{|\vec{R} - \vec{R'}|}\tag{14}$$
+
+##### Example
+What is the electric field intensity $E$ and electric potential $V$ along the axis of a uniform line charge of length $L$ for $z > \frac{L}{2}$? The line charge has density $\rho_l$
+$dl' = dz'$
+$\vec{E} = ?$
+$V = ?$
+
+Since the field is the same at different angular $\phi$ positions, we want to use cylindrical coordinates. 
+
+At POI, we have 
+$$\vec{R} = r\hat{r} + \phi r\hat{\phi} + z\hat{z} $$
+At the line charge
+$$\vec{R'} = \hat{z}z'$$
+
+$$\vec{R} - \vec{R'} = r\hat{r} + (z - z')\hat{z}$$
+$$|\vec{R} - \vec{R'}| = [r^2 + (z-z')^2]^{\frac{1}{2}}$$
+$$V = \frac{1}{4\pi\epsilon_0}\int_\frac{-L}{2}^\frac{L}{2}\frac{\rho_l\ dz'}{\sqrt{r^2 + (z-z')^2}}$$
+$$V(r, \phi, z) = \left(\frac{\rho_l}{4\pi\epsilon_0}\right)\ln\left[(z'-z) + \sqrt{r^2 + (z-z')^2}\right]_\frac{-L}{2}^\frac{L}{2}$$
+The charge is spread along the z axis. To add it all up, we need to integrate along the entire line $z$ from $-\frac{L}{2} \to \frac{L}{2}$
+
+$$\vec{E} = -\nabla V$$
+$$E_z = \frac{-dV}{dz} = \frac{\rho_lL}{4\pi\epsilon_0\left[z^2 - \left(\frac{L}{2}\right)^2\right]}$$
+It is much easier to evaluate the scalar $V$ first, computationally or otherwise, then use that to differentiate and find $\vec{E}$ in a few specific points.
