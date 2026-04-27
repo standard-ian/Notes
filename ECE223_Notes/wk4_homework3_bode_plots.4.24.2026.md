@@ -1,4 +1,4 @@
-## Homework 4
+## Homework 3
 #### Problem 1
 ```tikz
 \usepackage{circuitikz}
@@ -58,7 +58,7 @@ $$\boxed{T(j\omega) = \frac{-\frac{1}{2}(j\omega-\frac{1}{RC})}{j\omega + \frac{
 \end{document}
 ```
 
-![[hw4_1.png]]
+![[hw3_1.png]]
 #### Problem 2
 
 ##### a.
@@ -66,28 +66,31 @@ $$T_1(s) = \frac{s + 3}{s + 0.5}$$
 $$T_1(j\omega) = \frac{3}{0.5}\left(\frac{j\frac{\omega}{3} + 1}{j\frac{\omega}{0.5} + 1}\right) =6 \left(\frac{j\frac{\omega}{3} + 1}{j\frac{\omega}{0.5} + 1}\right) $$
 $$|T_1(j\omega)| = 20\log_{10}(6) + 20\log_{10}\left|j\frac{\omega}{3} + 1\right| - 20\log_{10}\left|j\frac{\omega}{0.5}+1\right|$$
 We choose the pole first because it is closer to $(\mathcal{R}e,, \mathcal{I}m) = (0,0)$.
-![[hw4_2a_hand.png]]
+![[hw3_2a_hand.png]]
 
-![[hw4_2a.png]]
+![[hw3_2a.png]]
 ##### b.
 $$T_2(s) = 50\frac{1 + 0.025s}{1 + 0.05s} = 50\left(\frac{0.025}{0.05}\right)\frac{\frac{1}{0.025} + s}{\frac{1}{0.05} + s}  = 25\frac{40 + s}{20+s}$$
 $$\Longrightarrow T(j\omega) = 50\frac{j\frac{\omega}{40} + 1}{j\frac{\omega}{20} + 1}$$
 $$|T(j\omega)| = 20\log_{10}|50| + 20\log_{10}\left|j\frac{\omega}{40} + 1\right| - 20\log_{10}\left|j\frac{\omega}{20} + 1\right|$$
-![[hw4_2b_hand.png]]
-![[ECE223_Notes/hw4_plots/hw4_2b.png]]
+![[hw3_2b_hand.png]]
+![[hw3_2b.png]]
 ##### c.
 $$T_3(s) = \frac{1}{s}$$
 The method of modeling and dealing with a divide by 0 means the plot goes to infinity as $\omega_{+\to0}$
 $$|T_3(j\omega)| = 20\log_{10}(1) - 20\log_{10}(j\omega)$$
 At $\omega = 0$ 
-$$|T_3| = 0dB - 20\log_{10}(0) = 0dB$$
+$$|T_3| = 0dB - 20\log_{10}(0) = \infty dB$$
+At $\omega = 1$ 
+$$|T_3| = 0dB - 20\log_{10}(0) = 0 dB$$
+
 As $\omega \to \infty$
 $$T_3 = -\infty\ dB$$
 $$\angle T_3 = \arctan(\text{numerator}) - \arctan(\text{denominator})$$
 $$ = \arctan(\mathcal{R}e) - \arctan(\mathcal{I}m) = 0^\circ - 90^\circ$$
 Since the denominator will always be only $j\omega$ (Imaginary) and the numerator always a constant (Real), the phase will always be $90^\circ$
-![[hw4_2c_hand.png]]
-![[hw4_2c.png]]
+![[hw3_2c_hand.png]]
+![[hw3_2c.png]]
 
 #### Code Used for Plots
 ```python
