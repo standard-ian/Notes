@@ -1,4 +1,4 @@
-# ECE223L-002 Spring 2026 Lab 1: LT Spice
+# Lab 1: LT Spice
 
 **Ian Leuty** **Quinn Hathaway**
 
