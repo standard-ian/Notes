@@ -16,4 +16,6 @@ $$c = f\lambda$$
 ##### Index of Refraction
 $$n = \frac{c}{v}$$
 ##### Reflection
+$$\theta_1 = \theta_2$$
+##### Refraction
 $$n_1\sin\theta_1 = n_2\sin\theta_2$$
