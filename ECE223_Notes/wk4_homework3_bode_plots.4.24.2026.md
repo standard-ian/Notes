@@ -3,22 +3,44 @@
 ```tikz
 \usepackage{circuitikz}
 \begin{document}
-\begin{circuitikz}[american, scale=2, font=\Large]
-	\draw[thick](0,0)
-	to[sV, l=$V_1$]++(0,4)--++(1,0)
-	to[R=$R_1$]++(0,-2)
-	node[circ, label=left:$V_A$]{}--++(1,0)
-	node[ocirc, label=above right:$+$]{}++(-1,0)
-	to[R=$R_1$]++(0,-2)++(0,4)--++(3,0)
-	to[capacitor, l=$C_1$]++(0,-2)
-	node[circ, label=right:$V_B$]{}--++(-1,0)
-	node[ocirc, label=above left:$-$]{}++(1,0)
-	to[R=$R$]++(0,-2)
-	--(0,0);
-	
-	\draw(2.5,2)
-	node[label=above:$V_2$]{};
-\end{circuitikz}
+ \begin{circuitikz}[american]
+        \draw(0,0)
+        to[sV, l=$V_1$]++(0,4)--++(2,0)
+        to[R=$R_1$]++(0,-2)
+        node[circ, label=left:$V_A$]{}--++(1,0)
+        node[ocirc, label=above right:$+$]{}++(-1,0)
+        to[R=$R_1$]++(0,-2)++(0,4)--++(3,0)
+        to[capacitor, l=$C_1$]++(0,-2)
+        node[circ, label=right:$V_B$]{}--++(-1,0)
+        node[ocirc, label=above left:$-$]{}++(1,0)
+        to[R=$R$]++(0,-2)
+        --(0,0);
+
+        \draw(3.5,2)
+        node[label=below:$V_2$]{};
+
+        \draw(7,2)
+        node[circ, label=left:$V_1$]{}
+        to[R=$R_1$]++(2,0)
+        node[circ, label=above:$V_A$]{}--++(1,0)
+        node[ocirc, label=above right:$+$]{}
+        ++(-1,0)
+        to[R=$R_1$]++(0,-2)
+        node[ground]{};
+
+        \draw(14,2)
+        node[circ, label=right:$V_1$]{}
+        to[capacitor, l=$C_1$]++(-2,0)
+        node[circ, label=above:$V_B$]{}--++(-1,0)
+        node[ocirc, label=above left:$-$]{}
+        ++(1,0)
+        to[R=$R$]++(0,-2)
+        node[ground]{};
+
+        \draw(10.5,2)
+        node[label=below:$V_2$]{};
+
+    \end{circuitikz}
 \end{document}
 ```
 $$V_A = V_1\frac{R_1}{R_1 + R_1} = \frac{1}{2}V_1$$
@@ -58,6 +80,19 @@ $$\boxed{T(j\omega) = \frac{-\frac{1}{2}(j\omega-\frac{1}{RC})}{j\omega + \frac{
 \end{document}
 ```
 
+$$T(s) = \frac{-\frac{1}{2}\left(s - \frac{1}{RC}\right)}{\frac{1}{RC} + s}$$
+$$\angle T(s) = \angle\left(-\frac{1}{2}\right) + \angle \left(s - \frac{1}{RC}\right) - \angle\left(1 + \frac{1}{RC}\right)$$
+$$\angle T(j\omega) = \arctan\left(-\frac{1}{2}\right)-180^\circ = 0-180^\circ = -180^\circ$$
+Constant term, so always the case. Because negative, real argument to $\arctan()$, we are in Q2/Q3 and need to subtract $180^\circ$ from the result of $\arctan(\text{real}) = 0$
+$$+\arctan\left(\frac{j\omega}{-\frac{1}{RC}}\right) -\arctan\left(\frac{j\omega}{\frac{1}{RC}}\right) $$
+At $\omega =0$
+$$ = \arctan\left(\frac{0}{-\frac{1}{RC}}\right) - \arctan\left(\frac{0}{\frac{1}{RC}}\right) = -180^\circ - 0^\circ = -180^\circ$$
+The zero term is also a negative, real number, technically because of the negative in the denominator so again we must subtract $180^\circ$. 
+
+The second term is positive, but zero, result of $\arctan()$, so it yields 0. 
+
+Putting this together with the constant term:
+$$\angle T(s) = -180^\circ+(-180^\circ) = 360^\circ =  0^\circ$$
 ![[hw3_1.png]]
 #### Problem 2
 
@@ -74,6 +109,17 @@ $$T_2(s) = 50\frac{1 + 0.025s}{1 + 0.05s} = 50\left(\frac{0.025}{0.05}\right)\fr
 $$\Longrightarrow T(j\omega) = 50\frac{j\frac{\omega}{40} + 1}{j\frac{\omega}{20} + 1}$$
 $$|T(j\omega)| = 20\log_{10}|50| + 20\log_{10}\left|j\frac{\omega}{40} + 1\right| - 20\log_{10}\left|j\frac{\omega}{20} + 1\right|$$
 ![[hw3_2b_hand.png]]
+
+As you can see in the above hand done plot, I mistakenly plotted the max phase lag at $-45^\circ$.
+The mean of the two corner frequencies is:
+$$\omega_{max} = \sqrt{\omega_p \times \omega_z} = \sqrt{20\times 40} = 28.3\frac{rad}{s}$$
+
+The phase at this frequency will be:
+$$\angle T_2(j\omega) = \angle(50) + \angle\left(j\frac{\omega}{40} + 1\right) - \angle\left(j\frac{\omega}{20} + 1\right)$$
+$$ = 0 + \arctan\left(\frac{\frac{28.3}{40}}{1}\right) - \arctan\left(\frac{\frac{28.4}{20}}{1}\right) = -19.47$$
+
+Which matches the computationally generated plot.
+
 ![[hw3_2b.png]]
 ##### c.
 $$T_3(s) = \frac{1}{s}$$
@@ -91,6 +137,7 @@ $$ = \arctan(\mathcal{R}e) - \arctan(\mathcal{I}m) = 0^\circ - 90^\circ$$
 Since the denominator will always be only $j\omega$ (Imaginary) and the numerator always a constant (Real), the phase will always be $90^\circ$
 ![[hw3_2c_hand.png]]
 ![[hw3_2c.png]]
+
 
 #### Code Used for Plots
 ```python
