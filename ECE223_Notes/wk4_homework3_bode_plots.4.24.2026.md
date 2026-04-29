@@ -102,15 +102,11 @@ $$T_1(j\omega) = \frac{3}{0.5}\left(\frac{j\frac{\omega}{3} + 1}{j\frac{\omega}{
 $$|T_1(j\omega)| = 20\log_{10}(6) + 20\log_{10}\left|j\frac{\omega}{3} + 1\right| - 20\log_{10}\left|j\frac{\omega}{0.5}+1\right|$$
 We choose the pole first because it is closer to $(\mathcal{R}e,, \mathcal{I}m) = (0,0)$.
 ![[hw3_2a_hand.png]]
-
 ![[hw3_2a.png]]
 ##### b.
 $$T_2(s) = 50\frac{1 + 0.025s}{1 + 0.05s} = 50\left(\frac{0.025}{0.05}\right)\frac{\frac{1}{0.025} + s}{\frac{1}{0.05} + s}  = 25\frac{40 + s}{20+s}$$
 $$\Longrightarrow T(j\omega) = 50\frac{j\frac{\omega}{40} + 1}{j\frac{\omega}{20} + 1}$$
 $$|T(j\omega)| = 20\log_{10}|50| + 20\log_{10}\left|j\frac{\omega}{40} + 1\right| - 20\log_{10}\left|j\frac{\omega}{20} + 1\right|$$
-![[hw3_2b_hand.png]]
-
-As you can see in the above hand done plot, I mistakenly plotted the max phase lag at $-45^\circ$.
 The mean of the two corner frequencies is:
 $$\omega_{max} = \sqrt{\omega_p \times \omega_z} = \sqrt{20\times 40} = 28.3\frac{rad}{s}$$
 
@@ -119,7 +115,7 @@ $$\angle T_2(j\omega) = \angle(50) + \angle\left(j\frac{\omega}{40} + 1\right) -
 $$ = 0 + \arctan\left(\frac{\frac{28.3}{40}}{1}\right) - \arctan\left(\frac{\frac{28.4}{20}}{1}\right) = -19.47$$
 
 Which matches the computationally generated plot.
-
+![[hw3_2b_hand.png]]
 ![[hw3_2b.png]]
 ##### c.
 $$T_3(s) = \frac{1}{s}$$
@@ -235,3 +231,4 @@ plt.savefig('step_response.png')
 
 print("Plot saved to step_response.png")
 ```
+
