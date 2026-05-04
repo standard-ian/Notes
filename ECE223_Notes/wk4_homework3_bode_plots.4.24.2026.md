@@ -117,7 +117,7 @@ $$ = 0 + \arctan\left(\frac{\frac{28.3}{40}}{1}\right) - \arctan\left(\frac{\fra
 Which matches the computationally generated plot.
 ![[hw3_2b_hand.png]]
 ![[hw3_2b.png]]
-##### c.
+![[hw3_2b_hand.png]]##### c.
 $$T_3(s) = \frac{1}{s}$$
 The method of modeling and dealing with a divide by 0 means the plot goes to infinity as $\omega_{+\to0}$
 $$|T_3(j\omega)| = 20\log_{10}(1) - 20\log_{10}(j\omega)$$

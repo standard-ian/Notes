@@ -373,3 +373,170 @@ $$\frac{V_{B\to C}}{V_{A\to C}}(R_{test}) + \frac{B_{B\to C}}{V_{A\to C}}(Z_{L})
 $$\frac{V_{B\to C}}{V_{A\to C}}(R_{test}) = Z_{L} - \frac{V_{B\to C}}{V_{A\to C}}Z_{L}$$
 $$Z_{L} = \frac{\frac{V_{B\to C}}{V_{A\to C}}(R_{test})}{1 - \frac{V_{B\to C}}{V_{A\to C}}}$$
 ## Class 10
+This will have a gain plot that rolls off forever towards infinity
+
+$$T(j\omega) = \frac{1 + j\frac{\omega}{2k}}{\left(1 + j\frac{\omega}{20k}\right)\left(1 + j\frac{\omega}{200k}\right)}$$
+![[Pasted image 20260430095116.png]]
+#### Impedance vs Resistance
+```tikz
+\usepackage{circuitikz}
+\begin{document}
+\begin{circuitikz}[american, scale=2, font=\Large]
+\draw(0,0)
+to[R=$R$]++(3,0);
+\end{circuitikz}
+\end{document}
+```
+Impedance: $R$
+Admittance: $\frac{1}{R}$
+```tikz
+\usepackage{circuitikz}
+\begin{document}
+\begin{circuitikz}[american, scale=2, font=\Large]
+\draw(0,0)
+to[capacitor, l=$C$]++(3,0);
+\end{circuitikz}
+\end{document}
+```
+Impedance: $\frac{1}{sC}$
+Admittance: $sC$
+```tikz
+\usepackage{circuitikz}
+\begin{document}
+\begin{circuitikz}[american, scale=2, font=\Large]
+\draw(0,0)--++(0.5,0)
+--++(0,0.25)
+to[R=$R$]++(2,0)
+++(-2,0)
+--++(0,-0.5)
+to[capacitor, a=$C$]++(2,0)
+--++(0,0.5)
+++(0,-0.25)
+--++(0.5,0);
+
+\end{circuitikz}
+\end{document}
+```
+Impedance: $\frac{1}{\frac{1}{R} + sC}$
+Admittance: $\frac{1}{R} + sC$
+```tikz
+\usepackage{circuitikz}
+\begin{document}
+\begin{circuitikz}[american, scale=2, font=\Large]
+\draw(0,0)
+to[R=$R$]++(2,0)
+to[capacitor, l=$C$]++(1,0);
+
+\end{circuitikz}
+\end{document}
+```
+
+Impedance: $R + \frac{1}{sC}$
+Admittance: $\frac{1}{R + \frac{1}{sC}}$
+##### Example 1 
+
+$$T(s) = \frac{1000}{s + 1000} = \frac{Z_2}{Z_1 + Z_2}$$
+Find a circuit
+$$T(s) = \frac{\frac{1000}{s}}{1 + \frac{1000}{s}}$$
+To get the form:
+$$\frac{\frac{1}{sC}}{1 + \frac{1}{sC}} = \frac{Z_2}{Z_1 + Z_2}$$
+$$Z_2 = \frac{1}{sC} = \frac{1000}{s}$$
+$$C = \frac{1}{1000}F = 1mF$$
+$$Z_2 = \frac{1}{\frac{1}{1000\times s}}$$
+```tikz
+\usepackage{circuitikz}
+\begin{document}
+\begin{circuitikz}[american, scale=2, font=\Large]
+\draw(0,0)
+node[circ]{}
+to[R=$1\Omega$]++(2,0)
+--++(1,0)
+node[circ]{}
+++(-1,0)
+to[capacitor, l=$1mF$]++(0,-2)
+node[ground]{};
+
+\end{circuitikz}
+\end{document}
+```
+But $1mF$ is a really large and expensive capacitor, so we want to perform **magnitude scaling**, scaling $R$ and $C$ at the same time.
+
+$$C_{new} = \frac{1}{k_m}C_{old}$$
+$$R_{new} = k_mR_{old}$$
+If we want to scale by 1000x smaller capacitor,  $k_m = 1000$
+$$C_{new} = \frac{1}{1000}1mF = 1\mu F$$
+$$R_{new} = 1000(1) = 1k\Omega$$
+##### Example 2
+For the transfer function:
+$$T_2(s) = \frac{s}{s + 1000}$$
+It is a high pass, with a break frequency $f_0 = 1000\omega/s$ 
+We want to put into terms $Z_1$ and $Z_2$
+
+```tikz
+\usepackage{circuitikz}
+\begin{document}
+\begin{circuitikz}[american, scale=2, font=\Large]
+\draw(0,0)
+node[circ]{}
+to[generic, l=$Z_1$]++(2,0)
+--++(1,0)
+node[circ]{}
+++(-1,0)
+to[generic, l=$Z_2$]++(0,-2)
+node[ground]{};
+
+\end{circuitikz}
+\end{document}
+```
+$$T(j\omega) = \frac{1}{1 + \frac{1000}{j\omega}}$$
+We can see this is a high pass version of the low pass in the previous example
+
+##### Example 3
+$$T_3(s) = \frac{s + 0.5}{s + 3} = \frac{Z_2}{Z_1 + Z_2}$$
+Don't let $Z_2$ be $s + 0.5$
+$$= \frac{s+ 0.5}{s + 0.5 + 2.5} = \frac{1}{1 + \frac{2.5}{s+0.5}}$$
+
+$$T_3(s) = \frac{1}{1 + \frac{5}{2}\left(\frac{1}{s+0.5}\right)}\left(\frac{\frac{2}{5}}{\frac{2}{5}}\right) = \frac{\frac{2}{5}}{\frac{2}{5} + \frac{1}{s + \frac{1}{2}}} = \frac{\frac{2}{5}}{\frac{2}{5} + \frac{2}{2s + 1}}$$
+
+```tikz
+\usepackage{circuitikz}
+\begin{document}
+\begin{circuitikz}[american, scale=2, font=\Large]
+\draw(0,0)
+node[circ]{}
+to[generic, l=$Z_1$]++(2,0)
+--++(1,0)
+node[circ]{}
+++(-1,0)
+to[generic, l=$Z_2$]++(0,-2)
+node[ground]{};
+
+\end{circuitikz}
+\end{document}
+```
+$Z_1 = \frac{2}{2s + 1} = \frac{1}{s + 0.5} = \frac{1}{\frac{1}{R} + sC}$, letting $R=2$ and $C=1
+$Z_2 = \frac{2}{5}$
+```tikz
+\usepackage{circuitikz}
+\begin{document}
+\begin{circuitikz}[american, scale=2, font=\Large]
+\draw(0,0)
+node[circ]{}
+--++(0.5, 0)
+--++(0,0.25)
+to[R=$2\Omega$]++(2,0)
+++(-2,0)
+--++(0,-0.5)
+to[capacitor, a=$1F$]++(2,0)
+--++(0,0.5)
+++(0,-0.25)
+--++(0.5, 0)
+--++(1,0)
+node[circ]{}
+++(-1,0)
+to[R=$0.4 {=} \frac{2}{5}\Omega$]++(0,-2)
+node[ground]{};
+
+\end{circuitikz}
+\end{document}
+```
