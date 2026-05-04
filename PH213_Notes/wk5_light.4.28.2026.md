@@ -18,7 +18,7 @@ $M =1$
 
 $s$ is the distance of the object from the mirror, $h$ is the height of the object relative to the mirror's center.
 
-Parallel rays along the incident axis are reflected back parallel to their inicdent direction, therefore their focal length is $\to \infty$
+Parallel rays along the incident axis are reflected back parallel to their incident direction, therefore their focal length is $\to \infty$
 ##### Concave Mirror
 $p$ in the below is a real image, where light rays are actually gathering. It is across the axis, so it is also inverted.
 ![[Pasted image 20260428114619.png]]
