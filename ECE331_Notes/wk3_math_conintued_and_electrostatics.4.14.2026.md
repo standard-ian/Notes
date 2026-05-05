@@ -11,14 +11,14 @@ So we can use this to find the constants.
 $C_1 = 0$
 $C_2 = 3$
 $C_3 = 2$
-$$\vec{F}(x,y,z) = \vec{F} = \hat{x}(3y + C_2z) + \hat{y}(C_2x - 2z) - \hat{z}(C_3y + z)$$
+$$\vec{F}(x,y,z) = \vec{F} = \hat{x}(3y + (0)z) + \hat{y}(3x - 2z) - \hat{z}(2y + z)$$
 $$\vec{F} = [3y]\hat{x} + [3x-2z]\hat{y} - [2y + z]\hat{z}$$
  
 Determine a scalar potential $U$ such that $\vec{F} = -\nabla U$
 $$F = -\hat{x}\frac{\partial U}{\partial x} -\hat{y}\frac{\partial U}{\partial y} - \hat{z}\frac{\partial U}{\partial z}$$
 We can use the following, then integrate with respect to each component.
 ###### 1.
-$$F_x = -\frac{\partial U }{\partial x} = 3y\to -\int 3y \to$$
+$$F_x = -\frac{\partial U }{\partial x} = -3y\to -\int 3y \to$$
 $$U = -3yx + f(y,z)$$
 ###### 2.
 $$F_y = -\frac{\partial U }{\partial y} = -3x + 2z\to -\int3x-2z \to$$
@@ -125,7 +125,7 @@ The distance between the vectors will be $\vec{R} - \vec{R'}$
 The unit vector is coming off of the pathway between $\vec{R}$ and $\vec{R'}$, from $P'$ to $P$.
 $$\hat{R} = \frac{\vec{R} - \vec{R'}}{|R - R'|}\tag{2}$$
 
-$$\vec{E} = \frac{q\hat{R}}{4\pi \epsilon_0|R-R'|^3}\left[\frac{V}{m}\right]\tag{3}$$
+$$\vec{E} = \frac{q\hat{R}}{4\pi \epsilon_0|R-R'|^2}\left[\frac{V}{m}\right]\tag{3}$$
 or
 $$\vec{E} = \frac{q(\vec{R} - \vec{R'})}{4\pi\epsilon_0|R-R'|^3} \left[\frac{V}{m}\right]\tag{4}$$
 We need to keep track of what is the POI $(P)$ and what is the charge $(P')$.
@@ -155,7 +155,7 @@ $$\vec{E} = \frac{1}{4\pi\epsilon_0}\sum^N_{k=1} \frac{q_k(\vec{R}-\vec{R_k'}{})
 
 #### 2.3 Coulomb's Law
 When a point charge $q_2$ is placed in the field of another point charge $q_1$ at the origin,  a force $F_{1\to2}$ is experienced by $q_2$.
-$$F_{1\to 2} = q_2 E_{1\to 2} = \frac{q_2q_1}{4\pi \epsilon_0} \hat{R}\tag{6}$$
+$$F_{1\to 2} = q_2 E_{1\to 2} = \frac{q_2q_1}{4\pi \epsilon_0 |\vec{R}-\vec{R'}|^2} \hat{R}\tag{6}$$
 This is called **Coulomb's Law**
 
 Force without contact. Electric field intensity defined as force per unit charge.

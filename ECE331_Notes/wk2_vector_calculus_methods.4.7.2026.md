@@ -223,7 +223,7 @@ $$\nabla \times \vec{B} = \nabla \times \vec{J}$$
 $$\vec{J} = \nabla \times \vec{A}$$
 #### 1.18 Example
 Given a vector function
-$$\vec{F}(x,y,z) = [3y + C_1 z]hat{x} +[C_2x - 2z]\hat{y}+ [C_3y + z]\hat{z} $$
+$$\vec{F}(x,y,z) = [3y + C_1 z]\hat{x} +[C_2x - 2z]\hat{y}+ [C_3y + z]\hat{z} $$
 ##### a.
 Determine the constants $C_1, C_2, C_3$ if $\vec{F}$ is irrotational
 Irrotational means the curl $\nabla \times \vec{F} = 0$ 
