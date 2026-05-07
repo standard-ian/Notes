@@ -86,3 +86,5 @@ Same as if no conductor present.
 
 For $R<a$
 $$E_r^{I} = \frac{Q}{4\pi R^2\epsilon_0}$$
+
+## Class 10
