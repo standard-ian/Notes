@@ -22,7 +22,7 @@ In double slit diffraction, constructive interference occurs when $d\sin\theta =
 
 Destructive interference occurs when  $d\sin\theta = \left(m + \frac{1}{2}\right)\lambda\text{ for } m=0, \pm1, \pm2, \pm3...$
 
-#### Multiple Slip Interference
+#### Multiple Slit Interference
 Interference from multiple slits ($N>2$) produces principal as well as secondary maxima.
 
 As the number of slits is increased, the intensity of principal maxima increases and the width decreases.
