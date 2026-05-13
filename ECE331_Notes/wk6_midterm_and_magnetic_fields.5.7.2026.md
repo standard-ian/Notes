@@ -145,7 +145,7 @@ $$\int_S \vec{J}\cdot d\vec{s} = \frac{d}{dt}\int\rho_V\ dV_0$$
 Using divergence theorem
 $$\int_V\nabla \vec{J}\ dV = \frac{d}{dt}\int_V\rho_V\ dV_0$$
 or:
-$$\nabla \vec{J} = -\frac{\rho_V}{dt}\tag{20}$$
+$$\nabla \cdot \vec{J} = -\frac{\partial\rho_V}{\partial t}\tag{20}$$
 The equation of continuity!
 
 
