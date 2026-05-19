@@ -85,6 +85,8 @@ $\vec{R'} = x'\hat{x} + y'\hat{y}$
 $|\vec{R} - \vec{R'}| = (x-x')\hat{x} + (y - y')\hat{y}$
 $d\vec{l}' = dx\hat{x} + dy\hat{y}$
 
+All of the above could also have a $z'\hat{z}$ component
+
 The magnetic flux density $d\vec{B}$ is now:
 $$d\vec{B} = \frac{\mu_0}{4\pi}\frac{Id\vec{l}'\times (\vec{R} - \vec{R'})}{|\vec{R} - \vec{R'}|^3}\tag{2}$$
 Where unit vector $\hat{R}$ is:
@@ -96,11 +98,63 @@ This shows that we have a $\frac{1}{d^2}$ relationship, which is the same as the
 However, the current filament has a total length comprised of **many** $d\vec{l}'$, so we need to integrate.
 
 It has to be a loop, the total magnetic flux density for a current filament going from $a\to b$
-$$\vec{B} = \frac{\mu_0}{4\pi}\int_1^b\frac{I\ d\vec{l}' \times \hat{R}}{|\vec{R} - \vec{R'}|^2}\ [T]\tag{5}$$
-$$\vec{B} = \frac{\mu_0}{4\pi}\int_1^b\frac{I\ d\vec{l}' \times (\vec{R} - \vec{R'})}{|\vec{R} - \vec{R'}|^3}\ [T]\tag{6}$$
+$$\vec{B} = \frac{\mu_0}{4\pi}\int_a^b\frac{I\ d\vec{l}' \times \hat{R}}{|\vec{R} - \vec{R'}|^2}\ [T]\tag{5}$$
+$$\vec{B} = \frac{\mu_0}{4\pi}\int_a^b\frac{I\ d\vec{l}' \times (\vec{R} - \vec{R'})}{|\vec{R} - \vec{R'}|^3}\ [T]\tag{6}$$
 Just like electric fields, we also have magnetic intensity.
 $$\vec{B} = \mu_0\vec{H}$$
 Where $\vec{H}$ is the intensity.
 
 
 ## Class 14
+Magnetic Field Intensity $\vec{H} = \frac{\vec{B}}{\mu_0}$ 
+
+The cross product between $d\vec{l}$ and $\hat{R}$ is because the field is perpendicular to both the distance from the wire and the element length.
+
+#### Example 1
+Magnetic field of a filament wire with a length of $2m$ with a current flowing through it. 
+
+Calculate the magnetic flux density $\vec{B}$ at the following points:
+
+a. $r = 1,\ z=0$
+b. $r =1, z=-1$
+
+For now, consider flux density as some field quantity created by current. We will define flux shortly.
+
+Using cylindrical coordinates will help with showing the resulting field behavior.
+
+##### a $(r=1, z=0)$. 
+POI
+$$\vec{R} = 1\hat{r} + 0\hat{\phi} + 0\hat{z}$$
+Parameterized location of infinitesimal point along filament
+$$\vec{R'} = 0\hat{r} + 0\hat{\phi} + z'\hat{z}$$
+Parameterized vector from filament to POI 
+$$(\vec{R} - \vec{R'}) = 1\hat{r} - z'\hat{z}$$
+Parameterized magnitude of vector from filament to POI 
+$$|\vec{R} - \vec{R'}| = \sqrt{1 + z'^2}$$
+Parameterized location of conductor
+$$d\vec{l}' = dz'\hat{z}$$
+
+$$d\vec{l} \times (\vec{R} - \vec{R'}) = \left|\begin{matrix}\hat{r} & \hat{\phi} & \hat{z}\\ 0 & 0 & dz'\\1& 0 & -z'\end{matrix}\right|$$
+$$ = \hat{r}(0-0) -r\phi(0-dz') + \hat{z} (0-0) = (r)dz'\hat{\phi}\text{ (r = 1)}$$
+$$d\vec{l}\times (\vec{R} - \vec{R'}) = dz'\hat{\phi}$$
+$$\vec{B} = \frac{\mu_0}{4\pi}\int_a^b\frac{Id\vec{l}\times (\vec{R} - \vec{R'})}{|\vec{R} - \vec{R'}|^3} = \frac{I\mu_0}{4\pi}\int_{-1}^{1}\frac{dz'\hat{\phi}}{[1 + (z')^2]^{3/2}}$$
+Notice already that $\vec{B}$ is only in the $\phi$ direction.
+$$\vec{B} = \frac{I\mu_0}{4\pi}\hat{\phi}\int_{-1}^1\frac{1}{(1 + z'^2)^\frac{3}{2}}dz' = \frac{\mu_0I}{4\pi}\hat{\phi}\left[\frac{z'}{(1 + z'^2)^\frac{3}{2}}\right]_{-1}^1 = \frac{\mu_0 I}{4\pi}\hat{\phi}\left[\frac{1}{\sqrt{2}} - \frac{(-1)}{\sqrt{2}}\right]$$
+$$\vec{B} = \frac{\mu_0I}{2\pi\sqrt{2}}\hat{\phi}$$
+The field circulates around the wire, in the $\phi$ direction.
+
+##### b. $(r =1, z=-1)$
+POI
+$$\vec{R} = 1\hat{r} + 0\hat{\phi} + 1\hat{z}$$
+Parameterized location of infinitesimal point along filament
+$$\vec{R'} = 0\hat{r} + 0\hat{\phi} + z'\hat{z}$$
+Parameterized vector from filament to POI 
+$$(\vec{R} - \vec{R'}) = 1\hat{r} - (1 + z')\hat{z}$$
+Parameterized magnitude of vector from filament to POI 
+$$|\vec{R} - \vec{R'}| = \sqrt{1 + (1 + z')^2}$$
+Parameterized location of conductor
+$$d\vec{l}' = dz'\hat{z}$$
+$$d\vec{l} = dz'\hat{\phi}$$
+$$\vec{B} = \frac{\mu_0 I }{4\pi}\int_{-1}^1\frac{\hat{\phi}}{(1 + (1 + z')^2)^\frac{3}{2}}dz'= \frac{\mu_0}{4\pi}\hat{\phi}\left[\frac{z' + 1}{\sqrt{(z' + 1)^2 + 1}}\right]_{-1}^1$$
+$z'$ is 0 for this part, so:
+$$\vec{B} = \frac{\mu_0 I}{4\pi}\frac{2}{\sqrt{5}}\hat{\phi}$$
