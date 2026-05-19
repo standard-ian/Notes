@@ -158,3 +158,63 @@ $$d\vec{l} = dz'\hat{\phi}$$
 $$\vec{B} = \frac{\mu_0 I }{4\pi}\int_{-1}^1\frac{\hat{\phi}}{(1 + (1 + z')^2)^\frac{3}{2}}dz'= \frac{\mu_0}{4\pi}\hat{\phi}\left[\frac{z' + 1}{\sqrt{(z' + 1)^2 + 1}}\right]_{-1}^1$$
 $z'$ is 0 for this part, so:
 $$\vec{B} = \frac{\mu_0 I}{4\pi}\frac{2}{\sqrt{5}}\hat{\phi}$$
+#### 4.2 Ampere's Law
+$$\oint_C\vec{B}\cdot d\vec{l} = I_{enc} \tag{1}$$
+This is the integral form of Ampere's Law
+
+It says: "The circulation of $\vec{H}$ around a closed path is equal to the current enclosed by the path." 
+
+The integral form is difficult to use in many situations that aren't symmetric. 
+
+The Biot-Savart Law is more useful for general cases Ampere's Law can be used for symmetric problems like the example above.
+
+We can note that:
+$$I_{enc} = \int\vec{J}\cdot d\vec{S}\tag{2}$$
+Substituting $(2)$ into $(1)$:
+$$\int_C\vec{H}\cdot d\vec{l} = \int_S\vec{J}\cdot s\vec{S}$$
+Using Stokes theorem:
+$$\int_S(\nabla \times \vec{H})\cdot d\vec{S} = \int_S\vec{J}\cdot d\vec{S}\tag{4}$$
+or, the differential form of Ampere's Law:
+$$\nabla \times \vec{H} = \vec{J}$$
+$$\nabla \vec{B} = \mu_0\vec{J}\text{ (in free space)}$$
+
+##### Example
+Consider an infinitely long conductor with a radius $b$.
+We will determine the magnetic flux density at some radius $r_1$.
+
+We will also determine the magnetic flux (magnetic field density) outside the conductor at $r_2$.
+
+We can use Ampere's Law because this is a symmetric problem.
+
+$$\oint_C\vec{B}\cdot  d\vec{l} = \mu_0I_{enc}$$
+The current density is:
+$$J = \frac{I}{\pi b^2}$$
+###### $\vec{B}$ inside at $r_1$
+$$d\vec{l}_1 = r_1 d\phi \hat{\phi}$$ 
+The field circulates around the wire.
+$$\vec{B}_1 = B_\phi\hat{\phi}$$
+
+$$\vec{B}_1\cdot d\vec{l} = B_\phi r_1\phi\hat{\phi}\hat{\phi}$$
+Where $\hat{\phi}\hat{\phi} = 1$
+$$\int_0^{2\pi}B_\phi r_1d\phi = \mu_0I_1\Longrightarrow B_\phi r_12\pi = \mu_0I_1$$
+Note $I_1(r_1)$ is current as a function of $r_1$.
+$$B_\phi(Rr_1) = \frac{\mu_0I_1(r_1)}{2\pi r_1}\tag{I}$$
+The amount of enclosed current:
+$$I_1 = \frac{I\pi r_1^2}{\pi b^2}\tag{II}$$
+$(II)\to(I)$
+$$B_\phi(r_1) = \frac{\mu_0I}{2\pi}\frac{r_1}{b^2},\ \ r_1 \leq b$$
+
+###### $\vec{B}$ outside at $r_2$
+$$\oint_C\vec{B}\cdot d\vec{l} = \mu_0I_{enc}$$
+$$\int_0^{2\pi}B_\phi r_2d\phi = \mu_0I$$
+$$B\phi(r_2) = \frac{\mu_0I}{2\pi r_2}$$
+The whole current of the wire is enclosed.
+
+The magnetic field increases as $r$ increases to $b$, then falls off exponentially outside the wire.
+
+
+
+
+
+
+
