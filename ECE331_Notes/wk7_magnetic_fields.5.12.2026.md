@@ -159,7 +159,8 @@ $$\vec{B} = \frac{\mu_0 I }{4\pi}\int_{-1}^1\frac{\hat{\phi}}{(1 + (1 + z')^2)^\
 $z'$ is 0 for this part, so:
 $$\vec{B} = \frac{\mu_0 I}{4\pi}\frac{2}{\sqrt{5}}\hat{\phi}$$
 #### 4.2 Ampere's Law
-$$\oint_C\vec{B}\cdot d\vec{l} = I_{enc} \tag{1}$$
+$$\oint_C\vec{B}\cdot d\vec{l} = I_{enc}\mu_0 \tag{1}$$
+$$\oint_C\vec{H}\cdot d\vec{l} = I_{enc}$$
 This is the integral form of Ampere's Law
 
 It says: "The circulation of $\vec{H}$ around a closed path is equal to the current enclosed by the path." 
