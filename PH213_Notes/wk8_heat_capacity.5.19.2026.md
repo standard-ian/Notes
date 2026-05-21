@@ -60,3 +60,15 @@ $$v_p = \sqrt{\frac{2RT}{M}}$$
 $$\bar{v} = \sqrt{\frac{8RT}{\pi M}}$$
 $$v_{rms} = \sqrt{\frac{3RT}{M}}$$
 ## Class 16
+#### Heat and Work
+$$W = \int PdV = \int_{V_{internal}}^{V_{final}}PdV$$
+$$W = P\Delta V$$
+#### First Law of Thermodynamics
+$$\Delta E_{\text{internal}} = Q_{\text{in}} - W_{\text{out}}$$
+$+Q$ = heat into system
+$-Q$ = heat removed from the system
+$+W$ = work by the system on environment
+$-W$ work on the system by the environment
+
+$$\Delta E_{\text{internal}} = R_{\text{internal,  final}} - E_{\text{internal,\ initial}} = Q-W$$
+
