@@ -111,6 +111,104 @@ Need the direction of the conductor, crossed with the B, giving the force $90^\c
 ## Class 16
 #### Example (Force)
 
-Imagine a wire with $I_1 = 100A$  next to a loop with current $I_2 = 5A$ 
+Imagine an infinitely long wire along the $z$ axis with $I_1 = 100A$  next to a loop $x=1mm$ away,  with current $I_2 = 5A$ 
+
+The loop is $w=9mm$ by $h=1m$
+
+##### a. $\vec{B}$ due to $I_1$
+Since we have an infinitely long wire, we can use Ampere's law
+$$\int_0^{2\pi}\vec{B}\cdot d\vec{l} = \mu_0I_1$$
+The field circulates
+$$d\vec{l} = \hat{\phi}rd\phi,\ r=radius$$
+$$\int_0^{2\pi}\vec{B}\cdot \hat{\phi}r\ d\phi = \mu_0I_1\Longrightarrow B_\phi(r) = \frac{\mu_0I_1}{2\pi r}$$
+##### b. Force on the Wire Loop
 We can find the force of the wire on the loop using:
-$$F = \int I_{II}\ d\vec{l}\times \vec{B}_{I}$$
+$$\vec{F} = \int I_{2}\ d\vec{l}\times \vec{B}_{1}$$
+$$d\vec{l}_2 = \hat{z}\ dz$$
+$$\vec{B}_1(r) = \frac{\mu_0I_1}{2\pi r}$$
+$$d\vec{l}_2 \times B_1 = \left|\begin{matrix}\hat{r} & \hat{\phi} & \hat{z}\\ 0 & 0 & 0\\ 0 & \frac{\mu_0I_1}{2\pi r} & 0 \end{matrix}\right| = \hat{r}\left(-\frac{\mu_0I_1}{2\pi r}\right)\ dz + \hat{\phi}0 + \hat{z}0$$
+At this point, we can see that the $w=9mm$ sides of the loop, which are equal distance from $I_1$ with current running in equal and opposite directions. 
+
+Pointing fingers in direction of $I_2$ bending in direction of $\vec{B}_1$, we can see the thumb points in the direction of the force. $+z$ for the lower leg where the current flows towards $I_1$, and $-z$ for the upper leg where it flows away, so they cancel one another out.
+
+We need to then take the integral for the left and right legs.
+
+For the inner side:
+$$F_1 = I_2\int_{-0.5}^{0.5}-\frac{\hat{r}\mu_0I_1}{2\pi x} dz = \frac{-I_2I_1\mu_0\hat{r}}{2\pi x} = -\frac{(5)(-100)\mu_0\hat{r}}{2\pi (0.001)}$$
+$$F_1 = \hat{r} 0.1\ [N]$$
+For the outer:
+$$F_1 = I_2\int_{-0.5}^{0.5}-\frac{\hat{r}\mu_0I_1}{2\pi x + w} dz = \frac{-I_2I_1\mu_0\hat{r}}{2\pi (0.01)} = -\frac{(-5)(-100)4\pi\times 10^{-7}}{2\pi(0.01)} = -0.01\hat{r}\ [N]$$
+
+#### Why is Force the Cross of $I\times \vec{B}$ and not the Other Way? 
+Force is in the direction of lowest energy. 
+
+#### 5.0 Transmission Lines
+```tikz
+\usepackage{circuitikz}
+
+\begin{document}
+\begin{circuitikz}[american, scale=2, font=\Large]
+	\draw(0,0)
+	to[sV, l=$V_g$]++(0,2)
+	--++(1,0)
+	node[circ, label=above:$A_p$]{}
+	--++(2,0)
+	node[circ, label=above:$B_p$]{}
+	--++(1,0)
+	to[generic, l=$Z_l$]++(0,-2)
+	--++(-1,0)
+	node[circ, label=below:$Z{=}0$]{}
+	--++(-2,0)
+	node[circ, label=below:$Z{=}l$]{}
+	--++(-1,0);
+	
+	\draw[<->](1,-0.5)--(3,-0.5);
+
+	\draw(2,-0.75)	
+	node[]{$l$};
+	
+	\draw[<->](1,0.25)--(1,1.75);
+	\draw(1,1.75)
+	++(0,-0.75)
+	node[label=left:$V_i$]{};
+	
+	\draw[<->](3,0.25)--(3,1.75);
+	\draw(3,1.75)
+	++(0,-0.75)
+	node[label=left:$V_L$]{};
+	
+\end{circuitikz}
+\end{document}
+```
+Consider the case when the voltage on the left is:
+$$V_g (t) = V_0\cos(\omega t)\tag{1}$$
+Where $\omega = 2\pi f$.
+
+Assume circuit travels at the speed of light $c = 3\times 10^{8}\frac{m}{s}$
+
+Time to travel length $l$
+$$t_d = \frac{l}{c}$$
+So the voltage at $B_p$ 
+$$V_L(t) = V_0\cos\left[\omega\left(t = \frac{l}{c}\right)\right] = V_0\cos[\omega t - \phi_f]\tag{2}$$
+Where $\phi_f = \frac{\omega l}{c}$ 
+##### Example
+$f = 1000Hz$
+$l = 0.05m$
+at $t=0$
+
+$$V_g(0) = V_0$$
+$$V_L(0) = V_0\cos\left[\frac{-2\pi 1000 \times 0.05}{3\times 10^{8}}\right] = V_0(0.99999999994)\approx V_0$$
+But if $l=20\times 10^{3}m$ at $f=1000Hz$
+$$V_L(0) = 0.91V_0$$
+
+or if $l=0.05m$ and $f=1GHz$
+$$V_L(0) = 0.5V_0$$
+
+The phase factor determines impact
+$$\phi_f = \frac{\omega l}{c} = \frac{2\pi f l}{c}$$
+$c = \lambda f$
+$\frac{1}{\lambda} = \frac{f}{c}$
+$$\phi_f= 2\pi\frac{l}{\lambda}$$
+
+
+
