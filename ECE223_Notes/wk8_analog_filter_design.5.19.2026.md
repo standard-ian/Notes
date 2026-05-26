@@ -422,6 +422,7 @@ $$T(s) = -\frac{1}{1}$$
 ```
 Using superposition:
 $$T(s) = V_2\left(\frac{-1}{\frac{1}{Q} + s}\right) + V_1\left(\frac{-H}{\frac{1}{Q} + s}\right)$$
+Putting all 3 together, summing, lossy integrator, and unity gain amplifier
 ```tikz
 \usepackage{circuitikz}
     \def\opamp(#1)#2{%Customized opamp
@@ -454,7 +455,8 @@ $$T(s) = V_2\left(\frac{-1}{\frac{1}{Q} + s}\right) + V_1\left(\frac{-H}{\frac{1
 	--++(-0.5,0)
 	--++(0,0.25)
 	to[R, a=$1$]++(-2,0)
-	node[circ, label=left:$V_2$]{}
+	%node[circ, label=left:$V_2$]{}
+	coordinate(START)
 	++(2,0)
 	--++(0,-0.5)
 	to[R=$\frac{1}{H}$]++(-2,0)
@@ -557,7 +559,13 @@ $$T(s) = V_2\left(\frac{-1}{\frac{1}{Q} + s}\right) + V_1\left(\frac{-H}{\frac{1
 	--++(2,0)--++(0,-2);
 	
 	\draw(B OUT)--++(2,0)
-	node[circ, label=right:$V_{3}$]{};
+	node[circ, label=right:$V_{2}$]{};
+	
+	\draw(B OUT)
+	--++(1.5,0)
+	--++(0,8)
+	--++(-21.5,0)
+	--(START);
 	
 	\path(B VCC) node[ocirc, above]{};
 	\path(B VEE) node[ocirc, below]{};
