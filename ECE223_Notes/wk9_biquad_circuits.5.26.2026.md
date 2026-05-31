@@ -339,4 +339,639 @@ $$R_1 = Q = 0.866\Omega$$
 $$R_3 = \frac{1}{H} = \frac{1}{2} = 0.5\Omega$$
 We'll want a more reasonable $R_1$ and $R_2$, so we can use a magnitude scale $k_m$ to adjust.
 
+
 ## Class 18
+
+```tikz
+\usepackage{circuitikz}
+    \def\opamp(#1)#2{%Customized opamp
+    \begin{scope}[shift={(#1)}]
+    %Component Shape
+    \draw[line join=round] (0,0)++(-1,1.5)
+        --++(2.5,-1.5) -- ++(-2.5,-1.5)-- cycle; 
+    % Label and component identifier.
+    \draw(0,0) node{\sf #2}; % IC LABEL
+    % Draw the pins
+    \draw(-1,1) node [anchor=180]{$-$} -- ++(-0.5,0)  coordinate (#2 IN-); % IN - 
+    \draw(-1,-1) node [anchor=180]{$+$}  -- ++(-0.5,0) coordinate (#2 IN+); % IN +
+    \draw(1.5,0)  -- ++(0.5,0) coordinate (#2 OUT); % OUT
+    % Power supply pins
+    \draw(0.25,0.77) -- ++(0,0.5) coordinate (#2 VCC); % VCC
+    \draw(0.25,-0.77) -- ++(0,-0.5) coordinate (#2 VEE); % VEE
+    \end{scope}
+    }
+    
+\begin{document}
+\begin{circuitikz}[american, scale=1.2]
+	% invoke the opamp	
+	\opamp(0,0){A}
+	
+	\draw(A IN+) 
+	node[ground]{};
+	
+	\draw(A IN-)--++(0,1)
+	%to[R=$1$]++(-2,0)
+	--++(-0.5,0)
+	--++(0,0.25)
+	to[R, a=$1$]++(-2,0)
+	node[circ, label=left:$V_3$]{}
+	%coordinate(START)
+	++(2,0)
+	--++(0,-0.5)
+	to[R=$1$]++(-2,0)
+	node[circ, label=left:$V_1$]{}
+	++(0,0.5)
+	++(0,-0.25);
+	%--++(-0.5,0);
+	
+	\draw(A IN-)--++(0,1)
+	%to[R, a=$1$]++(2,0)
+	
+	--++(0.5,0)
+	--++(0,0.25)
+	to[R=$0.5\Omega$]++(2,0)
+	++(-2,0)
+	--++(0,-0.5)
+	to[capacitor, a=$1F$]++(2,0)
+	--++(0,0.5)
+	++(0,-0.25)
+	--++(0.5,0)
+	--++(2,0)--++(0,-2);
+	
+	
+	\path(A VCC) node[ocirc, above]{};
+	\path(A VEE) node[ocirc, below]{};
+
+	\opamp(7,-2){C}
+	
+	\draw(C IN+) 
+	node[ground]{};
+	
+	\draw(C IN-)--++(0,1)
+	to[R=$1$]++(-2,0)
+	%--++(-0.5,0)
+	%--++(0,0.25)
+	%to[R, a=$2\Omega$]++(-2,0)
+	%++(2,0)
+	%--++(0,-0.5)
+	%to[capacitor, l=$1F$]++(-2,0)
+	%--++(0,0.5)
+	%++(0,-0.25)
+	%--++(-0.5,0)
+	node[circ, label=below:$V_2'$]{}
+	coordinate(C INPUT);
+	
+	\draw(C IN-)--++(0,1)
+	to[capacitor, a=$1$]++(2,0)
+	
+	%--++(0.5,0)
+	%--++(0,0.25)
+	%to[R=$\frac{1}{3}\Omega$]++(2,0)
+	%++(-2,0)
+	%--++(0,-0.5)
+	%to[capacitor, a=$1F$]++(2,0)
+	%--++(0,0.5)
+	%++(0,-0.25)
+	%--++(0.5,0)
+	--++(2,0)--++(0,-2);
+	
+	
+	\path(C VCC) node[ocirc, above]{};
+	\path(C VEE) node[ocirc, below]{};
+	
+	\draw(A OUT)--++(2,0)
+	%node[circ, label=right:$V_{2}'$]{};
+	--(C INPUT);
+	
+	% invoke the opamp	
+	\opamp(14,-4){B}
+	
+	\draw(B IN+) 
+	node[ground]{};
+	
+	\draw(B IN-)--++(0,1)
+	to[R=$1$]++(-2,0)
+	%--++(-0.5,0)
+	%--++(0,0.25)
+	%to[R, a=$2\Omega$]++(-2,0)
+	%++(2,0)
+	%--++(0,-0.5)
+	%to[capacitor, l=$1F$]++(-2,0)
+	%--++(0,0.5)
+	%++(0,-0.25)
+	%--++(-0.5,0)
+	%node[circ, label=left:$V_1$]{};
+	coordinate(B INPUT);
+	
+	\draw(B IN-)--++(0,1)
+	to[R, a=$1$]++(2,0)
+	
+	%--++(0.5,0)
+	%--++(0,0.25)
+	%to[R=$\frac{1}{3}\Omega$]++(2,0)
+	%++(-2,0)
+	%--++(0,-0.5)
+	%to[capacitor, a=$1F$]++(2,0)
+	%--++(0,0.5)
+	%++(0,-0.25)
+	%--++(0.5,0)
+	--++(2,0)--++(0,-2);
+	
+	\draw(B OUT)--++(2,0)
+	node[circ, label=right:$V_{2}$]{};
+	
+	% \draw(B OUT)
+	% --++(1.5,0)
+	% --++(0,8)
+	% --++(-21.5,0)
+	% --(START);
+	
+	\path(B VCC) node[ocirc, above]{};
+	\path(B VEE) node[ocirc, below]{};
+
+	\draw(C OUT)--++(2,0)
+	--(B INPUT);
+	%node[circ, label=right:$V_{2}$]{};
+	
+\end{circuitikz}
+\end{document}
+```
+$$V_2' = -V_1\left(\frac{1}{2 + s}\right) - V_3\left(\frac{1}{2 + s}\right)$$
+$$V_2  = V_2'\left(\frac{1}{s}\right)$$
+Now, adding back the feedback path
+```tikz
+\usepackage{circuitikz}
+    \def\opamp(#1)#2{%Customized opamp
+    \begin{scope}[shift={(#1)}]
+    %Component Shape
+    \draw[line join=round] (0,0)++(-1,1.5)
+        --++(2.5,-1.5) -- ++(-2.5,-1.5)-- cycle; 
+    % Label and component identifier.
+    \draw(0,0) node{\sf #2}; % IC LABEL
+    % Draw the pins
+    \draw(-1,1) node [anchor=180]{$-$} -- ++(-0.5,0)  coordinate (#2 IN-); % IN - 
+    \draw(-1,-1) node [anchor=180]{$+$}  -- ++(-0.5,0) coordinate (#2 IN+); % IN +
+    \draw(1.5,0)  -- ++(0.5,0) coordinate (#2 OUT); % OUT
+    % Power supply pins
+    \draw(0.25,0.77) -- ++(0,0.5) coordinate (#2 VCC); % VCC
+    \draw(0.25,-0.77) -- ++(0,-0.5) coordinate (#2 VEE); % VEE
+    \end{scope}
+    }
+    
+\begin{document}
+\begin{circuitikz}[american, scale=1.2]
+	% invoke the opamp	
+	\opamp(0,0){A}
+	
+	\draw(A IN+) 
+	node[ground]{};
+	
+	\draw(A IN-)--++(0,1)
+	%to[R=$1$]++(-2,0)
+	--++(-0.5,0)
+	--++(0,0.25)
+	to[R, a=$1$]++(-2,0)
+	%node[circ, label=left:$V_3$]{}
+	coordinate(START)
+	++(2,0)
+	--++(0,-0.5)
+	to[R=$1$]++(-2,0)
+	node[circ, label=left:$V_1$]{}
+	++(0,0.5)
+	++(0,-0.25);
+	%--++(-0.5,0);
+	
+	\draw(A IN-)--++(0,1)
+	%to[R, a=$1$]++(2,0)
+	
+	--++(0.5,0)
+	--++(0,0.25)
+	to[R=$0.5\Omega$]++(2,0)
+	++(-2,0)
+	--++(0,-0.5)
+	to[capacitor, a=$1F$]++(2,0)
+	--++(0,0.5)
+	++(0,-0.25)
+	--++(0.5,0)
+	--++(2,0)--++(0,-2);
+	
+	
+	\path(A VCC) node[ocirc, above]{};
+	\path(A VEE) node[ocirc, below]{};
+
+	\opamp(7,-2){C}
+	
+	\draw(C IN+) 
+	node[ground]{};
+	
+	\draw(C IN-)--++(0,1)
+	to[R=$1$]++(-2,0)
+	%--++(-0.5,0)
+	%--++(0,0.25)
+	%to[R, a=$2\Omega$]++(-2,0)
+	%++(2,0)
+	%--++(0,-0.5)
+	%to[capacitor, l=$1F$]++(-2,0)
+	%--++(0,0.5)
+	%++(0,-0.25)
+	%--++(-0.5,0)
+	node[circ, label=below:$V_2'$]{}
+	coordinate(C INPUT);
+	
+	\draw(C IN-)--++(0,1)
+	to[capacitor, a=$1$]++(2,0)
+	
+	%--++(0.5,0)
+	%--++(0,0.25)
+	%to[R=$\frac{1}{3}\Omega$]++(2,0)
+	%++(-2,0)
+	%--++(0,-0.5)
+	%to[capacitor, a=$1F$]++(2,0)
+	%--++(0,0.5)
+	%++(0,-0.25)
+	%--++(0.5,0)
+	--++(2,0)--++(0,-2);
+	
+	
+	\path(C VCC) node[ocirc, above]{};
+	\path(C VEE) node[ocirc, below]{};
+	
+	\draw(A OUT)--++(2,0)
+	%node[circ, label=right:$V_{2}'$]{};
+	--(C INPUT);
+	
+	% invoke the opamp	
+	\opamp(14,-4){B}
+	
+	\draw(B IN+) 
+	node[ground]{};
+	
+	\draw(B IN-)--++(0,1)
+	to[R=$1$]++(-2,0)
+	%--++(-0.5,0)
+	%--++(0,0.25)
+	%to[R, a=$2\Omega$]++(-2,0)
+	%++(2,0)
+	%--++(0,-0.5)
+	%to[capacitor, l=$1F$]++(-2,0)
+	%--++(0,0.5)
+	%++(0,-0.25)
+	%--++(-0.5,0)
+	%node[circ, label=left:$V_1$]{};
+	coordinate(B INPUT);
+	
+	\draw(B IN-)--++(0,1)
+	to[R, a=$1$]++(2,0)
+	
+	%--++(0.5,0)
+	%--++(0,0.25)
+	%to[R=$\frac{1}{3}\Omega$]++(2,0)
+	%++(-2,0)
+	%--++(0,-0.5)
+	%to[capacitor, a=$1F$]++(2,0)
+	%--++(0,0.5)
+	%++(0,-0.25)
+	%--++(0.5,0)
+	--++(2,0)--++(0,-2);
+	
+	\draw(B OUT)--++(2,0)
+	node[circ, label=right:$V_{2}$]{};
+	
+	\draw(B OUT)
+	--++(1.5,0)
+	--++(0,8)
+	--++(-21.5,0)
+	--(START);
+	
+	\path(B VCC) node[ocirc, above]{};
+	\path(B VEE) node[ocirc, below]{};
+
+	\draw(C OUT)--++(2,0)
+	--(B INPUT);
+	%node[circ, label=right:$V_{2}$]{};
+	
+\end{circuitikz}
+\end{document}
+```
+$$V_2 =  -V_1\left(\frac{1}{2s+s^2}\right) - V_2\left(\frac{1}{2s+s^2}\right)$$
+$$V_2\left(1 + \frac{1}{2s+s^2}\right) = -V_1\left(\frac{1}{2s+ s^2}\right)$$
+$$T(s) = \frac{V_2}{V_1} = -\frac{\frac{1}{2s+s^2}}{1 + \frac{1}{2s + s^2}}=-\frac{1}{s^2 +2s+ 1}$$
+
+What if we eliminated the last inverting amp?
+
+As before, except last stage will have negative sign un-cancelled
+$$V_2' = -V_1\left(\frac{1}{2 + s}\right) - V_3\left(\frac{1}{2 + s}\right)$$
+$$V_2 = -V_2'\left(\frac{1}{s}\right)$$
+```tikz
+\usepackage{circuitikz}
+    \def\opamp(#1)#2{%Customized opamp
+    \begin{scope}[shift={(#1)}]
+    %Component Shape
+    \draw[line join=round] (0,0)++(-1,1.5)
+        --++(2.5,-1.5) -- ++(-2.5,-1.5)-- cycle; 
+    % Label and component identifier.
+    \draw(0,0) node{\sf #2}; % IC LABEL
+    % Draw the pins
+    \draw(-1,1) node [anchor=180]{$-$} -- ++(-0.5,0)  coordinate (#2 IN-); % IN - 
+    \draw(-1,-1) node [anchor=180]{$+$}  -- ++(-0.5,0) coordinate (#2 IN+); % IN +
+    \draw(1.5,0)  -- ++(0.5,0) coordinate (#2 OUT); % OUT
+    % Power supply pins
+    \draw(0.25,0.77) -- ++(0,0.5) coordinate (#2 VCC); % VCC
+    \draw(0.25,-0.77) -- ++(0,-0.5) coordinate (#2 VEE); % VEE
+    \end{scope}
+    }
+    
+\begin{document}
+\begin{circuitikz}[american, scale=1.2]
+	% invoke the opamp	
+	\opamp(0,0){A}
+	
+	\draw(A IN+) 
+	node[ground]{};
+	
+	\draw(A IN-)--++(0,1)
+	%to[R=$1$]++(-2,0)
+	--++(-0.5,0)
+	--++(0,0.25)
+	to[R, a=$1$]++(-2,0)
+	%node[circ, label=left:$V_3$]{}
+	coordinate(START)
+	++(2,0)
+	--++(0,-0.5)
+	to[R=$1$]++(-2,0)
+	node[circ, label=left:$V_1$]{}
+	++(0,0.5)
+	++(0,-0.25);
+	%--++(-0.5,0);
+	
+	\draw(A IN-)--++(0,1)
+	%to[R, a=$1$]++(2,0)
+	
+	--++(0.5,0)
+	--++(0,0.25)
+	to[R=$0.5\Omega$]++(2,0)
+	++(-2,0)
+	--++(0,-0.5)
+	to[capacitor, a=$1F$]++(2,0)
+	--++(0,0.5)
+	++(0,-0.25)
+	--++(0.5,0)
+	--++(2,0)--++(0,-2);
+	
+	
+	\path(A VCC) node[ocirc, above]{};
+	\path(A VEE) node[ocirc, below]{};
+
+	\opamp(7,-2){C}
+	
+	\draw(C IN+) 
+	node[ground]{};
+	
+	\draw(C IN-)--++(0,1)
+	to[R=$1$]++(-2,0)
+	%--++(-0.5,0)
+	%--++(0,0.25)
+	%to[R, a=$2\Omega$]++(-2,0)
+	%++(2,0)
+	%--++(0,-0.5)
+	%to[capacitor, l=$1F$]++(-2,0)
+	%--++(0,0.5)
+	%++(0,-0.25)
+	%--++(-0.5,0)
+	node[circ, label=below:$V_2'$]{}
+	coordinate(C INPUT);
+	
+	\draw(C IN-)--++(0,1)
+	to[capacitor, a=$1$]++(2,0)
+	
+	%--++(0.5,0)
+	%--++(0,0.25)
+	%to[R=$\frac{1}{3}\Omega$]++(2,0)
+	%++(-2,0)
+	%--++(0,-0.5)
+	%to[capacitor, a=$1F$]++(2,0)
+	%--++(0,0.5)
+	%++(0,-0.25)
+	%--++(0.5,0)
+	--++(2,0)--++(0,-2);
+	
+	
+	\path(C VCC) node[ocirc, above]{};
+	\path(C VEE) node[ocirc, below]{};
+	
+	\draw(A OUT)--++(2,0)
+	%node[circ, label=right:$V_{2}'$]{};
+	--(C INPUT);
+	
+	
+	\draw(C OUT)
+	--++(1.5,0)
+	--++(0,8)
+	--++(-14.5,0)
+	--(START);
+	
+
+	\draw(C OUT)--++(2,0)
+	%--(B INPUT);
+	node[circ, label=right:$V_{2}$]{};
+	
+\end{circuitikz}
+\end{document}
+```
+$$V_2 = V_1\left(\frac{1}{2s+s^2}\right) + V_2\left(\frac{1}{2s+s^2}\right)$$
+$$V_2\left(1 - \frac{1}{2s + s^2}\right) = V_1\left(\frac{1}{2s + s^2}\right)$$
+$$T(s) = \frac{V_2}{V_1} = \frac{\frac{1}{2s+s^2}}{1 - \frac{1}{2s + s^2}}=-\frac{-1}{s^2 +2s- 1}$$
+So the poles are
+$$s_1, s_2 = \frac{-2\pm\sqrt{4 + 4}}{2} = -1\pm\sqrt{2}$$
+$s_1 = -2.414$
+$s_2 = 0.414$
+
+Notice poles are opposite sign
+
+This results in the Laplace for the positive 
+$$\frac{1}{s-0.414} \Longrightarrow e^{0.414t}$$
+An exponential increase.
+
+Now what if the feedback path was still taken as 
+
+```tikz
+\usepackage{circuitikz}
+    \def\opamp(#1)#2{%Customized opamp
+    \begin{scope}[shift={(#1)}]
+    %Component Shape
+    \draw[line join=round] (0,0)++(-1,1.5)
+        --++(2.5,-1.5) -- ++(-2.5,-1.5)-- cycle; 
+    % Label and component identifier.
+    \draw(0,0) node{\sf #2}; % IC LABEL
+    % Draw the pins
+    \draw(-1,1) node [anchor=180]{$-$} -- ++(-0.5,0)  coordinate (#2 IN-); % IN - 
+    \draw(-1,-1) node [anchor=180]{$+$}  -- ++(-0.5,0) coordinate (#2 IN+); % IN +
+    \draw(1.5,0)  -- ++(0.5,0) coordinate (#2 OUT); % OUT
+    % Power supply pins
+    \draw(0.25,0.77) -- ++(0,0.5) coordinate (#2 VCC); % VCC
+    \draw(0.25,-0.77) -- ++(0,-0.5) coordinate (#2 VEE); % VEE
+    \end{scope}
+    }
+    
+\begin{document}
+\begin{circuitikz}[american, scale=1.2]
+	% invoke the opamp	
+	\opamp(0,0){A}
+	
+	\draw(A IN+) 
+	node[ground]{};
+	
+	\draw(A IN-)--++(0,1)
+	%to[R=$1$]++(-2,0)
+	--++(-0.5,0)
+	--++(0,0.25)
+	to[R, a=$1$]++(-2,0)
+	%node[circ, label=left:$V_3$]{}
+	coordinate(START)
+	++(2,0)
+	--++(0,-0.5)
+	to[R=$1$]++(-2,0)
+	node[circ, label=left:$V_1$]{}
+	++(0,0.5)
+	++(0,-0.25);
+	%--++(-0.5,0);
+	
+	\draw(A IN-)--++(0,1)
+	%to[R, a=$1$]++(2,0)
+	
+	--++(0.5,0)
+	--++(0,0.25)
+	to[R=$0.5\Omega$]++(2,0)
+	++(-2,0)
+	--++(0,-0.5)
+	to[capacitor, a=$1F$]++(2,0)
+	--++(0,0.5)
+	++(0,-0.25)
+	--++(0.5,0)
+	--++(2,0)--++(0,-2);
+	
+	
+	\path(A VCC) node[ocirc, above]{};
+	\path(A VEE) node[ocirc, below]{};
+
+	\opamp(7,-2){C}
+	
+	\draw(C IN+) 
+	node[ground]{};
+	
+	\draw(C IN-)--++(0,1)
+	to[R=$1$]++(-2,0)
+	%--++(-0.5,0)
+	%--++(0,0.25)
+	%to[R, a=$2\Omega$]++(-2,0)
+	%++(2,0)
+	%--++(0,-0.5)
+	%to[capacitor, l=$1F$]++(-2,0)
+	%--++(0,0.5)
+	%++(0,-0.25)
+	%--++(-0.5,0)
+	node[circ, label=below:$V_2'$]{}
+	coordinate(C INPUT);
+	
+	\draw(C IN-)--++(0,1)
+	to[capacitor, a=$1$]++(2,0)
+	
+	%--++(0.5,0)
+	%--++(0,0.25)
+	%to[R=$\frac{1}{3}\Omega$]++(2,0)
+	%++(-2,0)
+	%--++(0,-0.5)
+	%to[capacitor, a=$1F$]++(2,0)
+	%--++(0,0.5)
+	%++(0,-0.25)
+	%--++(0.5,0)
+	--++(2,0)--++(0,-2);
+	
+	
+	\path(C VCC) node[ocirc, above]{};
+	\path(C VEE) node[ocirc, below]{};
+	
+	\draw(A OUT)--++(2,0)
+	%node[circ, label=right:$V_{2}'$]{};
+	--(C INPUT);
+	
+	% invoke the opamp	
+	\opamp(14,-4){B}
+	
+	\draw(B IN+) 
+	node[ground]{};
+	
+	\draw(B IN-)--++(0,1)
+	to[R=$1$]++(-2,0)
+	%--++(-0.5,0)
+	%--++(0,0.25)
+	%to[R, a=$2\Omega$]++(-2,0)
+	%++(2,0)
+	%--++(0,-0.5)
+	%to[capacitor, l=$1F$]++(-2,0)
+	%--++(0,0.5)
+	%++(0,-0.25)
+	%--++(-0.5,0)
+	%node[circ, label=left:$V_1$]{};
+	coordinate(B INPUT);
+	
+	\draw(B IN-)--++(0,1)
+	to[R, a=$1$]++(2,0)
+	
+	%--++(0.5,0)
+	%--++(0,0.25)
+	%to[R=$\frac{1}{3}\Omega$]++(2,0)
+	%++(-2,0)
+	%--++(0,-0.5)
+	%to[capacitor, a=$1F$]++(2,0)
+	%--++(0,0.5)
+	%++(0,-0.25)
+	%--++(0.5,0)
+	--++(2,0)--++(0,-2);
+	
+	\draw(B OUT)--++(2,0)
+	node[circ, label=right:$V_{2}$]{};
+	
+	\draw(B OUT)
+	--++(1.5,0)
+	--++(0,8)
+	--++(-21.5,0)
+	--(START);
+	
+	\path(B VCC) node[ocirc, above]{};
+	\path(B VEE) node[ocirc, below]{};
+
+	\draw(C OUT)--++(2,0)
+	--(B INPUT);
+	%node[circ, label=right:$V_{2}$]{};
+	
+\end{circuitikz}
+\end{document}
+```
+But, we want a transfer function at $V_2'$
+$$V_2' = -V_1\left(\frac{1}{2 + s}\right) - V_3\left(\frac{1}{2 + s}\right)$$
+$$V_2  = V_2'\left(\frac{1}{s}\right)$$
+$V_3 = V_2 = V_2'\left(\frac{1}{s}\right)$ 
+$$V_2' = -V_1\left(\frac{1}{2 + s}\right) -V_2'\left(\frac{1}{2s + s^2}\right)$$
+$$V_2'\left(1 + \frac{1}{2s + s^2}\right) = -V_1\left(\frac{1}{2 + s}\right)$$
+$$\frac{V_2'}{V_1} = -\frac{\frac{1}{2 + s}}{1 + \frac{1}{2s + s^2}} = \frac{\frac{2s + s^2}{2 + s}}{2s + s^2 + 1} = \frac{\frac{s + 0.5s^2}{1 + 0.5s}}{2s + s^2 + 1}$$
+$$T(s) = \frac{V_2'}{V_1} = -\frac{\frac{1}{Q}s}{s^2 + \frac{1}{Q}s + 1}$$
+$H = 1$
+$\omega_0 = 1$
+We have 2 poles and a zero at the origin.
+
+This is a bandpass filter
+
+$$|T(j\omega)| = \frac{KQ}{\omega_0}$$
+$$H = \frac{kQ}{\omega_0}$$
+$$K = \frac{H\omega_0}{Q}$$
+$$T(s) = \frac{H\left(\frac{\omega_0}{Q}\right)s}{s ^2 + \left(\frac{\omega_0}{Q}\right)s + \omega_0^2}$$
+$$Q = \frac{\omega_0}{BW}$$
+$$\omega_0 = \frac{1}{R_2R_4C_1C_2}$$
+$$T(s)_{\text{low pass}} = \frac{V_2}{V_1} = -H\frac{\frac{1}{R_2R_4C_1C_2}}{s^2 + \frac{1}{R_1C_1}s + \frac{1}{R_2R_4C_1C_2}}$$
+$$T(s)_{\text{band pass}} = \frac{V_2'}{V_1} =-H\frac{\frac{1}{R_3C_1}s}{s^2 + \frac{1}{R_1C_1}s + \frac{1}{R_2R_4C_1C_2}} $$
+We put the denominator into this particular form:
+$$s^2 + \frac{\omega_0}{Q}s + \omega_0^2$$
+##### Example
+Design a band pass with center frequency $\omega_0 = 1000rad/s$, bandwidth of $200rad/s$, and midband gain of $H =1$
+
