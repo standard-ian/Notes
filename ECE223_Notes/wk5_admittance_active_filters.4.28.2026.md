@@ -514,7 +514,7 @@ node[ground]{};
 \end{circuitikz}
 \end{document}
 ```
-$Z_1 = \frac{2}{2s + 1} = \frac{1}{s + 0.5} = \frac{1}{\frac{1}{R} + sC}$, letting $R=2$ and $C=1
+$Z_1 = \frac{2}{2s + 1} = \frac{1}{s + 0.5} = \frac{1}{\frac{1}{R} + sC}$, letting $R=2$ and $C=1$
 $Z_2 = \frac{2}{5}$
 ```tikz
 \usepackage{circuitikz}

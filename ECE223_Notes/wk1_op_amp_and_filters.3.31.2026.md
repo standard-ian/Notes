@@ -165,14 +165,6 @@ We can plot the magnitude as $dB = 20log|T(j\omega)|$ and phase as $^\circ$ agai
 - Lab 3 will be constructing the breadboard circuit to filter a frequency.
 
 #### Transfer Functions and Frequency Response Review
-```
-\usepackage{circuitikz}
-\begin{document}
-\begin{circuitikz}[american]
-	
-\end{circuitikz}
-\end{document}
-```
 ##### IW 2.1
 ```tikz
 \usepackage{circuitikz}
@@ -363,5 +355,5 @@ $$T(s) = \frac{3.14\times 10^6}{s + 31.4}$$
 The behavior of the Op-Amp is dependent on the circuit around it.
 
 Inside the op-amp, $V+$ and $V-$ are compared, and the result is multiplied by a constant, spiking $V_{out}$ positive or negative. 
-$$(V_+ - V_- )\times(Amplifying\ Constant)$$
+$$(V_+ - V_- )\times(\text{Amplifying Constant})$$
 The spike is limited to the $V_{CC}$ and $V_{EE}$ rails, as well as some internal limit.
