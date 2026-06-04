@@ -565,4 +565,9 @@ $$R_2 = R_4 = 3k\Omega$$
 ![[Pasted image 20260526100547.png]]
 
 ## Class 20
-
+#### Butterworth Filters
+Given some transfer function:
+$$T_1(s) = \frac{1}{s+ 1}$$
+If we imagine the frequency response's magnitude, squared
+$$|T_1(j\omega) |^2 = \frac{1}{|j\omega + 1|^2} = \frac{1}{1 + \omega^2}$$
+$$|T_n(j\omega)| = \frac{1}{\sqrt{1 + \omega^{2n}}}$$
