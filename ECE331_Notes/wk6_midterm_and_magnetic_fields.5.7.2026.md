@@ -5,11 +5,12 @@ Midterm 1
 #### Capacitance Example Continued
 Recall that for 2 parallel and equal/opposite charged sheets, when they are a distance apart that is relatively small, the F field is from the positive to the negative plate, and the external field cancels.
 
-$$\vec{E} = -\nabla V = E_y^+ + E_y^{-} = \frac{\rho_s}{2\epsilon_0} - \frac{\rho_s}{2\epsilon_0}$$
+$$\vec{E} = -\nabla V = E_y^+ + E_y^{-} = -\frac{\rho_s}{2\epsilon_0} - \frac{\rho_s}{2\epsilon_0}=- \frac{\rho_s}{\epsilon_0}$$
 $$\rho_s = \frac{C}{m^2} = \frac{Q}{A_c}$$
 $$\vec{E} = \hat{y}E_y = -\frac{\rho_s}{\epsilon_0}\hat{y}\tag{4} = -\frac{Q}{A_c\epsilon_0}\hat{y}$$
 $$V = -\int_0^{d}\vec{E}\ d\vec{l}\tag{5}$$
-$$\vec{E} = E_y\hat{y} d\vec{l} = dy\hat{y}\tag{6}$$
+$$\vec{E} = E_y\hat{y}$$
+$$d\vec{l} = dy\hat{y}\tag{6}$$
 Subbing $(4)$ and $(6)$ into $(5)$:
 $$V=-\int_0^d-\left(\frac{Q}{A_c\epsilon_0}\right)\hat{y}\ \cdot \hat{y}\ dy$$
 $$V = \frac{Qd}{A_c\epsilon_0}$$

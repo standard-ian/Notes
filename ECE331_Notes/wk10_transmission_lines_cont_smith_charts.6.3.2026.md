@@ -85,3 +85,11 @@ So $VSWR$ is
 $$\text{VSWR} = \frac{1 + |\Gamma|}{1 - |\Gamma|}$$
 
 ## Class 20
+#### Final Notes Sheet
+##### Capacitance of Infinite Sheet
+$$V = \frac{Qd}{A_c\epsilon_0}$$
+$$C = \frac{Q}{V} = \frac{A_c\epsilon_0}{d}$$
+##### Magnetic Forces
+##### Ampere's Law
+##### Biot-Savart Law
+##### Transmission Lines
