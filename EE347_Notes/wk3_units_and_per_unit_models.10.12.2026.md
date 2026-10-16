@@ -98,3 +98,177 @@ $$\bar{Z}_{pu, reg} = \bar{Z}_{pu, N.P.}\frac{Z_{base, N.P.}}{Z_{base, reg}}$$
 $$=\bar{Z}_{pu, N.P.}\left(\frac{V^2_{base, N.P.}}{S_{base, N.P.}}\right)\left(\frac{S_{base, reg}}{V^2_{base, reg}}\right) = (0.012 + j0.06)pu\ \Omega\left(\frac{(13.8kV)^2}{100kVA}\right)\left(\frac{500kVA}{(13.8kVA)^2}\right)$$
 $$\bar{Z}_{pu, reg} = 0.06 + j0.3 pu\ \Omega$$
 This may look like a gigantic impedance, but it's because it's "scaled" to the base system. 
+
+# Class 6
+## Transformers
+Used for step-up/down, impedance matching, isolation, and filtering triplens,
+
+In RF, you can match the impedance of a coaxial to the 377ohm impedance of free space.
+
+### Ideal Transformer 
+```tikz
+\usepackage{circuitikz}
+\begin{document}
+	\begin{circuitikz}[american, scale=2, font=\Large]
+		\draw(0,0)
+		node[label=left:$-$]{}
+		++(0,2)
+		node[label=left:$\bar{V}_p$]{}
+		++(0,2)
+		node[label=left:$+$]{}
+		to[short, i=$\bar{I}_P$]++(2,0)
+		to[inductor]++(0,-4)
+		--++(-2,0);
+	
+		\draw(5,0)	
+		node[label=right:$-$]{}
+		++(0,2)
+		node[label=right:$\bar{V}_s$]{}
+		++(0,2)
+		node[label=right:$+$]{}
+		to[short, i_<=$\bar{I}_s$]++(-2,0)
+		to[inductor]++(0,-4)
+		--++(2,0);
+		
+	\end{circuitikz}
+\end{document}
+```
+One on the primary side current induces a flux into the core, this follows that path of low reluctance to the secondary and induces a current in it's windings.
+There are of course losses to leakage. 
+
+#### Reluctance and Permeability
+There is a permeability of the core material which is the permeability of free space and the relative permeability which is a material property.
+There is a low reluctance path through the core, but some flux will still leak into the high reluctance path of the air.
+
+$$\mu_0 \neq \infty$$
+$$\mu_{r, Fe} \approx 5 - 10,000 \left[\frac{F}{m}\right]$$
+$$\mathcal{R} = \frac{1}{\mu}\frac{L}{A} $$
+#### Power Losses of the Transformer $P_{core}$
+Eddy currents(current induced around the particles of the core due to it's resistance) and hysteresis (flipping of the magnetic dipole moment)
+
+#### Power Loss in Primary and Secondary Side
+The windings are copper, and have a resistivity, that causes losses.
+$$P_{cu, p} = I_p^2R_{cu, p}$$
+$$P_{cu, s} = I_s^2R_{cu, s}$$
+$$R = \rho_{cu}\frac{L}{A}$$
+
+### Faraday's Law
+$$V = \frac{-d\lambda}{dt}$$
+Where $\lambda$ is the flux linkage
+$$\lambda = N\phi$$
+$$V = -N\frac{d\phi}{dt}$$
+There is no voltage drop due to flux in a **DC** circuit, because current is not changing with time.
+We need AC for transmission in order to use xfmr to step up/down
+
+There are DC lines now, but the conversion is done using switching. xfmrs are way more common.
+
+$$v_p(t) = \sqrt{2}V_P\sin(\omega t) $$
+$$\phi(t) = \frac{-1}{N_P}\int V_P(\tau) d\tau$$
+$$ = -\frac{1}{N_P}\int \sqrt{2}V_p\sin(\omega \tau) d\tau$$
+$$= \frac{\sqrt{2}V_p}{\omega N_p}(\cos(\omega \tau))$$
+$$\phi_{max} = \frac{\sqrt{2} V_p}{\omega N_p}\longrightarrow \phi(t) = \frac{\sqrt{2} V_p}{\omega N_p}\cos(\omega t)$$
+$$V_s(t) = -N_s\frac{d\phi}{dt} = -N_s \frac{d}{dt}\left(\frac{\sqrt{2}V_p}{\omega N_p}\cos(\omega t)\right)$$
+$$V_s(t) = \frac{-N_s}{N_p} \frac{\sqrt{2}}{\cancel{\omega}}V_p(-\cancel{\omega} \sin(\omega t)$$
+$$V_s(t) = \frac{N_s}{N_p}\sqrt{2}V_p\sin(\omega t) = \frac{N_s}{N_p} V_p(t)$$
+$$\frac{V_p}{V_s} = a (\text{turns ratio})$$
+```tikz
+\usepackage{circuitikz}
+\begin{document}
+	\begin{circuitikz}[american]
+		\draw(0,0)
+		node[label=left:$-$]{}
+		++(0,2)
+		node[label=left:$\bar{V}_p$]{}
+		++(0,2)
+		node[label=left:$+$]{}
+		to[short, i=$\bar{I}_P$]++(2,0)
+		to[inductor]++(0,-4)
+		--++(-2,0);
+	
+		\draw(5,0)	
+		node[label=right:$-$]{}
+		++(0,2)
+		node[label=right:$\bar{V}_s$]{}
+		++(0,2)
+		node[label=right:$+$]{}
+		to[short, i_<=$\bar{I}_s$]++(-2,0)
+		to[inductor]++(0,-4)
+		--++(2,0);
+		
+	\end{circuitikz}
+\end{document}
+```
+In an ideal transformer like above, 
+$$S_{in} = S_{out}$$
+$$V_pI_p = V_sI_s$$
+$$\frac{V_p}{V_s} = \frac{I_s}{I_p}$$
+$$\frac{I_p}{I_s} = \frac{1}{a}$$
+
+
+```tikz
+\usepackage{circuitikz}
+\begin{document}
+	\begin{circuitikz}[american, scale=2, font=\Large]
+		\draw(0,0)
+		node[label=left:$-$]{}
+		to[vsource, V=$\bar{V}_p$]++(0,4)
+		node[label=left:$+$]{}
+		to[short, i=$\bar{I}_P$]++(2,0)
+		to[inductor]++(0,-4)
+		--++(-2,0);
+	
+		\draw(5,0)	
+		node[label=right:$-$]{}
+		to[generic, a=$\bar{Z}_L$]++(0,4)
+		node[label=right:$+$]{}
+		to[short, i_<=$\bar{I}_s$]++(-2,0)
+		to[inductor]++(0,-4)
+		--++(2,0);
+		
+		\draw(1.25,4.5)
+		--++(5,0)
+		--++(0,-5)
+		--++(-5,0)
+		--++(0,5);
+	\end{circuitikz}
+\end{document}
+```
+$$\bar{Z}_L = \frac{\bar{V}_s}{\bar{I}_s}$$
+$$\bar{Z}_{IN} = \frac{a\bar{V}_s}{\frac{1}{a}\bar{I}_s} = a^2 \bar{Z}_L \tag{impedance transformation}$$
+$$\bar{Z}_{IN} = \frac{\bar{V}_p}{\bar{I}_p}$$
+
+This imepdance transformation can be used to put at a $N$ of a three phase wye, so that if there is a fault and current through the neutral, we can use this to put a very physically small impedance on the secondary of a transformer like above, so it sees a smaller current. This is more cost effective and allows a protection device to be triggered in the event of this fault.
+
+### Transformer Nameplate Info
+Notice that current is not explicitly on this list, we know the voltages and apparent power rating
+#### High Side and Low Side Voltages
+#### Per Unit Impedances R%, X%
+#### VA Rating
+#### Frequency
+$\phi \approx \frac{1}{f}$
+#### Operating Temperature and Max Operating Temperature
+#### Insulation type
+#### $\eta$ Efficiency Class (NEMA)
+#### K Factor (Harmonics)
+Not just a $60Hz$ sinusoid entering the transformer, we need to add iron to the core, so it does not reach saturation as quickly. This changes the k-factor.
+This is important for areas with loads that involve a lot of switching devices that create DC. They create a lot of harmonics.
+#### Schematic Diagram
+Taps, coils, etc
+### Transformer Configurations
+$H$ on primary, $X$ on secondary.
+Dots represent polarity
+#### Common Configuration
+![[Pasted image 20261014121232.png|738]]
+
+#### Multi Tap Configuration
+![[Pasted image 20261014121539.png|532]]i
+
+Realistically, there is a voltage drop across lines, so at certain points the utility is supplying more or less than specification. Taps can be adjusted to match this.
+
+#### Instrument Transformer
+![[Pasted image 20261014122909.png|685]]
+
+#### Center Tap Transformer
+$180^\circ$ phase angle between windings.
+This is the transformer on a power pole in residential.
+![[Pasted image 20261014123102.png|715]]
