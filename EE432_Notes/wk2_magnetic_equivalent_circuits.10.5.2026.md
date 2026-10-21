@@ -22,12 +22,12 @@ Where $\mu = \mu_0\mu_r$ and $\mu = 4\pi\times 10^{-7}\left[\frac{H}{m}\right]$
 Substituting $2$ into $3$:
 $$B = \frac{\mu Ni}{l}$$
 $$\phi = \int\vec{B}d\cdot \vec{A} = BA = \left(\frac{\mu Ni}{l}\right)A \tag{4}$$
-$$\phi = \frac{Ni}{\left(\frac{l}{\mu A}\right)} = \frac{\mathbb{F}}{\mathbb{R}} \tag{5}$$
-Note: $\mathbb{F} = Ni = MMF$  - **it is NOT a force**
+$$\phi = \frac{Ni}{\left(\frac{l}{\mu A}\right)} = \frac{\mathcal{F}}{\mathcal{R}} \tag{5}$$
+Note: $\mathcal{F} = Ni = MMF$  - **it is NOT a force**
 
-Other note: $\mathbb{R} = \frac{l}{\mu_0\mu_rA} = \text{ Reluctance} = \frac{A t}{Wb}$
+Other note: $\mathcal{R} = \frac{l}{\mu_0\mu_rA} = \text{ Reluctance} = \frac{A t}{Wb}$
 It is analogous to resistance.
-It can have an inverse: $\text{Permenace} = \mathbb{P} = \frac{1}{\mathbb{R}}$.
+It can have an inverse: $\text{Permenace} = \mathcal{P} = \frac{1}{\mathcal{R}}$.
 
 ```tikz
 \usepackage{circuitikz}
@@ -43,15 +43,15 @@ It can have an inverse: $\text{Permenace} = \mathbb{P} = \frac{1}{\mathbb{R}}$.
 \end{document}
 ```
 These elements can be used similar to elements of an electric circuit.
-$$\mathbb{R}_{series} = \mathbb{R}_{S1} + \mathbb{R}_{S2}$$
-$$\mathbb{R}_{parallel} = \frac{\mathbb{R}_{P1}\mathbb{R}_{P2}}{\mathbb{R}_{P1} + \mathbb{R}_{P2}} = \left[\frac{1}{\mathbb{R}_{P1}} + \frac{1}{\mathbb{R}_{P2}}\right]^{-1}$$
+$$\mathcal{R}_{series} = \mathcal{R}_{S1} + \mathcal{R}_{S2}$$
+$$\mathcal{R}_{parallel} = \frac{\mathcal{R}_{P1}\mathcal{R}_{P2}}{\mathcal{R}_{P1} + \mathcal{R}_{P2}} = \left[\frac{1}{\mathcal{R}_{P1}} + \frac{1}{\mathcal{R}_{P2}}\right]^{-1}$$
 The flux linkage of the magnetic circuit occurs $N$ times.
 $$\lambda = N\phi = N$$
 It links back on itself, so we have $N^2$, then substituting in $4$:
 $$\lambda = N^2\left(\frac{\mu Ni}{l}\right)A = \frac{N^2 \mu i A}{l}$$
 Inductance:
 $$L = \frac{\lambda}{i}\ [H] = \frac{N^2\mu A}{l} = \frac{N^2}{\frac{l}{\mu A}}$$
-$$L = \frac{N^2}{\mathbb{R}}\tag{6}$$
+$$L = \frac{N^2}{\mathcal{R}}\tag{6}$$
 If you have the inductance, you can calculate the voltage. The voltage in the coil is related to the time rate of change of the current:
 $$e = \frac{d\lambda}{dt} = L\frac{di}{dt}$$
 So, in a circuit, we could have some. The inductor's reluctance back onto the circuit. 
