@@ -199,3 +199,105 @@ Min at $0^\circ$
 Max at $90^\circ$
 
 Assume stator and rotor poles are shaped such that reluctances vary sinusoidally.
+
+Reluctance as a function of time is a sine wave from min $R_d$ to $R_q$  - a sin wave
+Inductance is a cos wave from $L_d$ (max) to $L_q$ (min)
+$$L = \frac{N^2}{\mathcal{R}}$$
+
+$$L_1 - \frac{L_dL_q}{2}\tag{0}$$
+The inductance variation is given by
+$$L(\theta) = L_0 + L_1\cos(2\theta) \tag{1}$$
+Then assume
+$$i_s(t) = I_S\cos(\omega_e t) \tag{2}$$
+So there is some energy.
+$$E = \frac{1}{2}L(\theta)i_s^2$$
+$$\tau_e = \frac{\partial E}{\partial \theta}(i,\theta)$$
+$$\tau_e = \frac{1}{2}i_s^2\frac{dL}{d\theta} \tag{3}$$
+$1,2\longrightarrow 3$:
+$$\tau_e = -L_1i_S^2\cos^2(\omega_et)\sin(2\theta)\tag{4}$$
+The plot of $\tau_e$ vs. $t$ will be a bunch of humps for $\theta \neq \frac{\pi}{2},0$
+
+Next, we'll consider if
+	$$\theta = \omega_mt + \gamma \tag{5}$$
+
+# Class 8
+
+![[Pasted image 20261020185505.png|689]]
+The above is a **salient** rotor, since as $\theta$ changes, the gap size and therefore $\mathcal{R}$ does also.
+$$\theta = \omega_m t + \delta \tag{5} $$
+$$\delta = \text{initial rotor agle at time t=0}$$
+$$L(\theta) = L_0 + L_1 \cos(2\phi) \tag{1}$$
+
+$$T_e = -L_1I_S^2\cos^2(\omega_et)\sin(2\theta)\tag{4}$$
+Where $T_e$ is the torque.
+
+$L$ and $\mathcal{R}$ are a sine and cosine wave respectively. 
+$R_d$ is the min, $R_q$ is it's max
+$L_q$ is the min $L_d$ is it's max.
+
+A plot of $T_e$ shows that there is a torque that wants to push the rotor back to $\theta_0$ 
+
+Substituting $5$ into $4$, we get
+$$T_e = -I_S^2 L_1 \cos^2(\omega_et) \sin[2\omega_w t + 2\delta]$$
+How could we create a non-zero torque as a function of time?
+Using some trig ID's
+
+$$\cos^2 A = \frac{1}{2}\left[1 + \cos(2A)\right]\tag{6}$$
+$$\cos(A)\sin(B) = \frac{1}{2}\sin(A+B) - \frac{1}{2}\sin(A-B)\tag{8}$$
+$7$ into $8$ gives
+$$T_e = \frac{-I_S^2L_1}{2}\left[1 + \cos(2\omega_e t)\right]\sin(2\omega_mt + 2\delta) \tag{9}$$
+Then:
+$$T_e = \frac{-I_SL_1}{2}\sin(2\omega_mt + 2\delta) - \frac{I_s^2L_1}{2}\cos(2\omega_et)\sin(2\omega_mt + 2\delta) \tag{10}$$
+If $\omega_m$ is zero, then the second term  will be what contributes to non-zero torque.
+Using $8$, can re-write the second term, so:
+$$T_e = \frac{-I_SL_1}{2}\sin(2\omega_mt + 2\delta) - \frac{I_s^2L_1}{2}\left\{\frac{1}{2}\sin[2(\omega_e+\omega m)t + 2\delta] - \frac{1}{2}\sin[2(\omega_e - \omega_m) t - 2\delta]\right\} \tag{10}$$
+Each of these terms are sinusoidally time varying at $2\omega_m$, $2(\omega_e + \omega_m)$, $2(\omega_e - \omega_m)$. The average value of these sign terms is zero.
+
+If we take $\sin[2(\omega_e - \omega_m)t - 2\delta]$ and set $\omega_e = \omega_m$, the terms cancel and we're left with $\sin(-2\delta)$
+If $\omega_m = 0$ we get a nonzero answer also.
+
+The average torque will be if $\omega_e = \omega_m$
+$$T_{e, avg} = -\frac{1}{4}I_S^2 L_1\sin (2\delta)\tag{11}$$
+There will still be oscillations from the first 2 terms, but the third will create an offset in phase that will only give a non-zero average at the synchronous speed.
+
+Machines like this generally have more than 2 poles and are called **Reluctance Machines**
+Stepper motors also work similarly with many many poles.
+
+The torque will be a frequency double $\theta$ change because the salient rotor will essentially repeat position every 180.
+
+Recall that the $L_1$ is the position between the max and the min
+$$L_1 = \frac{L_d - L_1}{2}$$
+So,
+$$T_e = -\frac{1}{8}I_S^2(L_d - L_q)\sin(2\delta)$$
+$L_d = \text{direct axis induction}$
+$L_q = \text{quadrature axis inductance}$
+
+If $L_d = L_q$ , have a non-salient rotor. To generate any torque, we need to have current through the rotor or permanent magnets. Windings, brushes, and commutator can achieve this. This is a DC motor.
+
+But, if we combine reluctance motor with a DC motor, we can achieve a torque curve with a lower frequency.
+
+
+## 5.0 Coupled Circuit Modeling of AC Machines
+Winding functions -> flux linkage -> inductance
+
+## 5.1 Winding and Turns Functions
+Lets consider a 4-pole (2 pole pair) concentrated winding.
+It has a $\mu_r \to \infty$ core, a tiny air gap, then another $\mu_r \to \infty$
+A small air gap means less current needed to get a field. 
+$$Ni = \phi \mathcal{R}$$
+Assume:
+1. Small uniform (no saliency) air gap and rotor radius large compared to the gap length.
+2. Assuming ideal ferromagnetic material. $H=0$ in the material. $H = \frac{B}{\mu_0\mu_r} \to 0$
+3. No slotting, smooth stator and rotor. 
+4. No end or edge effects. We assume there is no field in the $z$ axis. 
+
+The only reluctance is in the drop across the air gap. Because of the very high $\mu_r$ of the core material, the field is just as pleased travelling through the core away from the current source.
+
+The windings are concentrated at 4 points equally spaced around the rotor, at $\frac{pi}{4}$, $\frac{3pi}{4}$, $\frac{5pi}{4}$, $\frac{7\pi}{4}$. Opposite windings have opposite current. The current generated MMF:
+$$MMF = \mathcal{F} = N_wi_a$$
+Applying Ampere's Law
+$$\oint\vec{H}\cdot d\vec{l} = N_wi_a\tag{1}$$
+The gap is so small, we'll assume the field is only crossing tangent to rotor. Any field that "doesn't make it" to the outer core is neglected.
+
+$$H_r(\theta_m)g - H_r(\theta_0)g = \text{enclosed current}\tag{2}$$
+Enclosed current is a function of theta.
