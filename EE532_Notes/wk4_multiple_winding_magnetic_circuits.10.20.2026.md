@@ -138,17 +138,17 @@ $17, 19\longrightarrow 15$
 $$\phi_1 = \frac{N_1i_1}{\mathcal{R}_C} + \frac{N_2i_2}{\mathcal{R}_C} + \frac{N_1i_1}{\mathcal{R}_{L1}}\tag{20}$$
 $18, 19\longrightarrow 16$
 $$\phi_2 = \frac{N_1i_1}{\mathcal{R}_C} + \frac{N_2i_2}{\mathcal{R}_C} + \frac{N_2i_2}{\mathcal{R}_{L2}}\tag{21}$$
-The flux leakage through the air gap is a large gap, so it is quite large. This is an intentional design decision so that the leakages are small.
+The flux leakage through the air gap is a large gap, so the reluctance is quite large. This is an intentional design decision so that the leakages are small.
 $\mathcal{R}_{\angle1}, \mathcal{R}_{\angle2}$ are large
 $\phi_{L1}, \phi_{L2}$ are therefore quite small, therefore, $L_{L1}, L_{L2}$ are also quite small.
 
-$$\lambda_1 N_1\phi_1 = \textcolor{red}{\left(\frac{N_1}{\mathcal{R}_C}\right)} + \textcolor{green}{\left(\frac{N_1N_2}{\mathcal{R}_C}\right)} + \textcolor{blue}{\left(\frac{N_1^2}{\mathcal{R}_{L1}}\right)}\tag{22}$$
-$$\textcolor{red}{\text{Self}} + \textcolor{green}{\text{Mutual}} + \textcolor{blue}{\text{Leakage}} $$
+$$\lambda_1 = N_1\phi_1 = \textcolor{red}{\left(\frac{N_1}{\mathcal{R}_C}\right)}i_1 + \textcolor{green}{\left(\frac{N_1N_2}{\mathcal{R}_C}\right)}i_2 + \textcolor{purple}{\left(\frac{N_1^2}{\mathcal{R}_{L1}}\right)}i_1\tag{22}$$
+$$\textcolor{red}{\text{Self}} + \textcolor{green}{\text{Mutual}} + \textcolor{purple}{\text{Leakage}} $$
 $$\lambda_1 = L_m i_1 + mi_2 + L_1i_1\tag{24}$$
 Where 
 $$L_1 = \frac{N_1^2}{\mathcal{R}_{L1}}\tag{23}$$
 
-$$\lambda_2 = N_2\phi_2 = \frac{N_2N_1}{\mathcal{R}_C}i_1 + \left(\frac{N_2^2}{\mathcal{R}_{C}}\right)^2i_2 + \left(\frac{N_2^2}{\mathcal{R}_{L2}}\right)^2i_2\tag{25}$$
+$$\lambda_2 = N_2\phi_2 = \left(\frac{N_2N_1}{\mathcal{R}_C}\right)i_1 + \left(\frac{N_2^2}{\mathcal{R}_{C}}\right)i_2 + \left(\frac{N_2^2}{\mathcal{R}_{L2}}\right)i_2\tag{25}$$
 $$\boxed{\lambda_2 = mi_1 + \left(\frac{N_2}{N_1}\right)^2L_mi_2 + L_2i_2 }\tag{26}$$
 Where 
 $$L_ = \frac{N_2^2}{\mathcal{R}_{L2}}$$

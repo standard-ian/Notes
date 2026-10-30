@@ -5,7 +5,9 @@ Useful to represent in a way that does not require units.
 Per unit saves on computation in simulation scenarios. Transformers are represented in more general terms. 
 This is helpful because there are **a lot** of transformers in the grid.
 
-![[Pasted image 20261012111034.png]] ### In Per Unit, Represent S, V, I, Z Assuming a $246kV/80MWV$ (generation), $138kV$ (transmission), $52kV$ (subtransmission), 12.47kV (distribution), $120/240V$(residential)/$120V/208$(commercial)/$277/480V$ or $347/600V$(industrial) system. 1. Normalize using base values 1. Always pick a system wide base for apparent power.  1. In this case we'll use $System_{base} = 100MVA$ 1. $S_{gen} = 50MVA$ (arbitrary choice) 1. $S_{gen, p.u.} = \frac{50MVA}{100MVA} = 0.5pu VA$ 1. There are different regions in the system, they divided right through the middle of the transformers. Always pick one voltage from one region. 1. From $S_{base, sys}$ and $V_{base}$, for a $3\phi$ system: 1. $$I_{base, 1} = \frac{S_{base, sys}}{\sqrt{3}V_{base, 1}} $$ 1. $$Z_{base, 1} = \frac{V^2_{base, 1}}{S_{base, sys}}$$
+![[Pasted image 20261012111034.png]] 
+
+In Per Unit, Represent S, V, I, Z Assuming a $246kV/80MWV$ (generation), $138kV$ (transmission), $52kV$ (subtransmission), 12.47kV (distribution), $120/240V$(residential)/$120V/208$(commercial)/$277/480V$ or $347/600V$(industrial) system. 1. Normalize using base values 1. Always pick a system wide base for apparent power.  1. In this case we'll use $System_{base} = 100MVA$ 1. $S_{gen} = 50MVA$ (arbitrary choice) 1. $S_{gen, p.u.} = \frac{50MVA}{100MVA} = 0.5pu VA$ 1. There are different regions in the system, they divided right through the middle of the transformers. Always pick one voltage from one region. 1. From $S_{base, sys}$ and $V_{base}$, for a $3\phi$ system: 1. $$I_{base, 1} = \frac{S_{base, sys}}{\sqrt{3}V_{base, 1}} $$ 1. $$Z_{base, 1} = \frac{V^2_{base, 1}}{S_{base, sys}}$$
 #### Example
 Assume the following system:
 Generation: $10kVA$, $480V$
