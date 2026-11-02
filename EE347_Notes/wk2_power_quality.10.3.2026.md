@@ -241,7 +241,7 @@ For the most part, we will have x-symmetric waveforms and use just the triplens 
 The limits for total harmonic distortion. How much harmonic distortion your load is allowed to contribute.
 **IEEE 519-2022**
 
-$$THD = \sqrt{\sum_{n=2}^\infty}I_{RMS, n}^2\times 100\%$$
+$$THD = \sqrt{\frac{\sum_{n=2}^\infty I_{RMS, n}^2}{I_{RMS,1}}}\times 100\%$$
 ##### Example
 We have a CFL light connected to a $120V$ source.
 It is "gulping" current for a moment at peak.
