@@ -187,5 +187,56 @@ $$ = \bar{Y}\left(\frac{1}{2} + \frac{1}{2} + \frac{\bar{Y}\bar{Z}}{2}\right)\ba
 ```
 $$\bar{Z}' = \bar{Z}\frac{\sinh(\gamma d)}{\gamma d}{}$$
 $$\bar{Y}' = \bar{Y}\frac{\tanh\left(\frac{\gamma d}{2}\right)}{\frac{\gamma d}{2}}$$
+![[Pasted image 20261109123320.png|557]]
 $\bar{A},\bar{B},\bar{C},\bar{D}$ same for long model but put in $\bar{Z}'$ and $\bar{Y}'$
+$$\bar{\gamma} = \sqrt{\bar{z}\bar{y}} = \sqrt{\frac{\bar{Z}\bar{Y}}{d}}$$
+$$\bar{\gamma}d = \sqrt{\bar{Z}\bar{Y}}$$
+$$\bar{Z} = \bar{z}d,\ \ \bar{Y} = \bar{y}d$$
+$$\bar{Z} = r + jX = r + j2\pi fl$$
+$$\bar{Y} = j2\pi f c$$
+### Something Different?
+```tikz
+\usepackage{circuitikz}
+\begin{document}
+\begin{circuitikz}[american, scale=2, font=\Large]
+\draw(0,0)
+node[ocirc, label=left:$+$]{}
+to[short, i=$\bar{I}$]++(1,0)
+to[inductor, l=$jX$]++(2,0)
+node[label=right:$+$]{}
+to[generic, l=$\bar{V}_R$]++(0,-2)
+node[label=right:$-$]{}
+--++(-3,0)
+node[ocirc, label=left:$-$]{};
+
+\draw(0,-1)
+node[label=left:$\bar{V}_S$]{};
+\end{circuitikz}
+\end{document}
+
+```
+$R = 0\to \text{lossless}$
+$$\bar{V}_R = V_R \angle 0^\circ\tag{1}$$
+$$\bar{I} = I \angle -\theta_L\tag{2}$$
+$$\theta = \phi_V -\phi_I$$
+$$\phi_I = -\theta \text{ with } \phi_V = 0$$
+$$P_{IN} = P_{OUT}$$
+$$\Delta V = jX\bar{I}\tag{3}$$
+$$\bar{V}_S = \bar{V}_R + jXI\tag{4}$$
+![[Pasted image 20261109123411.png|761]]
+##### $\theta$
+$$G = XI\cos\theta$$
+##### $\gamma$
+$$G = V_S\sin\gamma$$
+$$XI\cos\theta = V_S\sin\gamma$$
+$$xI\cos\theta = V_S\sin\delta \to I\cos\theta = \frac{V_S\sin\delta}{x}$$
+$$P_{out} = 3V_RI\cos\theta $$
+$$P_{IN} = 3V_RV_S\sin\delta$$
+$$P_{IN} = P_{OUT} = P$$
+$$P = 3V_RI\cos\theta$$
+$$\boxed{P = \frac{3V_RV_S\sin\delta}{x}}$$
+$$\boxed{Q = \frac{3V_S(V_S\cos\delta - V_R)}{x}}$$
+Q is dependent upon a small change in the difference between $V_S$ and $V_R$ 
+$P$ is dependent on a small change in $\delta$
+$\delta$ is the difference in phase angle between $\bar{V}_R$ and $\bar{V}_S$
 # Class 14

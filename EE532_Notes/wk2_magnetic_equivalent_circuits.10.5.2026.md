@@ -1,4 +1,3 @@
-# Class 3
 ## 2.0 Magnetic Equivalent Circuits
 A wire wrapped around a magnetic material will cause magnetic field to flow through the material along a centerline, called the mean path length $l$.
 ![[Pasted image 20261010112159.png|818]]

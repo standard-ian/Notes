@@ -116,3 +116,133 @@ Adding up and expanding terms using identities:
 2. A N/S field in the rotor will want to track this moving field.
 
 # Class 12
+$$MMF_A = \cos(\theta)\cos(\omega_et)$$
+$$MMF_B = \cos(\theta - 120^\circ)\cos(\omega_et - 120^\circ)$$
+$$MMF_C = \cos(\theta + 120^\circ)\cos(\omega_et + 120^\circ)$$
+$$\boxed{MMF_A + MMF_B + MMF_C = \frac{3}{2}\cos(P\theta - \omega_et)}$$
+This is a travelling wave, the sum of each phase's MMF.
+
+ $$Ni = MMF = Hl$$
+ $$H_r = \frac{Ni}{l}$$
+
+## 6.0 Induction Machine Review
+Three phase stator winding creates a travelling wave field in the air gap despite no single phase being a travelling wave.
+$f_e$ = electrical frequency
+
+![[Pasted image 20261116080417.png|553]]i
+
+If you have a north south field rotating past a conductor, Faraday's law states that current will be induced in the winding. This current will interact with the field in the air gap that created it, and this will produce torque. 
+The rotor and the field will be rotating around. The stator's field with an electrical frequency, and the rotor with a **mechanical** frequency.
+
+$f_r = f_m p$
+where $p$ is **pole pairs**, this is just 2 in the example above. Each pole has 2 **PAIRS**
+
+We need to select and commit to a single reference frequency, not both. So we can put one in terms of the other
+$$f_m = \text{ mechanical frequency}\ [Hz]$$
+One mechanical rotation is equivalent to 2 electrical rotations.
+
+$f_r$ is the rotor frequency in a  "electrical frame"
+
+There is some difference between the rotor (mechanical) and the stator (electrical)  frequency. This is called **slip**. It measures this difference in the **electrical frame of reference**
+
+Slip:
+$$S = \frac{f_e - f_r}{f_e} = \frac{\omega_e - \omega_r}{\omega_e}\tag{1 \& 2}$$
+$$\omega_r = p\omega_m\tag{4}$$
+Alternatively, we could use the mechanical frequency $f_m$ and convert the electrical into the mechanical frame.
+$$S = \frac{\omega_{sm} - \omega_m}{\omega_{sm}} = \frac{f_{sm} - f_m}{f_{sm}}\tag{3}$$
+Where 
+$$\omega_{sm} = \frac{\omega_e}{p},\ \ \omega_m = 2\pi f_m\tag{5} $$
+
+$$sf_{e} = f_e - f_r = \text{ (electrical frequency)} - \text{(rotor frequency in electrical frame)}$$
+Visualize the mechanical rotor spinning, and then multiplying that by the number of pole pairs. 
+$s f_e$ physically means how many hertz the rotor is lagging behind the stator's field.
+
+Induction machine per-phase equivalent circuit.
+
+```tikz
+\usepackage{circuitikz}
+\begin{document}
+\begin{circuitikz}[american, scale=2, font=\Large]
+	\draw(0,0)
+	to[generic, l=$r_1$, i>^=$i_1$]++(2,0)
+	to[inductor, l=$jX_1$]++(2,0)
+	coordinate(A);
+	
+	\draw[<->](0,-0.1)--++(0,-1.8)
+	node[midway, label=left:$V_1$]{};
+	
+	\draw(A)
+	to[inductor, l=$jX_2$, i>^=$i_2$]++(2,0)
+	to[generic, , l=$\frac{r_2}{s}$]++(0,-2)
+	--++(-6,0);
+	
+	\draw(A)--++(0,-0.25)
+	--++(0.5,0)
+	to[inductor, l=$jX_m$]++(0,-1.5)
+	--++(-0.5,0)
+	--++(0,-0.25)
+	++(0,0.25)
+	--++(-0.5,0)
+	to[R, l=$r_2$]++(0,1.5)
+	--++(0.5,0);
+	
+\end{circuitikz}
+\end{document}
+```
+$r_1$ = stator resistance
+$x_1$ = stator leakage reactance ($jX_1 = j\omega_e L_1)$ 
+$r_2$ = rotor resistance
+$x_2$ = rotor leakage reactance ($jX_2 = j\omega_eL_2$)
+$R_C$ = core loss (hysterysis and eddy currents)
+$i_1$ = stator current
+$i_2$ = rotor current
+
+![[Pasted image 20261116084847.png|955]]
+$$\eta = \frac{P_{out}}{P_{in}}\tag{7}$$
+Power transmitted across the air gap
+$$P_{gap} = \frac{3|i_2|^2r_2}{s}\tag{8}$$
+
+After the gap there is some loss before the developed power
+$$P_{dev} = P_{gap} - P_{RC}\tag{9}$$
+$$ = \frac{3|i_2|^2r_2}{s} - 3|i_2|^2r_2 = 3|i_2|^2r_2\left(\frac{1}{s}-1\right)$$
+$$T_{dev} \omega_m = 3|i_2|^2 r_2\left(\frac{1-s}{s}\right)$$
+$$T_{dev} = \frac{3|i_2|^2 r_2(1-s)}{s\omega_m}\tag{10}$$
+From $3$:
+$s = \frac{\omega_{sm} - \omega_m}{\omega_{sm}}$
+$S\omega_{sm} = \omega_{sm}-\omega_m$
+$\omega_m - \omega_{sm}(1-s)$
+
+$11\to 10$
+$$T_{dev} = \frac{3|i_2|^2r_2}{s\omega_m}\tag{12} = \frac{P_{gap}}{\omega_{sm}}$$
+Gap Power:
+$$P_{gap} = \frac{3|i_2|^2r_2}{s}$$
+$$SP_{gap} = 3|i_2|^2r_2$$
+$$s = \frac{\omega_e - \omega_r}{\omega_e}$$
+$$s\omega_e = \omega_e = \text{rotor current frequency}$$
+As the slip increases towards 1, the resistance $\frac{r_2}{s}$ will $\infty \to r_2$
+
+If the rotor is rotating, the induced current will be lower, since the rotor is rotating with the field. (The windings of the rotor will see a "lower" frequency)
+
+If $s$ is zero, there will be no current induced, and therefore no torque. $\frac{r_2}{s}$ will be infinite.
+There is always some friction, so there will always be some slip. 
+
+Something else would have to be applying power to overcome the friction instead, like in the case of a wind turbine.
+
+![[Pasted image 20261116100152.png|1106]]A
+
+## Maximum Power Transfer
+
+Considering a resistive circuit. 
+Max power transfer when $R = R_L$ 
+
+Similarly, 
+$$|Z_{thevenin}| = |Z_L|$$
+So considering the model we used earlier, if we can find the Thevenin impedance.
+
+$$\frac{r_2}{s} = |Z_{th}|\tag{13}$$
+Where 
+$$Z_{th} = \frac{jX_2 + r_c || jX_m}{ j(x_2 + r_1)}$$
+We can work out the voltage divider to find $V_{th}$
+$$V_{th} = \frac{V_1 X_m}{\sqrt{(X_m + x_1)^2 + r_1^2}}$$
+Assume $V_1$ is real only
+$$$$
