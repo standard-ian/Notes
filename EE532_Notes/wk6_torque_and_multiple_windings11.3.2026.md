@@ -241,7 +241,7 @@ So considering the model we used earlier, if we can find the Thevenin impedance.
 
 $$\frac{r_2}{s} = |Z_{th}|\tag{13}$$
 Where 
-$$Z_{th} = \frac{jX_2 + r_c || jX_m}{ j(x_2 + r_1)}$$
+$$Z_{th} = jX_2 + jX_m|| (jX_1 + r_1)$$
 We can work out the voltage divider to find $V_{th}$
 $$V_{th} = \frac{V_1 X_m}{\sqrt{(X_m + x_1)^2 + r_1^2}}$$
 Assume $V_1$ is real only
