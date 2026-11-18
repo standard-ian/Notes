@@ -108,7 +108,7 @@ Recall $25$...and assume we set developed power to 1 as the base...
 $$P_R = P_{dev, pu} = \frac{|i_2|^2r_2 (1-s)}{s} = 1pu$$
 We can then use $i$ and $r_2$ to solve for the only unknown $s$.
 
-## 6.3 Approximate Equi-potent Circuit
+## 6.3 Approximate Equivalent Circuit
 
 Adapting the previous model...
 ```tikz
